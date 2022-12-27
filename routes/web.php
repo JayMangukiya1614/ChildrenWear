@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\Blank;
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
-Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
+Route::get('/Dashboard', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 
 Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
@@ -34,6 +35,8 @@ Route::get('/layouts/container', [Container::class, 'index'])->name('layouts-con
 Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 
-// Client Site Routes
+// Admin Site Routes
+
+Route::get('/',[AdminController::class,'AdminLogin'])->name('Admin-Login');
 
 
