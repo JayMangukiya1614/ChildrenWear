@@ -39,6 +39,9 @@ Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 Route::get('/',[AdminController::class,'AdminLogin'])->name('Admin-Login');
 
+Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
+
+
 
 //ClientSide Routes
 
