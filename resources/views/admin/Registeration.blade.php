@@ -5,7 +5,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<<<<<<< HEAD
     <link rel="stylesheet" href="Admin/AdminRegCss/css/style.css">
+=======
+    <link rel="stylesheet" href="{{ asset('Admin/AdminRegCss/css/style.css')}}">
+>>>>>>> Extra
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -20,7 +24,11 @@
             <section>
                 <div class="inner">
                     <div class="image-holder">
+<<<<<<< HEAD
                         <img src="images/form-wizard-1.jpg" alt="">
+=======
+                        <img src="Admin/AdminRegCss/images/form-wizard-1.jpg" alt="">
+>>>>>>> Extra
                     </div>
                     <div class="form-content" >
                         <div class="form-header">
@@ -75,7 +83,11 @@
             <section>
                 <div class="inner">
                     <div class="image-holder">
+<<<<<<< HEAD
                         <img src="images/form-wizard-2.jpg" alt="">
+=======
+                        <img src="Admin/AdminRegCss/images/form-wizard-2.jpg" alt="">
+>>>>>>> Extra
                     </div>
                     <div class="form-content">
                         <div class="form-header">
@@ -119,7 +131,11 @@
             <section>
                 <div class="inner">
                     <div class="image-holder">
+<<<<<<< HEAD
                         <img src="images/form-wizard-3.jpg" alt="">
+=======
+                        <img src="Admin/AdminRegCss/images/form-wizard-3.jpg" alt="">
+>>>>>>> Extra
                     </div>
                     <div class="form-content">
                         <div class="form-header">
