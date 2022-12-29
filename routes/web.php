@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
 use App\Http\Controllers\dashboard\Analytics;
@@ -43,3 +43,9 @@ Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
 
 
 
+//ClientSide Routes
+
+Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
+Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
+Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
+Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
