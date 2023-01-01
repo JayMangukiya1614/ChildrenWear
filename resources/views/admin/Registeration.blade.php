@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="Admin/AdminRegCss/css/style.css">
+<<<<<<< HEADzz
+    {{-- <link rel="stylesheet" href="Admin/AdminRegCss/css/style.css"> --}}
 =======
     <link rel="stylesheet" href="{{ asset('Admin/AdminRegCss/css/style.css')}}">
 >>>>>>> Extra
@@ -25,7 +25,7 @@
                 <div class="inner">
                     <div class="image-holder">
 <<<<<<< HEAD
-                        <img src="images/form-wizard-1.jpg" alt="">
+                        {{-- <img src="images/form-wizard-1.jpg" alt=""> --}}
 =======
                         <img src="Admin/AdminRegCss/images/form-wizard-1.jpg" alt="">
 >>>>>>> Extra
