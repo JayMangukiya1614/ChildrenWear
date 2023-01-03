@@ -11,10 +11,13 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+	<link rel="stylesheet" href="Admin/AdminloginCss/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>Admin-Log-In</title>
-	<link rel="stylesheet" href="Admin/AdminloginCss/css/style.css">
-
+    
 </head>
 
 
@@ -69,7 +72,7 @@
                             </div>
                             <div class="form-group mt-4">
                                 <div class="w-100 text-center">
-                                    <p class="mb-1">Don't have an account? <a href="#">Sign Up</a></p>
+                                    <p class="mb-1">Don't have an account? <a href="{{route('Admin-Reg')}}">Sign Up</a></p>
                                     <p><a href="#">Forgot Password</a></p>
                                 </div>
                             </div>
@@ -91,6 +94,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+     integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         (function($) {
 
@@ -98,6 +104,15 @@
 
 
         })(jQuery);
+    
+             @if (Session::has('LogOut'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.danger("{{ session('LogOut') }}");
+        @endif
+        
     </script>
 </body>
 

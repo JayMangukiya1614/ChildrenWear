@@ -19,4 +19,5 @@
 <h1>Dashboard</h1>
 
 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto corrupti, provident consectetur harum autem unde?</p>
+
 @endsection
