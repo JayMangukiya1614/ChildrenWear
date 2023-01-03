@@ -125,6 +125,7 @@
                             <a href="{{ route('Findex') }}" class="nav-item nav-link active">Home</a>
                             <a href="shop.html" class="nav-item nav-link">Boy Fashion</a>
                             <a href="shop.html" class="nav-item nav-link">Girl Fashion</a>
+                            <a href="{{ route('Fshop') }}" class="nav-item nav-link">Shop</a>
                             <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
@@ -155,7 +156,7 @@
                             </div>
                         </div>
                         <div class="carousel-item" style="height: 410px;">
-                            <img class="img-fluid" src="ClientCss\img\cloths\b7.jpg" alt="Image">
+                            <img class="img-fluid" src="ClientCss\img\cloths\b2.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First
