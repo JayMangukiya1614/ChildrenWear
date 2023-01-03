@@ -61,7 +61,7 @@
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" style="height: 325px" src="ClientCss\img\cloths\bsweatshirts1.jpg" alt="">
+                        <img class="img-fluid" style="height: 325.66px; width:325.66px" src="ClientCss\img\cloths\bsweatshirts1.jpg" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Sweatshirts</h5>
                 </div>
@@ -89,7 +89,7 @@
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" src="ClientCss\img\cloths\gdungree1.jpg" alt="">
+                        <img class="img-fluid" style="height: 325.66px; width:325.66px" src="ClientCss\img\cloths\gdungree1.jpg" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Jumpsuits & Dungarees</h5>
                 </div>

@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="ClientCss/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -20,10 +20,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="ClientCss/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="ClientCss/css/style.css" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -63,7 +65,7 @@
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
-                    <img src="img\baby hub.png" alt="" style="height : 90px">
+                    <img src="ClientCss\img\baby hub.png" alt="" style="height : 90px">
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
@@ -91,38 +93,87 @@
         </div>
     </div>
     <!-- Topbar End -->
-
-    <div class="col-lg-9">
-        <nav class="navbar navbar-expand-lg navbar-light py-5 py-lg-0 px-5 " style="background-color: #D19C97">
-            <a href="" class="text-decoration-none d-block d-lg-none">
-
-            </a>
-            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <div class="navbar-nav mr-auto py-0">
-                    <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
-                    <a href="shop.html" class="nav-item nav-link">Boy Fashion</a>
-                    <a href="shop.html" class="nav-item nav-link">Girl Fashion</a>
-                    <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                        <div class="dropdown-menu rounded-0 m-0">
-                            <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                            <a href="checkout.html" class="dropdown-item">Checkout</a>
+ <!-- Navbar Start -->
+    <div class="container-fluid">
+        <div class="row border-top px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; margin-top: -1px; padding: 0 30px;">
+                    <h6 class="m-0">Categories</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
+                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
+                       <div class="nav-item dropdown">
+                            <div>
+                                <a href="#boys" class="nav-link" data-toggle="dropdown">Boy Fashion <i
+                                        class="fa fa-angle-down float-right mt-1"></i></a>
+                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
+                                    id="boys">
+                                    <a href="" class="dropdown-item">Shirts</a>
+                                    <a href="" class="dropdown-item">T-shirts</a>
+                                    <a href="" class="dropdown-item">Jeans & Trousers</a>
+                                    <a href="" class="dropdown-item">Sleepwear</a>
+                                    <a href="" class="dropdown-item">Sweatshirts</a>
+                                    <a href="" class="dropdown-item">Jumpsuits</a>
+                                    <a href="" class="dropdown-item">Blazers</a>
+                                    <a href="" class="dropdown-item">Jackets</a>
+                                    <a href="" class="dropdown-item">Ethnic Wear</a>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="#girls" class="nav-link" data-toggle="dropdown">Girl Fashion <i
+                                        class="fa fa-angle-down float-right mt-1"></i></a>
+                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
+                                    id="girls">
+                                    <a href="" class="dropdown-item">Sets & Suits</a>
+                                    <a href="" class="dropdown-item">Tops & T-shirts</a>
+                                    <a href="" class="dropdown-item">Jeans & Jeggings</a>
+                                    <a href="" class="dropdown-item">Sleepwear</a>
+                                    <a href="" class="dropdown-item">Sweatshirts</a>
+                                    <a href="" class="dropdown-item">Jumpsuits & Dungarees</a>
+                                    <a href="" class="dropdown-item">Ethnic Wear</a>
+                                    <a href="" class="dropdown-item">Shorts & Skirts</a>
+                                    <a href="" class="dropdown-item">Frocks & Dresses</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
-                <div class="navbar-nav ml-auto py-0">
-                    <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
-                    <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
-                </div>
+                </nav>
             </div>
-        </nav>
-
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
+                            <a href="index.html" class="nav-item nav-link">Boy Fashion</a>
+                            <a href="index.html" class="nav-item nav-link">Girl Fashion</a>
+                            <a href="{{ route('Fshop') }}" class="nav-item nav-link ">Shop</a>
+                            <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                                <div class="dropdown-menu rounded-0 m-0">
+                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
+                                </div>
+                            </div>
+                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0">
+                            <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
+                            <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
     </div>
+    <!-- Navbar End -->
 
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -138,12 +189,148 @@
     <!-- Page Header End -->
 
 
+    <!-- Form start -->
+    <section class="vh-100 gradient-custom">
+        <div class="container h-100 ">
+            <div class="row justify-content-center align-items-center h-100">
+                <div class="col-12 col-lg-9 col-xl-7">
+                    <div class="card shadow-2-strong card-registration">
+                        <div class="card-body p-4 p-md-5" style="background-color: rgb(241, 241, 241)">
+                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+                            <form>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="firstName"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">First Name</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="lastName"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="lastName">Last Name</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="text" id="firstName"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="firstName">Address</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+
+                                        <div class="form-outline">
+                                            <input type="date" id="lastName"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="lastName">Birthdate</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+
+                                        <div class="form-outline datepicker w-100">
+                                            <input type="text" class="form-control form-control-lg"
+                                                id="birthdayDate" />
+                                            <label for="birthdayDate" class="form-label">Phone No</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+
+                                        <h6 class="mb-2 pb-1">Gender: </h6>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="femaleGender" value="option1" checked />
+                                            <label class="form-check-label" for="femaleGender">Female</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="maleGender" value="option2" />
+                                            <label class="form-check-label" for="maleGender">Male</label>
+                                        </div>
+
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                                id="otherGender" value="option3" />
+                                            <label class="form-check-label" for="otherGender">Other</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 mb-4 pb-2">
+
+                                        <div class="form-outline">
+                                            <input type="email" id="emailAddress"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="emailAddress">Email</label>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mb-4 pb-2">
+
+                                        <div class="form-outline">
+                                            <input type="tel" id="phoneNumber"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="phoneNumber">Password</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                {{-- <div class="row">
+                                    <div class="col-md-12">
+
+                                        <select class="select form-control" style="width: 100%; height:50px">
+                                            <option value="1" disabled>Choose option</option>
+                                            <option value="2">Subject 1</option>
+                                            <option value="3">Subject 2</option>
+                                            <option value="4">Subject 3</option>
+                                        </select>
+                                        <label class="form-label select-label">Choose option</label>
+
+                                    </div>
+                                </div> --}}
+
+                                <div class="mt-4 pt-2">
+                                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Form end -->
+
+
     <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
-                    <img src="img\baby hub.png" alt="" style="height : 90px">
+                    <img src="ClientCss\img\baby hub.png" alt="" style="height : 90px">
                     {{-- <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Baby</span>Hub</h1> --}}
 
                 </a>
@@ -219,7 +406,7 @@
                 </p>
             </div>
             <div class="col-md-6 px-xl-0 text-center text-md-right">
-                <img class="img-fluid" src="img/payments.png" alt="">
+                <img class="img-fluid" src="ClientCss/img/payments.png" alt="">
             </div>
         </div>
     </div>
@@ -232,15 +419,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="ClientCss/lib/easing/easing.min.js"></script>
+    <script src="ClientCss/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <script src="ClientCss/mail/jqBootstrapValidation.min.js"></script>
+    <script src="ClientCss/mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script src="ClientCss/js/main.js"></script>
 
 </body>
 
