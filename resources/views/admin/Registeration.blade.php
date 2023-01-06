@@ -78,14 +78,14 @@
                     Baby Hub Admin Registration </h3>
             </div>
         </div>
-        <form action="#" method="POST" enctype="multipart/form-data">
+        <form action="{{route('Admin-Reg-Save')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row ">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}"
                             alt="profile image ">
-                        <input type="file" name="file" class="" onchange="previewFile(this)">
+                        <input type="file" name="file"onchange="previewFile(this)">
                         {{-- <span class="text-danger">
                             @error('file')
                                 {{ $message }}
@@ -99,11 +99,11 @@
                             <label class="mt-5" for="First_Name">First Name</label>
                             <input name="firstname" id="First_Name" class="form-control shadow-lg bg-white"
                                 type="text">
-                            {{-- <span class="text-danger">
-                                @error('firstname')
+                            <span class="text-danger">
+                                @error('$datae->firstname')
                                     {{ $message }}
                                 @enderror
-                            </span> --}}
+                            </span>
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Last_Name">Last Name</label>
@@ -247,7 +247,7 @@
     <!-- Toastr CDN -->
 
     <script>
-        // toastr.error('hello');
+            // toastr.error('hello');
         function previewFile(input) {
             var file = $("input[type=file]").get(0).files[0];
             if (file) {
@@ -257,19 +257,23 @@
                 }
                 reader.readAsDataURL(file);
             }
-            @if (Session::has('message'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                }
-                toastr.success("{{ session('message') }}");
-            @endif
+
         }
+        $(document).ready(function(){
+
+            @if (Session::has('message'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('message') }}");
+            @endif
+        });
     </script>
 
     @if (Session::has('message'))
         <script>
-            swal("Great Job!", "{!! Session::get('message') !!}", "success", {
+            swal("Great Job!", "{!! Session::get('message') !!}", "info", {
                 button: "OK"
             })
         </script>
