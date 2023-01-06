@@ -24,13 +24,16 @@ class AdminRequest extends FormRequest
     public function rules()
     {
         return [
-            'First_Name' => 'required',
+            'firstname' => 'required',
+            "file" => 'required',
         ];
     }
     public function messages()
     {
-        return[
-            'First_Name.required'=> 'First_Name Filled Is Required',
+        return [
+            'firstname.required' => 'First_Name Filled Is Required',
+            "file.required" => 'Please select a File',
+
 
         ];
     }
