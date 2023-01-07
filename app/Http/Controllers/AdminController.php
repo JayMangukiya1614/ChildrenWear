@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Http\Requests\AdminRequest;
 use App\Models\Adminreg;
 
@@ -10,7 +11,7 @@ class AdminController extends Controller
 {
     public function AdminLogin()
     {
-        return view('admin.login')->with('LogOut','LogOut Successfully....!');
+        return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
     }
 
     public function AdminProfile()
@@ -22,6 +23,7 @@ class AdminController extends Controller
         return view('admin.Registeration');
     }
 
+<<<<<<< HEAD
     public function AdminRegSave(Request $req)
     {
         return "work";
@@ -31,7 +33,26 @@ class AdminController extends Controller
         $image->move(public_path('images'), $imagename);
         $data['profileimage'] = $imagename;
         Adminreg::create($data);
+=======
+>>>>>>> 080fd0bd3ef42012fc7c9bcf5378242f4446edfd
 
-        return back()->with("message", 'Student  Recored Has Been Created');
+    public function AdminRegSave(Request $req)
+    {
+   
+     
+        $image = $req->file('file');
+        $imagename = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imagename);
+
+        $data  = new Adminreg();
+        $data->firstname = $req->firstname;
+        $data->profileimage = $imagename;
+
+        $data->save();
+       
+        return back()->with("message", 'Your Request Has Been Pending');
+
+
+       
     }
 }
