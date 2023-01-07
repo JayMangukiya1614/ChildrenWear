@@ -55,3 +55,4 @@ Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
 Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
+Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');

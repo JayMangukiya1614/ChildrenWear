@@ -31,5 +31,9 @@ class FrontendController extends Controller
     return view('Frontend.Shop');
   }
 
+  public function FrontContact()
+  {
+    return view('Frontend.Contact');
+  }
 
 }

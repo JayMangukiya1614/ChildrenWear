@@ -22,13 +22,13 @@ class AdminController extends Controller
         return view('admin.Registeration');
     }
 
-    public function AdminRegSave(AdminRequest $req)
+    public function AdminRegSave(Request $req)
     {
         return "work";
         $data = $req ->validated();
-        $image = $req->profileimage;        
+        $image = $req->profileimage;
         $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imagename);        
+        $image->move(public_path('images'), $imagename);
         $data['profileimage'] = $imagename;
         Adminreg::create($data);
 

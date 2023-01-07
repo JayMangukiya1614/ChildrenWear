@@ -69,28 +69,25 @@
 
 <body>
 
-</form>
 
-    <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
-        <div class="row">
-            <div class="col-md-12">
-                <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
-                    Baby Hub Admin Registration </h3>
+<form action="{{ route('Save') }}" method="GET" enctype="multipart/form-data">
+
+        <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 style="text-shadow: 2px 2px #EDF1FF;"
+                        class="text-center text-dark  shadow-lg bg-white p-4 border">
+                        Baby Hub Admin Registration </h3>
+                </div>
             </div>
-        </div>
-        <form action="#" method="POST" enctype="multipart/form-data">
-            @csrf
+
             <div class="row ">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
                         <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}"
                             alt="profile image ">
                         <input type="file" name="file" class="" onchange="previewFile(this)">
-                        {{-- <span class="text-danger">
-                            @error('file')
-                                {{ $message }}
-                            @enderror
-                        </span> --}}
+
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -99,11 +96,7 @@
                             <label class="mt-5" for="First_Name">First Name</label>
                             <input name="firstname" id="First_Name" class="form-control shadow-lg bg-white"
                                 type="text">
-                            {{-- <span class="text-danger">
-                                @error('firstname')
-                                    {{ $message }}
-                                @enderror
-                            </span> --}}
+
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Last_Name">Last Name</label>
@@ -212,15 +205,14 @@
                                 class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</a>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit"
-                                class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
+                            <button type="submit" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
 
+        </div>
+    </form>
 
 
     <!-- Toastr CDN -->
