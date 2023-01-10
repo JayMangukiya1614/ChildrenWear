@@ -43,7 +43,7 @@ Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
 
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
 
-Route::get('/Admin-Reg-Save',[AdminController::class,'AdminRegSave'])->name('Save');
+Route::post('/Admin-Reg-Save',[AdminController::class,'AdminRegSave'])->name('Admin-Reg-Save');
 
 
 

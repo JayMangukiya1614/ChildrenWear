@@ -9,10 +9,10 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-  public function AdminLogin()
-  {
-    return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
-  }
+    public function AdminLogin()
+    {
+        return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
+    }
 
   public function AdminProfile()
   {
@@ -23,18 +23,16 @@ class AdminController extends Controller
     return view('admin.Registeration');
   }
 
-  public function AdminRegSave(Request $req)
-  {
-    $image = $req->file('file');
-    $imagename = time() . '.' . $image->extension();
-    $image->move(public_path('images'), $imagename);
+    public function AdminRegSave(AdminRequest $req)
+    {
+        return "work";
+        $data = $req ->validated();
+        $image = $req->profileimage;
+        $imagename = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imagename);
+        $data['profileimage'] = $imagename;
+        Adminreg::create($data);
 
-    $data  = new Adminreg();
-    $data->firstname = $req->firstname;
-    $data->profileimage = $imagename;
-
-    $data->save();
-
-    return back()->with("message", 'Your Request Has Been Pending');
-  }
+        return back()->with("message", 'Student  Recored Has Been Created');
+    }
 }

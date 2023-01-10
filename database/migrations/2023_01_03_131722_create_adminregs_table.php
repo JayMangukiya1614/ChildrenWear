@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('address')->nullable();
             $table->string('message')->nullable();
-            $table->string('file')->nullable();
+            $table->string('profileimage')->nullable();
 
             $table->timestamps();
         });
