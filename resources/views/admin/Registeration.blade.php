@@ -70,169 +70,145 @@
 <body>
 
 
-<form action="{{ route('Save') }}" method="GET" enctype="multipart/form-data">
+    {{-- <form action="{{ route('Admin-Reg-Save') }}" method="GET" enctype="multipart/form-data"> --}}
 
-        <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
-            <div class="row">
-                <div class="col-md-12">
-                    <h3 style="text-shadow: 2px 2px #EDF1FF;"
-                        class="text-center text-dark  shadow-lg bg-white p-4 border">
-                        Baby Hub Admin Registration </h3>
-                </div>
+    <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
+                    Baby Hub Admin Registration </h3>
             </div>
-<<<<<<< HEAD
-
-=======
         </div>
-        <form action="{{route('Admin-Reg-Save')}}" method="POST" enctype="multipart/form-data">
-            @csrf
->>>>>>> 080fd0bd3ef42012fc7c9bcf5378242f4446edfd
-            <div class="row ">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                        <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}"
-                            alt="profile image ">
-<<<<<<< HEAD
-                        <input type="file" name="file" class="" onchange="previewFile(this)">
+    </div>
+    <form action="{{ route('Admin-Reg-Save') }}" method="POST" enctype="multipart/form-data">
+        @csrf
 
-=======
-                        <input type="file" name="file"onchange="previewFile(this)">
-                        {{-- <span class="text-danger">
-                            @error('file')
-                                {{ $message }}
-                            @enderror
-                        </span> --}}
->>>>>>> 080fd0bd3ef42012fc7c9bcf5378242f4446edfd
+        <div class="row ">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}"
+                        alt="profile image ">
+                    <input type="file" name="file" class="" onchange="previewFile(this)">
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="mt-5" for="First_Name">First Name</label>
+                        <input name="firstname" id="First_Name" class="form-control shadow-lg bg-white" type="text">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="mt-5" for="Last_Name">Last Name</label>
+                        <input name="lastname" id="Last_Name"type="text" class="shadow-lg bg-white form-control">
+                    </div>
+                    <div class="col-md-4">
+                        <label class="mt-5" for="Middle_Name">Middle Name</label>
+                        <input name="middlename  "id="Middle_Name" type="text"
+                            class="shadow-lg bg-white form-control">
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="mt-4" for="">Education</label>
+                        <select name="education" class="form-control shadow-lg bg-white rounded-3" id="">
+                            <option selected value="Undergraduate">Undergraduate</option>
+                            <option value="Postgraduate">Postgraduate</option>
+
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="mt-4" for="">Gender</label>
+                        <select name="gender" class="form-control shadow-lg bg-white rounded-3" id="">
+                            <option selected value="Male">Male</option>
+                            <option value="Feale">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="mt-4" for="Country">Country</label>
+                        <select name="country" class="form-control  shadow-lg bg-white rounded-3" name="Country"
+                            id="">
+                            <option selected value="Canada">Canada</option>
+                            <option value="German">German</option>
+                            <option value="U.S.A">U.S.A</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="mt-4" for="City">City</label>
+                        <select name="city" class="form-control  shadow-lg bg-white rounded-3" name="Gender"
+                            id="">
+                            <option selected value="Delhi">Delhi</option>
+                            <option value="Bombay">Bombay</option>
+                            <option value="Banglore">Banglore</option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label class="mt-5" for="First_Name">First Name</label>
-                            <input name="firstname" id="First_Name" class="form-control shadow-lg bg-white"
-                                type="text">
-<<<<<<< HEAD
-
-=======
-                            <span class="text-danger">
-                                @error('$datae->firstname')
-                                    {{ $message }}
-                                @enderror
-                            </span>
->>>>>>> 080fd0bd3ef42012fc7c9bcf5378242f4446edfd
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="Last_Name">Last Name</label>
-                            <input name="lastname" id="Last_Name"type="text" class="shadow-lg bg-white form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="Middle_Name">Middle Name</label>
-                            <input name="middlename  "id="Middle_Name" type="text"
-                                class="shadow-lg bg-white form-control">
-                        </div>
-
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="mt-4" for="MN">Mobile Nomber</label>
+                        <input name="mobilenumber" id="MN" class="form-control shadow-lg bg-white"
+                            type="number">
                     </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <label class="mt-4" for="">Education</label>
-                            <select name="education" class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="Undergraduate">Undergraduate</option>
-                                <option value="Postgraduate">Postgraduate</option>
-
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="mt-4" for="">Gender</label>
-                            <select name="gender" class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="Male">Male</option>
-                                <option value="Feale">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="mt-4" for="Country">Country</label>
-                            <select name="country" class="form-control  shadow-lg bg-white rounded-3" name="Country"
-                                id="">
-                                <option selected value="Canada">Canada</option>
-                                <option value="German">German</option>
-                                <option value="U.S.A">U.S.A</option>
-                            </select>
-                        </div>
-                        <div class="col-md-3">
-                            <label class="mt-4" for="City">City</label>
-                            <select name="city" class="form-control  shadow-lg bg-white rounded-3" name="Gender"
-                                id="">
-                                <option selected value="Delhi">Delhi</option>
-                                <option value="Bombay">Bombay</option>
-                                <option value="Banglore">Banglore</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="mt-4" for="MN">Mobile Nomber</label>
-                            <input name="mobilenumber" id="MN" class="form-control shadow-lg bg-white"
-                                type="number">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="mt-4" for="GSTNO">GST NO.</label>
-                            <input name="gstno" id="GSTNO" class="form-control shadow-lg bg-white"
-                                type="text">
-                        </div>
-
+                    <div class="col-md-6">
+                        <label class="mt-4" for="GSTNO">GST NO.</label>
+                        <input name="gstno" id="GSTNO" class="form-control shadow-lg bg-white" type="text">
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label class="mt-5" for="Bank_Name">Bank Name:</label>
-                            <input name="bankname" id="Bank_Name" class="form-control shadow-lg bg-white"
-                                type="text">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="Branch_Name">Branch Name</label>
-                            <input name="branchname" id="Branch_Name" type="text"
-                                class="shadow-lg bg-white form-control">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="IFSC_Code">IFSC Code</label>
-                            <input name="ifsccode" id="IFSC_Code" type="text"
-                                class="shadow-lg bg-white form-control">
-                        </div>
+                </div>
 
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="mt-5" for="Bank_Name">Bank Name:</label>
+                        <input name="bankname" id="Bank_Name" class="form-control shadow-lg bg-white"
+                            type="text">
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="mt-4" for="E_mail">E_mail</label>
-                            <input name="email" id="E_mail" class="form-control shadow-lg bg-white"
-                                type="email">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="mt-4" for="Password">Password</label>
-                            <input name="password" id="Password" class="form-control shadow-lg bg-white"
-                                type="password">
-                        </div>
+                    <div class="col-md-4">
+                        <label class="mt-5" for="Branch_Name">Branch Name</label>
+                        <input name="branchname" id="Branch_Name" type="text"
+                            class="shadow-lg bg-white form-control">
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label class="mt-5" for="Address">Address</label>
-                            <textarea name="address" id="Address" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="mt-5" for="Message">Message</label>
-                            <textarea name="message" id="Message" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
-                        </div>
+                    <div class="col-md-4">
+                        <label class="mt-5" for="IFSC_Code">IFSC Code</label>
+                        <input name="ifsccode" id="IFSC_Code" type="text"
+                            class="shadow-lg bg-white form-control">
                     </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <a href="#"
-                                class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</a>
-                        </div>
-                        <div class="col-md-6">
-                            <button type="submit" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
-                        </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="mt-4" for="E_mail">E_mail</label>
+                        <input name="email" id="E_mail" class="form-control shadow-lg bg-white" type="email">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="mt-4" for="Password">Password</label>
+                        <input name="password" id="Password" class="form-control shadow-lg bg-white"
+                            type="password">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="mt-5" for="Address">Address</label>
+                        <textarea name="address" id="Address" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="mt-5" for="Message">Message</label>
+                        <textarea name="message" id="Message" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="#"
+                            class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</a>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="submit"
+                            class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
                     </div>
                 </div>
             </div>
+        </div>
 
         </div>
     </form>
@@ -262,7 +238,7 @@
     <!-- Toastr CDN -->
 
     <script>
-            // toastr.error('hello');
+        // toastr.error('hello');
         function previewFile(input) {
             var file = $("input[type=file]").get(0).files[0];
             if (file) {
@@ -274,14 +250,14 @@
             }
 
         }
-        $(document).ready(function(){
+        $(document).ready(function() {
 
             @if (Session::has('message'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.info("{{ session('message') }}");
+                toastr.options = {
+                    "closeButton": true,
+                    "progressBar": true
+                }
+                toastr.info("{{ session('message') }}");
             @endif
         });
     </script>

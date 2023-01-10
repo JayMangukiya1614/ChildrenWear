@@ -9,50 +9,32 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function AdminLogin()
-    {
-        return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
-    }
+  public function AdminLogin()
+  {
+    return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
+  }
 
-    public function AdminProfile()
-    {
-        return view('admin.Profile');
-    }
-    public function AdminReg()
-    {
-        return view('admin.Registeration');
-    }
+  public function AdminProfile()
+  {
+    return view('admin.Profile');
+  }
+  public function AdminReg()
+  {
+    return view('admin.Registeration');
+  }
 
-<<<<<<< HEAD
-    public function AdminRegSave(Request $req)
-    {
-        return "work";
-        $data = $req ->validated();
-        $image = $req->profileimage;
-        $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imagename);
-        $data['profileimage'] = $imagename;
-        Adminreg::create($data);
-=======
->>>>>>> 080fd0bd3ef42012fc7c9bcf5378242f4446edfd
+  public function AdminRegSave(Request $req)
+  {
+    $image = $req->file('file');
+    $imagename = time() . '.' . $image->extension();
+    $image->move(public_path('images'), $imagename);
 
-    public function AdminRegSave(Request $req)
-    {
-   
-     
-        $image = $req->file('file');
-        $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imagename);
+    $data  = new Adminreg();
+    $data->firstname = $req->firstname;
+    $data->profileimage = $imagename;
 
-        $data  = new Adminreg();
-        $data->firstname = $req->firstname;
-        $data->profileimage = $imagename;
+    $data->save();
 
-        $data->save();
-       
-        return back()->with("message", 'Your Request Has Been Pending');
-
-
-       
-    }
+    return back()->with("message", 'Your Request Has Been Pending');
+  }
 }

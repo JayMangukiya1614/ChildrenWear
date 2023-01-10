@@ -123,17 +123,10 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="{{ route('Findex') }}" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Boy Fashion</a>
-                            <a href="shop.html" class="nav-item nav-link">Girl Fashion</a>
                             <a href="{{ route('Fshop') }}" class="nav-item nav-link">Shop</a>
                             <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
+                            <a href="{{ route('Fcart') }}" class="nav-item nav-link">Shopping Cart</a>
+                            <a href="{{ route('Fcheckout') }}" class="nav-item nav-link">Checkout</a>
                             <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">

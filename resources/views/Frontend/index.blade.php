@@ -41,7 +41,6 @@
         <div class="row px-xl-5 pb-3">
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="ClientCss\img\cloths\bshirt1.jpg" alt="">
                     </a>
@@ -50,7 +49,6 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid"  src="ClientCss\img\cloths\bjeans2.jpg" alt="">
                     </a>
@@ -59,7 +57,6 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" style="height: 325.66px; width:325.66px" src="ClientCss\img\cloths\bsweatshirts1.jpg" alt="">
                     </a>
@@ -69,7 +66,6 @@
 
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="ClientCss\img\cloths\gsets1.jpg" alt="">
                     </a>
@@ -78,7 +74,6 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" src="ClientCss\img\cloths\gjeans2.jpg" alt="">
                     </a>
@@ -87,7 +82,6 @@
             </div>
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                    <p class="text-right">15 Products</p>
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
                         <img class="img-fluid" style="height: 325.66px; width:325.66px" src="ClientCss\img\cloths\gdungree1.jpg" alt="">
                     </a>
