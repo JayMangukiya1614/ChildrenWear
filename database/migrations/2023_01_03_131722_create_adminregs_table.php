@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('adminregs', function (Blueprint $table) {
             $table->id();
+            $table->string('token')->nullable();
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('middlename')->nullable();

@@ -75,147 +75,99 @@
         <div class="row">
             <div class="col-md-12">
                 <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
-                    Baby Hub Admin Registration </h3>
+                    Admin Details</h3>
             </div>
         </div>
-        <form action="{{ route('Admin-Reg-Save') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('accept-request',$data->id)}}"  method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row ">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
                         <label for="file-input">
-                            <p id="note" class="text-info">Please Select A Profile Picture It Is Compulsory</p>
                             <img id="previewImg" class="image rounded-circle"
-                                src="{{ asset('images/default.jpeg') }}" />
+                            src="{{asset('images')}}/{{$data -> profileimage}}" />
                         </label>
 
-                        <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
+                        <input id="file-input" value="{{$data->profileimage}}" name="profileimage" type="file" onchange="previewFile(this);"
                             style="display: none;" />
-                        <span class="text-danger">
-                            @error('profileimage')
-                                {{ $message }}
-                            @enderror
-                        </span>
                     </div>
                 </div>
                 <div class="col-md-9">
                     <div class="row">
-
-                          <div class="col-md-4">
+                        <div class="col-md-4">
                             <label class="mt-5" for="Last_Name">Last Name</label>
-                            <input name="lastname" value="{{ old('lastname') }}" id="Last_Name"type="text"
-                                class="shadow-lg bg-white form-control">
-                            <span class="text-danger">
-                                @error('lastname')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <input name="lastname" disabled value="{{$data->lastname}}" id="Last_Name"type="text"
+                            class="shadow-lg bg-white form-control">
+                            
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="First_Name">First Name</label>
-                            <input name="firstname" value="{{ old('firstname') }}" id="First_Name"
+                            <input name="firstname" disabled value="{{$data->firstname}}" id="First_Name"
                                 class="form-control shadow-lg bg-white" type="text">
-                            <span class="text-danger">
-                                @error('firstname')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                           
                         </div>
-                      
                         <div class="col-md-4">
                             <label class="mt-5" for="Middle_Name">Middle Name</label>
-                            <input name="middlename" value="{{ old('middlename') }}" id="Middle_Name"type="text"
+                            <input name="middlename" disabled value="{{$data->middlename}}" id="Middle_Name"type="text"
                                 class="shadow-lg bg-white form-control">
-
-                            {{-- <input name="middlename  "id="Middle_Name" type="text"
-                                class="shadow-lg bg-white form-control"> --}}
-                            <span class="text-danger">
-                                @error('middlename')
-                                    {{ $message }}
-                                @enderror
-                            </span>
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-3">
                             <label class="mt-4" for="">Education</label>
-                            <select name="education" value="{{ old('education') }}"
+                            <select name="education" disabled value="{{$data->education}}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="Undergraduate">Undergraduate</option>
+                                <option  value="Undergraduate">Undergraduate</option>
                                 <option value="Postgraduate">Postgraduate</option>
 
                             </select>
-                            <span class="text-danger">
-                                @error('education')
-                                    {{ $message }}
-                                @enderror
-                            </span>
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="">Gender</label>
-                            <select name="gender" value="{{ old('gender') }}"
+                            <select name="gender" disabled value="{{$data->gender}}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
+                                <option  {{$data->gender == 'Male' ? 'selected' : ''}} name="gender"  value="Male">Male</option>
+                                <option  {{$data->gender == 'Female' ? 'selected' : ''}} name="gender" value="Female">Female</option>
+                                <option   {{$data->gender == 'Other' ? 'selected' : ''}} name="gender" value="Other">Other</option>
                             </select>
-                            <span class="text-danger">
-                                @error('gender')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="Country">Country</label>
-                            <select name="country" value="{{ old('country') }}"
+                            <select name="country" disabled value="{{$data->country}}"
                                 class="form-control  shadow-lg bg-white rounded-3" name="Country" id="">
-                                <option selected value="Canada">Canada</option>
-                                <option value="German">German</option>
-                                <option value="U.S.A">U.S.A</option>
+                                <option {{$data->country == 'Canada' ? 'selected' : ''}} name="country"  value="Canada">Canada</option>
+                                <option {{$data->country == 'German' ? 'selected' : ''}} name="country" value="German">German</option>
+                                <option {{$data->country == 'U.S.A' ? 'selected' : ''}} name="country" value="U.S.A">U.S.A</option>
+                                
                             </select>
-                            <span class="text-danger">
-                                @error('country')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                           
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="City">City</label>
-                            <select name="city" value="{{ old('city') }}"
-                                class="form-control  shadow-lg bg-white rounded-3"  id="city">
-                                <option selected value="Delhi">Delhi</option>
-                                <option value="Bombay">Bombay</option>
-                                <option value="Banglore">Banglore</option>
+                            <select name="city" disabled value="{{$data->city}}"
+                                class="form-control  shadow-lg bg-white rounded-3" id="city">
+                                <option  {{$data->city == 'Delhi' ? 'selected' : ''}} name="city" value="Delhi">Delhi</option>
+                                <option {{$data->city == 'Bombay' ? 'selected' : ''}} name="city" value="Bombay">Bombay</option>
+                                <option {{$data->city == 'Banglore' ? 'selected' : ''}} name="city" value="Banglore">Banglore</option>
                             </select>
-                            <span class="text-danger">
-                                @error('city')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                          
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="MN">Mobile Nomber</label>
-                            <input name="mobilenumber" value="{{ old('mobilenumber') }}" id="MN"
+                            <input name="mobilenumber" disabled value="{{$data->mobilenumber}}" id="MN"
                                 class="form-control shadow-lg bg-white" type="number">
-                            <span class="text-danger">
-                                @error('mobilenumber')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="GSTNO">GST NO.</label>
-                            <input name="gstno" value="{{ old('gstno') }}" id="GSTNO"
+                            <input name="gstno" disabled value="{{$data->gstno}}" id="GSTNO"
                                 class="form-control shadow-lg bg-white" type="text">
-                            <span class="text-danger">
-                                @error('gstno')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                          
                         </div>
 
                     </div>
@@ -223,82 +175,64 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label class="mt-5" for="Bank_Name">Bank Name:</label>
-                            <input name="bankname" value="{{ old('bankname') }}" id="Bank_Name"
+                            <input name="bankname" disabled value="{{$data->bankname}}" id="Bank_Name"
                                 class="form-control shadow-lg bg-white" type="text">
-                            <span class="text-danger">
-                                @error('bankname')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                          
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Branch_Name">Branch Name</label>
-                            <input name="branchname" id="Branch_Name" type="text"
-                                value="{{ old('branchname') }}" class="shadow-lg bg-white form-control">
-                            <span class="text-danger">
-                                @error('branchname')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <input name="branchname" disabled id="Branch_Name" type="text"
+                                value="{{$data->branchname}}" class="shadow-lg bg-white form-control">
+                          
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="IFSC_Code">IFSC Code</label>
-                            <input name="ifsccode" id="IFSC_Code" type="text" value="{{ old('ifsccode') }}"
+                            <input name="ifsccode" disabled id="IFSC_Code" type="text" value="{{$data->ifsccode}}"
                                 class="shadow-lg bg-white form-control">
-                            <span class="text-danger">
-                                @error('ifsccode')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="E_mail">E_mail</label>
-                            <input name="email" id="E_mail" class="form-control shadow-lg bg-white"
-                                value="{{ old('email') }}" type="email">
-                            <span class="text-danger">
-                                @error('email')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <input name="email" disabled id="E_mail" class="form-control shadow-lg bg-white"
+                                value="{{$data->email}}" type="email">
+                          
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="Passwo">Password</label>
-                            <input name="password" id="Passwo" class="form-control shadow-lg bg-white"
-                                value="{{ old('password') }}" type="password">
-                            <span class="text-danger">
-                                @error('password')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <input name="password" disabled id="Passwo" class="form-control shadow-lg bg-white"
+                                value="{{$data->password}}" type="password">
+                          
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-5" for="Address">Address</label>
-                            <textarea name="address" id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{ old('address') }}</textarea>
-                            <span class="text-danger">
-                                @error('address')
-                                    {{ $message }}
-                                @enderror
-                            </span>
+                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{$data->address}}</textarea>
+                           
                         </div>
 
                         <div class="col-md-6">
                             <label class="mt-5" for="Message">Message</label>
-                            <textarea name="message" id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{ old('message') }}</textarea>
+                            <textarea name="message" disabled id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{$data->message}}</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="mt-5" for="sAddress">Send Message</label>
+                            <textarea name="sendmessage"  id="sAddress" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
+                           
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="#"
-                                class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</a>
+                            <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Cancel</a>
                         </div>
                         <div class="col-md-6">
-                            <button type="submit" id="submit"
-                                class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
+                            <button value="1" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Accept</button>
                         </div>
                     </div>
                 </div>

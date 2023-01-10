@@ -8,6 +8,7 @@ use App\Http\Controllers\layouts\Container;
 use App\Http\Controllers\layouts\Fluid;
 use App\Http\Controllers\layouts\WithoutMenu;
 use App\Http\Controllers\layouts\WithoutNavbar;
+use App\Http\Controllers\MainAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +45,16 @@ Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
 
 Route::post('/Admin-Reg-Save',[AdminController::class,'AdminRegSave'])->name('Admin-Reg-Save');
+
+// Main Admin 
+Route::get('/main-admin',[MainAdminController::class,'read'])->name('main-admin-read');
+Route::get('/MshowAdmin/{id}',[MainAdminController::class,'MshowAdmin'])->name('MshowAdmin');
+Route::post('/accept-request/{id}',[MainAdminController::class,'acceptrequest'])->name('accept-request');
+Route::get('/cancel-request/{id}',[MainAdminController::class,'cancelrequest'])->name('cancel-request');
+
+
+
+
 
 
 

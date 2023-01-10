@@ -25,7 +25,7 @@ class AdminRequest extends FormRequest
     {
         return [
             'firstname' => 'required',
-            "file" => 'required',
+            "profileimage" => 'required',
         ];
     }
     public function messages()
