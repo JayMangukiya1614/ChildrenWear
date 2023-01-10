@@ -70,7 +70,7 @@
 <body>
 
 
-<form action="{{ route('Save') }}" method="GET" enctype="multipart/form-data">
+<form action="{{ route('Admin-Reg-Save') }}" method="GET" enctype="multipart/form-data">
 
         <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
             <div class="row">
@@ -80,7 +80,10 @@
                         Baby Hub Admin Registration </h3>
                 </div>
             </div>
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
             <div class="row ">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
@@ -97,6 +100,15 @@
                             <input name="firstname" id="First_Name" class="form-control shadow-lg bg-white"
                                 type="text">
 
+<<<<<<< Updated upstream
+=======
+                            <span class="text-danger">
+                                @error('$datae->firstname')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+
+>>>>>>> Stashed changes
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Last_Name">Last Name</label>

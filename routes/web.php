@@ -56,3 +56,5 @@ Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
+Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
+Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');

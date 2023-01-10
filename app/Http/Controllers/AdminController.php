@@ -24,6 +24,7 @@ class AdminController extends Controller
 
     public function AdminRegSave(Request $req)
     {
+<<<<<<< Updated upstream
         return "work";
         $data = $req ->validated();
         $image = $req->profileimage;
@@ -33,5 +34,23 @@ class AdminController extends Controller
         Adminreg::create($data);
 
         return back()->with("message", 'Student  Recored Has Been Created');
+=======
+
+
+        $image = $req->file('file');
+        $imagename = time() . '.' . $image->extension();
+        $image->move(public_path('images'), $imagename);
+
+        $data  = new Adminreg();
+        $data->firstname = $req->firstname;
+        $data->profileimage = $imagename;
+
+        $data->save();
+
+        return back()->with("message", 'Your Request Has Been Pending');
+
+
+
+>>>>>>> Stashed changes
     }
 }

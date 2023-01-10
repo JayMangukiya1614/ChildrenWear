@@ -36,4 +36,14 @@ class FrontendController extends Controller
     return view('Frontend.Contact');
   }
 
+  public function FrontCart()
+  {
+    return view('Frontend.ShoppingCart');
+  }
+
+  public function FrontCheckout()
+  {
+    return view('Frontend.Checkout');
+  }
+
 }
