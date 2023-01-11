@@ -27,7 +27,7 @@ class MainAdminController extends Controller
 
         $data->save();
        
-        return redirect(route('main-admin-read'));
+        return redirect(route('main-admin-read'))->with('Accept',"Accepted Successfully.....!");
     }
     public function cancelrequest( $id)
     {
