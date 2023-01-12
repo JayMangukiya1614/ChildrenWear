@@ -63,7 +63,7 @@
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\baby hub.png" alt="" style="height : 90px">
+                    <img src="ClientCss\img\logoHeader.png" alt="" style="height : 90px">
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
@@ -143,7 +143,6 @@
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <a href="" class="text-decoration-none d-block d-lg-none">
-                        <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
                     </a>
                     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
@@ -151,18 +150,11 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
-                            <a href="index.html" class="nav-item nav-link">Boy Fashion</a>
-                            <a href="index.html" class="nav-item nav-link">Girl Fashion</a>
                             <a href="{{ route('Fshop') }}" class="nav-item nav-link ">Shop</a>
                             <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{{ route('Fcart') }}" class="nav-item nav-link">Shopping Cart</a>
+                            <a href="{{ route('Fcheckout') }}" class="nav-item nav-link">Checkout</a>
+                            <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
@@ -235,7 +227,7 @@
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\baby hub.png" alt="" style="height : 90px">
+                    <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 90px">
                     {{-- <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Baby</span>Hub</h1> --}}
 
                 </a>

@@ -69,6 +69,8 @@
 
 <body>
 
+
+<form action="{{ route('Admin-Reg-Save') }}" method="GET" enctype="multipart/form-data">
     </form>
 
     <div class="container-fluid border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
@@ -303,9 +305,9 @@
                     </div>
                 </div>
             </div>
-        </form>
-    </div>
 
+        </div>
+    </form>
 
 
     <!-- Toastr CDN -->

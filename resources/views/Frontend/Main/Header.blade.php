@@ -33,7 +33,7 @@
         <div class="row align-items-center py-3 px-xl-5">
             <div class="col-lg-3 d-none d-lg-block">
                 <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\baby hub.png" alt="" style="height : 90px">
+                    <img src="ClientCss\img\logoHeader.png" alt="" style="height : 90px">
                 </a>
             </div>
             <div class="col-lg-6 col-6 text-left">
@@ -123,18 +123,11 @@
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto py-0">
                             <a href="{{ route('Findex') }}" class="nav-item nav-link active">Home</a>
-                            <a href="shop.html" class="nav-item nav-link">Boy Fashion</a>
-                            <a href="shop.html" class="nav-item nav-link">Girl Fashion</a>
                             <a href="{{ route('Fshop') }}" class="nav-item nav-link">Shop</a>
                             <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
-                                <div class="dropdown-menu rounded-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
+                            <a href="{{ route('Fcart') }}" class="nav-item nav-link">Shopping Cart</a>
+                            <a href="{{ route('Fcheckout') }}" class="nav-item nav-link">Checkout</a>
+                            <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
                         </div>
                         <div class="navbar-nav ml-auto py-0">
                             <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>

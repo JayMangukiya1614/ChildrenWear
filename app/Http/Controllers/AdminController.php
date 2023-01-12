@@ -15,17 +15,16 @@ class AdminController extends Controller
         return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
     }
 
-    public function AdminProfile()
-    {
-        return view('admin.Profile');
-    }
-    public function AdminReg()
-    {
-        return view('admin.Registeration');
-    }
+  public function AdminProfile()
+  {
+    return view('admin.Profile');
+  }
+  public function AdminReg()
+  {
+    return view('admin.Registeration');
+  }
 
-
-    public function AdminRegSave(Request $req)
+    public function AdminRegSave(AdminRequest $req)
     {
         
         $req->validate([
