@@ -4,15 +4,47 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
 use App\Models\Adminreg;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
+    public function index()
+    {
+        return view('content.dashboard.dashboards-analytics');
+    }
     public function AdminLogin()
     {
         return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
+    }
+    public function Alogindata(Request $request)
+    {
+
+        
+        $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
+        if ($data) {
+            // if ($data->token == 1) {
+                dd (Hash::check($request->password,$data->password));
+                // {
+                //     return"work";
+                //     $request->Session()->put('Alogin', $data->id);
+                //     return redirect(route('dashboard'))->with('LoginSuccess', "Login Successfully......!");
+                // } else {
+                //     return back()->with('Password', 'Password not matched');
+                // }
+            // } elseif ($data->token == 0) {
+
+            //     return back()->with('Token0', 'Your Request Has Been Pending....!');
+            // } elseif ($data->token == 2) {
+
+
+            //     return back()->with('Token2', 'Your Request Has Been Deleted....!');
+            // }
+        } else {
+            return back()->with('E_mail', 'Email not matched');
+        }
     }
 
   public function AdminProfile()
@@ -26,7 +58,7 @@ class AdminController extends Controller
 
     public function AdminRegSave(AdminRequest $req)
     {
-        
+
         $req->validate([
             'profileimage' => 'required',
             'firstname' => 'required',
@@ -46,7 +78,7 @@ class AdminController extends Controller
             'address' => 'required',
         ]);
 
-     
+
         $image = $req->profileimage;
         $imagename = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imagename);
@@ -72,10 +104,7 @@ class AdminController extends Controller
         $data->message = $req->message;
 
         $data->save();
-       
+
         return back()->with("message", 'Your Request Has Been Pending');
-
-
-       
     }
 }

@@ -361,7 +361,7 @@
         }
         // $(document).ready(function() {
 
-        //     @if (Session::has('message'))
+        //     @if (Session::has('address'))
         //         toastr.options = {
         //             "closeButton": true,
         //             "progressBar": true

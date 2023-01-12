@@ -228,9 +228,13 @@
                         </div>
                     </div>
                     <div class="row">
+                        {{-- <div class="col-md-4">
+                            <a   href="{{route('main-admin-read')}}"  class="btn btn-outline-info shadow-lg  rounded-3 form-control mt-5">Back</a>
+                        </div> --}}
                         <div class="col-md-6">
                             <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Cancel</a>
                         </div>
+                        
                         <div class="col-md-6">
                             <button value="1" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Accept</button>
                         </div>

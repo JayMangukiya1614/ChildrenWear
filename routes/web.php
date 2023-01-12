@@ -39,18 +39,37 @@ Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 // Admin Site Routes
 
 Route::get('/',[AdminController::class,'AdminLogin'])->name('Admin-Login');
-
 Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
-
-Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
-
 Route::post('/Admin-Reg-Save',[AdminController::class,'AdminRegSave'])->name('Admin-Reg-Save');
+Route::post('/Alogindata',[AdminController::class,'Alogindata'])->name('Alogindata');
 
-// Main Admin 
+
+
+// Admin 
+Route::group(['middleware' => ['Alogin']], function () {
+Route::get('/Dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
+});
+
+
+
+Route::get('/Mlogin',[MainAdminController::class,'Mlogin'])->name('Mlogin');
+Route::post('/Mlogindata',[MainAdminController::class,'Mlogindata'])->name('Mlogindata');
+
+Route::group(['middleware' => ['Mlogin']], function () {
+    
+    // Main Admin 
 Route::get('/main-admin',[MainAdminController::class,'read'])->name('main-admin-read');
 Route::get('/MshowAdmin/{id}',[MainAdminController::class,'MshowAdmin'])->name('MshowAdmin');
 Route::post('/accept-request/{id}',[MainAdminController::class,'acceptrequest'])->name('accept-request');
+Route::get('/accepted-request-show',[MainAdminController::class,'acceptedrequestshow'])->name('accepted-request-show');
+
 Route::get('/cancel-request/{id}',[MainAdminController::class,'cancelrequest'])->name('cancel-request');
+Route::get('/delete-request-show',[MainAdminController::class,'deleterequestshow'])->name('delete-request-show');
+Route::get('/Madmin-logout',[MainAdminController::class,'Madminlogout'])->name('Madmin-logout');
+
+
+});
 
 
 
