@@ -21,28 +21,34 @@ class AdminController extends Controller
     }
     public function Alogindata(Request $request)
     {
+        $request->validate([
+            'email' =>'required',
+            'password' =>'required',
 
+        ]);
         
         $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
         if ($data) {
-            // if ($data->token == 1) {
-                dd (Hash::check($request->password,$data->password));
-                // {
-                //     return"work";
-                //     $request->Session()->put('Alogin', $data->id);
-                //     return redirect(route('dashboard'))->with('LoginSuccess', "Login Successfully......!");
-                // } else {
-                //     return back()->with('Password', 'Password not matched');
-                // }
-            // } elseif ($data->token == 0) {
+               
+            if ($data->token == 1) {
+                if(Hash::check($request->password,$data->password))
+                {
+                  
+                    $request->Session()->put('Alogin', $data->id);
+                    return redirect(route('dashboard'))->with('LoginSuccess', "Login Successfully......!");
+                } else {
+                    return back()->with('Password', 'Password not matched');
+                }
+            } elseif ($data->token == 0) {
 
-            //     return back()->with('Token0', 'Your Request Has Been Pending....!');
-            // } elseif ($data->token == 2) {
+                return back()->with('Token0', 'Your Request Has Been Pending....!');
+            } elseif ($data->token == 2) {
 
 
-            //     return back()->with('Token2', 'Your Request Has Been Deleted....!');
-            // }
-        } else {
+                return back()->with('Token2', 'Your Request Has Been Deleted....!');
+            }
+        } 
+        else {
             return back()->with('E_mail', 'Email not matched');
         }
     }
@@ -99,12 +105,21 @@ class AdminController extends Controller
         $data->branchname = $req->branchname;
         $data->ifsccode = $req->ifsccode;
         $data->email = $req->email;
-        $data->password = Hash::make('$req->password;');
+        $data->password =Hash::make($req->password);
         $data->address = $req->address;
         $data->message = $req->message;
 
         $data->save();
 
         return back()->with("message", 'Your Request Has Been Pending');
+    }
+    public function Adminlogout()
+    {
+        if (Session()->has('Alogin')) {
+            Session()->pull('Alogin');
+            return redirect(route('Admin-Login'))->with('Logout' , 'Logout Successfullhy.....');
+        } else {
+            return "Please log-in account";
+        }
     }
 }

@@ -11,6 +11,15 @@
 @endsection
 
 @section('page-script')
+<script>
+      @if (Session::has('LoginSuccess'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('LoginSuccess') }}");
+        @endif
+</script>
 <script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
 @endsection
 

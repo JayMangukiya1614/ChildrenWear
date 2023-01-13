@@ -1,20 +1,26 @@
 {
   "menu": [
     {
-      "url": "/",
-      "name": "Dashboard",
+      "url": "/Dashboard",
+      "name": "Home",
       "icon": "menu-icon tf-icons fa-solid fa-house",
       "slug": "dashboard-analytics"
     },
     {
-      "name": "Layouts",
+      "url": "/Admin-Reg",
+      "name": "Admin Reg",
+      "icon": "menu-icon fa-solid fa-registered",
+      "slug": "Registeration"
+    },
+    {
+      "name": "Main Admin",
       "icon": "menu-icon tf-icons fa-solid fa-table-columns",
       "slug": "layouts",
       "submenu": [
         {
-          "url": "/layouts/without-menu",
-          "name": "Without menu",
-          "slug": "layouts-without-menu"
+          "url": "/Mlogin",
+          "name": "Login",
+          "slug": "Mlogin"
         },
         {
           "url": "/layouts/without-navbar",

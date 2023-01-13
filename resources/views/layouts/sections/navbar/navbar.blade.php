@@ -33,7 +33,6 @@ $navbarDetached = ($navbarDetached ?? '');
         </a>
       </div>
       @endif
-
       <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
         <ul class="navbar-nav flex-row align-items-center ms-auto">
           <!-- User -->
@@ -87,7 +86,7 @@ $navbarDetached = ($navbarDetached ?? '');
                 <div class="dropdown-divider"></div>
               </li>
               <li>
-                <a class="dropdown-item" href="{{route('Admin-Login')}}">
+                <a class="dropdown-item" href="{{route('Admin-logout')}}">
                   <i class='bx bx-power-off me-2'></i>
                   <span class="align-middle">Log Out</span>
                 </a>

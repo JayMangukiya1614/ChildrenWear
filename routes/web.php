@@ -49,6 +49,8 @@ Route::post('/Alogindata',[AdminController::class,'Alogindata'])->name('Aloginda
 Route::group(['middleware' => ['Alogin']], function () {
 Route::get('/Dashboard', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
+Route::get('/Admin-Logout',[AdminController::class,'Adminlogout'])->name('Admin-logout');
+
 });
 
 

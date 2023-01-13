@@ -52,12 +52,22 @@
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="fa fa-user"></span></div>
-                                <input type="text" name="email" class="form-control rounded-left" placeholder="Username" >
+                                <input type="text" name="email" value="{{old('email')}}" class="form-control rounded-left" placeholder="Username" >
+                                <span class="text-danger">
+                                    @error('email')
+                                        {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="fa fa-lock"></span></div>
                                 <input type="password" name="password" class="form-control rounded-left" placeholder="Password">
+                                <span class="text-danger">
+                                    @error('password')
+                                        {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group d-flex align-items-center">
                                 <div class="w-100">
@@ -83,35 +93,71 @@
         </div>
     </section>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-     integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        (function($) {
+   <!-- Toastr CDN -->
 
-            "use strict";
-
-
-        })(jQuery);
-    
-          
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+   integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+   integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+   integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+   integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"
+   integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+   crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+   integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Toastr CDN -->
+    <script>  
+        //   toastr.success('d');
         @if (Session::has('fail'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
-            toastr.danger("{{ session('fail') }}");
+            toastr.error("{{ session('fail') }}");
+        @endif
+        @if (Session::has('Password'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Password') }}");
+        @endif
+        @if (Session::has('E_mail'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('E_mail') }}");
+        @endif
+        @if (Session::has('Token0'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Token0') }}");
+        @endif
+        @if (Session::has('Token2'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Token2') }}");
+        @endif
+        @if (Session::has('Logout'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('Logout') }}");
         @endif
         
     </script>
