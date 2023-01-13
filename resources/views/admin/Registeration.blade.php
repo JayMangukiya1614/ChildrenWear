@@ -68,6 +68,12 @@
                 <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
                     Baby Hub Admin Registration </h3>
             </div>
+    <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
+                    Baby Hub Admin Registration </h3>
+            </div>
         </div>
         <form action="{{ route('Admin-Reg-Save') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -209,7 +215,7 @@
                             </span>
                         </div>
 
-                    </div>
+                </div>
 
                     <div class="row">
                         <div class="col-md-4">
