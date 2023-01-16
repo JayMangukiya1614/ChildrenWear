@@ -25,15 +25,40 @@ class AdminRequest extends FormRequest
     {
         return [
             'firstname' => 'required',
-            "profileimage" => 'required',
+            'lastname' => 'required',
+            'middlename' => 'required',
+            'education' => 'required',
+            'gender' => 'required',
+            'country' => 'required',
+            'city' => 'required',
+            'mobilenumber' => 'required',
+            'gstno' => 'required',
+            'bankname' => 'required',
+            'branchname' => 'required',
+            'ifsccode' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'address' => 'required',
         ];
     }
     public function messages()
     {
         return [
             'firstname.required' => 'First_Name Filled Is Required',
-            "file.required" => 'Please select a File',
-
+            'lastname.required' => 'lastname Filled Is Required',
+            'middlename.required' => 'middlename Filled Is Required',
+            'education.required' => 'education Filled Is Required',
+            'gender.required' => 'gender Filled Is Required',
+            'country.required' => 'country Filled Is Required',
+            'city.required' => 'city Filled Is Required',
+            'mobilenumber.required' => 'mobilenumber Filled Is Required',
+            'gstno.required' => 'gstno Filled Is Required',
+            'bankname.required' => 'bankname Filled Is Required',
+            'branchname.required' => 'branchname Filled Is Required',
+            'ifsccode.required' => 'ifsccode Filled Is Required',
+            'email.required' => 'email Filled Is Required',
+            'password.required' => 'password Filled Is Required',
+            'address.required' => 'address Filled Is Required',
 
         ];
     }

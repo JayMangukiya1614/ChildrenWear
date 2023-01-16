@@ -21,27 +21,28 @@
           "url": "/Mlogin",
           "name": "Login",
           "slug": "Mlogin"
+        }
+      ]
+    },
+    {
+      "name": "Create Account ",
+      "icon": "menu-icon tf-icons fa-solid fa-table-columns",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "/main-admin",
+          "name": "Pending Request",
+          "slug": "read"
         },
         {
-          "url": "/layouts/without-navbar",
-          "name": "Without navbar",
-          "slug": "layouts-without-navbar"
+          "url": "/accepted-request-show",
+          "name": "Accept Request",
+          "slug": "acceptrequest"
         },
         {
-          "url": "/layouts/container",
-          "name": "Container",
-          "slug": "layouts-container"
-        },
-        {
-          "url": "/layouts/fluid",
-          "name": "Fluid",
-          "slug": "layouts-fluid"
-        },
-        {
-          "url": "/layouts/blank",
-          "name": "Blank",
-          "slug": "layouts-blank",
-          "target": "_blank"
+          "url": "/delete-request-show",
+          "name": "Delete Request",
+          "slug": "deleterequest"
         }
       ]
     }

@@ -27,7 +27,7 @@ class MainAdminController extends Controller
             if(Hash::check($request->password,$data->Password))
             {
                 $request->Session()->put('Mlogin',$data->id);
-                return redirect(route('main-admin-read'))->with('LoginSuccess',"Login Successfully......!");
+                return redirect(route('dashboard'))->with('LoginSuccess',"Login Successfully......!");
 
             }
             else
