@@ -9,20 +9,29 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class DRequestMail extends Mailable
 {
     use Queueable, SerializesModels;
-
+public $details;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->subject('Deleted Request')->view('emails.DeleteRequestMail');
 
+    }
     /**
      * Get the message envelope.
      *
@@ -31,7 +40,7 @@ class SendMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Send Mail',
+            subject: 'DElete Request Mail',
         );
     }
 
@@ -43,7 +52,7 @@ class SendMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.DeleteRequestMail',
         );
     }
 

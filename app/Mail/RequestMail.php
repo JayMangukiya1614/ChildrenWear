@@ -13,14 +13,26 @@ class RequestMail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $details;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
+    }
+       /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
+    {
+        return $this->subject('Accepeted Request')->view('emails.AcceptRequestMail');
+
     }
 
     /**
@@ -30,11 +42,9 @@ class RequestMail extends Mailable
      */
     public function envelope()
     {
-        return $this->subject('Test Mail Form Surf Side Media')->view('emails.TestMail');
-
-        // return new Envelope(
-        //     subject: 'Request Mail',
-        // );
+        return new Envelope(
+            subject: 'Request Mail',
+        );
     }
 
     /**
@@ -45,7 +55,7 @@ class RequestMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.AcceptRequestMail',
         );
     }
 

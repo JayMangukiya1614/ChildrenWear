@@ -66,42 +66,14 @@ class AdminController extends Controller
 
         $data = $req->validated();
 
-        //    $data = $req->profileimage;
-        if ($req->profileimage == null) {
-
-            $data['token'] = 0;
-            $data['password'] = Hash::make($data['password']);
-             Adminreg::create($data);
-            return back()->with("message", 'Your Request Has Been Pending');
-        }
-
-        // $data  = new Adminreg();
-        // $data = $req->validated();
         $data['token'] = 0;
-        $imagename = time() . '.' . $data['profileimage']->extension();
-        $data['profileimage']->move(public_path('images'), $imagename);
         $data['password'] = Hash::make($data['password']);
+
+        if ($req->profileimage != null) {
+            $imagename = time() . '.' . $data['profileimage']->extension();
+            $data['profileimage']->move(public_path('images'), $imagename);
+        }
         Adminreg::create($data);
-
-        // $data->profileimage = $imagename;
-        // $data->firstname = $req->firstname;
-        // $data->lastname = $req->lastname;
-        // $data->middlename = $req->middlename;
-        // $data->education = $req->education;
-        // $data->gender = $req->gender;
-        // $data->country = $req->country;
-        // $data->city = $req->city;
-        // $data->mobilenumber = $req->mobilenumber;
-        // $data->gstno = $req->gstno;
-        // $data->bankname = $req->bankname;
-        // $data->branchname = $req->branchname;
-        // $data->ifsccode = $req->ifsccode;
-        // $data->email = $req->email;
-        // $data->password =Hash::make($req->password);
-        // $data->address = $req->address;
-        // $data->message = $req->message;
-
-        // $data->save();
 
         return back()->with("message", 'Your Request Has Been Pending');
     }

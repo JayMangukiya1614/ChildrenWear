@@ -58,6 +58,7 @@ Route::get('/Admin-Logout',[AdminController::class,'Adminlogout'])->name('Admin-
 Route::get('/Mlogin',[MainAdminController::class,'Mlogin'])->name('Mlogin');
 Route::post('/Mlogindata',[MainAdminController::class,'Mlogindata'])->name('Mlogindata');
 
+
 Route::group(['middleware' => ['Mlogin']], function () {
     
     // Main Admin 

@@ -76,10 +76,10 @@
 
                         <label for="file-input">
                             <img id="previewImg" class="image rounded-circle"
-                            src="{{ asset('images/default.jpeg') }}" selected />
+                            src="{{ asset('images/default.jpeg') }} " selected />
                         </label>
 
-                        <input id="file-input" value="{{$data->profileimage}}" name="profileimage" type="file" onchange="previewFile(this);"
+                        <input id="file-input" disabled value="{{$data->profileimage}}" name="profileimage" type="file" onchange="previewFile(this);"
                             style="display: none;" />
                     </div>
                 </div>
@@ -222,7 +222,7 @@
                             <a   href="{{route('main-admin-read')}}"  class="btn btn-outline-info shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div> --}}
                         <div class="col-md-6">
-                            <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Cancel</a>
+                            <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Delete</a>
                         </div>
                         
                         <div class="col-md-6">
