@@ -1,6 +1,15 @@
-@extends('Main.main')
+@extends('layouts/contentNavbarLayout')
 
-@section('Madmin')
+
+@section('title', 'Dashboard - Analytics')
+
+@section('vendor-style')
+    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
+@endsection
+
+
+
+@section('content')
     <h1 class="text-center" style="margin-top: 6rem">Admin Pending Request </h1>
     <table class="table table-striped">
         <thead>
@@ -39,25 +48,11 @@
         </tbody>
     </table>
 
-    {{-- <script>
-        // toastr.error('errors messages');
-        $(document).ready(function() {
-            @if (Session::has('Accept'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                }
-                toastr.success("{{ session('Accept') }}");
-            @endif
-            @if (Session::has('Delete'))
-                toastr.options = {
-                    "closeButton": true,
-                    "progressBar": true
-                }
-                toastr.danger("{{ session('Delete') }}");
-            @endif
-        });
-    </script> --}}
+
+@section('page-script')
+    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
+
     @if (Session::has('LoginSuccess'))
         <script>
             swal("Great Job!", "{!! Session::get('LoginSuccess') !!}", "success", {
@@ -66,17 +61,22 @@
         </script>
     @endif
     @if (Session::has('Accept'))
-    <script>
-        swal("Great Job!", "{!! Session::get('Accept') !!}", "success", {
-            button: "OK"
-        })
-    </script>
-@endif
-@if (Session::has('Delete'))
-<script>
-    swal("Great Job!", "{!! Session::get('Delete') !!}", "danger", {
-        button: "OK"
-    })
-</script>
-@endif
+        <script>
+            swal("Great Job!", "{!! Session::get('Accept') !!}", "success", {
+                button: "OK"
+            })
+        </script>
+    @endif
+    @if (Session::has('Delete'))
+        <script>
+            swal("Great Job!", "{!! Session::get('Delete') !!}", "warning", {
+                button: "OK"
+            })
+        </script>
+    @endif
+@endsection
+
+@section('page-script')
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+@endsection
 @endsection

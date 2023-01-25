@@ -81,7 +81,7 @@
                             <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}" />
                         </label>
 
-                        <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
+                        <input id="file-input" name="   " type="file" onchange="previewFile(this);"
                             style="display: none;" />
                         <span class="text-danger">
                             @error('profileimage')

@@ -9,12 +9,10 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class RequestMail extends Mailable
+class DRequestMail extends Mailable
 {
     use Queueable, SerializesModels;
-
-    public $details;
-
+public $details;
     /**
      * Create a new message instance.
      *
@@ -24,17 +22,16 @@ class RequestMail extends Mailable
     {
         $this->details = $details;
     }
-       /**
+    /**
      * Build the message.
      *
      * @return $this
      */
     public function build()
     {
-        return $this->subject('Accepeted Request')->view('emails.AcceptRequestMail');
+        return $this->subject('Deleted Request')->view('emails.DeleteRequestMail');
 
     }
-
     /**
      * Get the message envelope.
      *
@@ -43,7 +40,7 @@ class RequestMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Request Mail',
+            subject: 'DElete Request Mail',
         );
     }
 
@@ -55,7 +52,7 @@ class RequestMail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.AcceptRequestMail',
+            view: 'emails.DeleteRequestMail',
         );
     }
 

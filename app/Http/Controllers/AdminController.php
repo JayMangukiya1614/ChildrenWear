@@ -22,18 +22,17 @@ class AdminController extends Controller
     public function Alogindata(Request $request)
     {
         $request->validate([
-            'email' =>'required',
-            'password' =>'required',
+            'email' => 'required',
+            'password' => 'required',
 
         ]);
-        
+
         $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
         if ($data) {
-               
+
             if ($data->token == 1) {
-                if(Hash::check($request->password,$data->password))
-                {
-                  
+                if (Hash::check($request->password, $data->password)) {
+
                     $request->Session()->put('Alogin', $data->id);
                     return redirect(route('dashboard'))->with('LoginSuccess', "Login Successfully......!");
                 } else {
@@ -47,69 +46,34 @@ class AdminController extends Controller
 
                 return back()->with('Token2', 'Your Request Has Been Deleted....!');
             }
-        } 
-        else {
+        } else {
             return back()->with('E_mail', 'Email not matched');
         }
     }
 
-  public function AdminProfile()
-  {
-    return view('admin.Profile');
-  }
-  public function AdminReg()
-  {
-    return view('admin.Registeration');
-  }
+    public function AdminProfile()
+    {
+        return view('admin.Profile');
+    }
+    public function AdminReg()
+    {
+        return view('admin.Registeration');
+    }
 
     public function AdminRegSave(AdminRequest $req)
     {
+        // return "work";
 
-        $req->validate([
-            'profileimage' => 'required',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'middlename' => 'required',
-            'education' => 'required',
-            'gender' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'mobilenumber' => 'required',
-            'gstno' => 'required',
-            'bankname' => 'required',
-            'branchname' => 'required',
-            'ifsccode' => 'required',
-            'email' => 'required',
-            'password' => 'required',
-            'address' => 'required',
-        ]);
+        $data = $req->validated();
 
+        $data['token'] = 0;
+        $data['password'] = Hash::make($data['password']);
 
-        $image = $req->profileimage;
-        $imagename = time() . '.' . $image->extension();
-        $image->move(public_path('images'), $imagename);
-
-        $data  = new Adminreg();
-        $data->token = 0;
-        $data->profileimage = $imagename;
-        $data->firstname = $req->firstname;
-        $data->lastname = $req->lastname;
-        $data->middlename = $req->middlename;
-        $data->education = $req->education;
-        $data->gender = $req->gender;
-        $data->country = $req->country;
-        $data->city = $req->city;
-        $data->mobilenumber = $req->mobilenumber;
-        $data->gstno = $req->gstno;
-        $data->bankname = $req->bankname;
-        $data->branchname = $req->branchname;
-        $data->ifsccode = $req->ifsccode;
-        $data->email = $req->email;
-        $data->password =Hash::make($req->password);
-        $data->address = $req->address;
-        $data->message = $req->message;
-
-        $data->save();
+        if ($req->profileimage != null) {
+            $imagename = time() . '.' . $data['profileimage']->extension();
+            $data['profileimage']->move(public_path('images'), $imagename);
+        }
+        Adminreg::create($data);
 
         return back()->with("message", 'Your Request Has Been Pending');
     }
@@ -117,7 +81,7 @@ class AdminController extends Controller
     {
         if (Session()->has('Alogin')) {
             Session()->pull('Alogin');
-            return redirect(route('Admin-Login'))->with('Logout' , 'Logout Successfullhy.....');
+            return redirect(route('Admin-Login'))->with('Logout', 'Logout Successfullhy.....');
         } else {
             return "Please log-in account";
         }

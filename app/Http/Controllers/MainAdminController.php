@@ -7,6 +7,9 @@ use App\Models\Adminreg;
 use App\Models\Mainadmin;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use App\Mail\RequestMail;
+use App\Mail\DRequestMail;
+use Illuminate\Support\Facades\Mail;
 
 class MainAdminController extends Controller
 {
@@ -27,7 +30,7 @@ class MainAdminController extends Controller
             if(Hash::check($request->password,$data->Password))
             {
                 $request->Session()->put('Mlogin',$data->id);
-                return redirect(route('main-admin-read'))->with('LoginSuccess',"Login Successfully......!");
+                return redirect(route('dashboard'))->with('LoginSuccess',"Login Successfully......!");
 
             }
             else
@@ -69,7 +72,14 @@ class MainAdminController extends Controller
         // return $id;
         $data  =  Adminreg::find($id);
         $data->token = 1;
-        // $data->profileimage = $imagename;
+        $mail='jaymangukiya1614@gmail.com';
+        $details = [
+             'title' => 'Welcome To our Website',
+             'body'  => 'this is for testing mail using mail'
+        ];
+   
+        Mail::to($mail)->send(new RequestMail( $details));
+        return "Email sent "; 
 
         $data->save();
        
@@ -85,6 +95,14 @@ class MainAdminController extends Controller
 
         $data  =  Adminreg::find($id);
          $data->token = 2;
+           $mail='jaymangukiya1614@gmail.com';
+              $details = [
+              'title' => 'Welcome To our Website',
+              'body'  => 'this is for testing mail using mail'
+         ];
+    
+            Mail::to($mail)->send(new DRequestMail( $details));
+         return "Email sent "; 
         $data->save();
 
         return redirect(route('main-admin-read'))->with('Delete',"Deleted Successfully.....!");

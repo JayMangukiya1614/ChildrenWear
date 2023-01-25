@@ -14,34 +14,45 @@
     },
     {
       "name": "Main Admin",
-      "icon": "menu-icon tf-icons fa-solid fa-table-columns",
+      "icon": "menu-icon tf-icons fa-solid fa-user",
       "slug": "layouts",
       "submenu": [
         {
           "url": "/Mlogin",
           "name": "Login",
+          "icon": "menu-icon tf-icons fa-solid fa-file-import",
           "slug": "Mlogin"
         },
         {
-          "url": "/layouts/without-navbar",
-          "name": "Without navbar",
-          "slug": "layouts-without-navbar"
+          "url": "/Madmin-logout",
+          "name": "Log Out",
+          "icon": "menu-icon tf-icons fa-solid fa-right-from-bracket",
+          "slug": "Mlogin"
+        }
+      ]
+    },
+    {
+      "name": "  Request Manage",
+      "icon": "menu-icon tf-icons fa-solid fa-file-invoice",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "/main-admin",
+          "name": "Pending Request",
+          "icon": "menu-icon tf-icons fa-solid fa-clipboard-list",
+          "slug": "read"
         },
         {
-          "url": "/layouts/container",
-          "name": "Container",
-          "slug": "layouts-container"
+          "url": "/accepted-request-show",
+          "name": "Accept Request",
+          "icon": "menu-icon tf-icons fa-solid fa-check",
+          "slug": "acceptrequest"
         },
         {
-          "url": "/layouts/fluid",
-          "name": "Fluid",
-          "slug": "layouts-fluid"
-        },
-        {
-          "url": "/layouts/blank",
-          "name": "Blank",
-          "slug": "layouts-blank",
-          "target": "_blank"
+          "url": "/delete-request-show",
+          "name": "Delete Request",
+          "icon": "menu-icon tf-icons fa-solid fa-trash",
+          "slug": "deleterequest"
         }
       ]
     }
