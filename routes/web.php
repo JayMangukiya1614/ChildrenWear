@@ -45,7 +45,7 @@ Route::post('/Alogindata',[AdminController::class,'Alogindata'])->name('Aloginda
 
 
 
-// Admin 
+// Admin
 Route::group(['middleware' => ['Alogin']], function () {
 Route::get('/Dashboard', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
@@ -59,8 +59,8 @@ Route::get('/Mlogin',[MainAdminController::class,'Mlogin'])->name('Mlogin');
 Route::post('/Mlogindata',[MainAdminController::class,'Mlogindata'])->name('Mlogindata');
 
 Route::group(['middleware' => ['Mlogin']], function () {
-    
-    // Main Admin 
+
+    // Main Admin
 Route::get('/main-admin',[MainAdminController::class,'read'])->name('main-admin-read');
 Route::get('/MshowAdmin/{id}',[MainAdminController::class,'MshowAdmin'])->name('MshowAdmin');
 Route::post('/accept-request/{id}',[MainAdminController::class,'acceptrequest'])->name('accept-request');
@@ -90,3 +90,4 @@ Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
+Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');

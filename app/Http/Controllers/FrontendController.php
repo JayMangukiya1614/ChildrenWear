@@ -46,4 +46,10 @@ class FrontendController extends Controller
     return view('Frontend.Checkout');
   }
 
+  public function FrontProfile()
+  {
+    return view('Frontend.Profile');
+  }
+
+ 
 }
