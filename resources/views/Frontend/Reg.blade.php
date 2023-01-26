@@ -195,79 +195,70 @@
                     <div class="card shadow-2-strong card-registration">
                         <div class="card-body p-4 p-md-5" style="background-color: rgb(241, 241, 241)">
                             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                            <form>
 
+                            <form action="{{ route('UserRegSave') }}" method="POST" >
+@csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-
                                         <div class="form-outline">
-                                            <input type="text" id="firstName"
+                                            <input type="text" name="firstname" id="firstName"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="firstName">First Name</label>
                                         </div>
-
                                     </div>
                                     <div class="col-md-6 mb-4">
-
                                         <div class="form-outline">
-                                            <input type="text" id="lastName"
+                                            <input type="text" name="lastname" id="lastName"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="lastName">Last Name</label>
                                         </div>
-
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
-
                                         <div class="form-outline">
-                                            <input type="text" id="firstName"
+                                            <input type="text" name="address" id="address"
                                                 class="form-control form-control-lg" />
-                                            <label class="form-label" for="firstName">Address</label>
+                                            <label class="form-label" for="address">Address</label>
                                         </div>
-
                                     </div>
                                     <div class="col-md-6 mb-4">
-
                                         <div class="form-outline">
-                                            <input type="date" id="lastName"
+                                            <input type="date" name="birthdate" id="birthdate"
                                                 class="form-control form-control-lg" />
-                                            <label class="form-label" for="lastName">Birthdate</label>
+                                            <label class="form-label" for="birthdate">Birthdate</label>
                                         </div>
-
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4 d-flex align-items-center">
-
                                         <div class="form-outline datepicker w-100">
-                                            <input type="text" class="form-control form-control-lg"
+                                            <input type="text" name="phoneno" class="form-control form-control-lg"
                                                 id="birthdayDate" />
                                             <label for="birthdayDate" class="form-label">Phone No</label>
                                         </div>
-
                                     </div>
                                     <div class="col-md-6 mb-4">
 
                                         <h6 class="mb-2 pb-1">Gender: </h6>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="femaleGender" value="option1" checked />
+                                            <input class="form-check-input" type="radio" name="gender"
+                                                id="femaleGender" value="Female" checked />
                                             <label class="form-check-label" for="femaleGender">Female</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="maleGender" value="option2" />
+                                            <input class="form-check-input" type="radio" name="gender"
+                                                id="maleGender" value="Male" />
                                             <label class="form-check-label" for="maleGender">Male</label>
                                         </div>
 
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                                id="otherGender" value="option3" />
+                                            <input class="form-check-input" type="radio" name="gender"
+                                                id="otherGender" value="Other" />
                                             <label class="form-check-label" for="otherGender">Other</label>
                                         </div>
 
@@ -276,41 +267,23 @@
 
                                 <div class="row">
                                     <div class="col-md-6 mb-4 pb-2">
-
                                         <div class="form-outline">
-                                            <input type="email" id="emailAddress"
+                                            <input type="email" name="email" id="emailAddress"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="emailAddress">Email</label>
                                         </div>
-
                                     </div>
                                     <div class="col-md-6 mb-4 pb-2">
-
                                         <div class="form-outline">
-                                            <input type="tel" id="phoneNumber"
+                                            <input type="password" name="password" id="password"
                                                 class="form-control form-control-lg" />
-                                            <label class="form-label" for="phoneNumber">Password</label>
+                                            <label class="form-label" for="password">Password</label>
                                         </div>
-
                                     </div>
                                 </div>
 
-                                {{-- <div class="row">
-                                    <div class="col-md-12">
-
-                                        <select class="select form-control" style="width: 100%; height:50px">
-                                            <option value="1" disabled>Choose option</option>
-                                            <option value="2">Subject 1</option>
-                                            <option value="3">Subject 2</option>
-                                            <option value="4">Subject 3</option>
-                                        </select>
-                                        <label class="form-label select-label">Choose option</label>
-
-                                    </div>
-                                </div> --}}
-
                                 <div class="mt-4 pt-2">
-                                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                    <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
                                 </div>
 
                             </form>
