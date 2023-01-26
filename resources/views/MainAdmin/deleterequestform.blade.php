@@ -68,7 +68,7 @@
                     Admin Details</h3>
             </div>
         </div>
-        <form action="{{route('accept-request',$data->id)}}"  method="POST" enctype="multipart/form-data">
+        <form   method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row ">
                 <div class="col-md-3 border-right">
@@ -102,7 +102,7 @@
                         </div>
 
                     </div>
-                    <div class="row">
+                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="sn">Shop Name</label>
                             <input name="shopname" disabled value="{{$data->shopname}}" id="sn"
@@ -222,23 +222,16 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <label class="mt-5" for="sAddress">Send Message</label>
-                            <textarea name="sendmessage"  id="sAddress" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
-                           
-                        </div>
-                    </div>
-                    <div class="row">
                         {{-- <div class="col-md-4">
                             <a   href="{{route('main-admin-read')}}"  class="btn btn-outline-info shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div> --}}
                         <div class="col-md-6">
-                            <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Delete</a>
+                            {{-- <button class="btn btn-outline-alert shadow-lg  rounded-3 form-control mt-5">Back</button> --}}
+                        </div>
+                        <div class="col-md-6">
+                            <a   href="{{route('delete-request-show')}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div>
                         
-                        <div class="col-md-6">
-                            <button value="1" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Accept</button>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -250,51 +243,7 @@
     @section('page-script')
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-    <script>
-        // toastr.error('hello');
-        function previewFile(input) {
-            var file = $("input[type=file]").get(0).files[0];
-
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function() {
-                    $("#previewImg").attr("src", reader.result);
-                }
-
-                reader.readAsDataURL(file);
-            }
-            var check = $("#file-input").val();
-            // alert(check);
-            if (check) {
-                $("#note").html("");
-                // $("#note").removeclass("");
-
-            }
-            // $('#submit').click(function() {
-              
-            // });
-
-        }
-        // $(document).ready(function() {
-
-        //     @if (Session::has('message'))
-        //         toastr.options = {
-        //             "closeButton": true,
-        //             "progressBar": true
-        //         }
-        //         toastr.info("{{ session('message') }}");
-        //     @endif
-        // });
-    </script>
-
-    @if (Session::has('message'))
-        <script>
-            swal("Great Job!", "{!! Session::get('message') !!}", "info", {
-                button: "OK"
-            })
-        </script>
-    @endif
+   
     @endsection
 
     @section('page-script')

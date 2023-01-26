@@ -9,46 +9,7 @@
         height: 200px;
     }
 
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #EDF1FF;
-    }
-
-    .profile-button {
-        background: #EDF1FF;
-        box-shadow: none;
-        border: none
-    }
-
-    .profile-button:hover {
-        background: #EDF1FF;
-    }
-
-    .profile-button:focus {
-        background: #EDF1FF;
-        box-shadow: none
-    }
-
-    .profile-button:active {
-        background: #EDF1FF;
-        box-shadow: none
-    }
-
-    .back:hover {
-        color: #EDF1FF;
-        cursor: pointer
-    }
-
-    .labels {
-        font-size: 11px
-    }
-
-    .add-experience:hover {
-        background: #EDF1FF;
-        color: #fff;
-        cursor: pointer;
-        border: solid 1px #EDF1FF
-    }
+   
 </style>
 
 @section('title', 'Dashboard - Analytics')
@@ -72,22 +33,17 @@
         </div>
         <form action="{{ route('Admin-Reg-Save') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="text" name="AD_ID" style="display: none">
             <div class="row ">
                 <div class="col-md-3 border-right">
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
                         <label for="file-input">
-                            <p id="note" class="text-info">Please Select A Profile Picture It Is Compulsory</p>
                             <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}" />
                         </label>
 
-                        <input id="file-input" name="   " type="file" onchange="previewFile(this);"
+                        <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
                             style="display: none;" />
-                        <span class="text-danger">
-                            @error('profileimage')
-                                {{ $message }}
-                            @enderror
-                        </span>
                     </div>
                 </div>
                 <div class="col-md-9">
@@ -131,6 +87,29 @@
 
                     </div>
                     <div class="row">
+                        <div class="col-md-6">
+                            <label class="mt-4" for="sn">Shop Name</label>
+                            <input name="shopname" value="{{ old('shopname') }}" id="sn"
+                                class="form-control shadow-lg bg-white" type="text">
+                            <span class="text-danger">
+                                @error('shopname')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="mt-4" for="pincode">Pincode</label>
+                            <input name="pincode" value="{{ old('pincode') }}" id="pincode"
+                                class="form-control shadow-lg bg-white" type="number">
+                            <span class="text-danger">
+                                @error('pincode')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+
+                </div>
+                    <div class="row">
                         <div class="col-md-3">
                             <label class="mt-4" for="">Education</label>
                             <select name="education" value="{{ old('education') }}"
@@ -160,15 +139,15 @@
                             </span>
                         </div>
                         <div class="col-md-3">
-                            <label class="mt-4" for="Country">Country</label>
-                            <select name="country" value="{{ old('country') }}"
-                                class="form-control  shadow-lg bg-white rounded-3" name="Country" id="">
-                                <option selected value="Canada">Canada</option>
-                                <option value="German">German</option>
-                                <option value="U.S.A">U.S.A</option>
+                            <label class="mt-4" for="state">State</label>
+                            <select name="state" value="{{ old('state') }}"
+                                class="form-control  shadow-lg bg-white rounded-3" name="state" id="">
+                                <option selected value="Goa">Goa</option>
+                                <option value="Gujrat">Gujrat</option>
+                                <option value="Kerala">Kerala</option>
                             </select>
                             <span class="text-danger">
-                                @error('country')
+                                @error('state')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -280,13 +259,13 @@
 
                         <div class="col-md-6">
                             <label class="mt-5" for="Message">Message</label>
-                            <textarea name="message" id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{ old('message') }}</textarea>
+                            <textarea name="message" id="Message"class="form-control shadow-lg bg-white rounded-3" type="text">{{ old('message') }}</textarea>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <a href="#"
-                                class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</a>
+                            <button type="reset"
+                                class="btn btn-outline-warning shadow-lg  rounded-3 form-control mt-5">Reset</button>
                         </div>
                         <div class="col-md-6">
                             <button type="submit" id="submit"
@@ -319,10 +298,7 @@
 
             reader.readAsDataURL(file);
         }
-        var check = $("#file-input").val();
-        if (check) {
-            $("#note").html("");
-        }
+
 
     }
 </script>
