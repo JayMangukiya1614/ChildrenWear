@@ -25,34 +25,61 @@ class UserSeeder extends Seeder
 
             [
                 'Name' => "Krupali Mathukiya",
-                'Email' => "krupalimathukiya@gmail.com",
+                'Email' => "krupalimathukiya6@gmail.com",
                 'Password' => Hash::make('123456'),
                 
             ]
         ]);
-        // DB::table('adminregs')->insert([
-        //     [
-        //         'token' => "0",
-        //         'profileimage' =>,
-        //         'firstname' => "Jay",
-        //         'lastname' => "Jay",
-        //         'middlename' => "Jay",
-        //         'education' => "Jay",
-        //         'gender' => "Jay",
-        //         'country' => "Jay",
-        //         'city' => "Jay",
-        //         'mobilenumber' => "Jay",
-        //         'gstno' => "Jay",
-        //         'bankname' => "Jay",
-        //         'branchname' => "Jay",
-        //         'ifsccode' => "Jay",
-        //         'email' => "Jay",
-        //         'password' => "Jay",
-        //         'address' => "Jay",
-        //         'message' => "Jay",
+        DB::table('adminregs')->insert([
+            [
+                'AD_ID' => "BH0001",
+                'token' => "0",
+                'profileimage' =>'images/jay.jpg',
+                'firstname' => "Mangukiya",
+                'middlename' => "Jay",
+                'lastname' => "Dhirubhai",
+                'shopname' => "Jem's Creation",
+                'pincode' => "395010",
+                'education' => "Postgradute",
+                'gender' => "Male",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "9737520270",
+                'gstno' => "07AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "jaymangukiya1614@gmail.com",
+                'password' => Hash::make('123456'),
+                'address' => "110 ishvarnagar soc-2 Sitanagr road surat",
+                'message' => "I hope you  you are accepet my account request",
 
-        //     ],
+            ],
+            [
+                'AD_ID' => "BH0002",
+                'token' => "0",
+                'profileimage' =>'images/krupali.jpg',
+                'firstname' => "Mathukiya",
+                'middlename' => "Krupali",
+                'lastname' => "Prafulbhai",
+                'shopname' => "Krup's Creation",
+                'pincode' => "395010",
+                'education' => "Postgradute",
+                'gender' => "Female",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "7434039039",
+                'gstno' => "08AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "krupalimathukiya6@gmail.com",
+                'password' => Hash::make('123456'),
+                'address' => "123 yoginagar -2 Yogichowk road surat",
+                'message' => "I hope you  you are accepet my account request",
 
-        // ]);
+            ],
+
+        ]);
     }
 }

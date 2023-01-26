@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
+use App\Http\Requests\AdminProfileRequest;
 use App\Models\Adminreg;
+use App\Models\ProductListing;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 use Illuminate\Http\Request;
 
@@ -53,7 +56,16 @@ class AdminController extends Controller
 
     public function AdminProfile()
     {
-        return view('admin.Profile');
+        $id = Session()->get('Alogin');
+        $data = Adminreg::find($id);
+        return view('admin.Profile', compact('data'));
+    }
+
+    public function AdminProfileSave(AdminRequest $req , $id)
+    {
+         dd($req->validated());
+       
+       return $data =AdminReg::find($id);
     }
     public function AdminReg()
     {
@@ -62,16 +74,22 @@ class AdminController extends Controller
 
     public function AdminRegSave(AdminRequest $req)
     {
-        // return "work";
-
         $data = $req->validated();
+        $Ad_Id = "BH" . (rand(1000, 9999));
+        $AD = Adminreg::where('AD_ID', '=', $Ad_Id)->first();
 
+        if ($AD) {
+            do {
+                $Ad_Id = "BH" . (rand(1000, 9999));
+            } while ($Ad_Id == $AD);
+        }
+        $data['AD_ID'] = $Ad_Id;
         $data['token'] = 0;
         $data['password'] = Hash::make($data['password']);
-
         if ($req->profileimage != null) {
             $imagename = time() . '.' . $data['profileimage']->extension();
             $data['profileimage']->move(public_path('images'), $imagename);
+            $data['profileimage'] = $imagename;
         }
         Adminreg::create($data);
 
@@ -85,5 +103,24 @@ class AdminController extends Controller
         } else {
             return "Please log-in account";
         }
+    }
+
+    public function AdminProductListing()
+    {
+        return view('admin.listing');
+    }
+     
+    public function AdminPSave(Request $req)
+    {
+         $data = $req->all();
+         $gender = $data['gender'];
+        return $data['gender'] = implode(',' , $gender);
+        $image = $req->productimage;
+        $imageName = time().'.'.$image->extension();
+        $image->move(public_path('images'),$imageName);
+        dd($req->all());
+ 
+        
+
     }
 }
