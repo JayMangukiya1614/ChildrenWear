@@ -48,6 +48,11 @@ Route::post('/Alogindata',[AdminController::class,'Alogindata'])->name('Aloginda
 // Admin
 Route::group(['middleware' => ['Alogin']], function () {
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
+Route::post('/Admin-Profile-Save/{id}',[AdminController::class,'AdminProfileSave'])->name('Admin-Profile-save');
+Route::get('/Admin-Product-Listing',[AdminController::class,'AdminProductListing'])->name('Admin-Product-Listing');
+Route::post('/Admin-Product-Save',[AdminController::class,'AdminPSave'])->name('Admin-Product-Save');
+
+
 Route::get('/Admin-Logout',[AdminController::class,'Adminlogout'])->name('Admin-logout');
 
 });
@@ -69,6 +74,12 @@ Route::get('/accepted-request-show',[MainAdminController::class,'acceptedrequest
 Route::get('/cancel-request/{id}',[MainAdminController::class,'cancelrequest'])->name('cancel-request');
 Route::get('/delete-request-show',[MainAdminController::class,'deleterequestshow'])->name('delete-request-show');
 Route::get('/Madmin-logout',[MainAdminController::class,'Madminlogout'])->name('Madmin-logout');
+
+
+Route::get('/MshowAccepetform/{id}',[MainAdminController::class,'MshowAccepetform'])->name('MshowAccepetform');
+Route::get('/MshowDeleteform/{id}',[MainAdminController::class,'MshowDeleteform'])->name('MshowDeleteform');
+
+
 
 
 });

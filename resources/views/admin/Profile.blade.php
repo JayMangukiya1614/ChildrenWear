@@ -1,154 +1,267 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts/contentNavbarLayout')
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+    body {
+        background: #EDF1FF
+    }
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    .form-control:focus {
+        box-shadow: none;
+        border-color: #BA68C8
+    }
+
+    .profile-button {
+        background: rgb(123, 118, 125);
+        box-shadow: none;
+        border: none
+    }
+
+    .profile-button:hover {
+        color: black;
+        background: #EDF1FF
+    }
+
+    .profile-button:focus {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .profile-button:active {
+        background: #682773;
+        box-shadow: none
+    }
+
+    .back:hover {
+        color: #e4cfe7;
+        cursor: pointer
+    }
+
+    .labels {
+        font-size: 11px
+    }
+
+    .add-experience:hover {
+        background: #BA68C8;
+        color: #fff;
+        cursor: pointer;
+        border: solid 1px #BA68C8
+    }
+</style>
+
+@section('title', 'Dashboard - Analytics')
+
+@section('vendor-style')
+
+@endsection
 
 
 
-    <style>
-        body {
-            background: #EDF1FF
-        }
+@section('content')
 
-        .form-control:focus {
-            box-shadow: none;
-            border-color: #BA68C8
-        }
+    <div class="container rounded bg-white ">
+        <form action="{{ route('Admin-Profile-save', $data->id) }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="row">
+                <div class="col-md-3 border-right">
+                    <input type="text" name="AD_ID" value="{{$data->AD_ID}}" style="display: none">
+                    <input type="text" name="gender" value="{{$data->gender}}" style="display: none">
+                    <input type="text" name="password" value="{{$data->password}}" style="display: none">
+                    <input type="text" name="message" value="{{$data->message}}" style="display: none">
 
-        .profile-button {
-            background: rgb(123, 118, 125);
-            box-shadow: none;
-            border: none
-        }
 
-        .profile-button:hover {
-            color: black;
-            background: #EDF1FF
-        }
 
-        .profile-button:focus {
-            background: #682773;
-            box-shadow: none
-        }
-
-        .profile-button:active {
-            background: #682773;
-            box-shadow: none
-        }
-
-        .back:hover {
-            color: #e4cfe7;
-            cursor: pointer
-        }
-
-        .labels {
-            font-size: 11px
-        }
-
-        .add-experience:hover {
-            background: #BA68C8;
-            color: #fff;
-            cursor: pointer;
-            border: solid 1px #BA68C8
-        }
-    </style>
-    <title>Admin Profile</title>
-</head>
-
-<body>
-
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column aligan-items-center text-center p-3 py-5"><img
-                        class="rounded-circle mt-5" width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                        class="font-weight-bold">Edogaru</span><span
-                        class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
-            </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Details</h4>
+                    <div class="d-flex flex-column aligan-items-center text-center p-5 py-5">
+                        <label for="file-input">
+                            <img id="previewImg" class="rounded-circle mt-5" width="150px"
+                                src="{{ !empty($data->profileimage) ? url($data->profileimage) : url('images/default.jpeg') }}">
+                        </label>
+                        <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
+                            style="display: none" />
+                        <span class="font-weight-bold">{{ $data->firstname }} {{ $data->middlename }}
+                            {{ $data->lastname }}</span>
                     </div>
-                    <div class="row mt-2">
-                        <div class="col-md-12"><label class="labels"> Full Name</label><input type="text"
-                                class="form-control" value=""></div>
-                        {{-- <div class="col-md-6"><label class="labels">Surname</label><input type="text"
-                                class="form-control" value="" placeholder="surname"></div> --}}
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
-                                class="form-control" value=""></div>
-                        <div class="col-md-12"><label class="labels">Age</label><input type="number"
-                                class="form-control" value=""></div>
-                        <div class="col-md-12"><label class="labels">Address</label><input type="text"
-                                class="form-control" value=""></div>
-                        <div class="col-md-12"><label class="labels">ZipCode</label><input type="text"
-                                class="form-control" value=""></div>
-                        <div class="col-md-6"><label class="labels">Country</label><input type="text"
-                                class="form-control" value=""></div>
-                        <div class="col-md-6"><label class="labels">City</label><input type="text"
-                                class="form-control" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email</label><input type="text"
-                                class="form-control" disabled value=""></div>
-                    </div>
+                </div>
+                <div class="col-md-5 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Details</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-md-4">
+                                <label class="labels"> First Name</label>
+                                <input type="text" class="form-control" name="firstname" value="{{ $data->firstname }}">
+                                <span class="text-danger">
+                                    @error('firstname')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="labels"> Middle Name</label>
+                                <input type="text" class="form-control" name="middlename"
+                                    value=" {{ $data->middlename }}">
+                                <span class="text-danger">
+                                    @error('middlename')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="labels"> Last Name</label>
+                                <input type="text" class="form-control" name="lastname" value="{{ $data->lastname }}">
+                                <span class="text-danger">
+                                    @error('lastname')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <label class="labels">Mobile Number</label>
+                                <input type="text"class="form-control" name="mobilenumber"
+                                    value=" {{ $data->mobilenumber }}">
+                                <span class="text-danger">
+                                    @error('mobilenumber')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels">Shop Name</label>
+                                <input type="text"class="form-control" name="shopname" value=" {{ $data->shopname }}">
+                                <span class="text-danger">
+                                    @error('shopname')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mt-3">Pincode</label>
+                                <input type="text" class="form-control" name="pincode" value=" {{ $data->pincode }}">
+                                <span class="text-danger">
+                                    @error('pincode')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mt-3">Education</label>
+                                <input type="text" class="form-control" name="education"
+                                    value=" {{ $data->education }}">
+                                <span class="text-danger">
+                                    @error('education')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
 
-                
+                            <div class="col-md-6">
+                                <label class="labels mt-3">State</label>
+                                <input type="text" class="form-control" name="state"value=" {{ $data->state }}">
+                                <span class="text-danger">
+                                    @error('state')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="labels mt-3">City</label>
+                                <input type="text" class="form-control" name="city"value="{{ $data->city }}">
+                                <span class="text-danger">
+                                    @error('city')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels mt-3">Address</label>
+                                <input type="text"class="form-control" name="address"value=" {{ $data->address }}">
+                                <span class="text-danger">
+                                    @error('address')
+                                        {{ $message }}
+                                    @enderror
+
+                                </span>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="labels mt-3">Email</label>
+                                <input type="text" class="form-control"disabled name="email"
+                                    value=" {{ $data->email }}">
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class=" py-5">
+                        <div class="d-flex justify-content-between align-items-center experience"><span>Bank
+                                Details</span></div><br>
+                        <div class="col-md-12">
+                            <label class="labels ">Bank Name</label>
+                            <input type="text"class="form-control " name="bankename"disabled="false"
+                                value=" {{ $data->bankname }}">
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <label class="labels">Branch</label>
+                            <input type="text" class="form-control " name="branchname" disabled="false"
+                                value=" {{ $data->branchname }}">
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <label class="labels">IFSC Code</label>
+                            <input type="text" class="form-control " name="ifsccode" disabled="false"
+                                value=" {{ $data->ifsccode }}">
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <label class="labels">GST No.</label>
+                            <input type="text" class="form-control " name="gstno"disabled="false"
+                                value=" {{ $data->gstno }}">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <div class=""><button class="btn btn-primary profile-button float-right"
+                                type="submit">Save
+                                Profile</button></div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class=" py-5">
-                    <div class="d-flex justify-content-between align-items-center experience"><span>Bank
-                            Details</span></div><br>
-                    <div class="col-md-12">
-                        <label class="labels ">Bank Name</label>
-                        <input type="text"class="form-control " disabled="false" value="">
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <label class="labels">Branch</label>
-                        <input type="text" class="form-control " disabled="false" value="">
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <label class="labels">IFSC Code</label>
-                        <input type="text" class="form-control " disabled="false" value="">
-                    </div>
-                    <br>
-                    <div class="col-md-12">
-                        <label class="labels">GST No.</label>
-                        <input type="text" class="form-control "disabled="false" value="">
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="mt-5 float-right"><button class="btn btn-primary profile-button" type="button">Save
-                        Profile</button></div>
-                </div>
-            </div>
-        </div>
+        </form>
     </div>
-    </div>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
-    </script>
-</body>
 
-</html>
+@section('page-script')
+    <script>
+        // toastr.error('hello');
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+
+
+        }
+    </script>
+
+    @if (Session::has('message'))
+        <script>
+            swal("Great Job!", "{!! Session::get('message') !!}", "info", {
+                button: "OK"
+            })
+        </script>
+    @endif
+@endsection
+
+@section('page-script')
+@endsection
+@endsection

@@ -31,18 +31,15 @@ class MainAdminController extends Controller
             {
                 $request->Session()->put('Mlogin',$data->id);
                 return redirect(route('dashboard'))->with('LoginSuccess',"Login Successfully......!");
-
             }
             else
             {
                 return back()->with('Password', 'Password not matched');
-
             }
         }
         else
         {
             return back()->with('E_mail', 'Email not matched');
-
         }
     }
     public function Madminlogout()
@@ -56,11 +53,8 @@ class MainAdminController extends Controller
     }
     public function read()
     {
-        $id = Session()->get('Mlogin');
-        $name = Mainadmin::find($id);
         $data = DB::table('adminregs')->where([['token','=',0]])->get();
-        // $data = Adminreg::all();
-        return view('MainAdmin.read',compact('data','name'));
+        return view('MainAdmin.read',compact('data'));
     }
     public function MshowAdmin($id)
     {
@@ -69,17 +63,17 @@ class MainAdminController extends Controller
     }
     public function acceptrequest($id)
     {
-        // return $id;
-        $data  =  Adminreg::find($id);
+         $data  =  Adminreg::find($id);
         $data->token = 1;
-        $mail='jaymangukiya1614@gmail.com';
+        $mail = $data->email;
+
         $details = [
-             'title' => 'Welcome To our Website',
-             'body'  => 'this is for testing mail using mail'
+
+            'AD_ID' =>$data->AD_ID
         ];
    
         Mail::to($mail)->send(new RequestMail( $details));
-        return "Email sent "; 
+
 
         $data->save();
        
@@ -88,21 +82,28 @@ class MainAdminController extends Controller
     public function acceptedrequestshow()
     {
         $data = DB::table('adminregs')->where([['token','=',1]])->get();
+
         return view('MainAdmin.acceptrequest',compact('data'));
     }
-    public function cancelrequest( $id)
+
+    public function MshowAccepetform($id)
+    {
+        $data = Adminreg::find($id);
+        return view('MainAdmin.acceptrequestform',compact('data'));
+    }
+    public function cancelrequest(Request $request, $id)
     {
 
-        $data  =  Adminreg::find($id);
+           $data  =  Adminreg::find($id);
+         $mail = $data->email;
          $data->token = 2;
-           $mail='jaymangukiya1614@gmail.com';
               $details = [
               'title' => 'Welcome To our Website',
               'body'  => 'this is for testing mail using mail'
          ];
     
             Mail::to($mail)->send(new DRequestMail( $details));
-         return "Email sent "; 
+        //  return "Email sent "; 
         $data->save();
 
         return redirect(route('main-admin-read'))->with('Delete',"Deleted Successfully.....!");
@@ -113,4 +114,11 @@ class MainAdminController extends Controller
         $data = DB::table('adminregs')->where([['token','=',2]])->get();
         return view('MainAdmin.deleterequest',compact('data'));
     }
+
+    public function MshowDeleteform($id)
+    {
+        $data = Adminreg::find($id);
+        return view('MainAdmin.deleterequestform',compact('data'));
+    }
+   
 }

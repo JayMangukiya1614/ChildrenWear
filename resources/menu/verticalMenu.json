@@ -12,6 +12,20 @@
       "icon": "menu-icon fa-solid fa-registered",
       "slug": "Registeration"
     },
+   
+    {
+      "name": "Product Listing",
+      "icon": "menu-icon tf-icons fa-solid fa-podcast",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "/Admin-Product-Listing",
+          "name": "Product-Form",
+          "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
+          "slug": "listing"
+        }
+      ]
+    },
     {
       "name": "Main Admin",
       "icon": "menu-icon tf-icons fa-solid fa-user",
