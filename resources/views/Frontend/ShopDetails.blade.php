@@ -158,6 +158,8 @@
                             <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
                             <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
                         </div>
+                        <div><a href="{{ route('Fprofile') }}" style="font-size: 20px"><i class="fa-solid fa-user"></i></a></div>
+
                     </div>
                 </nav>
             </div>
@@ -641,6 +643,8 @@
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
     <!-- JavaScript Libraries -->
+    <script src="https://kit.fontawesome.com/88bf84b9d4.js" crossorigin="anonymous"></script>
+
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>

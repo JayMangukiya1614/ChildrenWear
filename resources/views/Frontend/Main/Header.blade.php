@@ -133,6 +133,7 @@
                             <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
                             <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
                         </div>
+                        <div><a href="{{ route('Fprofile') }}" style="font-size: 20px"><i class="fa-solid fa-user"></i></a></div>
                     </div>
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
