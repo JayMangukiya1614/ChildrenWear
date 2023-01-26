@@ -43,7 +43,7 @@ class RequestMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            subject: 'Request Mail',
+            subject: 'Baby_Hub.com',
         );
     }
 

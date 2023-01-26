@@ -40,7 +40,7 @@ public $details;
     public function envelope()
     {
         return new Envelope(
-            subject: 'DElete Request Mail',
+            subject: 'Baby_Hub.com',
         );
     }
 

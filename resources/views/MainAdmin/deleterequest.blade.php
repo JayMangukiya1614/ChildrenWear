@@ -11,42 +11,59 @@
 
 @section('content')
     <h1 class="text-center" style="margin-top: 6rem">Admin Deleted Request </h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th scope="col">Id</th>
-                <th scope="col">FirstName</th>
-                <th scope="col">Country</th>
-                <th scope="col">Token</th>
-                <th scope="col">GSTNo.</th>
-                <th scope="col">BankName</th>
-                <th scope="col">Email</th>
-                <th scope="col">Message</th>
-                <th scope="col">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($data as $key => $data)
+    <div class="table-responsive">
+
+        <table class="table table-striped">
+            <thead>
                 <tr>
-
-                    <td scope="row">{{ $key + 1 }}</td>
-
-                    <td>{{ $data->firstname }}</td>
-                    <td>{{ $data->country }}</td>
-                    <td>{{ $data->token }}</td>
-                    <td>{{ $data->gstno }}</td>
-                    <td>{{ $data->bankname }}</td>
-                    <td>{{ $data->email }}</td>
-                    <td>{{ $data->message }}</td>
-                    <td><a href="{{ route('MshowAdmin', $data->id) }}" class="btn btn-info">Show</a></td>
-
+                    <th scope="col">Id</th>
+                    <th scope="col">Admin Id</th>
+                    <th scope="col">Shopname</th>
+                    <th scope="col">Token</th>
+                    <th scope="col">GSTNo.</th>
+                    <th scope="col">BankName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Action</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-   
+            </thead>
+            <tbody>
+                @if (count($data) > 0)
+
+                    @foreach ($data as $key => $data)
+                        <tr>
+
+                            <td scope="row">{{ $key + 1 }}</td>
+
+                            <td>{{ $data->AD_ID }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ $data->shopname }}</td>
+                            <td>{{ $data->token }}</td>
+                            <td>{{ $data->gstno }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ $data->bankname }}</td>
+                            <td class="text-wrap"style="max-width:200px;">{{ $data->email }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ $data->message }}</td>
+                            <td><a href="{{ route('MshowDeleteform', $data->id) }}" class="btn btn-info">Show</a></td>
+
+                        </tr>
+                    @endforeach
+                @else
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td> Data Not Found ...</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+
+                @endif
+            </tbody>
+        </table>
+    </div>
+
 @section('page-script')
-<script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 @endsection
 
 @section('page-script')
