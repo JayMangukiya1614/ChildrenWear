@@ -188,20 +188,21 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-5 box">
-                    <form action=""  class="mb-5 border p-5"
+                    <form action="{{ route('Checklogin') }}" method="POST" class="mb-5 border p-5"
                         style="background-color: rgb(241, 241, 241)">
+                        @csrf
                     <h2 class="mb-3" style="text-align:center">Login</h2>
 
                         <div class="row text-dark">
                             <div class="col-md-12 form-group">
-                                <label for="name">User Name</label>
-                                <input type="text" name="name" id="name" class="form-control ">
+                                <label for="email">Email</label>
+                                <input type="text" name="email" id="email" class="form-control ">
                             </div>
                         </div>
                         <div class="row mb-4 text-dark">
                             <div class="col-md-12 form-group">
-                                <label for="name">Password</label>
-                                <input type="password" name="password" id="name" class="form-control ">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control ">
                             </div>
                         </div>
 
