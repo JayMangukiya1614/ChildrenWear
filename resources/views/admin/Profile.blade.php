@@ -63,17 +63,17 @@
             @csrf
             <div class="row">
                 <div class="col-md-3 border-right">
-                    <input type="text" name="AD_ID" value="{{$data->AD_ID}}" style="display: none">
-                    <input type="text" name="gender" value="{{$data->gender}}" style="display: none">
-                    <input type="text" name="password" value="{{$data->password}}" style="display: none">
-                    <input type="text" name="message" value="{{$data->message}}" style="display: none">
+                    <input type="text" name="AD_ID" value="{{ $data->AD_ID }}" style="display: none">
+                    <input type="text" name="gender" value="{{ $data->gender }}" style="display: none">
+                    <input type="text" name="password" value="{{ $data->password }}" style="display: none">
+                    <input type="text" name="message" value="{{ $data->message }}" style="display: none">
 
 
 
                     <div class="d-flex flex-column aligan-items-center text-center p-5 py-5">
                         <label for="file-input">
                             <img id="previewImg" class="rounded-circle mt-5" width="150px"
-                                src="{{ !empty($data->profileimage) ? url($data->profileimage) : url('images/default.jpeg') }}">
+                                src="{{ !empty($data->profileimage) ? url('images/'.$data->profileimage) : url('images/default.jpeg') }}">
                         </label>
                         <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
                             style="display: none" />
@@ -147,8 +147,12 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="labels mt-3">Education</label>
-                                <input type="text" class="form-control" name="education"
-                                    value=" {{ $data->education }}">
+                                <select name="education" value="{{ old('education') }}" class="form-control "
+                                    id="">
+                                    <option {{ $data->education == 'Undergraduate' ? 'selected' : '' }} value="Undergraduate">Undergraduate</option>
+                                    <option {{ $data->education == 'Postgraduate' ? 'selected' : '' }} value="Postgraduate">Postgraduate</option>
+
+                                </select>
                                 <span class="text-danger">
                                     @error('education')
                                         {{ $message }}
@@ -158,7 +162,12 @@
 
                             <div class="col-md-6">
                                 <label class="labels mt-3">State</label>
-                                <input type="text" class="form-control" name="state"value=" {{ $data->state }}">
+                                <select name="state" value="{{ old('state') }}" class="form-control  " name="state"
+                                    id="">
+                                    <option {{ $data->state == 'Goa' ? 'selected' : '' }} value="Goa">Goa</option>
+                                    <option {{ $data->state == 'Goa' ? 'Gujrat' : '' }} value="Gujrat">Gujrat</option>
+                                    <option {{ $data->state == 'Goa' ? 'Kerala' : '' }} value="Kerala">Kerala</option>
+                                </select>
                                 <span class="text-danger">
                                     @error('state')
                                         {{ $message }}
@@ -167,7 +176,14 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="labels mt-3">City</label>
-                                <input type="text" class="form-control" name="city"value="{{ $data->city }}">
+                                <select name="city" value="{{ old('state') }}" class="form-control " name="city"
+                                    id="">city
+                                    <option {{ $data->city == 'Delhi' ? 'selected' : '' }} value="Delhi">Delhi</option>
+                                    <option {{ $data->city == 'Bombay' ? 'selected' : '' }} value="Bombay">Bombay</option>
+                                    <option {{ $data->city == 'Banglore' ? 'selected' : '' }} value="Banglore">Banglore
+                                    </option>
+                                </select>
+
                                 <span class="text-danger">
                                     @error('city')
                                         {{ $message }}
@@ -186,7 +202,7 @@
                             </div>
                             <div class="col-md-12">
                                 <label class="labels mt-3">Email</label>
-                                <input type="text" class="form-control"disabled name="email"
+                                <input type="text" class="form-control" readonly name="email"
                                     value=" {{ $data->email }}">
                             </div>
                         </div>
@@ -200,25 +216,25 @@
                                 Details</span></div><br>
                         <div class="col-md-12">
                             <label class="labels ">Bank Name</label>
-                            <input type="text"class="form-control " name="bankename"disabled="false"
+                            <input type="text"class="form-control "  readonly name="bankename" 
                                 value=" {{ $data->bankname }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">Branch</label>
-                            <input type="text" class="form-control " name="branchname" disabled="false"
+                            <input type="text" class="form-control " readonly  name="branchname" 
                                 value=" {{ $data->branchname }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">IFSC Code</label>
-                            <input type="text" class="form-control " name="ifsccode" disabled="false"
+                            <input type="text" class="form-control " readonly  name="ifsccode" 
                                 value=" {{ $data->ifsccode }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">GST No.</label>
-                            <input type="text" class="form-control " name="gstno"disabled="false"
+                            <input type="text" class="form-control " readonly  name="gstno"
                                 value=" {{ $data->gstno }}">
                         </div>
                         <br>
@@ -253,13 +269,15 @@
         }
     </script>
 
-    @if (Session::has('message'))
-        <script>
-            swal("Great Job!", "{!! Session::get('message') !!}", "info", {
-                button: "OK"
-            })
-        </script>
-    @endif
+  <script>
+    @if (Session::has('Update'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('Update') }}");
+        @endif
+  </script>
 @endsection
 
 @section('page-script')
