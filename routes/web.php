@@ -109,11 +109,17 @@ Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name(
 //ClientSide Routes
 
 Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
-Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
-Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
 Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
+
+//registration
+Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
+Route::post('UserRegSave', [FrontendController::class, 'RegDataSave'])->name('UserRegSave');
+
+//login
+Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
+Route::post('checklogin', [FrontendController::class, 'CheckLogin'])->name('Checklogin');
