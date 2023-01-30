@@ -3,6 +3,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
 use App\Http\Controllers\dashboard\Analytics;
+use App\Http\Controllers\IndexController;
 use App\Http\Controllers\layouts\Blank;
 use App\Http\Controllers\layouts\Container;
 use App\Http\Controllers\layouts\Fluid;
@@ -50,7 +51,13 @@ Route::group(['middleware' => ['Alogin']], function () {
 Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
 Route::post('/Admin-Profile-Save/{id}',[AdminController::class,'AdminProfileSave'])->name('Admin-Profile-save');
 Route::get('/Admin-Product-Listing',[AdminController::class,'AdminProductListing'])->name('Admin-Product-Listing');
-Route::post('/Admin-Product-Save',[AdminController::class,'AdminPSave'])->name('Admin-Product-Save');
+Route::post('/Admin-Product-Listing-Save',[AdminController::class,'AdminProductSave'])->name('Admin-Product-Listing-Save');
+Route::get('/Admin-Product-table',[AdminController::class,'AdminProductTable'])->name('Admin-Product-table');
+Route::get('/Admin-Product-Listing-show/{id}',[AdminController::class,'AdminProductListingShow'])->name('Admin-Product-Listing-show');
+Route::post('/Admin-Product-Listing-Update/{id}',[AdminController::class,'AdminProductListingUpdate'])->name('Admin-Product-Listing-Update');
+
+
+
 
 
 Route::get('/Admin-Logout',[AdminController::class,'Adminlogout'])->name('Admin-logout');
@@ -78,6 +85,14 @@ Route::get('/Madmin-logout',[MainAdminController::class,'Madminlogout'])->name('
 
 Route::get('/MshowAccepetform/{id}',[MainAdminController::class,'MshowAccepetform'])->name('MshowAccepetform');
 Route::get('/MshowDeleteform/{id}',[MainAdminController::class,'MshowDeleteform'])->name('MshowDeleteform');
+
+Route::get('/Index-form',[IndexController::class,'indexform'])->name('Index-form');
+Route::post('/Index/save', [IndexController::class, 'Indexsave'])->name('Indexsave');
+Route::get('/Index/table', [IndexController::class, 'Indextable'])->name('Indextable');
+Route::get('/Index/update/{id}', [IndexController::class, 'Indexupdate'])->name('Indexupdate');
+Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
+Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
+
 
 
 

@@ -19,21 +19,19 @@ return new class extends Migration
             $table->string('token')->nullable();
             $table->string('shopname')->nullable();
             $table->string('productname')->nullable();
-            $table->string('productimage')->nullable();
             $table->string('gender')->nullable();
             $table->string('age')->nullable();
+            $table->string('size')->nullable();
             $table->string('category')->nullable();
-            $table->string('state')->nullable();
-            $table->string('city')->nullable();
-            $table->string('description')->nullable();
-            $table->string('Ldescription')->nullable();
-            $table->string('stock')->nullable();
             $table->string('color')->nullable();
+            $table->string('stock')->nullable();
+            $table->string('description')->nullable();
             $table->string('price')->nullable();
             $table->string('discount')->nullable();
             $table->string('Pselling')->nullable();
-
-
+            $table->string('Ldescription')->nullable();
+            $table->string('productimage')->nullable();
+        
             $table->timestamps();
         });
     }

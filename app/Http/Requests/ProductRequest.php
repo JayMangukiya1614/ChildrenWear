@@ -24,41 +24,41 @@ class ProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'AD_ID' => '',
+            'AD_ID' => 'required',
             'shopname' => 'required',
             'productname' => 'required',
             'gender' => 'required',
             'age' => 'required',
-            'state' => 'required',
-            'city' => 'required',
+            'size' => 'required',
+            'category' => 'required',
+            'color' => 'required',
             'stock' => 'required',
             'description' => 'required',
             'price' => 'required',
-            'shopname' => 'required',
             'discount' => 'required',
             'Pselling' => 'required',
+            'Ldescription' => 'required',
             'productimage' => 'required',
-
-
         ];
-        return [
-            'AD_ID' => '',
-            'shopname.required' => 'First_Name Filled Is Required',
-            'productname.required' => 'lastname Filled Is Required',
-            'gender.required' => 'Middlename Filled Is Required',
-            'age' => 'Shoname Filled Is Required',
-            'state' => 'Pincode Filled Is Required',
-            'city.required' => 'Education Filled Is Required',
-            'stock.required' => 'Gender Filled Is Required',
-            'description.required' => 'Country Filled Is Required',
-            'price.required' => 'City Filled Is Required',
-            'shopname.required' => 'Mobilenumber Filled Is Required',
-            'discount.required' => 'Gstno Filled Is Required',
-            'Pselling.required' => 'Bankname Filled Is Required',
-            'productimage.required' => 'Branchname Filled Is Required',
-
-
-
+    }
+        public function messages()
+        {
+            return [
+            'AD_ID' => 'Admin Id Filled Is Required',
+            'shopname.required' => 'Shop Name Filled Is Required',
+            'productname.required' => 'Product Name Filled Is Required',
+            'gender' => 'Gender Name Filled Is Required',
+            'age' => 'Age Filled Is Required',
+            'size.required' => 'size Filled Is Required',
+            'category.required' => 'category Filled Is Required',
+            'color.required' => 'color Filled Is Required',
+            'stock.required' => 'stock Filled Is Required',
+            'description.required' => 'description Filled Is Required',
+            'price.required' => 'Product price Filled Is Required',
+            'discount.required' => ' product discount Filled Is Required',
+            'Ldescription.required' => 'long description Filled Is Required',
+            'Pselling.required' => 'Product sell proce  Filled Is Required',
+            'productimage.required' => 'product image Filled Is Required',
         ];
     }
 }

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Index;
 
 class FrontendController extends Controller
 {
   public function FrontIndex()
   {
+    // $data = Index::all();
+    // ,compact('data')
     return view('Frontend.index');
   }
 

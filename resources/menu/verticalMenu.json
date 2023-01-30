@@ -23,6 +23,12 @@
           "name": "Product-Form",
           "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
           "slug": "listing"
+        },
+        {
+          "url": "/Admin-Product-table",
+          "name": "Product-Table",
+          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "slug": "Product-table"
         }
       ]
     },
@@ -67,6 +73,19 @@
           "name": "Delete Request",
           "icon": "menu-icon tf-icons fa-solid fa-trash",
           "slug": "deleterequest"
+        }
+      ]
+    },
+    {
+      "name": "Index Page",
+      "icon": "menu-icon tf-icons fa-solid fa-podcast",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "/Index-form",
+          "name": "Index-Form",
+          "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
+          "slug": "index-form"
         }
       ]
     }
