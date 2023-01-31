@@ -422,7 +422,7 @@
 
 
     <!-- Products Start -->
-    <div class="container-fluid pt-5">
+    {{-- <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Trandy Products</span></h2>
         </div>
@@ -588,7 +588,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Products End -->
 
 
@@ -787,7 +787,7 @@
 
 
     <!-- Vendor Start -->
-    <div class="container-fluid py-5">
+    {{-- <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col">
                 <div class="owl-carousel vendor-carousel">
@@ -818,7 +818,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Vendor End -->
 
     <!-- Footer Start -->
