@@ -119,9 +119,18 @@ Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fch
 Route::get('Fpassword', [FrontendController::class, 'FPassword'])->name('Fpassword');
 Route::get('Fchangepassword', [FrontendController::class, 'FChangePassword'])->name('Fchangepassword');
 
+
+Route::group(['middleware' => ['F-Password']], function () {
 //Forget Password
-Route::get('Fforgetpassword', [FrontendController::class, 'FForgetPassword'])->name('Fforgetpassword');
-// Route::get('Fforgetpasswordsave', [FrontendController::class, 'FForgetPasswordSave'])->name('Fforgetpasswordsave');
+Route::get('Forget-Password', [FrontendController::class, 'FForgetPassword'])->name('Fforgetpassword');
+});
+
+// foregt password send mail 
+Route::get('ForgetPEmail', [FrontendController::class, 'ForgetPEmail'])->name('ForgetPEmail');
+Route::post('ForgetPEmailSend', [FrontendController::class, 'ForgetPEmailSend'])->name('ForgetPEmailSend');
+
+
+Route::get('Forget-Password-Save', [FrontendController::class, 'ForgetPasswordSave'])->name('Forget-Password-Save');
 
 
 //Profile

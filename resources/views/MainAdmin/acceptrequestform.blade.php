@@ -76,7 +76,7 @@
 
                         <label for="file-input">
                             <img id="previewImg" class="image rounded-circle"
-                            src=" {{ !empty($data->profileimage) ? url($data->profileimage) : url('images/default.jpeg') }}" selected />
+                            src=" {{ !empty($data->profileimage) ? url('images/'.$data->profileimage) : url('images/default.jpeg') }}" selected />
                         </label>
 
                     </div>

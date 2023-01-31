@@ -42,10 +42,10 @@
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
                     {{-- <a class="text-dark" href="">FAQs</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Help</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a> --}}
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" href="">Help</a>
+                <span class="text-muted px-2">|</span>
+                <a class="text-dark" href="">Support</a> --}}
                     <a href="" class="text-decoration-none">
                         <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 50px">
                     </a>
@@ -56,21 +56,21 @@
                 <div class="nav-item p-0 " style="margin-left: 400px;margin-top:9px">
                     <p class="" style="">
                         {{-- <a class="" style="color:black" href="{{ route('Flogin') }}">LogIn  </a>
-                        <a class="" style="color:black" href="{{ route('Freg') }}">Registration</a> --}}
+                    <a class="" style="color:black" href="{{ route('Freg') }}">Registration</a> --}}
 
-                        <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i class="fa-solid fa-users"
-                                style="font-size:12px;"></i>&nbsp LogIn</a>
-                        <a class="" style="color:black;margin-left:20px;text-decoration:none" href="{{ route('Freg') }}"><i
-                                class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp Registration</a>
+                        <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i
+                                class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp LogIn</a>
+                        <a class="" style="color:black;margin-left:20px;text-decoration:none"
+                            href="{{ route('Freg') }}"><i class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp
+                            Registration</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
     <!-- Topbar End -->
-
-
-  <form action="">
+    <form action="{{ route('ForgetPEmailSend') }}" method="POST">
+        @csrf
         <section class="mt-5" style="background-color: white">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -84,28 +84,22 @@
 
                                         <div class="row">
                                             <div class="col-md-12 form-outline datepicker w-100">
-                                        <label class="form-label mb-0" for="newpass">New Password</label>
+                                                <label class="form-label mb-0" for="email">Email.</label>
 
-                                        <input type="password" style="border-radius: 5px"  name="newpass" id="newpass" class="form-control form-control-lg mb-3" />
-                                    </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="col-md-12 form-outline datepicker w-100">
-                                        <label for="confirmpass" class="form-label mb-0">Confirm Password</label>
-                                        <input type="password"  style="border-radius: 5px" name="confirmpass" class="form-control form-control-lg mb-3" id="confirmpass" />
-                                    </div>
+                                                <input type="text" style="border-radius: 5px" name="email"
+                                                    id="email" class="form-control form-control-lg mb-3" />
+                                            </div>
                                         </div>
 
                                         <hr class="mt-0 mb-4">
 
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <button type="reset" href="" style="border-radius: 5px" class="btn  btn-outline-dark waves-effect  w-100"
-                                                    >Cancel</button>
+                                                <button type="reset" style="border-radius: 5px"
+                                                    class="btn  btn-outline-dark waves-effect  w-100">Cancel</button>
                                             </div>
-                                            <div class="col-md-6" >
-                                                <button type="submit" href="" class="btn waves-effect text-dark w-100"
+                                            <div class="col-md-6">
+                                                <button type="submit" class="btn waves-effect text-dark w-100"
                                                     style="background-color: #D19C97;border-radius:5px">Save</button>
                                             </div>
                                         </div>
@@ -147,7 +141,30 @@
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <script>
+        @if (Session::has('Not'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Not') }}");
+        @endif
 
+        @if (Session::has('Check'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('Check') }}");
+        @endif
+        @if (Session::has('fail'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('fail') }}");
+        @endif
+    </script>
 
 </body>
 

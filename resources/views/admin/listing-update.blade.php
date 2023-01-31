@@ -80,8 +80,8 @@
                             <label class="mt-4" for="">Gender</label>
                             <select name="gender" value="{{ old('gender') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option  {{$data->gender == 'Male' ? 'selected' : ''}} value="Male">Male</option>
-                                <option  {{$data->gender == 'Female' ? 'selected' : ''}}value="Female">Female</option>
+                                <option  {{$data->gender == '1' ? 'selected' : ''}} value="1">Boy</option>
+                                <option  {{$data->gender == '2' ? 'selected' : ''}}value="2">Girl</option>
                             </select>
                             <span class="text-danger">
                                 @error('gender')
