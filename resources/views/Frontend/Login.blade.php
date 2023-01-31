@@ -97,7 +97,7 @@
                         <div class="row text-dark">
                             <div class="col-md-12 form-group">
                                 <label for="email">Email</label>
-                                <input type="text" style="background-color: white !important;" name="email" id="email" class="form-control ">
+                                <input type="text" style="background-color:  white !important;"  name="email" id="email" class="form-control ">
                             </div>
                         </div>
                         <div class="row mb-4 text-dark">
@@ -115,7 +115,7 @@
                         </div>
                         <div class="div">
                             <div class="row mt-3">
-                                <a href="{{ route('Fforgetpassword') }}" class="font-weight-semi-bold"
+                                <a href="{{ route('ForgetPEmail') }}" class="font-weight-semi-bold"
                                     style="color:rgb(0, 0, 0); margin-left:36%">Forget Password ?</a>
                             </div>
                         </div>
@@ -169,6 +169,13 @@
                 "progressBar": true
             }
             toastr.error("{{ session('Password') }}");
+        @endif
+        @if (Session::has('Forget-Password-Update'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('Forget-Password-Update') }}");
         @endif
 
         @if (Session::has('Email'))

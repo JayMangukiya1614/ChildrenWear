@@ -81,5 +81,31 @@ class UserSeeder extends Seeder
             ],
 
         ]);
+
+        DB::table('users')->insert([
+            [
+                'FirstName' => "Jay ",
+                'LastName' => " Mangukiya",
+                'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
+                'BirthDate' => "04-01-2003",
+                'PhoneNo' => "9737520270",
+                'Gender' => "Male",
+                'Email' => "jaymangukiya1614@gmail.com",
+                'Password' => Hash::make('123456'),
+            ],
+
+            [
+                'FirstName' => "Krupali ",
+                'LastName' => " Mathukiya",
+                'Address' => "123 yoginagar -2 Yogichowk road surat",
+                'BirthDate' => "30-09-2002",
+                'PhoneNo' => "7434039039",
+                'Gender' => "Female",
+                'Email' => "krupalimathukiya6@gmail.com",
+                'Password' => Hash::make('123456'),
+            ],
+                
+            
+        ]);
     }
 }

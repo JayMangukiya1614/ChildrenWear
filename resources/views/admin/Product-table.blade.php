@@ -19,22 +19,32 @@
                     <th scope="col">Id</th>
                     <th scope="col">Admin Id</th>
                     <th scope="col">Shopname</th>
-                    <th scope="col">Produvt Name</th>
+                    <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Discount</th>
                     <th scope="col">Selling </th>
                     <th scope="col">Action</th>
-                    @foreach ($data as $productimage )
-
-                    <th scope="col">ProductImage</th>
-                    @endforeach
-                    
-
-
+                    <th scope="col">Product Image</th>
                 </tr>
             </thead>
-            <tbody>
-                @if ($data != null)
+            @if ($data != null)
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Admin Id</th>
+                        <th scope="col">Shopname</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Discount</th>
+                        <th scope="col">Selling </th>
+                        <th scope="col">Action</th>
+                        @foreach ($data as $productimage)
+                            <th scope="col">ProductImage</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+
                     @foreach ($data as $key => $data)
                         <tr>
                             <td scope="row">{{ $key + 1 }}</td>
@@ -44,14 +54,14 @@
                             <td class="text-wrap"style="max-width:150px;">{{ $data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->Pselling }}</td>
-                            
+
                             <td class="float-right"><a href="{{ route('Admin-Product-Listing-show', $data->id) }}"
-                                class="btn btn-info">Show</a></td>
-                                @foreach ($data as $productimage )
+                                    class="btn btn-info">Show</a></td>
+                            @foreach ($data as $productimage)
                                 <td class="text-wrap"style="max-width:150px;"><img width="100px" height="100px"
-                                    src="{{ !empty($productimage->productimage) ? url('images/' . $productimage->productimage) : url('images/default.jpeg') }}">
+                                        src="{{ !empty($productimage->productimage) ? url('images/' . $productimage->productimage) : url('images/default.jpeg') }}">
                                 </td>
-                                @endforeach
+                            @endforeach
 
                         </tr>
                     @endforeach
@@ -66,7 +76,7 @@
                     <td></td>
                     <td></td>
 
-                @endif
+            @endif
             </tbody>
         </table>
     </div>

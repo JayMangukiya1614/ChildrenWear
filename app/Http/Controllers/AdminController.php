@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         //  dd($req->validated());
 
-       return $data =AdminReg::find($id);
+    //    return $data =AdminReg::find($id);
 
 
         $data = $req->validated();

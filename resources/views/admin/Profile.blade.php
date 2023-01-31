@@ -277,6 +277,7 @@
             }
             toastr.info("{{ session('Update') }}");
         @endif
+       
   </script>
 @endsection
 
