@@ -13,7 +13,7 @@
     }
 </style>
 
-@section('title', 'Product-Listing')
+@section('title', 'Dashboard - Analytics')
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
@@ -33,7 +33,7 @@
                 </h3>
             </div>
         </div>
-        <form action="{{ route('Admin-Product-Listing-Save') }}" method="POST" enctype="multipart/form-data"
+        <form action="{{ route('Admin-Product-Listing-Update',$data->id) }}" method="POST" enctype="multipart/form-data"
             style="border: none">
             @csrf
             <div class="row ">
@@ -44,7 +44,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="AD_ID">Admin Id</label>
-                            <input name="AD_ID" value="{{ old('AD_ID') }}" id="AD_ID"
+                            <input name="AD_ID" value="{{$data->AD_ID}}" readonly id="AD_ID"
                                 class="form-control shadow-lg bg-white" type="text">
                             <span class="text-danger">
                                 @error('AD_ID')
@@ -55,7 +55,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="shopname">Shop Name</label>
-                            <input name="shopname" value="{{ old('shopname') }}" id="shopname"type="text"
+                            <input name="shopname" value="{{$data->shopname }}" readonly id="shopname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('shopname')
@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="productname">Product Name</label>
-                            <input name="productname" value="{{ old('productname') }}" id="productname"type="text"
+                            <input name="productname" value="{{ $data->productname}}" id="productname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('productname')
@@ -80,8 +80,8 @@
                             <label class="mt-4" for="">Gender</label>
                             <select name="gender" value="{{ old('gender') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option  {{$data->gender == 'Male' ? 'selected' : ''}} value="Male">Male</option>
+                                <option  {{$data->gender == 'Female' ? 'selected' : ''}}value="Female">Female</option>
                             </select>
                             <span class="text-danger">
                                 @error('gender')
@@ -92,10 +92,8 @@
                         <div class="row">
 
                             <div class="col-md-6">
-                                <label class="mt-4" for="">Age</label><span class="text-info">Press Control To
-                                    Select Multiple Value</span>
-                                <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="7"
+                                <label class="mt-4" for="">Age</label> <span class="text-info">Press Control To Select Multiple Value</span>
+                                <select name="age[]" value="{{ old('age') }}"  multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option value="0-6(Months)">0-6(Months) </option>
                                     <option value="6-24(Months)">6-24(Months)</option>
@@ -111,15 +109,19 @@
                                     @enderror
                                 </span>
                             </div>
+                            @php
+                                $size = json_decode($data->size);
+
+                            @endphp
+
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Size</label>
-                                <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="6"
+                                <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="5"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="XS">XS</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
+                                    <option   value="XS">XS</option>
+                                    <option  value="S">S</option>
+                                    <option  value="M">M</option>
+                                    <option  value="L">L</option>
                                     <option value="XL">XL</option>
 
                                 </select>
@@ -135,8 +137,7 @@
 
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Category</label>
-                                <select name="category[]"  value="{{ old('category') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="9"
+                                <select name="category[]" value="{{ old('category') }}"  multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="9"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option value="Fashion Clothing"> Fashion Clothing </option>
                                     <option value="Night Wear">Night Wear</option>
@@ -157,8 +158,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Color</label>
-                                <select name="color[]" class="shadow-lg bg-white form-control" value="{{ old('color') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="5"
+                                <select name="color[]" value="{{ old('color') }}"  multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="5"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option value="Black">Black</option>
                                     <option value="White">White</option>
@@ -180,8 +180,8 @@
                             <label class="mt-4" for="">Stock</label>
                             <select name="stock" value="{{ old('stock') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="instock">InStock</option>
-                                <option value="outofstock">OutOfStock</option>
+                                <option  {{$data->stock == 'instock' ? 'selected' : ''}} value="instock">InStock</option>
+                                <option {{$data->stock == 'outofstock' ? 'selected' : ''}} value="outofstock">OutOfStock</option>
                             </select>
                             <span class="text-danger">
                                 @error('stock')
@@ -192,7 +192,7 @@
                         <div class="col-md-6">
                             <label class="mt-4" for="description">Short Description</label>
                             <input name="description" id="description" class="form-control shadow-lg bg-white rounded-3"
-                                type="text"{{ old('description') }} />
+                                type="text" value="{{ $data->description }}" />
                             <span class="text-danger">
                                 @error('description')
                                     {{ $message }}
@@ -206,8 +206,8 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="price">Product Price</label>
-                            <input name="price" value="{{ old('price') }}" id="price"
-                                class="form-control shadow-lg bg-white Price" type="number">
+                            <input name="price" value="{{ $data->price }}" id="price"
+                                class="form-control shadow-lg bg-white" type="text">
                             <span class="text-danger">
                                 @error('price')
                                     {{ $message }}
@@ -216,9 +216,8 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="discount">Discount</label>
-                            <input name="discount" value="{{ old('discount') }}" id="discount"type="number"
+                            <input name="discount" value="{{ $data->discount }}" id="discount"type="number"
                                 class="shadow-lg bg-white form-control">
-                            <span id="Discount" class="text-danger"></span>
                             <span class="text-danger">
                                 @error('discount')
                                     {{ $message }}
@@ -227,7 +226,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Pselling">Product Selling Price</label>
-                            <input name="Pselling" readonly value="{{ old('Pselling') }}" id="Pselling"type="number"
+                            <input name="Pselling" value="{{ $data->Pselling}}" id="Pselling"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('Pselling')
@@ -241,7 +240,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <label class="mt-5" for="Ldescription"> Long Description</label>
-                            <textarea name="Ldescription" id="Ldescription" class="form-control shadow-lg bg-white rounded-3" type="text">{{ old('Ldescription') }}</textarea>
+                            <textarea name="Ldescription" id="Ldescription" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->Ldescription }}</textarea>
                             <span class="text-danger">
                                 @error('Ldescription')
                                     {{ $message }}
@@ -253,8 +252,7 @@
                         <div class="col-md-12 mt-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" name="productimage[]" multiple="multiple">
-                                    <span class="text-info"> Press Control To Select Multiple Image</span>
+                                    <input type="file" name="productimage[]" multiple="multiple" value="{{$data->productimage}}">
                                 </div>
                             </div>
                             <span class="text-danger">
@@ -288,7 +286,6 @@
 @section('page-script')
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-    {{-- proce discount Pselling   --}}
 
     <script>
         // toastr.error('hello');
@@ -304,27 +301,9 @@
 
                 reader.readAsDataURL(file);
             }
+
+
         }
-        $(document).ready(function() {
-
-
-            // document.write(total);
-            $('#Pselling').on("click", function() {
-                var p = $('.Price').val();
-                var d = $('#discount').val();
-                var total = (p / d);
-
-                var a = (p - total)
-                $('#Pselling').val(a);
-
-                // $('#Discount').append(d + ' % Discount you are not apply..')
-                // $('#Pselling').click(function() {
-                //     $('#Discount').html('');
-                // });
-
-            });
-
-        });
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,
@@ -333,6 +312,7 @@
             toastr.error("{{ session('Id') }}");
         @endif
     </script>
+
 
 @endsection
 

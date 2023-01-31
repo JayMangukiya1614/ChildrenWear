@@ -10,11 +10,12 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 
-
 class FrontendController extends Controller
 {
   public function FrontIndex()
   {
+    // $data = Index::all();
+    // ,compact('data')
     return view('Frontend.index');
   }
 

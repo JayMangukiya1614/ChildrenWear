@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AdminRequest;
 use App\Http\Requests\AdminProfileRequest;
+use App\Http\Requests\ProductRequest;
 use App\Models\Adminreg;
 use App\Models\ProductListing;
 use Illuminate\Support\Facades\DB;
@@ -61,11 +62,27 @@ class AdminController extends Controller
         return view('admin.Profile', compact('data'));
     }
 
-    public function AdminProfileSave(AdminRequest $req , $id)
+    public function AdminProfileSave(AdminProfileRequest $req, $id)
     {
+
          dd($req->validated());
 
        return $data =AdminReg::find($id);
+
+
+        $data = $req->validated();
+        if ($req->profileimage != null) {
+            $imagename = time() . '.' . $data['profileimage']->extension();
+            $data['profileimage']->move(public_path('images'), $imagename);
+            $data['profileimage'] = $imagename;
+            Adminreg::whereId($id)->update($data);
+
+            return back()->with('Update', 'Profile Upated Successfully...');
+        }
+
+        Adminreg::whereId($id)->update($data);
+        return back()->with('Update', 'Profile Upated Successfully...');
+
     }
     public function AdminReg()
     {
@@ -110,17 +127,75 @@ class AdminController extends Controller
         return view('admin.listing');
     }
 
-    public function AdminPSave(Request $req)
+    public function AdminProductSave(ProductRequest $req)
     {
-      dd($req->all());
-         $data = $req->all();
-         $gender = $data['gender'];
-        return $data['gender'] = implode(',' , $gender);
-        $image = $req->productimage;
-        $imageName = time().'.'.$image->extension();
-        $image->move(public_path('images'),$imageName);
+        $data = $req->validated();
+        $id = Session()->get('Alogin');
+        $check = Adminreg::find($id);
+        if ($check->AD_ID == $req->AD_ID && $check->token = 1) {
 
+            $data['token']  = 1;
+            $data['age']  = json_encode($req->age);
+            $data['size']  = json_encode($req->size);
+            $data['category']  = json_encode($req->category);
+            $data['color']  = json_encode($req->color);
+            foreach ($req->productimage as $image) {
+                $imagename = time() . '.' . $image->extension();
+                $image->move(public_path('images'), $imagename);
+                $productimage[] = $imagename;
+            }
+            $data['productimage']  = json_encode($productimage);
+            ProductListing::create($data);
 
+            return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
+        } else {
+            return back()->with('Id', 'Please Enter A Valid Id');
+        }
+    }
 
+    public function AdminProductTable()
+    {
+        $id = Session()->get('Alogin');
+        $check = ProductListing::find($id);
+        if ($check == NULL) {
+            $data = 0;
+            return view('admin.Product-table', compact('data'));
+        }
+        $data = ProductListing::where([['AD_ID', '=', $check->AD_ID]])->get();
+        return view('admin.Product-table', compact('data'));
+    }
+
+    public function AdminProductListingShow($id)
+    {
+        $data = ProductListing::find($id);
+        return view('admin.listing-update', compact('data'));
+    }
+
+    public function AdminProductListingUpdate(ProductRequest  $req, $id)
+    {
+        $data = $req->validated();
+        if ($req->productimage == NULL) {
+            $data->age  = json_encode($req->age);
+            $data->size  = json_encode($req->size);
+            $data->category  = json_encode($req->category);
+            $data->color  = json_encode($req->color);
+            ProductListing::whereId($id)->update($data);
+
+            return  redirect(route('Admin-Product-table'))->with('Update', "  Updated Succesfully....!!");
+        }
+
+        $data->age  = json_encode($req->age);
+        $data->size  = json_encode($req->size);
+        $data->category  = json_encode($req->category);
+        $data->color  = json_encode($req->color);
+        foreach ($req->productimage as $image) {
+            $imagename = time() . '.' . $image->extension();
+            $image->move(public_path('images'), $imagename);
+            $productimage[] = $imagename;
+        }
+        $data['productimage'] = json_encode($productimage);
+        ProductListing::whereId($id)->update($data);
+
+        return  redirect(route('Admin-Product-table'))->with('Update', "  Updated Succesfully....!!");
     }
 }
