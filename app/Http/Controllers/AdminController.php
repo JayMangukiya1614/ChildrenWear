@@ -37,7 +37,7 @@ class AdminController extends Controller
                 if (Hash::check($request->password, $data->password)) {
 
                     $request->Session()->put('Alogin', $data->id);
-                    return redirect(route('dashboard'))->with('LoginSuccess', "Login Successfully......!");
+                    return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
                 } else {
                     return back()->with('Password', 'Password not matched');
                 }
@@ -64,7 +64,7 @@ class AdminController extends Controller
     public function AdminProfileSave(AdminRequest $req , $id)
     {
          dd($req->validated());
-       
+
        return $data =AdminReg::find($id);
     }
     public function AdminReg()
@@ -109,18 +109,18 @@ class AdminController extends Controller
     {
         return view('admin.listing');
     }
-     
+
     public function AdminPSave(Request $req)
     {
+      dd($req->all());
          $data = $req->all();
          $gender = $data['gender'];
         return $data['gender'] = implode(',' , $gender);
         $image = $req->productimage;
         $imageName = time().'.'.$image->extension();
         $image->move(public_path('images'),$imageName);
-        dd($req->all());
- 
-        
+
+
 
     }
 }
