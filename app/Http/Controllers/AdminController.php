@@ -62,6 +62,11 @@ class AdminController extends Controller
     public function AdminProfileSave(AdminProfileRequest $req, $id)
     {
 
+        //  dd($req->validated());
+
+       return $data =AdminReg::find($id);
+
+
         $data = $req->validated();
         if ($req->profileimage != null) {
             $imagename = time() . '.' . $data['profileimage']->extension();
@@ -74,6 +79,7 @@ class AdminController extends Controller
 
         Adminreg::whereId($id)->update($data);
         return back()->with('Update', 'Profile Upated Successfully...');
+
     }
     public function AdminReg()
     {

@@ -71,12 +71,12 @@ class MainAdminController extends Controller
 
             'AD_ID' =>$data->AD_ID
         ];
-   
+
         Mail::to($mail)->send(new RequestMail( $details));
 
 
         $data->save();
-       
+
         return redirect(route('main-admin-read'))->with('Accept',"Accepted Successfully.....!");
     }
     public function acceptedrequestshow()
@@ -101,9 +101,9 @@ class MainAdminController extends Controller
               'title' => 'Welcome To our Website',
               'body'  => 'this is for testing mail using mail'
          ];
-    
+
             Mail::to($mail)->send(new DRequestMail( $details));
-        //  return "Email sent "; 
+        //  return "Email sent ";
         $data->save();
 
         return redirect(route('main-admin-read'))->with('Delete',"Deleted Successfully.....!");
@@ -120,5 +120,5 @@ class MainAdminController extends Controller
         $data = Adminreg::find($id);
         return view('MainAdmin.deleterequestform',compact('data'));
     }
-   
+
 }

@@ -9,7 +9,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="ClientCss/img/favicon.ico" rel="icon">
+    <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -25,156 +25,50 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="ClientCss/css/style.css" rel="stylesheet">
 
+    {{-- toastr  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
 
+
 <body>
+
 
     <!-- Topbar Start -->
     <div class="container-fluid">
-        <div class="row bg-secondary py-2 px-xl-5">
+        <div class="row bg-secondary py-2 px-xl-5 pb-0" style="padding-bottom: 0px !important;">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
-                    <a class="text-dark" href="">FAQs</a>
+                    {{-- <a class="text-dark" href="">FAQs</a>
                     <span class="text-muted px-2">|</span>
                     <a class="text-dark" href="">Help</a>
                     <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a>
-                </div>
-            </div>
-            <div class="col-lg-6 text-center text-lg-right">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-dark px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-dark pl-2" href="">
-                        <i class="fab fa-youtube"></i>
+                    <a class="text-dark" href="">Support</a> --}}
+                    <a href="" class="text-decoration-none">
+                        <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 50px">
                     </a>
                 </div>
             </div>
-        </div>
-        <div class="row align-items-center py-3 px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\logoHeader.png" alt="" style="height : 90px">
-                </a>
-            </div>
-            <div class="col-lg-6 col-6 text-left">
-                <form action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="col-lg-3 col-6 text-right">
-                <a href="" class="btn border">
-                    <i class="fas fa-heart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
-                <a href="" class="btn border">
-                    <i class="fas fa-shopping-cart text-primary"></i>
-                    <span class="badge">0</span>
-                </a>
+
+            <div>
+                <div class="nav-item p-0 " style="margin-left: 400px;margin-top:9px">
+                    <p class="" style="">
+                         <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i class="fa-solid fa-users"
+                                style="font-size:12px;"></i>&nbsp LogIn</a>
+                        <a class="" style="color:black;margin-left:20px;text-decoration:none" href="{{ route('Freg') }}"><i
+                                class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp Registration</a>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
     <!-- Topbar End -->
-    <!-- Navbar Start -->
-    <div class="container-fluid">
-        <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-                    data-toggle="collapse" href="#navbar-vertical"
-                    style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Categories</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
-                </a>
-                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0 bg-light"
-                    id="navbar-vertical" style="width: calc(100% - 30px); z-index: 1;">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <div class="nav-item dropdown">
-                            <div>
-                                <a href="#boys" class="nav-link" data-toggle="dropdown">Boy Fashion <i
-                                        class="fa fa-angle-down float-right mt-1"></i></a>
-                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                                    id="boys">
-                                    <a href="" class="dropdown-item">Shirts</a>
-                                    <a href="" class="dropdown-item">T-shirts</a>
-                                    <a href="" class="dropdown-item">Jeans & Trousers</a>
-                                    <a href="" class="dropdown-item">Sleepwear</a>
-                                    <a href="" class="dropdown-item">Sweatshirts</a>
-                                    <a href="" class="dropdown-item">Jumpsuits</a>
-                                    <a href="" class="dropdown-item">Blazers</a>
-                                    <a href="" class="dropdown-item">Jackets</a>
-                                    <a href="" class="dropdown-item">Ethnic Wear</a>
-                                </div>
-                            </div>
-                            <div>
-                                <a href="#girls" class="nav-link" data-toggle="dropdown">Girl Fashion <i
-                                        class="fa fa-angle-down float-right mt-1"></i></a>
-                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                                    id="girls">
-                                    <a href="" class="dropdown-item">Sets & Suits</a>
-                                    <a href="" class="dropdown-item">Tops & T-shirts</a>
-                                    <a href="" class="dropdown-item">Jeans & Jeggings</a>
-                                    <a href="" class="dropdown-item">Sleepwear</a>
-                                    <a href="" class="dropdown-item">Sweatshirts</a>
-                                    <a href="" class="dropdown-item">Jumpsuits & Dungarees</a>
-                                    <a href="" class="dropdown-item">Ethnic Wear</a>
-                                    <a href="" class="dropdown-item">Shorts & Skirts</a>
-                                    <a href="" class="dropdown-item">Frocks & Dresses</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <div class="col-lg-9">
-                <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                    <a href="" class="text-decoration-none d-block d-lg-none">
-                    </a>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse"
-                        data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
-                            <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
-                            <a href="{{ route('Fshop') }}" class="nav-item nav-link ">Shop</a>
-                            <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                            <a href="{{ route('Fcart') }}" class="nav-item nav-link">Shopping Cart</a>
-                            <a href="{{ route('Fcheckout') }}" class="nav-item nav-link">Checkout</a>
-                            <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
-                        </div>
-                        <div class="navbar-nav ml-auto py-0">
-                            <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
-                            <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
-                        </div>
-                        <div><a href="{{ route('Fprofile') }}" style="font-size: 20px"><i class="fa-solid fa-user"></i></a></div>
 
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Navbar End -->
 
     <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5">
+    <div class="container-fluid bg-secondary mb-5 mt-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
             <h1 class="font-weight-semi-bold text-uppercase mb-3">Register Here</h1>
             <div class="d-inline-flex">
@@ -188,7 +82,7 @@
 
 
     <!-- Form start -->
-    <section class=" gradient-custom">
+    <section class=" gradient-custom mb-5">
         <div class="container h-100 ">
             <div class="row justify-content-center align-items-center h-100">
                 <div class="col-12 col-lg-9 col-xl-7">
@@ -196,13 +90,18 @@
                         <div class="card-body p-4 p-md-5" style="background-color: rgb(241, 241, 241)">
                             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
 
-                            <form action="{{ route('UserRegSave') }}" method="POST" >
-@csrf
+                            <form action="{{ route('UserRegSave') }}"method="POST">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
                                             <input type="text" name="firstname" id="firstName"
                                                 class="form-control form-control-lg" />
+                                                 <span class="text-danger">
+                                                @error('firstname')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label class="form-label" for="firstName">First Name</label>
                                         </div>
                                     </div>
@@ -210,6 +109,11 @@
                                         <div class="form-outline">
                                             <input type="text" name="lastname" id="lastName"
                                                 class="form-control form-control-lg" />
+                                                 <span class="text-danger">
+                                                @error('lastname')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label class="form-label" for="lastName">Last Name</label>
                                         </div>
                                     </div>
@@ -220,6 +124,11 @@
                                         <div class="form-outline">
                                             <input type="text" name="address" id="address"
                                                 class="form-control form-control-lg" />
+                                                 <span class="text-danger">
+                                                @error('address')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label class="form-label" for="address">Address</label>
                                         </div>
                                     </div>
@@ -227,6 +136,11 @@
                                         <div class="form-outline">
                                             <input type="date" name="birthdate" id="birthdate"
                                                 class="form-control form-control-lg" />
+                                                 <span class="text-danger">
+                                                @error('birthdate')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label class="form-label" for="birthdate">Birthdate</label>
                                         </div>
                                     </div>
@@ -237,6 +151,11 @@
                                         <div class="form-outline datepicker w-100">
                                             <input type="text" name="phoneno" class="form-control form-control-lg"
                                                 id="birthdayDate" />
+                                                 <span class="text-danger">
+                                                @error('phoneno')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label for="birthdayDate" class="form-label">Phone No</label>
                                         </div>
                                     </div>
@@ -271,19 +190,30 @@
                                             <input type="email" name="email" id="emailAddress"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="emailAddress">Email</label>
+                                            <span class="text-danger">
+                                                @error('email')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4 pb-2">
                                         <div class="form-outline">
                                             <input type="password" name="password" id="password"
                                                 class="form-control form-control-lg" />
+                                                 <span class="text-danger">
+                                                @error('password')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                             <label class="form-label" for="password">Password</label>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mt-4 pt-2">
-                                    <button class="btn btn-primary btn-lg" type="submit" value="Submit">Submit</button>
+                                    <button class="btn btn-primary btn-lg" type="submit"
+                                        value="Submit">Submit</button>
                                 </div>
 
                             </form>
@@ -296,98 +226,13 @@
     <!-- Form end -->
 
 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-secondary text-dark mt-5 pt-5">
-        <div class="row px-xl-5 pt-5">
-            <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
-                <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 90px">
-                    {{-- <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Baby</span>Hub</h1> --}}
-
-                </a>
-                <p>Dolore erat dolor sit lorem vero amet. Sed sit lorem magna, ipsum no sit erat lorem et magna ipsum
-                    dolore amet erat.</p>
-                <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
-                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
-            </div>
-            <div class="col-lg-8 col-md-12">
-                <div class="row">
-                    <div class="col-md-4 mb-5">
-                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i
-                                    class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our
-                                Shop</a>
-                            <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop
-                                Detail</a>
-                            <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping
-                                Cart</a>
-                            <a class="text-dark mb-2" href="checkout.html"><i
-                                    class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact
-                                Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="font-weight-bold text-dark mb-4">Quick Links</h5>
-                        <div class="d-flex flex-column justify-content-start">
-                            <a class="text-dark mb-2" href="index.html"><i
-                                    class="fa fa-angle-right mr-2"></i>Home</a>
-                            <a class="text-dark mb-2" href="shop.html"><i class="fa fa-angle-right mr-2"></i>Our
-                                Shop</a>
-                            <a class="text-dark mb-2" href="detail.html"><i class="fa fa-angle-right mr-2"></i>Shop
-                                Detail</a>
-                            <a class="text-dark mb-2" href="cart.html"><i class="fa fa-angle-right mr-2"></i>Shopping
-                                Cart</a>
-                            <a class="text-dark mb-2" href="checkout.html"><i
-                                    class="fa fa-angle-right mr-2"></i>Checkout</a>
-                            <a class="text-dark" href="contact.html"><i class="fa fa-angle-right mr-2"></i>Contact
-                                Us</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-5">
-                        <h5 class="font-weight-bold text-dark mb-4">Newsletter</h5>
-                        <form action="">
-                            <div class="form-group">
-                                <input type="text" class="form-control border-0 py-4" placeholder="Your Name"
-                                    required="required" />
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="form-control border-0 py-4" placeholder="Your Email"
-                                    required="required" />
-                            </div>
-                            <div>
-                                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Subscribe
-                                    Now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row border-top border-light mx-xl-5 py-4">
-            <div class="col-md-6 px-xl-0">
-                <p class="mb-md-0 text-center text-md-left text-dark">
-                    &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights
-                    Reserved. Designed
-                    by
-                    <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a>
-                </p>
-            </div>
-            <div class="col-md-6 px-xl-0 text-center text-md-right">
-                <img class="img-fluid" src="ClientCss/img/payments.png" alt="">
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
     <!-- JavaScript Libraries -->
+
+
+
+
+
+
     <script src="https://kit.fontawesome.com/88bf84b9d4.js" crossorigin="anonymous"></script>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -401,6 +246,23 @@
 
     <!-- Template Javascript -->
     <script src="ClientCss/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        @if (Session::has('Email'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Email') }}");
+        @endif
+    </script>
 
 </body>
 

@@ -114,7 +114,20 @@ Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
+
+// Change Password
+Route::get('Fpassword', [FrontendController::class, 'FPassword'])->name('Fpassword');
+Route::get('Fchangepassword', [FrontendController::class, 'FChangePassword'])->name('Fchangepassword');
+
+//Forget Password
+Route::get('Fforgetpassword', [FrontendController::class, 'FForgetPassword'])->name('Fforgetpassword');
+// Route::get('Fforgetpasswordsave', [FrontendController::class, 'FForgetPasswordSave'])->name('Fforgetpasswordsave');
+
+
+//Profile
 Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
+Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('Fprofileupdatesave');
+
 
 //registration
 Route::get('Freg', [FrontendController::class, 'FrontReg'])->name('Freg');
@@ -123,3 +136,4 @@ Route::post('UserRegSave', [FrontendController::class, 'RegDataSave'])->name('Us
 //login
 Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
 Route::post('checklogin', [FrontendController::class, 'CheckLogin'])->name('Checklogin');
+Route::get('Flogout', [FrontendController::class, 'FLogout'])->name('Flogout');

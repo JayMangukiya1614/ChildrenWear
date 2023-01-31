@@ -70,63 +70,56 @@
     <!-- Topbar End -->
 
 
-    <!-- Page Header Start -->
-    <div class="container-fluid bg-secondary mb-5 mt-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
-            <h1 class="font-weight-semi-bold text-uppercase mb-3">Login Here</h1>
-            <div class="d-inline-flex">
-                <p class="m-0"><a href="{{ route('Findex') }}">Home</a></p>
-                <p class="m-0 px-2">-</p>
-                <p class="m-0">Login</p>
-            </div>
-        </div>
-    </div>
-    <!-- Page Header End -->
+  <form action="">
+        <section class="mt-5" style="background-color: white">
+            <div class="container py-5 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-lg-6 mb-4 mb-lg-0">
+                        <div class="card mb-3" style="border-radius: .5rem;">
+                            <div class="row g-0">
+                                <div class="col-md-12">
+                                    <div class="card-body p-4" style="background-color: rgb(241, 241, 241 )">
+                                        <h4 class="text-center mt-3 mb-4">Forget Password</h4>
+                                        <hr class="mt-0 mb-4">
+
+                                        <div class="row">
+                                            <div class="col-md-12 form-outline datepicker w-100">
+                                        <label class="form-label mb-0" for="newpass">New Password</label>
+
+                                        <input type="password" style="border-radius: 5px"  name="newpass" id="newpass" class="form-control form-control-lg mb-3" />
+                                    </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12 form-outline datepicker w-100">
+                                        <label for="confirmpass" class="form-label mb-0">Confirm Password</label>
+                                        <input type="password"  style="border-radius: 5px" name="confirmpass" class="form-control form-control-lg mb-3" id="confirmpass" />
+                                    </div>
+                                        </div>
+
+                                        <hr class="mt-0 mb-4">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <button type="reset" href="" style="border-radius: 5px" class="btn  btn-outline-dark waves-effect  w-100"
+                                                    >Cancel</button>
+                                            </div>
+                                            <div class="col-md-6" >
+                                                <button type="submit" href="" class="btn waves-effect text-dark w-100"
+                                                    style="background-color: #D19C97;border-radius:5px">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
-    <!-- section start -->
-    <section class="site-section bg-light">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-5 box">
-                    <form action="{{ route('Checklogin') }}" method="POST" class="mb-5 border p-5"
-                        style="background-color: rgb(241, 241, 241);border-radius:5px">
-                        @csrf
-                        <h2 class="mb-3" style="text-align:center">Login</h2>
-
-                        <div class="row text-dark">
-                            <div class="col-md-12 form-group">
-                                <label for="email">Email</label>
-                                <input type="text" style="background-color: white !important;" name="email" id="email" class="form-control ">
+                                </div>
                             </div>
                         </div>
-                        <div class="row mb-4 text-dark">
-                            <div class="col-md-12 form-group">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control ">
-                            </div>
-                        </div>
-
-                        <div class="col-md-12 text-left">
-                            <button type="submit" value="submit" class="btn primary-btn"
-                                style="background-color: #c5837c; color:black">
-                                LogIn
-                            </button>
-                        </div>
-                        <div class="div">
-                            <div class="row mt-3">
-                                <a href="{{ route('Fforgetpassword') }}" class="font-weight-semi-bold"
-                                    style="color:rgb(0, 0, 0); margin-left:36%">Forget Password ?</a>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- END section -->
-
-    <!-- JavaScript Libraries -->
+        </section>
+    </form>
 
 
 
@@ -154,39 +147,7 @@
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-        @if (Session::has('Reg'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('Reg') }}");
-        @endif
 
-        @if (Session::has('Password'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('Password') }}");
-        @endif
-
-        @if (Session::has('Email'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('Email') }}");
-        @endif
-
-        @if (Session::has('Logout'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('Logout') }}");
-        @endif
-    </script>
 
 </body>
 
