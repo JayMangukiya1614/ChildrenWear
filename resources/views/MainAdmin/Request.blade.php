@@ -76,7 +76,7 @@
 
                         <label for="file-input">
                             <img id="previewImg" class="image rounded-circle"
-                            src="{{ !empty($data->profileimage) ? url( $data->profileimage) : url('images/default.jpeg') }}" selected />
+                            src="{{ !empty($data->profileimage) ? url('images/'. $data->profileimage) : url('images/default.jpeg') }}" selected />
                         </label>
 
                     </div>
@@ -222,9 +222,9 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" style="display: none">
                             <label class="mt-5" for="sAddress">Send Message</label>
-                            <textarea name="sendmessage"  id="sAddress" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
+                            <textarea name="sendmessage"   id="sAddress" class="form-control shadow-lg bg-white rounded-3" type="text"></textarea>
                            
                         </div>
                     </div>

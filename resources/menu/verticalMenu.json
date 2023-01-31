@@ -78,13 +78,13 @@
     },
     {
       "name": "Index Page",
-      "icon": "menu-icon tf-icons fa-solid fa-podcast",
+      "icon": "menu-icon tf-icons fa-solid fa-i",
       "slug": "layouts",
       "submenu": [
         {
           "url": "/Index-form",
           "name": "Index-Form",
-          "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
+          "icon": "menu-icon tf-icons fa-solid fa-f",
           "slug": "index-form"
         }
       ]

@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\UserReg;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use App\Models\Index;
 
 class FrontendController extends Controller
 {
   public function FrontIndex()
   {
-    // $data = Index::all();
-    // ,compact('data')
-    return view('Frontend.index');
+    $data = Index::all();
+    return view('Frontend.index',compact('data'));
   }
 
   public function FrontShopDetails()

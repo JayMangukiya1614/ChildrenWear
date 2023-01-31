@@ -80,8 +80,8 @@
                             <label class="mt-4" for="">Gender</label>
                             <select name="gender" value="{{ old('gender') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
+                                <option value="1">Boy</option>
+                                <option value="2">Girl</option>
                             </select>
                             <span class="text-danger">
                                 @error('gender')
@@ -92,7 +92,7 @@
                         <div class="row">
 
                             <div class="col-md-6">
-                                <label class="mt-4" for="">Age</label><span class="text-info">Press Control To
+                                <label class="mt-4" for="">Age</label>&nbsp; &nbsp;<span class="text-info">Press Control To
                                     Select Multiple Value</span>
                                 <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="7"

@@ -15,10 +15,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
-    {
-        return view('content.dashboard.dashboards-analytics');
-    }
+
     public function AdminLogin()
     {
         return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
@@ -129,16 +126,17 @@ class AdminController extends Controller
         if ($check->AD_ID == $req->AD_ID && $check->token = 1) {
 
             $data['token']  = 1;
-            $data['age']  = json_encode($req->age);
-            $data['size']  = json_encode($req->size);
-            $data['category']  = json_encode($req->category);
-            $data['color']  = json_encode($req->color);
+            $data['age']  = implode(',',$req->age);
+            $data['size']  = implode(',',$req->size);
+            $data['category']  = implode(',',$req->category);
+            $data['color']  = implode(',',$req->color);
+        // dd($req->producuctimage);
             foreach ($req->productimage as $image) {
                 $imagename = time() . '.' . $image->extension();
                 $image->move(public_path('images'), $imagename);
                 $productimage[] = $imagename;
             }
-            $data['productimage']  = json_encode($productimage);
+            $data['productimage']  = implode(',',$productimage);
             ProductListing::create($data);
 
             return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
