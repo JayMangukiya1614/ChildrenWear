@@ -65,7 +65,7 @@ class AdminController extends Controller
     public function AdminProfileSave(AdminProfileRequest $req, $id)
     {
 
-         dd($req->validated());
+        //  dd($req->validated());
 
        return $data =AdminReg::find($id);
 
