@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-  
+
 
 
     <!-- Favicon -->
@@ -27,10 +27,10 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="ClientCss/css/style.css" rel="stylesheet">
-  {{-- toastr  --}}
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
-  integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- toastr  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <style>
@@ -132,8 +132,7 @@
                                 <div class="dropdown-content">
                                     <a href="{{ route('Fprofile') }}" style="font-size: 15px"><i
                                             class="far fa-edit"></i>&nbsp Edit Profile</a>
-                                    <a href="#" style="font-size: 15px"><i
-                                            class="fa-solid fa-address-book"></i>&nbsp Address Book</a>
+
                                     <a href="{{ route('Fpassword') }}" style="font-size: 15px"><i
                                             class="fa-solid fa-key"></i>&nbsp Change Password</a>
                                 </div>
@@ -185,74 +184,47 @@
     <!-- Navbar Start -->
     <div class="container-fluid mb-5">
         <div class="row border-top px-xl-5">
-            <div class="col-lg-3 d-none d-lg-block">
-                <a class="btn shadow-none d-flex align-items-center justify-content-between bg-primary text-white w-100"
-                    data-toggle="collapse" href="#navbar-vertical"
-                    style="height: 65px; margin-top: -1px; padding: 0 30px;">
-                    <h6 class="m-0">Categories</h6>
-                    <i class="fa fa-angle-down text-dark"></i>
-                </a>
-                <nav class="collapse show navbar navbar-vertical navbar-light align-items-start p-0 border border-top-0 border-bottom-0"
-                    id="navbar-vertical">
-                    <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
-                        <div class="nav-item dropdown">
-                            <div>
-                                <a href="#boys" class="nav-link" data-toggle="dropdown">Boy Fashion <i
-                                        class="fa fa-angle-down float-right mt-1"></i></a>
-                                <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                                    id="boys">
-                                    <a href="" class="dropdown-item">Shirts</a>
-                                    <a href="" class="dropdown-item">T-shirts</a>
-                                    <a href="" class="dropdown-item">Jeans & Trousers</a>
-                                    <a href="" class="dropdown-item">Sleepwear</a>
-                                    <a href="" class="dropdown-item">Sweatshirts</a>
-                                    <a href="" class="dropdown-item">Jumpsuits</a>
-                                    <a href="" class="dropdown-item">Blazers</a>
-                                    <a href="" class="dropdown-item">Jackets</a>
-                                    <a href="" class="dropdown-item">Ethnic Wear</a>
-                                </div>
-                                {{-- </div> --}}
-                                <div>
-                                    <a href="#girls" class="nav-link" data-toggle="dropdown">Girl Fashion <i
-                                            class="fa fa-angle-down float-right mt-1"></i></a>
-                                    <div class="dropdown-menu position-absolute bg-secondary border-0 rounded-0 w-100 m-0"
-                                        id="girls">
-                                        <a href="" class="dropdown-item">Sets & Suits</a>
-                                        <a href="" class="dropdown-item">Tops & T-shirts</a>
-                                        <a href="" class="dropdown-item">Jeans & Jeggings</a>
-                                        <a href="" class="dropdown-item">Sleepwear</a>
-                                        <a href="" class="dropdown-item">Sweatshirts</a>
-                                        <a href="" class="dropdown-item">Jumpsuits & Dungarees</a>
-                                        <a href="" class="dropdown-item">Ethnic Wear</a>
-                                        <a href="" class="dropdown-item">Shorts & Skirts</a>
-                                        <a href="" class="dropdown-item">Frocks & Dresses</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                </nav>
-            </div>
-            <div class="col-lg-9">
+            <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
                     <button type="button" class="navbar-toggler" data-toggle="collapse"
                         data-target="#navbarCollapse">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0">
+                    <div class="collapse navbar-collapse justify-content-between" style="background-color: #EDF1FF"
+                        id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0" style="margin-left:30%">
                             <a href="{{ route('Findex') }}" class="nav-item nav-link active">Home</a>
                             <a href="{{ route('Fshop') }}" class="nav-item nav-link">Shop</a>
-                            <a href="{{ route('Fdetails') }}" class="nav-item nav-link">Shop Detail</a>
-                            <a href="{{ route('Fcart') }}" class="nav-item nav-link">Shopping Cart</a>
-                            <a href="{{ route('Fcheckout') }}" class="nav-item nav-link">Checkout</a>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
+                                    Boy Fashion
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Shirts</a>
+                                    <a class="dropdown-item" href="#">T-shirts</a>
+                                    <a class="dropdown-item" href="#">Jeans & Trousers</a>
+                                    <a class="dropdown-item" href="#">Sleepwear</a>
+                                    <a class="dropdown-item" href="#">Sweatshirts</a>
+                                    <a class="dropdown-item" href="#">Ethnic Wear</a>
+                                    <a class="dropdown-item" href="#">Blazers</a>
+                                </div>
+                            </div>
+                            <div class="dropdown">
+                                <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
+                                    Girl Fashion
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Sets & Suits</a>
+                                    <a class="dropdown-item" href="#">Tops & T-shirts</a>
+                                    <a class="dropdown-item" href="#">Jeans & Jeggings</a>
+                                    <a class="dropdown-item" href="#">Sleepwear</a>
+                                    <a class="dropdown-item" href="#">Sweatshirts</a>
+                                    <a class="dropdown-item" href="#">umpsuits & Dungarees</a>
+                                    <a class="dropdown-item" href="#">Ethnic Wear</a>
+                                </div>
+                            </div>
                             <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
                         </div>
-                        {{-- <div class="navbar-nav ml-auto py-0">
-                            <a href="{{ route('Flogin') }}" class="nav-item nav-link">Login</a>
-                            <a href="{{ route('Freg') }}" class="nav-item nav-link">Register</a>
-                        </div>
-                        <div><a href="{{ route('Fprofile') }}" style="font-size: 20px"><i class="fa-solid fa-user"></i></a></div> --}}
                     </div>
                 </nav>
                 <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -356,8 +328,7 @@
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" style="height: 325.66px; width:325.66px"
-                            src="ClientCss\img\cloths\bsweatshirts1.jpg" alt="">
+                        <img class="img-fluid" src="ClientCss\img\cloths\bsweatshirts1.jpg" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Sweatshirts</h5>
                 </div>
@@ -382,8 +353,7 @@
             <div class="col-lg-4 col-md-6 pb-1">
                 <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                     <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                        <img class="img-fluid" style="height: 325.66px; width:325.66px"
-                            src="ClientCss\img\cloths\gdungree1.jpg" alt="">
+                        <img class="img-fluid" src="ClientCss\img\cloths\gdungree1.jpg" alt="">
                     </a>
                     <h5 class="font-weight-semi-bold m-0">Jumpsuits & Dungarees</h5>
                 </div>
@@ -616,7 +586,7 @@
 
 
     <!-- Products Start -->
-    <div class="container-fluid pt-5">
+    {{-- <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
         </div>
@@ -782,7 +752,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Products End -->
 
 
@@ -879,7 +849,7 @@
                         </form>
                     </div>
 
-                    <div class="col-md-4 mb-4 mb-md-0">
+                    {{-- <div class="col-md-4 mb-4 mb-md-0">
                         <h3>Instagram</h3>
                         <div class="row gallery">
                             <div class="col-6">
@@ -891,7 +861,7 @@
                                 <a href="#"><img src="ClientCss\img\cloths\gsets1.jpg" alt="Image" class="img-fluid"></a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -914,9 +884,9 @@
 
 
     <!-- JavaScript Libraries -->
-  
 
-  
+
+
 
     <script src="https://kit.fontawesome.com/88bf84b9d4.js" crossorigin="anonymous"></script>
 
@@ -932,22 +902,22 @@
     <!-- Template Javascript -->
     <script src="ClientCss/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
-    integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
-    integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         // toastr.success('dsa');
         @if (Session::has('LoginSuccess'))
-              toastr.options = {
-                  "closeButton": true,
-                  "progressBar": true
-              }
-              toastr.success("{{ session('LoginSuccess') }}");
-          @endif
-  </script>
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('LoginSuccess') }}");
+        @endif
+    </script>
 
 </body>
 

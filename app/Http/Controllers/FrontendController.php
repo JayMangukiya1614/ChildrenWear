@@ -15,8 +15,10 @@ class FrontendController extends Controller
 {
   public function FrontIndex()
   {
-    $data = Index::all();
-    return view('Frontend.index', compact('data'));
+    // $data = Index::all();
+    // return view('Frontend.index', compact('data'));
+    return view('Frontend.index');
+
   }
 
   public function FrontShopDetails()
@@ -94,7 +96,7 @@ class FrontendController extends Controller
       'firstname' => 'required',
       'lastname' => 'required',
       'address' => 'required',
-      'phoneno' => 'required',
+      'phoneno' => 'required | regex:/^[0-9]{10}/|min:10|max:10'
 
 
     ]);
@@ -111,13 +113,13 @@ class FrontendController extends Controller
   public function RegDataSave(Request $req)
   {
     $req->validate([
-      'firstname' => 'required',
-      'lastname' => 'required',
+      'firstname' =>'required |regex:/(^[A-Za-z ]+$)+/',
+      'lastname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'address' => 'required',
       'birthdate' => 'required',
-      'phoneno' => 'required',
-      'email' => 'required',
-      'password' => 'required',
+      'phoneno' => 'required | regex:/^[0-9]{10}/|min:10|max:10',
+      'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
+      'password' => 'required | max:8 | min:4',
 
     ]);
 
@@ -151,6 +153,14 @@ class FrontendController extends Controller
 
   public function CheckLogin(Request $req)
   {
+    $req->validate([
+
+      'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
+      'password' => 'required | max:8 | min:4',
+
+    ]);
+
+
     $CheckLogin = DB::table('users')->where([['Email', '=', $req->email]])->get()->first();
 
     if ($CheckLogin) {
@@ -183,12 +193,22 @@ class FrontendController extends Controller
 
   public function FChangePassword(Request $req)
   {
+
+    // $req->validate([
+
+    //   'currentpassword' => 'required | max:8| min:4',
+    //   'newpassword' => 'required | max:8 | min:4',
+    //   'confirmpassword' => 'required | max:8 | min:4',
+
+    // ]);
+
     $id = Session()->get('ULogin');
     $data = User::find($id);
     if (Hash::Check($req->currentpass, $data->Password)) {
+      // dd($req->currentpass);
       if ($req->newpass == $req->confirmpass) {
         $data->Password = Hash::make($req->newpass);
-        $data->save();
+        $data->update();
         return redirect('Fprofile');
       } else {
         return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
@@ -211,7 +231,7 @@ class FrontendController extends Controller
 
   public function ForgetPEmailSend(Request $req)
   {
-    
+
     $data = User::where('Email', '=', $req->email)->first();
     if($data != null)
     {
@@ -231,7 +251,7 @@ class FrontendController extends Controller
 
     $id = Session()->get('F-Password');
      $data = User::find($id);
-      
+
       if ($req->newpass == $req->confirmpass) {
         $data->Password = Hash::make($req->newpass);
         $data->update();
@@ -239,6 +259,6 @@ class FrontendController extends Controller
       } else {
         return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
       }
-    
+
   }
 }

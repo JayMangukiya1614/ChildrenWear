@@ -95,25 +95,25 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="firstname" id="firstName"
-                                                class="form-control form-control-lg" />
-                                                 <span class="text-danger">
+                                           <span class="text-danger" style="font-size: 10px">
                                                 @error('firstname')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="text" name="firstname" id="firstName"
+                                                class="form-control form-control-lg" />
                                             <label class="form-label" for="firstName">First Name</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="lastname" id="lastName"
-                                                class="form-control form-control-lg" />
-                                                 <span class="text-danger">
+                                          <span class="text-danger" style="font-size: 10px">
                                                 @error('lastname')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="text" name="lastname" id="lastName"
+                                                class="form-control form-control-lg" />
                                             <label class="form-label" for="lastName">Last Name</label>
                                         </div>
                                     </div>
@@ -122,25 +122,25 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" name="address" id="address"
-                                                class="form-control form-control-lg" />
-                                                 <span class="text-danger">
+                                          <span class="text-danger" style="font-size: 10px">
                                                 @error('address')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="text" name="address" id="address"
+                                                class="form-control form-control-lg" />
                                             <label class="form-label" for="address">Address</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="date" name="birthdate" id="birthdate"
-                                                class="form-control form-control-lg" />
-                                                 <span class="text-danger">
+                                           <span class="text-danger" style="font-size: 10px">
                                                 @error('birthdate')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="date" name="birthdate" id="birthdate"
+                                                class="form-control form-control-lg" />
                                             <label class="form-label" for="birthdate">Birthdate</label>
                                         </div>
                                     </div>
@@ -149,13 +149,13 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4 d-flex align-items-center">
                                         <div class="form-outline datepicker w-100">
-                                            <input type="text" name="phoneno" class="form-control form-control-lg"
-                                                id="birthdayDate" />
-                                                 <span class="text-danger">
+                                           <span class="text-danger" style="font-size: 10px">
                                                 @error('phoneno')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="text" name="phoneno" class="form-control form-control-lg"
+                                                id="birthdayDate" />
                                             <label for="birthdayDate" class="form-label">Phone No</label>
                                         </div>
                                     </div>
@@ -187,25 +187,25 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-4 pb-2">
                                         <div class="form-outline">
-                                            <input type="email" name="email" id="emailAddress"
-                                                class="form-control form-control-lg" />
-                                            <label class="form-label" for="emailAddress">Email</label>
-                                            <span class="text-danger">
+                                          <span class="text-danger" style="font-size: 10px">
                                                 @error('email')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="email" name="email" id="emailAddress"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="emailAddress">Email</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4 pb-2">
                                         <div class="form-outline">
-                                            <input type="password" name="password" id="password"
-                                                class="form-control form-control-lg" />
-                                                 <span class="text-danger">
+                                          <span class="text-danger" style="font-size: 10px">
                                                 @error('password')
                                                     {{ $message }}
                                                 @enderror
                                             </span>
+                                            <input type="password" name="password" id="password"
+                                                class="form-control form-control-lg" />
                                             <label class="form-label" for="password">Password</label>
                                         </div>
                                     </div>

@@ -46,22 +46,23 @@
                     <a class="text-dark" href="">Help</a>
                     <span class="text-muted px-2">|</span>
                     <a class="text-dark" href="">Support</a> --}}
-                    <a href="" class="text-decoration-none">
+
                         <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 50px">
-                    </a>
+                    
                 </div>
             </div>
 
             <div>
                 <div class="nav-item p-0 " style="margin-left: 400px;margin-top:9px">
-                    <p class="" style="">
+                    <p >
                         {{-- <a class="" style="color:black" href="{{ route('Flogin') }}">LogIn  </a>
                         <a class="" style="color:black" href="{{ route('Freg') }}">Registration</a> --}}
 
-                        <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i class="fa-solid fa-users"
-                                style="font-size:12px;"></i>&nbsp LogIn</a>
-                        <a class="" style="color:black;margin-left:20px;text-decoration:none" href="{{ route('Freg') }}"><i
-                                class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp Registration</a>
+                        <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i
+                                class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp LogIn</a>
+                        <a class="" style="color:black;margin-left:20px;text-decoration:none"
+                            href="{{ route('Freg') }}"><i class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp
+                            Registration</a>
                     </p>
                 </div>
             </div>
@@ -97,12 +98,23 @@
                         <div class="row text-dark">
                             <div class="col-md-12 form-group">
                                 <label for="email">Email</label>
-                                <input type="text" style="background-color:  white !important;"  name="email" id="email" class="form-control ">
+                                <span class="text-danger" style="font-size: 12px;margin-left:2%">
+                                    @error('email')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                                <input type="text" style="background-color:  white !important;" name="email"
+                                    id="email" class="form-control ">
                             </div>
                         </div>
                         <div class="row mb-4 text-dark">
                             <div class="col-md-12 form-group">
                                 <label for="password">Password</label>
+                                 <span class="text-danger" style="font-size: 12px;margin-left:2%">
+                                    @error('password')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                                 <input type="password" name="password" id="password" class="form-control ">
                             </div>
                         </div>
