@@ -4,6 +4,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
 use App\Http\Controllers\dashboard\Analytics;
+use App\Http\Controllers\DropDownController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\layouts\Blank;
 use App\Http\Controllers\layouts\Container;
@@ -121,6 +122,17 @@ Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcont
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
+
+
+// Dropdown 
+
+Route::get('/Products/{id}', [DropDownController::class, 'Products'])->name('Products');
+Route::get('/Product-Detail/{id}', [DropDownController::class, 'Product_Detail'])->name('Product-Detail');
+Route::get('/Product-Cart/{id}', [DropDownController::class, 'Product_Cart'])->name('Product-Cart');
+
+Route::get('/Latest-Product/{id}', [DropDownController::class, 'Latest_Product'])->name('Latest-Product');
+
+
 
 
 Route::group(['middleware' => ['F-Password']], function () {

@@ -159,14 +159,14 @@
 
                                     <option {{ in_array('XS', json_decode($data['size'])) ? 'selected' : '' }}
                                         value="XS">XS</option>
-                                    <option {{ in_array('S', json_decode($data['size'])) ? 'selected' : '' }}value="S">S
-                                    </option>
+                                    <option {{ in_array('S', json_decode($data['size'])) ? 'selected' : '' }}
+                                        value="S">S </option>
                                     <option {{ in_array('M', json_decode($data['size'])) ? 'selected' : '' }}
                                         value="M">M</option>
-                                    <option {{ in_array('L', json_decode($data['size'])) ? 'selected' : '' }}value="L">L
-                                    </option>
-                                    <option {{ in_array('XL', json_decode($data['size'])) ? 'selected' : '' }}value="XL">
-                                        XL</option>
+                                    <option {{ in_array('L', json_decode($data['size'])) ? 'selected' : '' }}
+                                        value="L">L </option>
+                                    <option {{ in_array('XL', json_decode($data['size'])) ? 'selected' : '' }}
+                                        value="XL"> XL</option>
 
                                 </select>
                                 <span class="text-danger">
@@ -189,29 +189,29 @@
                                         {{ in_array('T-Shirts', json_decode($data['collection'])) ? 'selected' : '' }}value="T-Shirts">
                                         T-Shirts</option>
                                     <option
-                                        {{ in_array('Jeans And Trousers', json_decode($data['collection'])) ? 'selected' : '' }}value="Jeans And Trousers">
+                                        {{ in_array('Jeans And Trousers', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Jeans And Trousers">
                                         Jeans And Trousers</option>
                                     <option
-                                        {{ in_array('Sweatshirts', json_decode($data['collection'])) ? 'selected' : '' }}value="Sweatshirts">
-                                        Sweatshirts</option>
+                                        {{ in_array('Sweatshirts', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Sweatshirts"> Sweatshirts</option>
+                                    <option {{ in_array('Jackets', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Jackets"> Jackets</option>
                                     <option
-                                        {{ in_array('Jackets', json_decode($data['collection'])) ? 'selected' : '' }}value="Jackets">
-                                        Jackets</option>
+                                        {{ in_array('Sets And Suits', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Sets And Suits"> Sets And Suits</option>
                                     <option
-                                        {{ in_array('Sets And Suits', json_decode($data['collection'])) ? 'selected' : '' }}value="Sets And Suits">
-                                        Sets And Suits</option>
+                                        {{ in_array('Tops And T-Shirts', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Tops And T-Shirts"> Tops And T-Shirts</option>
                                     <option
-                                        {{ in_array('Tops And T-Shirts', json_decode($data['collection'])) ? 'selected' : '' }}value="Tops And T-Shirts">
-                                        Tops And T-Shirts</option>
+                                        {{ in_array('Jeans And Jeggings', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Jeans And Jeggings"> Jeans And Jeggings</option>
                                     <option
-                                        {{ in_array('Jeans And Jeggings', json_decode($data['collection'])) ? 'selected' : '' }}value="Jeans And Jeggings">
-                                        Jeans And Jeggings</option>
+                                        {{ in_array('Jumpsuit And Dungarees', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Jumpsuit And Dungarees"> Jumpsuit And Dungarees</option>
                                     <option
-                                        {{ in_array('Jumpsuit And Dungarees', json_decode($data['collection'])) ? 'selected' : '' }}value="Jumpsuit And Dungarees">
-                                        Jumpsuit And Dungarees</option>
-                                    <option
-                                        {{ in_array('Ethnic Wear', json_decode($data['collection'])) ? 'selected' : '' }}value="Ethnic Wear">
-                                        Ethnic Wear</option>
+                                        {{ in_array('Ethnic Wear', json_decode($data['collection'])) ? 'selected' : '' }}
+                                        value="Ethnic Wear"> Ethnic Wear</option>
 
                                 </select>
                                 <span class="text-danger">
@@ -231,11 +231,11 @@
                                         value="White">White</option>
                                     <option {{ in_array('Red', json_decode($data['color'])) ? 'selected' : '' }}
                                         value="Red">Red</option>
-                                    <option
-                                        {{ in_array('Blue', json_decode($data['color'])) ? 'selected' : '' }}value="Blue">
+                                    <option {{ in_array('Blue', json_decode($data['color'])) ? 'selected' : '' }}
+                                        value="Blue">
                                         Blue</option>
-                                    <option
-                                        {{ in_array('Green', json_decode($data['color'])) ? 'selected' : '' }}value="Green">
+                                    <option {{ in_array('Green', json_decode($data['color'])) ? 'selected' : '' }}
+                                        value="Green">
                                         Green</option>
                                 </select>
                                 <span class="text-danger">

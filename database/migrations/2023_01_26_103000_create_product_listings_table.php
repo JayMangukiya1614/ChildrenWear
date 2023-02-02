@@ -16,18 +16,18 @@ return new class extends Migration
         Schema::create('product_listings', function (Blueprint $table) {
             $table->id();
             $table->string('AD_ID')->nullable();
-            $table->string('token')->nullable();
+            $table->string('token')->nullable()->comment('1:confirmed;  2:rejected;');
             $table->string('shopname')->nullable();
             $table->string('category')->nullable();
             $table->string('productname')->nullable();
             $table->string('price')->nullable();
             $table->string('discount')->nullable();
             $table->string('selling')->nullable();
-            $table->string('age')->nullable();
+            $table->string('age')->nullable()->comment('1:0-6(Months); 2:T-6-24(Months); 3:2-4(Year): 4:4-6(Year); 5:6-8(Year); 6:8-10(Year): 7:10-12(Year);');;
             $table->string('size')->nullable();
-            $table->string('collection')->nullable();
+            $table->string('collection')->nullable()->comment('1:Shirts; 2:T-Shirts; 3:Jeans And Trousers: 4:Sweatshirts; 5:Jackets; 6:Ethnic Wear: 7:Sets And Suits; 8:Tops And T-Shirts; 9:Jeans And Jeggings: 10:Jumpsuit And Dungarees; 11:Jackets; 12:Ethnic Wear:');
             $table->string('color')->nullable();
-            $table->string('stock')->nullable();
+            $table->string('stock')->nullable()->comment('1:stock;  2:out of stock;');
             $table->string('description','500')->nullable();
             $table->string('Ldescription','1000')->nullable();
             $table->string('productimage')->nullable();

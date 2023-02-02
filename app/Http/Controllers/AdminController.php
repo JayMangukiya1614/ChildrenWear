@@ -134,11 +134,9 @@ class AdminController extends Controller
             $data['token']  = 1;
             $data['age']  = json_encode($req->age);
             $data['size']  = json_encode($req->size);
-            $data['collection']  = json_encode($req->collection);
             $data['color']  = json_encode($req->color);
             if( $des = str_word_count($data['description'])>500)
             {
-             
                 return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word' );
             }
             $imagename = time() . '.' . $data['productimage']->extension();
@@ -147,7 +145,6 @@ class AdminController extends Controller
             if(str_word_count($data['Ldescription'])>1000)
             {
                 return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word' );
-
             }
             ProductListing::create($data);
 

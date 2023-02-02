@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('adminregs', function (Blueprint $table) {
             $table->id();
             $table->string('AD_ID')->nullable();
-            $table->string('token')->nullable();
+            $table->string('token')->nullable()->comment('0: requested; 1confirmed: ; 2:rejected');
             $table->string('firstname')->nullable();
             $table->string('lastname')->nullable();
             $table->string('middlename')->nullable();

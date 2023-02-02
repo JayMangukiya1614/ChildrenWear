@@ -22,10 +22,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="ClientCss/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="{{asset('ClientCss/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="ClientCss/css/style.css" rel="stylesheet">
+    <link href="{{asset('ClientCss/css/style.css')}}" rel="stylesheet">
 
 
     {{-- toastr  --}}
@@ -98,15 +98,15 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="ClientCss/lib/easing/easing.min.js"></script>
-    <script src="ClientCss/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="{{asset('ClientCss/lib/easing/easing.min.js')}}"></script>
+    <script src="{{asset('ClientCss/lib/owlcarousel/owl.carousel.min.js')}}"></script>
 
     <!-- Contact Javascript File -->
-    <script src="ClientCss/mail/jqBootstrapValidation.min.js"></script>
-    <script src="ClientCss/mail/contact.js"></script>
+    <script src="{{asset('ClientCss/mail/jqBootstrapValidation.min.js')}}"></script>
+    <script src="{{asset('ClientCss/mail/contact.js')}}"></script>
 
     <!-- Template Javascript -->
-    <script src="ClientCss/js/main.js"></script>
+    <script src="{{asset('ClientCss/js/main.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="">Category</label>
-                            <select name="category" value="{{ old('productname') }}"
+                            <select name="category" value="{{ old('category') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
                                 <option value="1">Boy Fashion</option>
                                 <option value="2">Girl Fashion</option>
@@ -83,7 +83,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <label class="mt-5" for="productname">Product Name</label>
-                                <input name="productname" value="{{ old('category') }}" id="productname"type="text"
+                                <input name="productname" value="{{ old('productname') }}" id="productname"type="text"
                                     class="shadow-lg bg-white form-control">
                                 <span class="text-danger">
                                     @error('productname')
@@ -103,7 +103,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="discount">Discount</label>
-                                <input name="discount" value="{{ old('size') }}" id="discount"type="number"
+                                <input name="discount" value="{{ old('discount') }}" id="discount"type="number"
                                     class="shadow-lg bg-white form-control">
                                 <span class="text-danger">
                                     @error('discount')
@@ -118,7 +118,7 @@
 
                         <div class="col-md-6">
                             <label class="mt-4" for="">Age</label>
-                            <select name="age[]" value="{{ old('collection') }}" multiple multiselect-search="true"
+                            <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="7"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                 <option value="0-6(Months)">0-6(Months) </option>
@@ -137,7 +137,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="">Size</label>
-                            <select name="size[]" value="{{ old('color') }}" multiple multiselect-search="true"
+                            <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="6"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                 <option value="XS">XS</option>
@@ -159,19 +159,26 @@
 
                         <div class="col-md-6">
                             <label class="mt-4" for="">Collection</label>
-                            <select name="collection[]" value="{{ old('stock') }}" multiple multiselect-search="true"
-                                multiselect-select-all="true"multiselect-max-items="9"
-                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                <option value="Shirts"> Shirts </option>
-                                <option value="T-Shirts">T-Shirts</option>
-                                <option value="Jeans And Trousers">Jeans And Trousers</option>
-                                <option value="Sweatshirts">Sweatshirts</option>
-                                <option value="Jackets">Jackets</option>
-                                <option value="Sets And Suits">Sets And Suits</option>
-                                <option value="Tops And T-Shirts">Tops And T-Shirts</option>
-                                <option value="Jeans And Jeggings">Jeans And Jeggings</option>
-                                <option value="Jumpsuit And Dungarees">Jumpsuit And Dungarees</option>
-                                <option value="Ethnic Wear">Ethnic Wear</option>
+                            <select name="collection" value="{{ old('collection') }}"  multiselect-search="true"
+                                select-one="true"
+                                class="form-control shadow-lg bg-white rounded-3" id="">
+                                <option  class="text-center" selected value="" disabled>Boys Fashion</option>
+                                <option value="1"> Shirts </option>
+                                <option value="2">T-Shirts</option>
+                                <option value="3">Jeans And Trousers</option>
+                                <option value="4">Sweatshirts</option>
+                                <option value="5">Jackets</option>
+                                <option value="6">Ethnic Wear</option>
+
+                                <option  class="text-center" value="" disabled>Girls Fashion</option>
+
+                                <option value="7">Sets And Suits</option>
+                                <option value="8">Tops And T-Shirts</option>
+                                <option value="9">Jeans And Jeggings</option>
+                                <option value="10">Jumpsuit And Dungarees</option>
+                                <option value="11">Jackets</option>
+                                <option value="12">Ethnic Wear</option>
+
 
                  
 
@@ -207,8 +214,8 @@
                             <label class="mt-4" for="">Stock</label>
                             <select name="stock" value="{{ old('price') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option selected value="instock">InStock</option>
-                                <option value="outofstock">OutOfStock</option>
+                                <option selected value="1">InStock</option>
+                                <option value="2">OutOfStock</option>
                             </select>
                             <span class="text-danger">
                                 @error('stock')

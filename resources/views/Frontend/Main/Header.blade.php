@@ -110,19 +110,20 @@
                 <div class="collapse navbar-collapse justify-content-between mb-5"  style="background-color: #EDF1FF" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0" style="margin-left:22rem">
                         <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
-                        <a href="{{ route('Fshop') }}" class="nav-item nav-link ">Shop</a>
                         <div class="dropdown">
                             <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
                                 Boy Fashion
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Shirts</a>
-                                <a class="dropdown-item" href="#">T-shirts</a>
-                                <a class="dropdown-item" href="#">Jeans & Trousers</a>
-                                <a class="dropdown-item" href="#">Sleepwear</a>
-                                <a class="dropdown-item" href="#">Sweatshirts</a>
-                                <a class="dropdown-item" href="#">Ethnic Wear</a>
-                                <a class="dropdown-item" href="#">Blazers</a>
+                              <a class="dropdown-item" href="{{route('Products',$id=1)}}">Shirts</a>
+                            <a class="dropdown-item" href="{{route('Products',$id=2)}}">T-shirts</a>
+                            <a class="dropdown-item" href="{{route('Products',$id=3)}}">Jeans And Trouser</a>
+                            <a class="dropdown-item" href="{{route('Products',$id=4)}}">Sweatshirts</a>
+                            <a class="dropdown-item" href="{{route('Products',$id=5)}}">Jackets</a>
+                            <a class="dropdown-item" href="{{route('Products',$id=6)}}">Ethnic Wear</a>
+
+                            
+
                             </div>
                         </div>
                         <div class="dropdown">
@@ -130,13 +131,12 @@
                                 Girl Fashion
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Sets & Suits</a>
-                                <a class="dropdown-item" href="#">Tops & T-shirts</a>
-                                <a class="dropdown-item" href="#">Jeans & Jeggings</a>
-                                <a class="dropdown-item" href="#">Sleepwear</a>
-                                <a class="dropdown-item" href="#">Sweatshirts</a>
-                                <a class="dropdown-item" href="#">umpsuits & Dungarees</a>
-                                <a class="dropdown-item" href="#">Ethnic Wear</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=7)}}">Sets & Suits</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=8)}}">Tops & T-shirts</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=9)}}">Jeans & Jeggings</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=10)}}">Sweatshirts</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=11)}}">Jumpsuits & Dungarees</a>
+                                <a class="dropdown-item" href="{{route('Products',$id=12)}}">Ethnic Wear</a>
                             </div>
                         </div>
                         <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
