@@ -194,27 +194,29 @@ class FrontendController extends Controller
   public function FChangePassword(Request $req)
   {
 
-    // $req->validate([
+    $req->validate([
 
-    //   'currentpassword' => 'required | max:8| min:4',
-    //   'newpassword' => 'required | max:8 | min:4',
-    //   'confirmpassword' => 'required | max:8 | min:4',
+      'currentpass' => 'required | max:8 | min:4',
+      'newpass' => 'required | max:8 | min:4',
+      'confirmpass' => 'required | max:8 | min:4',
 
-    // ]);
+    ]);
 
     $id = Session()->get('ULogin');
     $data = User::find($id);
+
     if (Hash::Check($req->currentpass, $data->Password)) {
       // dd($req->currentpass);
       if ($req->newpass == $req->confirmpass) {
         $data->Password = Hash::make($req->newpass);
         $data->update();
-        return redirect('Fprofile');
+        return redirect(route('Fprofile'))->with('PasswordUpdate', 'Password Updated Successfully..');
       } else {
-        return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+        return back()->with('NewPswdNMatch', 'New and Confirm Password not matched!!');
       }
     } else {
-      return back()->with('CurrentPswdNMatch', 'Current Password not match');
+
+      return back()->with('CurrentPswdNMatch', 'Current Password not matched!!');
     }
   }
 

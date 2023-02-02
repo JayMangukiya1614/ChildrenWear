@@ -92,7 +92,16 @@
         </section>
     </form>
 
-
     {{-- end edit profile --}}
+
+    <script>
+       @if (Session::has('PasswordUpdate'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.success("{{ session('PasswordUpdate') }}");
+        @endif
+    </script>
 
 @endsection

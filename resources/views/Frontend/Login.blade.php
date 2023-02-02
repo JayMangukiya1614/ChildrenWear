@@ -41,17 +41,9 @@
         <div class="row bg-secondary py-2 px-xl-5 pb-0" style="padding-bottom: 0px !important;">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
-                    {{-- <a class="text-dark" href="">FAQs</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Help</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a> --}}
-
                         <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 50px">
-                    
                 </div>
             </div>
-
             <div>
                 <div class="nav-item p-0 " style="margin-left: 400px;margin-top:9px">
                     <p >

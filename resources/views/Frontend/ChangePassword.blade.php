@@ -17,7 +17,7 @@
                                             <div class="col-md-12 form-outline datepicker w-100">
                                                 <label class="form-label mb-0" for="currentpass">Current Password</label>
                                                 <span class="text-danger" style="font-size: 12px;margin-left:2%">
-                                                    @error('currentpassword')
+                                                    @error('currentpass')
                                                         {{ $message }}
                                                     @enderror
                                                 </span>
@@ -30,7 +30,7 @@
                                             <div class="col-md-12 form-outline datepicker w-100">
                                                 <label class="form-label mb-0" for="newpass">New Password</label>
                                                 <span class="text-danger" style="font-size: 12px;margin-left:2%">
-                                                    @error('newpassword')
+                                                    @error('newpass')
                                                         {{ $message }}
                                                     @enderror
                                                 </span>
@@ -43,7 +43,7 @@
                                             <div class="col-md-12 form-outline datepicker w-100">
                                                 <label for="confirmpass" class="form-label mb-0">Confirm Password</label>
                                                 <span class="text-danger" style="font-size: 12px;margin-left:2%">
-                                                    @error('confirmpassword')
+                                                    @error('confirmpass')
                                                         {{ $message }}
                                                     @enderror
                                                 </span>
@@ -66,8 +66,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
@@ -76,4 +74,23 @@
             </div>
         </section>
     </form>
+
+    <script>
+
+        @if (Session::has('NewPswdNMatch'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('NewPswdNMatch') }}");
+        @endif
+
+         @if (Session::has('CurrentPswdNMatch'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('CurrentPswdNMatch') }}");
+        @endif
+    </script>
 @endsection
