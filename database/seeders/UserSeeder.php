@@ -27,14 +27,14 @@ class UserSeeder extends Seeder
                 'Name' => "Krupali Mathukiya",
                 'Email' => "krupalimathukiya6@gmail.com",
                 'Password' => Hash::make('123456'),
-                
+
             ]
         ]);
         DB::table('adminregs')->insert([
             [
                 'AD_ID' => "BH0001",
                 'token' => "1",
-                'profileimage' =>'jay.jpg',
+                'profileimage' => 'jay.jpg',
                 'firstname' => "Mangukiya",
                 'middlename' => "Jay",
                 'lastname' => "Dhirubhai",
@@ -57,8 +57,8 @@ class UserSeeder extends Seeder
             ],
             [
                 'AD_ID' => "BH0002",
-                'token' => "0",
-                'profileimage' =>'krupali.jpg',
+                'token' => "1",
+                'profileimage' => 'krupali.jpg',
                 'firstname' => "Mathukiya",
                 'middlename' => "Krupali",
                 'lastname' => "Prafulbhai",
@@ -104,8 +104,52 @@ class UserSeeder extends Seeder
                 'Email' => "krupalimathukiya6@gmail.com",
                 'Password' => Hash::make('123456'),
             ],
-                
-            
+
+
+        ]);
+
+        DB::table('product_listings')->insert([
+            [
+                'AD_ID' => "BH0001 ",
+                'token' => "1",
+                'shopname' => " Jame's Creation",
+                'category' => "1",
+                'productname' => "Shirts",
+                'price' => "500",
+                'discount' => "20",
+                'selling' => "400",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS,S"]',
+                'collection' => '["Shirts"]',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "InStock",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "shirt.jpg",
+
+
+            ],
+
+            [
+                'AD_ID' => "BH0002 ",
+                'token' => "1",
+                'shopname' => " Krup's Creation",
+                'category' => "2",
+                'productname' => "Jeans",
+                'price' => "400",
+                'discount' => "20",
+                'selling' => "320",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS,S"]',
+                'collection' =>'["Jeans And Jeggings"]',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "InStock",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "jeans.jpg",
+            ],
+
+
         ]);
     }
 }

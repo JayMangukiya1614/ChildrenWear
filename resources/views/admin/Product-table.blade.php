@@ -14,54 +14,48 @@
     <div class="table-responsive">
 
         <table class="table table-striped">
+
+
             <thead>
                 <tr>
                     <th scope="col">Id</th>
+                    <th scope="col">ProductImage</th>
                     <th scope="col">Admin Id</th>
+                    <th scope="col">Category</th>
+
                     <th scope="col">Shopname</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
                     <th scope="col">Discount</th>
-                    <th scope="col">Selling </th>
+                    <th scope="col">Selling Price</th>
                     <th scope="col">Action</th>
-                    <th scope="col">Product Image</th>
+
                 </tr>
             </thead>
-            @if ($data != null)
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Admin Id</th>
-                        <th scope="col">Shopname</th>
-                        <th scope="col">Product Name</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Discount</th>
-                        <th scope="col">Selling </th>
-                        <th scope="col">Action</th>
-                        @foreach ($data as $productimage)
-                            <th scope="col">ProductImage</th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-
+            <tbody>
+                @if ($data != null)
                     @foreach ($data as $key => $data)
                         <tr>
                             <td scope="row">{{ $key + 1 }}</td>
+                            <td class="text-wrap"style="max-width:150px;"><img width="100px" height="100px"
+                                    src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
+
+                            </td>
                             <td>{{ $data->AD_ID }}</td>
+                            @if ($data->category == 1)
+                                <td>Boy Fashion</td>
+                            @else
+                                <td>Girl Fashion</td>
+                            @endif
+
                             <td class="text-wrap"style="max-width:150px;">{{ $data->shopname }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->productname }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}</td>
-                            <td class="text-wrap"style="max-width:150px;">{{ $data->Pselling }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ $data->selling }}</td>
 
                             <td class="float-right"><a href="{{ route('Admin-Product-Listing-show', $data->id) }}"
                                     class="btn btn-info">Show</a></td>
-                            @foreach ($data as $productimage)
-                                <td class="text-wrap"style="max-width:150px;"><img width="100px" height="100px"
-                                        src="{{ !empty($productimage->productimage) ? url('images/' . $productimage->productimage) : url('images/default.jpeg') }}">
-                                </td>
-                            @endforeach
 
                         </tr>
                     @endforeach
@@ -76,7 +70,7 @@
                     <td></td>
                     <td></td>
 
-            @endif
+                @endif
             </tbody>
         </table>
     </div>

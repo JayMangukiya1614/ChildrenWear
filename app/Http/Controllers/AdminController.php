@@ -64,7 +64,7 @@ class AdminController extends Controller
 
         //  dd($req->validated());
 
-    //    return $data =AdminReg::find($id);
+        //    return $data =AdminReg::find($id);
 
 
         $data = $req->validated();
@@ -79,7 +79,6 @@ class AdminController extends Controller
 
         Adminreg::whereId($id)->update($data);
         return back()->with('Update', 'Profile Upated Successfully...');
-
     }
     public function AdminReg()
     {
@@ -129,20 +128,27 @@ class AdminController extends Controller
         $data = $req->validated();
         $id = Session()->get('Alogin');
         $check = Adminreg::find($id);
-        if ($check->AD_ID == $req->AD_ID && $check->token = 1) {
-
+        if ($check->AD_ID == $req->AD_ID) {
+            $sell = ($data['price'] * $data['discount']) / 100;
+            $data['selling'] = $data['price'] - $sell;
             $data['token']  = 1;
-            $data['age']  = implode(',',$req->age);
-            $data['size']  = implode(',',$req->size);
-            $data['category']  = implode(',',$req->category);
-            $data['color']  = implode(',',$req->color);
-        // dd($req->producuctimage);
-            foreach ($req->productimage as $image) {
-                $imagename = time() . '.' . $image->extension();
-                $image->move(public_path('images'), $imagename);
-                $productimage[] = $imagename;
+            $data['age']  = json_encode($req->age);
+            $data['size']  = json_encode($req->size);
+            $data['collection']  = json_encode($req->collection);
+            $data['color']  = json_encode($req->color);
+            if( $des = str_word_count($data['description'])>500)
+            {
+             
+                return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word' );
             }
-            $data['productimage']  = implode(',',$productimage);
+            $imagename = time() . '.' . $data['productimage']->extension();
+            $data['productimage']->move(public_path('ProductImages'), $imagename);
+            $data['productimage'] = $imagename;
+            if(str_word_count($data['Ldescription'])>1000)
+            {
+                return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word' );
+
+            }
             ProductListing::create($data);
 
             return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
@@ -172,28 +178,37 @@ class AdminController extends Controller
     public function AdminProductListingUpdate(ProductRequest  $req, $id)
     {
         $data = $req->validated();
-        if ($req->productimage == NULL) {
-            $data->age  = json_encode($req->age);
-            $data->size  = json_encode($req->size);
-            $data->category  = json_encode($req->category);
-            $data->color  = json_encode($req->color);
+        $id = Session()->get('Alogin');
+        $check = Adminreg::find($id);
+        if ($check->AD_ID == $req->AD_ID) {
+            if($req->productimage == NUll){
+                return"ds";
+            //     $sell = ($data['price'] * $data['discount']) / 100;
+            // $data['selling'] = $data['price'] - $sell;
+            // $data['token']  = 1;
+            // $data['age']  = json_encode($req->age);
+            // $data['size']  = json_encode($req->size);
+            // $data['collection']  = json_encode($req->collection);
+            // $data['color']  = json_encode($req->color);
             ProductListing::whereId($id)->update($data);
 
-            return  redirect(route('Admin-Product-table'))->with('Update', "  Updated Succesfully....!!");
-        }
+            return  redirect(route('Admin-Product-table'))->with('Update', "  Product Updated Succesfully....!!");
+            }
+            $sell = ($data['price'] * $data['discount']) / 100;
+            $data['selling'] = $data['price'] - $sell;
+            $data['token']  = 1;
+            $data['age']  = json_encode($req->age);
+            $data['size']  = json_encode($req->size);
+            $data['collection']  = json_encode($req->collection);
+            $data['color']  = json_encode($req->color);
+            $imagename = time() . '.' . $data['productimage']->extension();
+            $data['productimage']->move(public_path('ProductImages'), $imagename);
+            $data['productimage'] = $imagename;
+            ProductListing::whereId($id)->update($data);
 
-        $data->age  = json_encode($req->age);
-        $data->size  = json_encode($req->size);
-        $data->category  = json_encode($req->category);
-        $data->color  = json_encode($req->color);
-        foreach ($req->productimage as $image) {
-            $imagename = time() . '.' . $image->extension();
-            $image->move(public_path('images'), $imagename);
-            $productimage[] = $imagename;
+            return  redirect(route('Admin-Product-table'))->with('Update', " Product Updated Succesfully....!!");
+        } else {
+            return back()->with('Id', 'Please Enter A Valid Id');
         }
-        $data['productimage'] = json_encode($productimage);
-        ProductListing::whereId($id)->update($data);
-
-        return  redirect(route('Admin-Product-table'))->with('Update', "  Updated Succesfully....!!");
     }
 }

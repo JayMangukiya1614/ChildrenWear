@@ -29,7 +29,7 @@
                 <td class="text-wrap"style="max-width:150px;">{{ $data->title }}</td>
                 <td class="text-wrap"style="max-width:150px;">{{ $data->subtitle }}</td>
                 <td><img width="100px" height="100px"
-                        src="{{ !empty($data->image) ? url('ClientCss/img/cloths/index/' . $data->image) : url('ClientCss/img/cloths/index/b6.jpg') }}">
+                        src="{{ !empty($data->image) ? url('Index/' . $data->image) : url('images/default.jpeg') }}">
                 </td>
                 <td><a class="btn btn-success" href="{{ route('Indexupdate', $data->id) }}">Update</a>
                     <a class="btn btn-danger" href="{{ route('Indexdelete', $data->id) }}">Delete</a>

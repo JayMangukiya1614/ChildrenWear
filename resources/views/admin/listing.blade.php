@@ -64,121 +64,148 @@
                             </span>
                         </div>
                         <div class="col-md-4">
-                            <label class="mt-5" for="productname">Product Name</label>
-                            <input name="productname" value="{{ old('productname') }}" id="productname"type="text"
-                                class="shadow-lg bg-white form-control">
+                            <label class="mt-5" for="">Category</label>
+                            <select name="category" value="{{ old('productname') }}"
+                                class="form-control shadow-lg bg-white rounded-3" id="">
+                                <option value="1">Boy Fashion</option>
+                                <option value="2">Girl Fashion</option>
+                            </select>
                             <span class="text-danger">
-                                @error('productname')
+                                @error('category')
                                     {{ $message }}
                                 @enderror
                             </span>
+                        </div>
+
+
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label class="mt-5" for="productname">Product Name</label>
+                                <input name="productname" value="{{ old('category') }}" id="productname"type="text"
+                                    class="shadow-lg bg-white form-control">
+                                <span class="text-danger">
+                                    @error('productname')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="mt-5" for="price">Product Price</label>
+                                <input name="price" value="{{ old('age') }}" id="price"
+                                    class="form-control shadow-lg bg-white Price" type="number">
+                                <span class="text-danger">
+                                    @error('price')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="mt-5" for="discount">Discount</label>
+                                <input name="discount" value="{{ old('size') }}" id="discount"type="number"
+                                    class="shadow-lg bg-white form-control">
+                                <span class="text-danger">
+                                    @error('discount')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <label class="mt-4" for="">Gender</label>
-                            <select name="gender" value="{{ old('gender') }}"
-                                class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option value="1">Boy</option>
-                                <option value="2">Girl</option>
+
+                        <div class="col-md-6">
+                            <label class="mt-4" for="">Age</label>
+                            <select name="age[]" value="{{ old('collection') }}" multiple multiselect-search="true"
+                                multiselect-select-all="true"multiselect-max-items="7"
+                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
+                                <option value="0-6(Months)">0-6(Months) </option>
+                                <option value="6-24(Months)">6-24(Months)</option>
+                                <option value="2-4(Year)">2-4(Year)</option>
+                                <option value="4-6(Year)">4-6(Year)</option>
+                                <option value="6-8(Year)">6-8(Year)</option>
+                                <option value="8-10(Year)">8-10(Year)</option>
+                                <option value="10-12(Year)">10-12(Year)</option>
                             </select>
                             <span class="text-danger">
-                                @error('gender')
+                                @error('age')
                                     {{ $message }}
                                 @enderror
                             </span>
                         </div>
-                        <div class="row">
+                        <div class="col-md-6">
+                            <label class="mt-4" for="">Size</label>
+                            <select name="size[]" value="{{ old('color') }}" multiple multiselect-search="true"
+                                multiselect-select-all="true"multiselect-max-items="6"
+                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
 
-                            <div class="col-md-6">
-                                <label class="mt-4" for="">Age</label>&nbsp; &nbsp;<span class="text-info">Press Control To
-                                    Select Multiple Value</span>
-                                <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="7"
-                                    class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="0-6(Months)">0-6(Months) </option>
-                                    <option value="6-24(Months)">6-24(Months)</option>
-                                    <option value="2-4(Year)">2-4(Year)</option>
-                                    <option value="4-6(Year)">4-6(Year)</option>
-                                    <option value="6-8(Year)">6-8(Year)</option>
-                                    <option value="8-10(Year)">8-10(Year)</option>
-                                    <option value="10-12(Year)">10-12(Year)</option>
-                                </select>
-                                <span class="text-danger">
-                                    @error('age')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mt-4" for="">Size</label>
-                                <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="6"
-                                    class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="XS">XS</option>
-                                    <option value="S">S</option>
-                                    <option value="M">M</option>
-                                    <option value="L">L</option>
-                                    <option value="XL">XL</option>
-
-                                </select>
-                                <span class="text-danger">
-                                    @error('size')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-
-                        </div>
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <label class="mt-4" for="">Category</label>
-                                <select name="category[]"  value="{{ old('category') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="9"
-                                    class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="Fashion Clothing"> Fashion Clothing </option>
-                                    <option value="Night Wear">Night Wear</option>
-                                    <option value="Readymadegarments">Readymadegarments</option>
-                                    <option value="Rompers">Rompers</option>
-                                    <option value="Tops">Tops</option>
-                                    <option value="Knitted Wear"> Knitted Wear</option>
-                                    <option value="Winter Clothing">Winter Clothing</option>
-                                    <option value="Summer Clothing"> Summer Clothing</option>
-                                    <option value="Organic Clothing">Organic Clothing</option>
-
-                                </select>
-                                <span class="text-danger">
-                                    @error('category')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="mt-4" for="">Color</label>
-                                <select name="color[]" class="shadow-lg bg-white form-control" value="{{ old('color') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="5"
-                                    class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="Black">Black</option>
-                                    <option value="White">White</option>
-                                    <option value="Red">Red</option>
-                                    <option value="Blue">Blue</option>
-                                    <option value="Green">Green</option>
-                                </select>
-                                <span class="text-danger">
-                                    @error('color')
-                                        {{ $message }}
-                                    @enderror
-                                </span>
-                            </div>
+                            </select>
+                            <span class="text-danger">
+                                @error('size')
+                                    {{ $message }}
+                                @enderror
+                            </span>
                         </div>
 
                     </div>
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <label class="mt-4" for="">Collection</label>
+                            <select name="collection[]" value="{{ old('stock') }}" multiple multiselect-search="true"
+                                multiselect-select-all="true"multiselect-max-items="9"
+                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
+                                <option value="Shirts"> Shirts </option>
+                                <option value="T-Shirts">T-Shirts</option>
+                                <option value="Jeans And Trousers">Jeans And Trousers</option>
+                                <option value="Sweatshirts">Sweatshirts</option>
+                                <option value="Jackets">Jackets</option>
+                                <option value="Sets And Suits">Sets And Suits</option>
+                                <option value="Tops And T-Shirts">Tops And T-Shirts</option>
+                                <option value="Jeans And Jeggings">Jeans And Jeggings</option>
+                                <option value="Jumpsuit And Dungarees">Jumpsuit And Dungarees</option>
+                                <option value="Ethnic Wear">Ethnic Wear</option>
+
+                 
+
+                            </select>
+                            <span class="text-danger">
+                                @error('collection')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="mt-4" for="">Color</label>
+                            <select name="color[]" class="shadow-lg bg-white form-control" value="{{ old('description') }}"
+                                multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="5"
+                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
+                                <option value="Black">Black</option>
+                                <option value="White">White</option>
+                                <option value="Red">Red</option>
+                                <option value="Blue">Blue</option>
+                                <option value="Green">Green</option>
+                            </select>
+                            <span class="text-danger">
+                                @error('color')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                    </div>
+
+
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="">Stock</label>
-                            <select name="stock" value="{{ old('stock') }}"
+                            <select name="stock" value="{{ old('price') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
                                 <option selected value="instock">InStock</option>
                                 <option value="outofstock">OutOfStock</option>
@@ -192,7 +219,7 @@
                         <div class="col-md-6">
                             <label class="mt-4" for="description">Short Description</label>
                             <input name="description" id="description" class="form-control shadow-lg bg-white rounded-3"
-                                type="text"{{ old('description') }} />
+                                type="text"{{ old('discount') }} />
                             <span class="text-danger">
                                 @error('description')
                                     {{ $message }}
@@ -201,42 +228,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
 
-
-                        <div class="col-md-4">
-                            <label class="mt-5" for="price">Product Price</label>
-                            <input name="price" value="{{ old('price') }}" id="price"
-                                class="form-control shadow-lg bg-white Price" type="number">
-                            <span class="text-danger">
-                                @error('price')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="discount">Discount</label>
-                            <input name="discount" value="{{ old('discount') }}" id="discount"type="number"
-                                class="shadow-lg bg-white form-control">
-                            <span id="Discount" class="text-danger"></span>
-                            <span class="text-danger">
-                                @error('discount')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="Pselling">Product Selling Price</label>
-                            <input name="Pselling" readonly value="{{ old('Pselling') }}" id="Pselling"type="number"
-                                class="shadow-lg bg-white form-control">
-                            <span class="text-danger">
-                                @error('Pselling')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-
-                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -253,8 +245,7 @@
                         <div class="col-md-12 mt-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" name="productimage[]" multiple="multiple">
-                                    <span class="text-info"> Press Control To Select Multiple Image</span>
+                                    <input type="file" name="productimage">
                                 </div>
                             </div>
                             <span class="text-danger">
@@ -309,28 +300,47 @@
 
 
             // document.write(total);
-            $('#Pselling').on("click", function() {
-                var p = $('.Price').val();
-                var d = $('#discount').val();
-                var total = (p / d);
+            // $('#discount').on("change", function() {
+            //     var p = $('.Price').val();
+            //     var d = $('#discount').val();
+            //     var total = (p * d);
 
-                var a = (p - total)
-                $('#Pselling').val(a);
+            //     var dis = (total/100);
+            //     var final = p-dis
 
-                // $('#Discount').append(d + ' % Discount you are not apply..')
-                // $('#Pselling').click(function() {
-                //     $('#Discount').html('');
-                // });
+            //     $('#Pselling').val(final);
+            // $('#Discount').append(d + ' % Discount you are not apply..')
+            // $('#Pselling').click(function() {
+            //     $('#Discount').html('');
+            // });
 
-            });
+            // });
 
         });
+
+        function discount() {
+            console.log('here');
+        }
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
             toastr.error("{{ session('Id') }}");
+        @endif
+        @if (Session::has('Description'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Description') }}");
+        @endif
+        @if (Session::has('LDescription'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('LDescription') }}");
         @endif
     </script>
 

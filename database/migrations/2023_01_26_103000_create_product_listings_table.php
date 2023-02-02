@@ -18,20 +18,19 @@ return new class extends Migration
             $table->string('AD_ID')->nullable();
             $table->string('token')->nullable();
             $table->string('shopname')->nullable();
-            $table->string('productname')->nullable();
-            $table->string('gender')->nullable();
-            $table->string('age')->nullable();
-            $table->string('size')->nullable();
             $table->string('category')->nullable();
-            $table->string('color')->nullable();
-            $table->string('stock')->nullable();
-            $table->string('description')->nullable();
+            $table->string('productname')->nullable();
             $table->string('price')->nullable();
             $table->string('discount')->nullable();
-            $table->string('Pselling')->nullable();
-            $table->string('Ldescription')->nullable();
+            $table->string('selling')->nullable();
+            $table->string('age')->nullable();
+            $table->string('size')->nullable();
+            $table->string('collection')->nullable();
+            $table->string('color')->nullable();
+            $table->string('stock')->nullable();
+            $table->string('description','500')->nullable();
+            $table->string('Ldescription','1000')->nullable();
             $table->string('productimage')->nullable();
-        
             $table->timestamps();
         });
     }
