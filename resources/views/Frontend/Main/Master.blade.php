@@ -27,7 +27,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="ClientCss/css/style.css" rel="stylesheet">
 
-    
+
     {{-- toastr  --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
         integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
@@ -39,7 +39,7 @@
             color: white;
             font-size: 16px;
             border: none;
-            
+
         }
 
         .dropdown {
@@ -82,9 +82,8 @@
 
     @include('Frontend.Main.Header')
 
-    @yield('FrontAdmin')
 
-    @include('Frontend.Main.Footer')
+
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
@@ -111,11 +110,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
         integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+ @yield('FrontAdmin')
+
+    @include('Frontend.Main.Footer')
 
 </body>
 

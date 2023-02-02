@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
@@ -39,64 +40,58 @@ Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 // Admin Site Routes
 
-Route::get('/',[AdminController::class,'AdminLogin'])->name('Admin-Login');
-Route::get('/Admin-Reg',[AdminController::class,'AdminReg'])->name('Admin-Reg');
-Route::post('/Admin-Reg-Save',[AdminController::class,'AdminRegSave'])->name('Admin-Reg-Save');
-Route::post('/Alogindata',[AdminController::class,'Alogindata'])->name('Alogindata');
+Route::get('/', [AdminController::class, 'AdminLogin'])->name('Admin-Login');
+Route::get('/Admin-Reg', [AdminController::class, 'AdminReg'])->name('Admin-Reg');
+Route::post('/Admin-Reg-Save', [AdminController::class, 'AdminRegSave'])->name('Admin-Reg-Save');
+Route::post('/Alogindata', [AdminController::class, 'Alogindata'])->name('Alogindata');
 
 
 
 // Admin
 Route::group(['middleware' => ['Alogin']], function () {
-Route::get('/Admin-Profile',[AdminController::class,'AdminProfile'])->name('Admin-Profile');
-Route::post('/Admin-Profile-Save/{id}',[AdminController::class,'AdminProfileSave'])->name('Admin-Profile-save');
-Route::get('/Admin-Product-Listing',[AdminController::class,'AdminProductListing'])->name('Admin-Product-Listing');
-Route::post('/Admin-Product-Listing-Save',[AdminController::class,'AdminProductSave'])->name('Admin-Product-Listing-Save');
-Route::get('/Admin-Product-table',[AdminController::class,'AdminProductTable'])->name('Admin-Product-table');
-Route::get('/Admin-Product-Listing-show/{id}',[AdminController::class,'AdminProductListingShow'])->name('Admin-Product-Listing-show');
-Route::post('/Admin-Product-Listing-Update/{id}',[AdminController::class,'AdminProductListingUpdate'])->name('Admin-Product-Listing-Update');
+  Route::get('/Admin-Profile', [AdminController::class, 'AdminProfile'])->name('Admin-Profile');
+  Route::post('/Admin-Profile-Save/{id}', [AdminController::class, 'AdminProfileSave'])->name('Admin-Profile-save');
+  Route::get('/Admin-Product-Listing', [AdminController::class, 'AdminProductListing'])->name('Admin-Product-Listing');
+  Route::post('/Admin-Product-Listing-Save', [AdminController::class, 'AdminProductSave'])->name('Admin-Product-Listing-Save');
+  Route::get('/Admin-Product-table', [AdminController::class, 'AdminProductTable'])->name('Admin-Product-table');
+  Route::get('/Admin-Product-Listing-show/{id}', [AdminController::class, 'AdminProductListingShow'])->name('Admin-Product-Listing-show');
+  Route::post('/Admin-Product-Listing-Update/{id}', [AdminController::class, 'AdminProductListingUpdate'])->name('Admin-Product-Listing-Update');
 
 
 
 
 
-Route::get('/Admin-Logout',[AdminController::class,'Adminlogout'])->name('Admin-logout');
-
+  Route::get('/Admin-Logout', [AdminController::class, 'Adminlogout'])->name('Admin-logout');
 });
 
 
 
-Route::get('/Mlogin',[MainAdminController::class,'Mlogin'])->name('Mlogin');
-Route::post('/Mlogindata',[MainAdminController::class,'Mlogindata'])->name('Mlogindata');
+Route::get('/Mlogin', [MainAdminController::class, 'Mlogin'])->name('Mlogin');
+Route::post('/Mlogindata', [MainAdminController::class, 'Mlogindata'])->name('Mlogindata');
 
 
 Route::group(['middleware' => ['Mlogin']], function () {
 
-    // Main Admin
-Route::get('/main-admin',[MainAdminController::class,'read'])->name('main-admin-read');
-Route::get('/MshowAdmin/{id}',[MainAdminController::class,'MshowAdmin'])->name('MshowAdmin');
-Route::post('/accept-request/{id}',[MainAdminController::class,'acceptrequest'])->name('accept-request');
-Route::get('/accepted-request-show',[MainAdminController::class,'acceptedrequestshow'])->name('accepted-request-show');
+  // Main Admin
+  Route::get('/main-admin', [MainAdminController::class, 'read'])->name('main-admin-read');
+  Route::get('/MshowAdmin/{id}', [MainAdminController::class, 'MshowAdmin'])->name('MshowAdmin');
+  Route::post('/accept-request/{id}', [MainAdminController::class, 'acceptrequest'])->name('accept-request');
+  Route::get('/accepted-request-show', [MainAdminController::class, 'acceptedrequestshow'])->name('accepted-request-show');
 
-Route::get('/cancel-request/{id}',[MainAdminController::class,'cancelrequest'])->name('cancel-request');
-Route::get('/delete-request-show',[MainAdminController::class,'deleterequestshow'])->name('delete-request-show');
-Route::get('/Madmin-logout',[MainAdminController::class,'Madminlogout'])->name('Madmin-logout');
-
-
-Route::get('/MshowAccepetform/{id}',[MainAdminController::class,'MshowAccepetform'])->name('MshowAccepetform');
-Route::get('/MshowDeleteform/{id}',[MainAdminController::class,'MshowDeleteform'])->name('MshowDeleteform');
-
-Route::get('/Index-form',[IndexController::class,'indexform'])->name('Index-form');
-Route::post('/Index/save', [IndexController::class, 'Indexsave'])->name('Indexsave');
-Route::get('/Index/table', [IndexController::class, 'Indextable'])->name('Indextable');
-Route::get('/Index/update/{id}', [IndexController::class, 'Indexupdate'])->name('Indexupdate');
-Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
-Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
+  Route::get('/cancel-request/{id}', [MainAdminController::class, 'cancelrequest'])->name('cancel-request');
+  Route::get('/delete-request-show', [MainAdminController::class, 'deleterequestshow'])->name('delete-request-show');
+  Route::get('/Madmin-logout', [MainAdminController::class, 'Madminlogout'])->name('Madmin-logout');
 
 
+  Route::get('/MshowAccepetform/{id}', [MainAdminController::class, 'MshowAccepetform'])->name('MshowAccepetform');
+  Route::get('/MshowDeleteform/{id}', [MainAdminController::class, 'MshowDeleteform'])->name('MshowDeleteform');
 
-
-
+  Route::get('/Index-form', [IndexController::class, 'indexform'])->name('Index-form');
+  Route::post('/Index/save', [IndexController::class, 'Indexsave'])->name('Indexsave');
+  Route::get('/Index/table', [IndexController::class, 'Indextable'])->name('Indextable');
+  Route::get('/Index/update/{id}', [IndexController::class, 'Indexupdate'])->name('Indexupdate');
+  Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
+  Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
 });
 
 
@@ -108,24 +103,32 @@ Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name(
 
 //ClientSide Routes
 
+Route::group(['middleware' => ['Userlogin']], function () {
+
+
+  //Profile
+  Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
+  Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('Fprofileupdatesave');
+
+
+
+
+});
+
 Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
-Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
+Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
 
-// Change Password
-Route::get('Fpassword', [FrontendController::class, 'FPassword'])->name('Fpassword');
-Route::get('Fchangepassword', [FrontendController::class, 'FChangePassword'])->name('Fchangepassword');
-
 
 Route::group(['middleware' => ['F-Password']], function () {
-//Forget Password
-Route::get('Forget-Password', [FrontendController::class, 'FForgetPassword'])->name('Fforgetpassword');
+  //Forget Password
+  Route::get('Forget-Password', [FrontendController::class, 'FForgetPassword'])->name('Fforgetpassword');
 });
 
-// foregt password send mail 
+// forget password send mail
 Route::get('ForgetPEmail', [FrontendController::class, 'ForgetPEmail'])->name('ForgetPEmail');
 Route::post('ForgetPEmailSend', [FrontendController::class, 'ForgetPEmailSend'])->name('ForgetPEmailSend');
 
@@ -133,9 +136,10 @@ Route::post('ForgetPEmailSend', [FrontendController::class, 'ForgetPEmailSend'])
 Route::get('Forget-Password-Save', [FrontendController::class, 'ForgetPasswordSave'])->name('Forget-Password-Save');
 
 
-//Profile
-Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
-Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('Fprofileupdatesave');
+
+// Change Password
+Route::get('Fpassword', [FrontendController::class, 'FPassword'])->name('Fpassword');
+Route::get('Fchangepassword', [FrontendController::class, 'FChangePassword'])->name('Fchangepassword');
 
 
 //registration
