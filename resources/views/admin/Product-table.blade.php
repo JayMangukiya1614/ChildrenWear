@@ -22,7 +22,6 @@
                     <th scope="col">ProductImage</th>
                     <th scope="col">Admin Id</th>
                     <th scope="col">Category</th>
-
                     <th scope="col">Shopname</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
@@ -54,8 +53,12 @@
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->selling }}</td>
 
-                            <td class="float-right"><a href="{{ route('Admin-Product-Listing-show', $data->id) }}"
-                                    class="btn btn-info">Show</a></td>
+                            <td class="text-wrap"style="max-width:200px;"><a
+                                    href="{{ route('Admin-Product-Listing-show', $data->id) }}"
+                                    class="btn btn-info"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="{{ route('Admin-Product-Listing-delete', $data->id) }}"
+                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            </td>
 
                         </tr>
                     @endforeach
@@ -74,6 +77,7 @@
             </tbody>
         </table>
     </div>
+    
 
 
 @section('page-script')

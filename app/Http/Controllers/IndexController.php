@@ -24,7 +24,7 @@ class IndexController extends Controller
         $subtitle = $request->subtitle;
         $image = $request->image;
         $imagename = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('Index/'), $imagename);
+        $image->move(public_path('ClientCss/img/cloths/index/'), $imagename);
         $data = new Index();
         $data->title = $title;
         $data->subtitle = $subtitle;
@@ -69,7 +69,7 @@ class IndexController extends Controller
         $subtitle = $request->subtitle;
             $image = $request->image;
             $imagename = time() . '.' . $image->extension();
-            $image->move(public_path('Index/'), $imagename);
+            $image->move(public_path('ClientCss/img/cloths/index/'), $imagename);
     
             $data->title = $title;
             $data->subtitle = $subtitle;

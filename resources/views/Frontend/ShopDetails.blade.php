@@ -1,5 +1,63 @@
 @extends('Frontend.Main.Master')
+<style>
+    .skin-4 .num-in {
+        float: left;
+        width: 80px;
+        padding: 8px 0;
+        border-top: 1px solid #000;
+        border-bottom: 1px solid #000;
+    }
 
+    .skin-4 .in-num {
+        width: 47px;
+        float: left;
+        height: 36px;
+        font-size: 30px;
+        text-align: center;
+        outline: none;
+    }
+
+    .skin-4 .all-span {
+        position: relative;
+        float: right;
+        width: 23px;
+        height: 36px;
+        border-left: 1px solid #000;
+    }
+
+    .skin-4 .all-span span {
+        float: left;
+        width: 100%;
+        height: 18px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .skin-4 .all-span span:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        margin-left: -5px;
+    }
+
+    .skin-4 span.minus:before {
+        top: 3px;
+        border-top: 5px solid #000;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
+
+    .skin-4 span.minus.dis:before {
+        opacity: 0.5;
+    }
+
+    .skin-4 span.plus:before {
+        bottom: 3px;
+        border-bottom: 5px solid #000;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+    }
+</style>
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -32,198 +90,140 @@
 
             <div class="col-lg-7 pb-5">
                 <h3 class="font-weight-semi-bold">
-                    {{ !empty($data->productname) ? $data->productname : 'Please Go To Back And  Select A Product' }}</h3>
+                    {{ $data->productname }}</h3>
 
 
-                <h3 class="font-weight-semi-bold mb-4">₹. {{ !empty($data->selling) ? $data->selling : '00' }}.00</h3>
-                <p class="mb-4"> {{ !empty($data->description) ? $data->description : 'Description is null' }}</p>
-                <div class="d-flex mb-3">
+                <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
+                        
+                </h4>
+                <p class="mb-4"> {{ $data->description }}</p>
+                <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
+                    @csrf
+                    <div class="d-flex mb-3">
+                        <p class="text-dark font-weight-medium mb-0 mr-3 d-inline-block ">Age:</p>
+                        @foreach (json_decode($data['age']) as $key => $age)
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" value="{{ $age }}"
+                                    id="age_{{ $key }}" name="age">
+                                <label class="custom-control-label" for="age_{{ $key }}">
+                                    {{ in_array($age, json_decode($data['age'])) ? $age : '' }}</label>
+                            </div>
+                        @endforeach
 
+                    </div>
+                    <div class="d-flex mb-4">
+                        <p class="text-dark font-weight-medium mb-0 mr-4">Colors:</p>
 
-
-
-
-
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Sizes:</p>
-                    <form>
-
-                            {{-- @foreach (json_decode($data['age']) as $age)
-                                
-
-                                <div class="custom-control custom-radio custom-control-inline">
-                                    <input type="radio" class="custom-control-input"  name="size">
-                                    <label class="custom-control-label" for="size-1">{{ !empty($age) ? $data->age : url('images/default.jpeg') }}</label>
-                                </div>
-                            @endforeach --}}
-                    </form>
-                </div>
-                <div class="d-flex mb-4">
-                    <p class="text-dark font-weight-medium mb-0 mr-3">Colors:</p>
-                    <form>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-1" name="color">
-                            <label class="custom-control-label" for="color-1">Black</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-2" name="color">
-                            <label class="custom-control-label" for="color-2">White</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-3" name="color">
-                            <label class="custom-control-label" for="color-3">Red</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-4" name="color">
-                            <label class="custom-control-label" for="color-4">Blue</label>
-                        </div>
-                        <div class="custom-control custom-radio custom-control-inline">
-                            <input type="radio" class="custom-control-input" id="color-5" name="color">
-                            <label class="custom-control-label" for="color-5">Green</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="d-flex align-items-center mb-4 pt-2">
-                    <div class="input-group quantity mr-3" style="width: 130px;">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-minus">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </div>
-                        <input type="text" class="form-control bg-secondary text-center" value="1">
-                        <div class="input-group-btn">
-                            <button class="btn btn-primary btn-plus">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </div>
+                        @foreach (json_decode($data['color']) as $key => $color)
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" value="{{ $color }}"
+                                    id="color_{{ $key }}" name="color">
+                                <label class="custom-control-label" for="color_{{ $key }}">
+                                    {{ in_array($color, json_decode($data['color'])) ? $color : '' }}</label>
+                            </div>
+                        @endforeach
                     </div>
 
+                    <div class="d-flex mb-4">
+                        <p class="text-dark font-weight-medium mb-0 mr-5">Size:</p>
 
-                    <button value="{{ !empty($data->id) ? $data->id : 'disabled' }}" class="btn btn-primary px-3"><i
-                            class="fa fa-shopping-cart mr-1"></i>Add To Cart</button>
+                        @foreach (json_decode($data['size']) as $key => $size)
+                            <div class="custom-control custom-radio custom-control-inline">
+                                <input type="radio" class="custom-control-input" value="{{ $size }}"
+                                    id="size_{{ $key }}" name="size">
+                                <label class="custom-control-label" for="size_{{ $key }}">
+                                    {{ in_array($size, json_decode($data['size'])) ? $size : '' }}</label>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="d-flex align-items-center mb-4 pt-2">
+                        <!-- skin 4 -->
+                        <div class="num-block skin-4">
+                            <div class="num-in">
+                                <input type="text" id="number" name="quantity" readonly class="in-num" value="1">
+                                <div class="all-span">
+                                    <span id="plus"class="plus"></span>
+                                    <span id="minus" class="minus dis"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / skin 4 -->
+                    </div>
+                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Add To Cart</button>
+                </form>
 
-                </div>
+
 
             </div>
+
         </div>
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                    {{-- <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a> --}}
+    </div>
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+                {{-- <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a> --}}
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab-pane-1">
+                    <h4 class="mb-3">Product Description</h4>
+                    <p>{{ $data->Ldescription }}</p>
                 </div>
-                <div class="tab-content">
-                    <div class="tab-pane fade show active" id="tab-pane-1">
-                        <h4 class="mb-3">Product Description</h4>
-                        <p>{{ $data->Ldescription }}</p>
-                    </div>
-                    <div class="tab-pane fade" id="tab-pane-2">
-                        <h4 class="mb-3">Additional Information</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
-                            invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
-                            consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
-                            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
-                            dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
-                            nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
-                            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
-                                </ul>
-                            </div>
+                <span style="display:none;" id="sell">{{ $data->selling }}</span>
+                {{-- <div class="tab-pane fade" id="tab-pane-2">
+                    <h4 class="mb-3">Additional Information</h4>
+                    <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                        invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                        consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                        Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                        dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                        nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                        tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0">
+                                    Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item px-0">
+                                    Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                </li>
+                                <li class="list-group-item px-0">
+                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    {{-- <div class="tab-pane fade" id="tab-pane-3">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
-                                <div class="media mb-4">
-                                    <img src="img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1"
-                                        style="width: 45px;">
-                                    <div class="media-body">
-                                        <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
-                                        <div class="text-primary mb-2">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star-half-alt"></i>
-                                            <i class="far fa-star"></i>
-                                        </div>
-                                        <p>Diam amet duo labore stet elitr ea clita ipsum, tempor labore accusam ipsum
-                                            et no at. Kasd diam tempor rebum magna dolores sed sed eirmod ipsum.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <h4 class="mb-4">Leave a review</h4>
-                                <small>Your email address will not be published. Required fields are marked *</small>
-                                <div class="d-flex my-3">
-                                    <p class="mb-0 mr-2">Your Rating * :</p>
-                                    <div class="text-primary">
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <form>
-                                    <div class="form-group">
-                                        <label for="message">Your Review *</label>
-                                        <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Your Name *</label>
-                                        <input type="text" class="form-control" id="name">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Your Email *</label>
-                                        <input type="email" class="form-control" id="email">
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <input type="submit" value="Leave Your Review" class="btn btn-primary px-3">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
+                </div> --}}
             </div>
         </div>
+    </div>
     </div>
     <!-- Shop Detail End -->
 
 
     <!-- Products Start -->
-    <div class="container-fluid py-5">
+    {{-- <div class="container-fluid py-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
         </div>
@@ -232,7 +232,8 @@
                 <div class="owl-carousel related-carousel">
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="img/product-1.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -250,7 +251,8 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="img/product-2.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -268,7 +270,8 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="img/product-3.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -286,7 +289,8 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="img/product-4.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -304,7 +308,8 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="img/product-5.jpg" alt="">
+                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
+                                alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -323,6 +328,72 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Products End -->
+    <script>
+        /////////////////// product +/-
+        $(document).ready(function() {
+            $('.num-in span').click(function() {
+                var $input = $(this).parents('.num-block').find('input.in-num');
+                if ($(this).hasClass('minus')) {
+                    var count = parseFloat($input.val()) - 1;
+                    count = count < 1 ? 1 : count;
+                    if (count < 2) {
+                        $(this).addClass('dis');
+                    } else {
+                        $(this).removeClass('dis');
+                    }
+                    $input.val(count);
+                } else {
+                    var count = parseFloat($input.val()) + 1
+                    $input.val(count);
+                    if (count > 1) {
+                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+                    }
+                }
+
+                $input.change();
+                return false;
+            });
+
+        });
+        // product +/-
+
+        $(document).ready(function() {
+            $('#plus').on('click', function() {
+                var sell = document.getElementById("sell").innerHTML;
+
+                var number = $('#number').val();
+
+                var price = sell * number;
+                parseFloat(price).toFixed(2);
+                $('#selling').text(price);
+                $('#selling').css('margin-right:8px');
+
+
+            })
+            $('#minus').on('click', function() {
+                var sell = document.getElementById("sell").innerHTML;
+
+                var number = $('#number').val();
+                if (number == 1) {
+                    var price = sell;
+                } else {
+                    var price = (sell * number) - sell;
+                }
+
+                $('#selling').text(price);
+                $('#selling').css("margin-right", "8px");
+
+            })
+        });
+
+        @if (Session::has('Product'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('Product') }}");
+        @endif
+    </script>
 @endsection

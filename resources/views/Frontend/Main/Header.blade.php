@@ -1,16 +1,7 @@
 <!-- Topbar Start -->
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5" style="padding-bottom: 0px !important;">
-        {{-- <div class="col-lg-6 d-none d-lg-block">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-dark" href="">FAQs</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Help</a>
-                    <span class="text-muted px-2">|</span>
-                    <a class="text-dark" href="">Support</a>
-                </div>
-            </div> --}}
-        <div class="col-lg-6 mt-1">
+        <div class="col-lg-6 ">
             <div class="d-inline-flex ">
                 <a class="text-dark px-2" href="">
                     <i class="fab fa-facebook-f"></i>
@@ -40,9 +31,6 @@
                             href="{{ route('Freg') }}"><i class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp
                             Registration</a>
                     @else
-                        {{-- <a class="dropbtn" style="color:black" href="{{ route('Fprofile') }}"> My Account <i
-                                class="fa-solid fa-chevron-down" style="font-size:12px;"></i></a> --}}
-
                         <div class="dropdown">
                             <a class="dropbtn" style="color:black;text-decoration:none" href=""><i
                                     class="fa-solid fa-user"></i>&nbsp My Account <i class="fa-solid fa-chevron-down"
@@ -67,7 +55,7 @@
     <div class="row align-items-center py-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-                <img src="ClientCss\img\logoHeader.png" alt="" style="height : 90px">
+                <img src="{{ asset('ClientCss\img\logoHeader.png') }}" alt="" style="height : 90px">
             </a>
         </div>
         <div class="col-lg-6 col-6 text-left">
@@ -87,9 +75,26 @@
                 <i class="fas fa-heart text-primary"></i>
                 <span class="badge">0</span>
             </a>
-            <a href="" class="btn border">
+            <a href="{{ route('Fcart') }}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
-                <span class="badge">0</span>
+                <span class="badge">
+                    {{-- @php
+                        $total = null;
+                        $key = 1;
+                    @endphp
+
+                    @if ($Cart != NULL)
+
+                        @foreach ($Cart as $Cart)
+                            <?php
+                            $total = $total + $key;
+                            ?>
+                        @endforeach
+                        {{ $total }}
+                    @else
+                        {{ $total = 0 }}
+                    @endif --}}
+                </span>
             </a>
         </div>
     </div>
@@ -107,7 +112,8 @@
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse justify-content-between mb-5"  style="background-color: #EDF1FF" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-between mb-5" style="background-color: #EDF1FF"
+                    id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0" style="margin-left:22rem">
                         <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
                         <div class="dropdown">
@@ -115,14 +121,15 @@
                                 Boy Fashion
                             </a>
                             <div class="dropdown-menu">
-                              <a class="dropdown-item" href="{{route('Products',$id=1)}}">Shirts</a>
-                            <a class="dropdown-item" href="{{route('Products',$id=2)}}">T-shirts</a>
-                            <a class="dropdown-item" href="{{route('Products',$id=3)}}">Jeans And Trouser</a>
-                            <a class="dropdown-item" href="{{route('Products',$id=4)}}">Sweatshirts</a>
-                            <a class="dropdown-item" href="{{route('Products',$id=5)}}">Jackets</a>
-                            <a class="dropdown-item" href="{{route('Products',$id=6)}}">Ethnic Wear</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 1) }}">Shirts</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 2) }}">T-shirts</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 3) }}">Jeans And
+                                    Trouser</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 4) }}">Sweatshirts</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 5) }}">Jackets</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 6) }}">Ethnic Wear</a>
 
-                            
+
 
                             </div>
                         </div>
@@ -131,15 +138,17 @@
                                 Girl Fashion
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{route('Products',$id=7)}}">Sets & Suits</a>
-                                <a class="dropdown-item" href="{{route('Products',$id=8)}}">Tops & T-shirts</a>
-                                <a class="dropdown-item" href="{{route('Products',$id=9)}}">Jeans & Jeggings</a>
-                                <a class="dropdown-item" href="{{route('Products',$id=10)}}">Sweatshirts</a>
-                                <a class="dropdown-item" href="{{route('Products',$id=11)}}">Jumpsuits & Dungarees</a>
-                                <a class="dropdown-item" href="{{route('Products',$id=12)}}">Ethnic Wear</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 7) }}">Sets & Suits</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 8) }}">Tops & T-shirts</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 9) }}">Jeans & Jeggings</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 10) }}">Sweatshirts</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 11) }}">Jumpsuits &
+                                    Dungarees</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 12) }}">Ethnic Wear</a>
                             </div>
                         </div>
                         <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
+
                     </div>
                 </div>
             </nav>

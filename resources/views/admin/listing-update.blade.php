@@ -91,7 +91,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="price">Product Price</label>
-                                <input name="price" value="{{ $data->price }}" id="price"
+                                <input name="price" min="1" value="{{ $data->price }}" id="price"
                                     class="form-control shadow-lg bg-white" type="text">
                                 <span class="text-danger">
                                     @error('price')
@@ -101,8 +101,8 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="discount">Discount</label>
-                                <input name="discount" value="{{ $data->discount }}" id="discount"type="number"
-                                    class="shadow-lg bg-white form-control">
+                                <input name="discount" min="1" max="100" value="{{ $data->discount }}"
+                                    id="discount"type="number" class="shadow-lg bg-white form-control">
                                 <span class="text-danger">
                                     @error('discount')
                                         {{ $message }}
@@ -145,20 +145,14 @@
                                     @enderror
                                 </span>
                             </div>
-                            @php
-                                $size = json_decode($data->size);
-                                
-                            @endphp
-
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Size</label>
                                 <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
-                                    multiselect-select-all="true"multiselect-max-items="5"
+                                    multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
-
-
-                                    <option {{ in_array('XS', json_decode($data['size'])) ? 'selected' : '' }}
-                                        value="XS">XS</option>
+                                    <option value="XS"
+                                        {{ in_array('XS', json_decode($data['size'])) ? 'selected' : '' }}>
+                                        XS </option>
                                     <option {{ in_array('S', json_decode($data['size'])) ? 'selected' : '' }}
                                         value="S">S </option>
                                     <option {{ in_array('M', json_decode($data['size'])) ? 'selected' : '' }}
@@ -180,38 +174,35 @@
 
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Collection</label>
-                                <select name="collection[]" value="{{ old('collection') }}" multiple
-                                    multiselect-search="true" multiselect-select-all="true"multiselect-max-items="9"
-                                    class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option {{ in_array('Shirts', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Shirts"> Shirts </option>
-                                    <option
-                                        {{ in_array('T-Shirts', json_decode($data['collection'])) ? 'selected' : '' }}value="T-Shirts">
+                                <select name="collection" value="{{ old('collection') }}"
+                                    class="form-control  shadow-lg bg-white rounded-3" id="">
+                                    <option class="text-center" selected value="" disabled>Boys Fashion</option>
+
+                                    <option {{ $data->collection == 1 ? 'selected' : '' }} value="1"> Shirts
+                                    </option>
+                                    <option {{ $data->collection == 2 ? 'selected' : '' }} value="2">
                                         T-Shirts</option>
-                                    <option
-                                        {{ in_array('Jeans And Trousers', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Jeans And Trousers">
+                                    <option {{ $data->collection == 3 ? 'selected' : '' }} value="3">
                                         Jeans And Trousers</option>
-                                    <option
-                                        {{ in_array('Sweatshirts', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Sweatshirts"> Sweatshirts</option>
-                                    <option {{ in_array('Jackets', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Jackets"> Jackets</option>
-                                    <option
-                                        {{ in_array('Sets And Suits', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Sets And Suits"> Sets And Suits</option>
-                                    <option
-                                        {{ in_array('Tops And T-Shirts', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Tops And T-Shirts"> Tops And T-Shirts</option>
-                                    <option
-                                        {{ in_array('Jeans And Jeggings', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Jeans And Jeggings"> Jeans And Jeggings</option>
-                                    <option
-                                        {{ in_array('Jumpsuit And Dungarees', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Jumpsuit And Dungarees"> Jumpsuit And Dungarees</option>
-                                    <option
-                                        {{ in_array('Ethnic Wear', json_decode($data['collection'])) ? 'selected' : '' }}
-                                        value="Ethnic Wear"> Ethnic Wear</option>
+                                    <option {{ $data->collection == 4 ? 'selected' : '' }} value="4"> Sweatshirts
+                                    </option>
+                                    <option {{ $data->collection == 5 ? 'selected' : '' }} value="5"> Jackets
+                                    </option>
+                                    <option {{ $data->collection == 6 ? 'selected' : '' }} value="6"> Ethnic Wear
+                                    </option>
+                                    <option class="text-center" value="" disabled>Girls Fashion</option>
+                                    <option {{ $data->collection == 7 ? 'selected' : '' }} value="7"> Sets And Suits
+                                    </option>
+                                    <option {{ $data->collection == 8 ? 'selected' : '' }} value="8"> Tops And
+                                        T-Shirts</option>
+                                    <option {{ $data->collection == 9 ? 'selected' : '' }} value="9"> Jeans And
+                                        Jeggings</option>
+                                    <option {{ $data->collection == 10 ? 'selected' : '' }} value="10"> Jumpsuit And
+                                        Dungarees</option>
+                                    <option {{ $data->collection == 11 ? 'selected' : '' }} value="11"> Jackets
+                                    </option>
+                                    <option {{ $data->collection == 12 ? 'selected' : '' }} value="12"> Ethnic Wear
+                                    </option>
 
                                 </select>
                                 <span class="text-danger">
@@ -329,28 +320,26 @@
 
 
     <script>
-        // toastr.error('hello');
-        function previewFile(input) {
-            var file = $("input[type=file]").get(0).files[0];
-
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function() {
-                    $("#previewImg").attr("src", reader.result);
-                }
-
-                reader.readAsDataURL(file);
-            }
-
-
-        }
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
             toastr.error("{{ session('Id') }}");
+        @endif
+        @if (Session::has('Description'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('Description') }}");
+        @endif
+        @if (Session::has('LDescription'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.error("{{ session('LDescription') }}");
         @endif
     </script>
 

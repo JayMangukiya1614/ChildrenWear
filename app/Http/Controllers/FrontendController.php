@@ -9,46 +9,79 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Models\Index;
+use App\Models\AddCart;
+use App\Models\ProductListing;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Mail;
 
 class FrontendController extends Controller
 {
   public function FrontIndex()
   {
-    // $data = Index::all();
-    // return view('Frontend.index', compact('data'));
-    return view('Frontend.index');
+    $session = Session()->get('ULogin');
+    $sessionid = User::find($session);
+    if ($sessionid != null) {
+      $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
 
+      return view('Frontend.index', compact('Cart'));
+    } else {
+      $Cart = 0;
+      return view('Frontend.index', compact(('Cart')));
+    }
   }
 
   public function FrontShopDetails()
   {
+
     return view('Frontend.ShopDetails');
   }
 
   public function FrontShop()
   {
+
     return view('Frontend.Shop');
   }
 
   public function FrontContact()
   {
+
     return view('Frontend.Contact');
   }
 
   public function FrontCart()
   {
-    return view('Frontend.ShoppingCart');
+    $session = Session()->get('ULogin');
+    $sessionid = User::find($session);
+    $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->get(); // using for product details form quantity color etc
+// dd($cartitem);
+    return view('Frontend.ShoppingCart', compact('cartitem'));  
+  }
+
+  public function DeleteProductCart($id)
+  {
+     $data = AddCart::where([['id','=',$id]])->first();
+     $data->delete();
+
+     return back()->with('DeleteItem','Item Cancel');
+
   }
 
   public function FrontCheckout()
   {
+
     return view('Frontend.Checkout');
   }
 
   public function FrontReg()
   {
-    return view('Frontend.Reg');
+    $session = Session()->get('ULogin');
+    if ($session == NUll) {
+      $Cart = 0;
+      return view('Frontend.Reg', compact('Cart'));
+    }
+    $sessionid = User::find($session);
+    $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
+    return view('Frontend.Reg', compact('Cart'));
   }
 
   // public function RegDataSave(Request $req)
@@ -85,9 +118,11 @@ class FrontendController extends Controller
 
   public function FrontProfile()
   {
+
     $id = Session()->get('ULogin');
-    $Profile['Edit'] = User::find($id);
-    return view('Frontend.Profile', $Profile);
+    $Edit = User::find($id);
+
+    return view('Frontend.Profile', compact('Edit'));
   }
 
   public function FProfileUpdateSave(Request $Req, $id)
@@ -107,13 +142,13 @@ class FrontendController extends Controller
     $data->PhoneNo =  $Req->phoneno;
 
     $data->save();
-    return redirect(route('Fprofile'));
+    return redirect(route('Fprofile'))->with('Profile', 'Profile Update Successfully...');
   }
 
   public function RegDataSave(Request $req)
   {
     $req->validate([
-      'firstname' =>'required |regex:/(^[A-Za-z ]+$)+/',
+      'firstname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'lastname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'address' => 'required',
       'birthdate' => 'required',
@@ -130,6 +165,18 @@ class FrontendController extends Controller
       return back()->with('Email', 'Email is Already Exist !!');
     } else {
       $data = new User();
+
+      $Ci_Id = "CI" . (rand(1000, 9999));
+      $CI = User::where('CI_ID', '=', $Ci_Id)->first();
+
+      if ($CI) {
+        do {
+          $Ci_Id = "BH" . (rand(1000, 9999));
+        } while ($Ci_Id == $CI);
+      }
+      $data['CI_ID'] = $Ci_Id;
+
+
 
       $data->FirstName = $req->firstname;
       $data->LastName = $req->lastname;
@@ -179,7 +226,7 @@ class FrontendController extends Controller
   {
     if (Session()->has('ULogin')) {
       Session()->pull('ULogin');
-      return redirect(route('Flogin'))->with('Logout', 'Logout Successfullhy.....');
+      return redirect(route('Findex'))->with('Logout', 'Logout Successfullhy.....');
     } else {
       return "Please log-in account";
     }
@@ -188,6 +235,7 @@ class FrontendController extends Controller
   //Change Password
   public function FPassword()
   {
+
     return view('Frontend.ChangePassword');
   }
 
@@ -204,6 +252,9 @@ class FrontendController extends Controller
 
     $id = Session()->get('ULogin');
     $data = User::find($id);
+    $session = Session()->get('ULogin');
+    $sessionid = User::find($session);
+    $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
 
     if (Hash::Check($req->currentpass, $data->Password)) {
       // dd($req->currentpass);
@@ -228,39 +279,35 @@ class FrontendController extends Controller
   public function ForgetPEmail()
   {
     return view('Frontend.Forget-Password.Forget-Email');
-
   }
 
   public function ForgetPEmailSend(Request $req)
   {
 
     $data = User::where('Email', '=', $req->email)->first();
-    if($data != null)
-    {
+    if ($data != null) {
       $mail = $data->Email;
       $details = [];
-    $req->Session()->put('F-Password', $data->id);
-    Mail::to($mail)->send(new ForgetMail( $details));
-    return back()->with('Check','Email Sent Successfully.. Please Check Your Email Box');
+      $req->Session()->put('F-Password', $data->id);
+      Mail::to($mail)->send(new ForgetMail($details));
+      return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
+    } else {
+      return back()->with('Not', 'This Email Id is Not Avvailable On Database');
     }
-    else{
-      return back()->with('Not','This Email Id is Not Avvailable On Database');
-    }
-
   }
 
-  public function ForgetPasswordSave(Request $req){
+  public function ForgetPasswordSave(Request $req)
+  {
 
     $id = Session()->get('F-Password');
-     $data = User::find($id);
+    $data = User::find($id);
 
-      if ($req->newpass == $req->confirmpass) {
-        $data->Password = Hash::make($req->newpass);
-        $data->update();
-        return redirect(route('Flogin'))->with('Forget-Password-Update','Password Update Successfully....');
-      } else {
-        return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
-      }
-
+    if ($req->newpass == $req->confirmpass) {
+      $data->Password = Hash::make($req->newpass);
+      $data->update();
+      return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
+    } else {
+      return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+    }
   }
 }
