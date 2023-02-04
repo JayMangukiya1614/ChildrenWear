@@ -3,7 +3,7 @@
         <div class="row px-xl-5 pt-5">
             <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
                 <a href="" class="text-decoration-none">
-                    <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 90px">
+                    <img src="{{asset('ClientCss/img/logoFooter.jpg')}}" alt="" style="height : 90px">
                     {{-- <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">Baby</span>Hub</h1> --}}
 
                 </a><br>

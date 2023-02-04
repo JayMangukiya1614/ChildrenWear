@@ -20,7 +20,8 @@ class Usermiddleware
   {
     if (!Session::has('ULogin')) {
 
-      return redirect('Flogin')->with('fail', 'You have to log in first');
+      return redirect(route('Flogin'))->with('fail', 'You Have To Login First');
+
     }
     return $next($request);
   }

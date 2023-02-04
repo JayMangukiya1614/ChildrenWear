@@ -25,7 +25,20 @@
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <label style="font-size: 15px;" class="mb-0">First Name</label>
+                                                <label style="font-size: 15px;" class="mb-0">Client Id</label>
+                                                <input type="text" style="border-radius: 5px" readonly name="CI_ID" value="{{ $Edit->CI_ID }}"
+                                                    class="form-control " id="exampleInputfname" placeholder="">
+                                                    <span class="text-danger">
+                                                        @error('CI_ID')
+                                                            {{$message}}
+                                                        @enderror
+                                                    </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <label style="font-size: 15px;" class="mb-0 mt-3">First Name</label>
                                                 <input type="text" style="border-radius: 5px" name="firstname" value="{{ $Edit->FirstName }}"
                                                     class="form-control " id="exampleInputfname" placeholder="">
                                                     <span class="text-danger">
@@ -101,6 +114,14 @@
                 "progressBar": true
             }
             toastr.success("{{ session('PasswordUpdate') }}");
+        @endif
+
+        @if (Session::has('Profile'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('Profile') }}");
         @endif
     </script>
 

@@ -56,6 +56,8 @@ Route::group(['middleware' => ['Alogin']], function () {
   Route::post('/Admin-Product-Listing-Save', [AdminController::class, 'AdminProductSave'])->name('Admin-Product-Listing-Save');
   Route::get('/Admin-Product-table', [AdminController::class, 'AdminProductTable'])->name('Admin-Product-table');
   Route::get('/Admin-Product-Listing-show/{id}', [AdminController::class, 'AdminProductListingShow'])->name('Admin-Product-Listing-show');
+  Route::get('/Admin-Product-Listing-delete/{id}', [AdminController::class, 'AdminProductListingdelete'])->name('Admin-Product-Listing-delete');
+
   Route::post('/Admin-Product-Listing-Update/{id}', [AdminController::class, 'AdminProductListingUpdate'])->name('Admin-Product-Listing-Update');
 
 
@@ -111,6 +113,12 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
   Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('Fprofileupdatesave');
 
+  Route::post('/Product-Cart/{id}', [DropDownController::class, 'Product_Cart'])->name('Product-Cart');
+
+  Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
+  Route::get('quantity', [DropDownController::class, 'quantity'])->name('quantity');
+
+  Route::get('/Delete-Product-Cart/{id}', [FrontendController::class, 'DeleteProductCart'])->name('Delete-Product-Cart');
 
 
 
@@ -120,7 +128,6 @@ Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
-Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
 
 
@@ -128,7 +135,6 @@ Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fch
 
 Route::get('/Products/{id}', [DropDownController::class, 'Products'])->name('Products');
 Route::get('/Product-Detail/{id}', [DropDownController::class, 'Product_Detail'])->name('Product-Detail');
-Route::get('/Product-Cart/{id}', [DropDownController::class, 'Product_Cart'])->name('Product-Cart');
 
 Route::get('/Latest-Product/{id}', [DropDownController::class, 'Latest_Product'])->name('Latest-Product');
 

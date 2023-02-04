@@ -37,7 +37,7 @@ class ProductRequest extends FormRequest
             'price' => 'required',
             'discount' => 'required',
             'Ldescription' => 'required',
-            'productimage' => 'required',
+            'productimage' => '',
         ];
     }
         public function messages()

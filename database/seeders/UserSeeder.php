@@ -30,6 +30,20 @@ class UserSeeder extends Seeder
 
             ]
         ]);
+        DB::table('indices')->insert([
+            [
+                'title' => "Welcome To Our Website",
+                'subtitle' => "Fashionable Dress",
+                'image' => 'b1.jpg',
+            ],
+
+            [
+                'title' => "Welcome To Our Website",
+                'subtitle' => "Reasonable Price",
+                'image' => 'b2.jpg',
+
+            ]
+        ]);
         DB::table('adminregs')->insert([
             [
                 'AD_ID' => "BH0001",
@@ -84,6 +98,7 @@ class UserSeeder extends Seeder
 
         DB::table('users')->insert([
             [
+                'CI_ID' => "CI0001",
                 'FirstName' => "Jay ",
                 'LastName' => " Mangukiya",
                 'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
@@ -95,6 +110,7 @@ class UserSeeder extends Seeder
             ],
 
             [
+                'CI_ID' => "CI0002",
                 'FirstName' => "Krupali ",
                 'LastName' => " Mathukiya",
                 'Address' => "123 yoginagar -2 Yogichowk road surat",
@@ -120,7 +136,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '1',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -136,12 +152,12 @@ class UserSeeder extends Seeder
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
-                'price' => "500",
-                'discount' => "20",
-                'selling' => "400",
+                'price' => "400",
+                'discount' => "10",
+                'selling' => "460",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' => '1',
+                'size' => '["XS","S"]',
+                'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
@@ -149,7 +165,7 @@ class UserSeeder extends Seeder
                 'productimage' => "shirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -159,7 +175,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '1',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -168,7 +184,7 @@ class UserSeeder extends Seeder
                 'productimage' => "shirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -178,7 +194,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '1',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -187,7 +203,7 @@ class UserSeeder extends Seeder
                 'productimage' => "shirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -197,7 +213,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '1',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -206,7 +222,7 @@ class UserSeeder extends Seeder
                 'productimage' => "shirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -216,7 +232,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '1',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -240,7 +256,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -260,7 +276,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -269,7 +285,7 @@ class UserSeeder extends Seeder
                 'productimage' => "tshirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -279,7 +295,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -288,7 +304,7 @@ class UserSeeder extends Seeder
                 'productimage' => "tshirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -298,7 +314,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -307,7 +323,7 @@ class UserSeeder extends Seeder
                 'productimage' => "tshirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -317,7 +333,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -326,7 +342,7 @@ class UserSeeder extends Seeder
                 'productimage' => "tshirt.jpg",
 
 
-            ],  [
+            ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
                 'shopname' => " Jame's Creation",
@@ -336,7 +352,7 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "400",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
+                'size' => '["XS","S"]',
                 'collection' => '2',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
@@ -346,8 +362,8 @@ class UserSeeder extends Seeder
 
 
             ],
-            
-            
+
+
 
             // jeans and jeggies
             [
@@ -360,8 +376,8 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "320",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
+                'size' => '["XS","S"]',
+                'collection' => '9',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
@@ -378,84 +394,83 @@ class UserSeeder extends Seeder
                 'discount' => "20",
                 'selling' => "320",
                 'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
-                'size' => '["XS,S"]',
-                'collection' =>'9',
+                'size' => '["XS","S"]',
+                'collection' => '9',
                 'color' => '["Black","Red","Green"]',
                 'stock' => "1",
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
             ],
-
-
+            [
+                'AD_ID' => "BH0002 ",
+                'token' => "1",
+                'shopname' => " Krup's Creation",
+                'category' => "2",
+                'productname' => "Jeans",
+                'price' => "400",
+                'discount' => "20",
+                'selling' => "320",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS,"S"]',
+                'collection' => '9',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "1",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "jeans.jpg",
+            ], [
+                'AD_ID' => "BH0002 ",
+                'token' => "1",
+                'shopname' => " Krup's Creation",
+                'category' => "2",
+                'productname' => "Jeans",
+                'price' => "400",
+                'discount' => "20",
+                'selling' => "320",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS","S"]',
+                'collection' => '9',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "1",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "jeans.jpg",
+            ], [
+                'AD_ID' => "BH0002 ",
+                'token' => "1",
+                'shopname' => " Krup's Creation",
+                'category' => "2",
+                'productname' => "Jeans",
+                'price' => "400",
+                'discount' => "20",
+                'selling' => "320",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS","S"]',
+                'collection' => '9',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "1",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "jeans.jpg",
+            ], [
+                'AD_ID' => "BH0002 ",
+                'token' => "1",
+                'shopname' => " Krup's Creation",
+                'category' => "2",
+                'productname' => "Jeans",
+                'price' => "400",
+                'discount' => "20",
+                'selling' => "320",
+                'age' => '["0-6(Months)","6-24(Months)","2-4(Years)"]',
+                'size' => '["XS","S"]',
+                'collection' => '9',
+                'color' => '["Black","Red","Green"]',
+                'stock' => "1",
+                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
+                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
+                'productimage' => "jeans.jpg",
+            ],
         ]);
     }
 }

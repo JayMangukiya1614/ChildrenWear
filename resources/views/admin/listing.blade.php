@@ -289,21 +289,7 @@
     {{-- proce discount Pselling   --}}
 
     <script>
-        // toastr.error('hello');
-        function previewFile(input) {
-            var file = $("input[type=file]").get(0).files[0];
 
-            if (file) {
-                var reader = new FileReader();
-
-                reader.onload = function() {
-                    $("#previewImg").attr("src", reader.result);
-                }
-
-                reader.readAsDataURL(file);
-            }
-        }
-        $(document).ready(function() {
 
 
             // document.write(total);
@@ -323,11 +309,6 @@
 
             // });
 
-        });
-
-        function discount() {
-            console.log('here');
-        }
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,
