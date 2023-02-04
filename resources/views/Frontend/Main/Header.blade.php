@@ -122,7 +122,7 @@
                             <a class="dropdown-item" href="{{route('Products',$id=5)}}">Jackets</a>
                             <a class="dropdown-item" href="{{route('Products',$id=6)}}">Ethnic Wear</a>
 
-                            
+
 
                             </div>
                         </div>

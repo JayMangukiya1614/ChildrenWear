@@ -123,7 +123,6 @@ class FrontendController extends Controller
 
     ]);
 
-
     $useremail = User::where([['Email', '=', $req->email]])->get()->first();
 
     if ($useremail) {
