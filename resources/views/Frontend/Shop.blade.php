@@ -178,8 +178,8 @@
                                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                                     <h6 class="text-truncate mb-3">{{ $data->productname }}</h6>
                                     <div class="d-flex justify-content-center">
-                                        <h6 class="text-muted ml-2"><del>₹{{ $data->price }}</del>&nbsp; &nbsp;</h6>
-                                        <h6>₹{{ $data->selling }}</h6>
+                                        <h6 class="text-muted ">₹<del class="ml-1">{{ $data->price }}</del>&nbsp; &nbsp;</h6>
+                                        <h6>₹ <span class="ml-1">{{ $data->selling }}</span></h6>
                                         <h6><span class="ml-3 text-success">{{ $data->discount }}% off</span></h6>
                                     </div>
                                     <p><b>Free Delievery</b></p>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CartRequest;
 use App\Models\AddCart;
 use Illuminate\Http\Request;
 use App\Models\ProductListing;
@@ -35,9 +36,10 @@ class DropDownController extends Controller
     //     return $data;
     //     return view('Frontend.Shop', compact('data'));
     // }
-    public function Product_Cart(Request $req, $id)
+    public function Product_Cart(CartRequest $req, $id)
     {
 
+        $Add_Cart = $req->validated();
         $sessionid = Session()->get('ULogin');
         $details = User::find($sessionid);
         $data = AddCart::where([['product_id', '=', $id]])->first();
@@ -45,14 +47,10 @@ class DropDownController extends Controller
         if ($data != null) {
             return back()->with('Product', 'You Have Already Selected Product In Add To Cart');
         } else {
-            $Add_Cart = new AddCart();
-            $Add_Cart->CI_ID = $details->CI_ID;
-            $Add_Cart->product_id = $id;
-            $Add_Cart->age = $req->age;
-            $Add_Cart->color = $req->color;
-            $Add_Cart->size = $req->size;
-            $Add_Cart->quantity = $req->quantity;
-            $Add_Cart->save();
+            $Add_Cart['CI_ID'] = $details->CI_ID;
+            $Add_Cart['product_id'] =$id;
+
+            AddCart::create($Add_Cart);
 
             return redirect(route('Fcart'));
         }

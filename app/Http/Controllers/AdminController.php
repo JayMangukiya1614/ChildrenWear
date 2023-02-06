@@ -129,8 +129,7 @@ class AdminController extends Controller
         $id = Session()->get('Alogin');
         $check = Adminreg::find($id);
         if ($check->AD_ID == $req->AD_ID) {
-            $sell = ($data['price'] * $data['discount']) / 100;
-            $data['selling'] = round($data['price'] - $sell, 2);
+            $data['selling'] = (int)$data['price'] - (((int)$data['price'] * (int)$data['discount']) / 100);
             $data['token']  = 1;
             $data['age']  = json_encode($req->age);
             $data['size']  = json_encode($req->size);
@@ -157,7 +156,7 @@ class AdminController extends Controller
         $id = Session()->get('Alogin');
         $check = Adminreg::find($id);
         $data = ProductListing::where([['AD_ID', '=', $check->AD_ID]])->get();
-        
+
         if ($data == NULL) {
             $data = 0;
             return view('admin.Product-table', compact('data'));
@@ -174,11 +173,10 @@ class AdminController extends Controller
     public function AdminProductListingdelete($id)
 
     {
-        $data = ProductListing::where('id',$id)->get();
+        $data = ProductListing::where('id', $id)->get();
         ProductListing::whereId($id)->delete($data);
 
         return redirect(route('Admin-Product-table'))->with('Success', "Product Deleted SuccessFull...");
-
     }
 
     public function AdminProductListingUpdate(ProductRequest  $req, $id)
@@ -188,8 +186,11 @@ class AdminController extends Controller
         $Sid = Session()->get('Alogin');
         $check = Adminreg::find($Sid);
         if ($check->AD_ID == $req->AD_ID) {
+            $price = $data['price'];
+            $data['price'] = number_format($price, 2);
             $sell = ($data['price'] * $data['discount']) / 100;
-            $data['selling'] = round($data['price'] - $sell, 2);
+            $selling = round($data['price'] - $sell, 2);
+            $data['selling'] = number_format($selling, 2);
             $data['token']  = 1;
             $data['age']  = json_encode($req->age);
             $data['size']  = json_encode($req->size);

@@ -116,27 +116,27 @@
                                 <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="0-6(Months)"
-                                        {{ in_array('0-6(Months)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="0-6(M)"
+                                        {{ in_array('0-6(M)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         0-6(Months) </option>
-                                    <option value="6-24(Months)"
-                                        {{ in_array('6-24(Months)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="6-24(M)"
+                                        {{ in_array('6-24(M)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         6-24(Months)</option>
-                                    <option value="2-4(Year)"
-                                        {{ in_array('2-4(Year)', json_decode($data['age'])) ? 'selected' : '' }}>2-4(Year)
+                                    <option value="2-4(Y)"
+                                        {{ in_array('2-4(Y)', json_decode($data['age'])) ? 'selected' : '' }}>2-4(Year)
                                     </option>
-                                    <option value="4-6(Year)"
-                                        {{ in_array('4-6(Year)', json_decode($data['age'])) ? 'selected' : '' }}>4-6(Year)
+                                    <option value="4-6(Y)"
+                                        {{ in_array('4-6(Y)', json_decode($data['age'])) ? 'selected' : '' }}>4-6(Year)
                                     </option>
-                                    <option value="6-8(Year)"
-                                        {{ in_array('6-8(Year)', json_decode($data['age'])) ? 'selected' : '' }}>6-8(Year)
+                                    <option value="6-8(Y)"
+                                        {{ in_array('6-8(Y)', json_decode($data['age'])) ? 'selected' : '' }}>6-8(Year)
                                     </option>
-                                    <option value="8-10(Year)"
-                                        {{ in_array('8-10(Year)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="8-10(Y)"
+                                        {{ in_array('8-10(Y)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         8-10(Year)
                                     </option>
-                                    <option value="10-12(Year)"
-                                        {{ in_array('10-12(Year)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="10-12(Y)"
+                                        {{ in_array('10-12(Y)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         10-12(Year)</option>
                                 </select>
                                 <span class="text-danger">

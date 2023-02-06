@@ -6,7 +6,6 @@
     body {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
-
     .image {
         width: 200px !important;
         height: 200px;
@@ -121,13 +120,13 @@
                             <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="7"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                <option value="0-6(Months)">0-6(Months) </option>
-                                <option value="6-24(Months)">6-24(Months)</option>
-                                <option value="2-4(Year)">2-4(Year)</option>
-                                <option value="4-6(Year)">4-6(Year)</option>
-                                <option value="6-8(Year)">6-8(Year)</option>
-                                <option value="8-10(Year)">8-10(Year)</option>
-                                <option value="10-12(Year)">10-12(Year)</option>
+                                <option value="0-6(M)">0-6(Months) </option>
+                                <option value="6-24(M)">6-24(Months)</option>
+                                <option value="2-4(Y)">2-4(Year)</option>
+                                <option value="4-6(Y)">4-6(Year)</option>
+                                <option value="6-8(Y)">6-8(Year)</option>
+                                <option value="8-10(Y)">8-10(Year)</option>
+                                <option value="10-12(Y)">10-12(Year)</option>
                             </select>
                             <span class="text-danger">
                                 @error('age')
@@ -163,7 +162,7 @@
                                 select-one="true"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
                                 <option  class="text-center" selected value="" disabled>Boys Fashion</option>
-                                <option value="1"> Shirts </option>
+                                <option selected value="1"> Shirts </option>
                                 <option value="2">T-Shirts</option>
                                 <option value="3">Jeans And Trousers</option>
                                 <option value="4">Sweatshirts</option>
@@ -289,26 +288,19 @@
     {{-- proce discount Pselling   --}}
 
     <script>
-
-
-
             // document.write(total);
             // $('#discount').on("change", function() {
             //     var p = $('.Price').val();
             //     var d = $('#discount').val();
             //     var total = (p * d);
-
             //     var dis = (total/100);
             //     var final = p-dis
-
             //     $('#Pselling').val(final);
             // $('#Discount').append(d + ' % Discount you are not apply..')
             // $('#Pselling').click(function() {
             //     $('#Discount').html('');
             // });
-
             // });
-
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,

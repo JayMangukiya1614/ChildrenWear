@@ -36,13 +36,7 @@ class AdminProfileRequest extends FormRequest
             'state' => 'required',
             'city' => 'required',
             'address' => 'required',
-            // 'email' => 'required',
-            // 'bankname' => 'required',
-            // 'branchname' => 'required',
-            // 'ifsccode' => 'required',
-            // 'password' => 'required',
-            // 'message' => '',
-            // 'gstno' => 'required',
+
             'profileimage' => ''
         ];
     }
@@ -60,14 +54,7 @@ class AdminProfileRequest extends FormRequest
             'state.required' => 'state Filled Is Required',
             'city.required' => 'City Filled Is Required',
             'mobilenumber.required' => 'Mobilenumber Filled Is Required',
-            // 'gstno.required' => 'Gstno Filled Is Required',
-            // 'bankname.required' => 'Bankname Filled Is Required',
-            // 'branchname.required' => 'Branchname Filled Is Required',
-            // 'ifsccode.required' => 'IFSCcode Filled Is Required',
-            // 'email.required' => 'Email Filled Is Required',
-            // 'password.required' => 'Password Filled Is Required',
             'address.required' => 'Address Filled Is Required',
-            // 'message' => '',
             'profileimage' => '',
 
 

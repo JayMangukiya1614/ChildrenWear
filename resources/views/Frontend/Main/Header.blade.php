@@ -79,7 +79,7 @@
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">
                     {{-- @php
-                        $total = null;
+                        $total = 0;
                         $key = 1;
                     @endphp
 
@@ -92,7 +92,8 @@
                         @endforeach
                         {{ $total }}
                     @else
-                        {{ $total = 0 }}
+                    
+                        {{ $total }}
                     @endif --}}
                 </span>
             </a>

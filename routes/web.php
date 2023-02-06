@@ -41,7 +41,7 @@ Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 // Admin Site Routes
 
-Route::get('/', [AdminController::class, 'AdminLogin'])->name('Admin-Login');
+Route::get('/Alogin', [AdminController::class, 'AdminLogin'])->name('Admin-Login');
 Route::get('/Admin-Reg', [AdminController::class, 'AdminReg'])->name('Admin-Reg');
 Route::post('/Admin-Reg-Save', [AdminController::class, 'AdminRegSave'])->name('Admin-Reg-Save');
 Route::post('/Alogindata', [AdminController::class, 'Alogindata'])->name('Alogindata');
@@ -124,7 +124,7 @@ Route::group(['middleware' => ['Userlogin']], function () {
 
 });
 
-Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
+Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');

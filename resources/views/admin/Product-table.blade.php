@@ -49,9 +49,9 @@
 
                             <td class="text-wrap"style="max-width:150px;">{{ $data->shopname }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->productname }}</td>
-                            <td class="text-wrap"style="max-width:150px;">{{ $data->price }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ (float)$data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}</td>
-                            <td class="text-wrap"style="max-width:150px;">{{ $data->selling }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ (float)$data->selling }}</td>
 
                             <td class="text-wrap"style="max-width:200px;"><a
                                     href="{{ route('Admin-Product-Listing-show', $data->id) }}"
