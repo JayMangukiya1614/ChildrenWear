@@ -131,7 +131,7 @@ Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('F
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
 
 
-// Dropdown 
+// Dropdown
 
 Route::get('/Products/{id}', [DropDownController::class, 'Products'])->name('Products');
 Route::get('/Product-Detail/{id}', [DropDownController::class, 'Product_Detail'])->name('Product-Detail');

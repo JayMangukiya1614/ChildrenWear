@@ -16,112 +16,112 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
-    public function AdminLogin()
-    {
-        return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
-    }
-    public function Alogindata(Request $request)
-    {
-        $request->validate([
-            'email' => 'required',
-            'password' => 'required',
+  public function AdminLogin()
+  {
+    return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
+  }
+  public function Alogindata(Request $request)
+  {
+    $request->validate([
+      'email' => 'required',
+      'password' => 'required',
 
-        ]);
+    ]);
 
-        $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
-        if ($data) {
+    $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
+    if ($data) {
 
-            if ($data->token == 1) {
-                if (Hash::check($request->password, $data->password)) {
+      if ($data->token == 1) {
+        if (Hash::check($request->password, $data->password)) {
 
-                    $request->Session()->put('Alogin', $data->id);
-                    return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
-                } else {
-                    return back()->with('Password', 'Password not matched');
-                }
-            } elseif ($data->token == 0) {
-
-                return back()->with('Token0', 'Your Request Has Been Pending....!');
-            } elseif ($data->token == 2) {
-
-
-                return back()->with('Token2', 'Your Request Has Been Deleted....!');
-            }
+          $request->Session()->put('Alogin', $data->id);
+          return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
         } else {
-            return back()->with('E_mail', 'Email not matched');
+          return back()->with('Password', 'Password not matched');
         }
+      } elseif ($data->token == 0) {
+
+        return back()->with('Token0', 'Your Request Has Been Pending....!');
+      } elseif ($data->token == 2) {
+
+
+        return back()->with('Token2', 'Your Request Has Been Deleted....!');
+      }
+    } else {
+      return back()->with('E_mail', 'Email not matched');
+    }
+  }
+
+  public function AdminProfile()
+  {
+    $id = Session()->get('Alogin');
+    $data = Adminreg::find($id);
+    return view('admin.Profile', compact('data'));
+  }
+
+  public function AdminProfileSave(AdminProfileRequest $req, $id)
+  {
+
+    //  dd($req->validated());
+
+    //    return $data =AdminReg::find($id);
+
+
+    $data = $req->validated();
+    if ($req->profileimage != null) {
+      $imagename = time() . '.' . $data['profileimage']->extension();
+      $data['profileimage']->move(public_path('images'), $imagename);
+      $data['profileimage'] = $imagename;
+      Adminreg::whereId($id)->update($data);
+
+      return back()->with('Update', 'Profile Upated Successfully...');
     }
 
-    public function AdminProfile()
-    {
-        $id = Session()->get('Alogin');
-        $data = Adminreg::find($id);
-        return view('admin.Profile', compact('data'));
-    }
+    Adminreg::whereId($id)->update($data);
+    return back()->with('Update', 'Profile Upated Successfully...');
+  }
+  public function AdminReg()
+  {
+    return view('admin.Registeration');
+  }
 
-    public function AdminProfileSave(AdminProfileRequest $req, $id)
-    {
+  public function AdminRegSave(AdminRequest $req)
+  {
+    $data = $req->validated();
+    $Ad_Id = "BH" . (rand(1000, 9999));
+    $AD = Adminreg::where('AD_ID', '=', $Ad_Id)->first();
 
-        //  dd($req->validated());
-
-        //    return $data =AdminReg::find($id);
-
-
-        $data = $req->validated();
-        if ($req->profileimage != null) {
-            $imagename = time() . '.' . $data['profileimage']->extension();
-            $data['profileimage']->move(public_path('images'), $imagename);
-            $data['profileimage'] = $imagename;
-            Adminreg::whereId($id)->update($data);
-
-            return back()->with('Update', 'Profile Upated Successfully...');
-        }
-
-        Adminreg::whereId($id)->update($data);
-        return back()->with('Update', 'Profile Upated Successfully...');
-    }
-    public function AdminReg()
-    {
-        return view('admin.Registeration');
-    }
-
-    public function AdminRegSave(AdminRequest $req)
-    {
-        $data = $req->validated();
+    if ($AD) {
+      do {
         $Ad_Id = "BH" . (rand(1000, 9999));
-        $AD = Adminreg::where('AD_ID', '=', $Ad_Id)->first();
-
-        if ($AD) {
-            do {
-                $Ad_Id = "BH" . (rand(1000, 9999));
-            } while ($Ad_Id == $AD);
-        }
-        $data['AD_ID'] = $Ad_Id;
-        $data['token'] = 0;
-        $data['password'] = Hash::make($data['password']);
-        if ($req->profileimage != null) {
-            $imagename = time() . '.' . $data['profileimage']->extension();
-            $data['profileimage']->move(public_path('images'), $imagename);
-            $data['profileimage'] = $imagename;
-        }
-        Adminreg::create($data);
-
-        return back()->with("message", 'Your Request Has Been Pending');
+      } while ($Ad_Id == $AD);
     }
-    public function Adminlogout()
-    {
-        if (Session()->has('Alogin')) {
-            Session()->pull('Alogin');
-            return redirect(route('Admin-Login'))->with('Logout', 'Logout Successfullhy.....');
-        } else {
-            return "Please log-in account";
-        }
+    $data['AD_ID'] = $Ad_Id;
+    $data['token'] = 0;
+    $data['password'] = Hash::make($data['password']);
+    if ($req->profileimage != null) {
+      $imagename = time() . '.' . $data['profileimage']->extension();
+      $data['profileimage']->move(public_path('images'), $imagename);
+      $data['profileimage'] = $imagename;
     }
+    Adminreg::create($data);
 
-    public function AdminProductListing()
-    {
-        return view('admin.listing');
+    return back()->with("message", 'Your Request Has Been Pending');
+  }
+  public function Adminlogout()
+  {
+    if (Session()->has('Alogin')) {
+      Session()->pull('Alogin');
+      return redirect(route('Admin-Login'))->with('Logout', 'Logout Successfullhy.....');
+    } else {
+      return "Please log-in account";
     }
+  }
+
+  public function AdminProductListing()
+  {
+    return view('admin.listing');
+  }
 
     public function AdminProductSave(ProductRequest $req)
     {
@@ -129,39 +129,42 @@ class AdminController extends Controller
         $id = Session()->get('Alogin');
         $check = Adminreg::find($id);
         if ($check->AD_ID == $req->AD_ID) {
-            $data['selling'] = (int)$data['price'] - (((int)$data['price'] * (int)$data['discount']) / 100);
+            $sell = ($data['price'] * $data['discount']) / 100;
+            $data['selling'] = round($data['price'] - $sell, 2);
             $data['token']  = 1;
             $data['age']  = json_encode($req->age);
             $data['size']  = json_encode($req->size);
             $data['color']  = json_encode($req->color);
-            if ($des = str_word_count($data['description']) > 500) {
-                return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
+            if( $des = str_word_count($data['description'])>500)
+            {
+                return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word' );
             }
             $imagename = time() . '.' . $data['productimage']->extension();
             $data['productimage']->move(public_path('ProductImages'), $imagename);
             $data['productimage'] = $imagename;
-            if (str_word_count($data['Ldescription']) > 1000) {
-                return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
+            if(str_word_count($data['Ldescription'])>1000)
+            {
+                return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word' );
             }
             ProductListing::create($data);
 
-            return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
-        } else {
-            return back()->with('Id', 'Please Enter A Valid Id');
-        }
+      return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
+    } else {
+      return back()->with('Id', 'Please Enter A Valid Id');
     }
+  }
 
     public function AdminProductTable()
     {
         $id = Session()->get('Alogin');
         $check = Adminreg::find($id);
         $data = ProductListing::where([['AD_ID', '=', $check->AD_ID]])->get();
-
+        
         if ($data == NULL) {
             $data = 0;
             return view('admin.Product-table', compact('data'));
         }
-        // ->orderBy('id','desc')
+        $data = ProductListing::where([['AD_ID', '=', $check->AD_ID]])->get();
         return view('admin.Product-table', compact('data'));
     }
 
@@ -173,47 +176,34 @@ class AdminController extends Controller
     public function AdminProductListingdelete($id)
 
     {
-        $data = ProductListing::where('id', $id)->get();
+        $data = ProductListing::where('id',$id)->get();
         ProductListing::whereId($id)->delete($data);
 
         return redirect(route('Admin-Product-table'))->with('Success', "Product Deleted SuccessFull...");
+
     }
 
     public function AdminProductListingUpdate(ProductRequest  $req, $id)
     {
         $data = $req->validated();
-        // dd($data);
-        $Sid = Session()->get('Alogin');
-        $check = Adminreg::find($Sid);
+        $id = Session()->get('Alogin');
+        $check = Adminreg::find($id);
         if ($check->AD_ID == $req->AD_ID) {
-            $price = $data['price'];
-            $data['price'] = number_format($price, 2);
             $sell = ($data['price'] * $data['discount']) / 100;
-            $selling = round($data['price'] - $sell, 2);
-            $data['selling'] = number_format($selling, 2);
+            $data['selling'] = round($data['price'] - $sell, 2);
             $data['token']  = 1;
             $data['age']  = json_encode($req->age);
             $data['size']  = json_encode($req->size);
+            $data['collection']  = json_encode($req->collection);
             $data['color']  = json_encode($req->color);
-            if ($des = str_word_count($data['description']) > 500) {
-                return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
-            }
-            if (str_word_count($data['Ldescription']) > 1000) {
-                return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
-            }
-            if (isset($data['productimage'])) {
-                $imagename = time() . '.' . $data['productimage']->extension();
-                $data['productimage']->move(public_path('ProductImages'), $imagename);
-                $data['productimage'] = $imagename;
-            }
+            $imagename = time() . '.' . $data['productimage']->extension();
+            $data['productimage']->move(public_path('ProductImages'), $imagename);
+            $data['productimage'] = $imagename;
             ProductListing::whereId($id)->update($data);
 
-            return redirect(route('Admin-Product-table'))->with('Success', "Product Updated SuccessFull...");
+            return  redirect(route('Admin-Product-table'))->with('Update', " Product Updated Succesfully....!!");
         } else {
             return back()->with('Id', 'Please Enter A Valid Id');
         }
     }
 }
-
-
-// oroduct update time pr image update thy to j work kre che baki nai krtu 
