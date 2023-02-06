@@ -46,10 +46,9 @@
                             @else
                                 <td>Girl Fashion</td>
                             @endif
-
                             <td class="text-wrap"style="max-width:150px;">{{ $data->shopname }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->productname }}</td>
-                            <td class="text-wrap"style="max-width:150px;">{{ (float)$data->price }}</td>
+                            <td class="text-wrap"style="max-width:150px;">{{ (string)$data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ (float)$data->selling }}</td>
 
