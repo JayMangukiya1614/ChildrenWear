@@ -55,7 +55,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="shopname">Shop Name</label>
-                            <input name="shopname" value="{{ $data->shopname }}" readonly id="shopname"type="text"
+                            <input name="shopname" value="{{ $data->shopname }}"  id="shopname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('shopname')
@@ -245,8 +245,8 @@
                             <label class="mt-4" for="">Stock</label>
                             <select name="stock" value="{{ old('stock') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option {{ $data->stock == 'instock' ? 'selected' : '' }} value="instock">InStock</option>
-                                <option {{ $data->stock == 'outofstock' ? 'selected' : '' }} value="outofstock">OutOfStock
+                                <option {{ $data->stock == '1' ? 'selected' : '' }} value="1">InStock</option>
+                                <option {{ $data->stock == '2' ? 'selected' : '' }} value="2">OutOfStock
                                 </option>
                             </select>
                             <span class="text-danger">

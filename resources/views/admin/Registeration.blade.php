@@ -310,6 +310,16 @@
         })
         </script>
 @endif
+<script>
+      @if (Session::has('Request'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.warning("{{ session('Request') }}");
+        @endif
+       
+</script>
 @endsection
 
 @section('page-script')

@@ -64,7 +64,7 @@ class UserSeeder extends Seeder
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
                 'email' => "jaymangukiya1614@gmail.com",
-                'password' => Hash::make('123456'),
+                'password' => Hash::make('Jay@123'),
                 'address' => "110 ishvarnagar soc-2 Sitanagr road surat",
                 'message' => "I hope you  you are accepet my account request",
 
@@ -88,11 +88,36 @@ class UserSeeder extends Seeder
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
                 'email' => "krupalimathukiya6@gmail.com",
-                'password' => Hash::make('123456'),
+                'password' => Hash::make('Jay@123'),
                 'address' => "123 yoginagar -2 Yogichowk road surat",
                 'message' => "I hope you  you are accepet my account request",
 
             ],
+            [
+                'AD_ID' => "BH0003",
+                'token' => "1",
+                'profileimage' => 'default.jpeg',
+                'firstname' => "Admin",
+                'middlename' => "Admin",
+                'lastname' => "Admin",
+                'shopname' => "Admin's Creation",
+                'pincode' => "395010",
+                'education' => "Postgraduate",
+                'gender' => "Male",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "7434039039",
+                'gstno' => "08AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "Admin@gmail.com",
+                'password' => Hash::make('Admin@123'),
+                'address' => "Admin",
+                'message' => "I hope you  you are accepet my account request",
+
+            ],
+            
 
         ]);
 
@@ -131,7 +156,7 @@ class UserSeeder extends Seeder
                 'token' => "1",
                 'shopname' => " Jame's Creation",
                 'category' => "1",
-                'productname' => "Colorful Stylish Shirt",
+                'productname' => "Colorful Stylish Shirtaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
                 'price' => "500",
                 'discount' => "20",
                 'selling' => "400",
@@ -143,6 +168,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:10',
+                'updated_at' => '2023-02-08 03:50:15',
 
 
             ],
@@ -154,7 +181,7 @@ class UserSeeder extends Seeder
                 'productname' => "Colorful Stylish Shirt",
                 'price' => "400",
                 'discount' => "10",
-                'selling' => "460",
+                'selling' => "360",
                 'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
                 'size' => '["XS","S"]',
                 'collection' => '1',
@@ -163,6 +190,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:05',
+                'updated_at' => '2023-02-08 03:50:14',
 
 
             ],   [
@@ -182,6 +211,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:04',
+                'updated_at' => '2023-02-08 03:50:13',
 
 
             ],   [
@@ -201,6 +232,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:04',
+                'updated_at' => '2023-02-08 03:50:12',
 
 
             ],   [
@@ -220,6 +253,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:03',
+                'updated_at' => '2023-02-08 03:50:11',
 
 
             ],   [
@@ -239,6 +274,8 @@ class UserSeeder extends Seeder
                 'description' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia no",
                 'Ldescription' => "Lorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel, integer gravida mauris, fringilla vehicula lacinia nonLorem ipsum dolor sit amet, nonummy ligula volutpat hac integer nonummy. Suspendisse ultricies, congue etiam tellus, erat libero, nulla eleifend, mauris pellentesque. Suspendisse integer praesent vel,",
                 'productimage' => "shirt.jpg",
+                'created_at' => '2023-02-08 03:50:02',
+                'updated_at' => '2023-02-08 03:50:10',
 
 
             ],
@@ -264,6 +301,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:23',
 
 
             ],
@@ -285,6 +324,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:24',
 
 
             ],   [
@@ -305,6 +346,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:25',
 
 
             ],   [
@@ -325,6 +368,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:26',
 
 
             ],   [
@@ -345,6 +390,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:27',
 
 
             ],   [
@@ -365,6 +412,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "tshirt.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:28',
 
 
             ],
@@ -390,6 +439,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:29',
             ],
             [
                 'AD_ID' => "BH0002 ",
@@ -409,6 +460,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:30',
             ],
             [
                 'AD_ID' => "BH0002 ",
@@ -428,6 +481,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:31',
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
@@ -446,6 +501,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:32',
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
@@ -464,6 +521,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:33',
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
@@ -482,6 +541,8 @@ class UserSeeder extends Seeder
                 'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
                 'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
                 'productimage' => "jeans.jpg",
+                'created_at' => '2023-02-08 03:50:16',
+                'updated_at' => '2023-02-08 03:50:34',
             ],
         ]);
     }

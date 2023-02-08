@@ -73,7 +73,7 @@
                     <div class="d-flex flex-column aligan-items-center text-center p-5 py-5">
                         <label for="file-input">
                             <img id="previewImg" class="rounded-circle mt-5" width="150px"
-                                src="{{ !empty($data->profileimage) ? url('images/'.$data->profileimage) : url('images/default.jpeg') }}">
+                                src="{{ !empty($data->profileimage) ? url('images/' . $data->profileimage) : url('images/default.jpeg') }}">
                         </label>
                         <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
                             style="display: none" />
@@ -149,8 +149,10 @@
                                 <label class="labels mt-3">Education</label>
                                 <select name="education" value="{{ old('education') }}" class="form-control "
                                     id="">
-                                    <option {{ $data->education == 'Undergraduate' ? 'selected' : '' }} value="Undergraduate">Undergraduate</option>
-                                    <option {{ $data->education == 'Postgraduate' ? 'selected' : '' }} value="Postgraduate">Postgraduate</option>
+                                    <option {{ $data->education == 'Undergraduate' ? 'selected' : '' }}
+                                        value="Undergraduate">Undergraduate</option>
+                                    <option {{ $data->education == 'Postgraduate' ? 'selected' : '' }}
+                                        value="Postgraduate">Postgraduate</option>
 
                                 </select>
                                 <span class="text-danger">
@@ -216,25 +218,25 @@
                                 Details</span></div><br>
                         <div class="col-md-12">
                             <label class="labels ">Bank Name</label>
-                            <input type="text"class="form-control "  readonly name="bankename" 
+                            <input type="text"class="form-control " readonly name="bankename"
                                 value=" {{ $data->bankname }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">Branch</label>
-                            <input type="text" class="form-control " readonly  name="branchname" 
+                            <input type="text" class="form-control " readonly name="branchname"
                                 value=" {{ $data->branchname }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">IFSC Code</label>
-                            <input type="text" class="form-control " readonly  name="ifsccode" 
+                            <input type="text" class="form-control " readonly name="ifsccode"
                                 value=" {{ $data->ifsccode }}">
                         </div>
                         <br>
                         <div class="col-md-12">
                             <label class="labels">GST No.</label>
-                            <input type="text" class="form-control " readonly  name="gstno"
+                            <input type="text" class="form-control " readonly name="gstno"
                                 value=" {{ $data->gstno }}">
                         </div>
                         <br>
@@ -269,16 +271,15 @@
         }
     </script>
 
-  <script>
-    @if (Session::has('Update'))
+    <script>
+        @if (Session::has('Update'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
             toastr.info("{{ session('Update') }}");
         @endif
-       
-  </script>
+    </script>
 @endsection
 
 @section('page-script')

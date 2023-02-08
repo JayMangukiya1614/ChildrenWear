@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="price">Product Price</label>
-                                <input name="price" value="{{ old('age') }}" id="price"
+                                <input name="price" min="100" max="10000" value="{{ old('age') }}" id="price"
                                     class="form-control shadow-lg bg-white Price" type="number">
                                 <span class="text-danger">
                                     @error('price')
@@ -102,7 +102,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="discount">Discount</label>
-                                <input name="discount" value="{{ old('discount') }}" id="discount"type="number"
+                                <input name="discount" min="0" max="99" value="{{ old('discount') }}" id="discount"type="number"
                                     class="shadow-lg bg-white form-control">
                                 <span class="text-danger">
                                     @error('discount')
@@ -116,10 +116,10 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <label class="mt-4" for="">Age</label>
+                            <label class="mt-4" for="age">Age</label>
                             <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="7"
-                                class="form-control text-center shadow-lg bg-white rounded-3" id="">
+                                class="form-control text-center shadow-lg bg-white rounded-3" id="age">
                                 <option value="0-6(M)">0-6(Months) </option>
                                 <option value="6-24(M)">6-24(Months)</option>
                                 <option value="2-4(Y)">2-4(Year)</option>
@@ -251,7 +251,7 @@
                         <div class="col-md-12 mt-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" name="productimage">
+                                    <input type="file" name="productimage" value="{{old('productimage')}}">
                                 </div>
                             </div>
                             <span class="text-danger">

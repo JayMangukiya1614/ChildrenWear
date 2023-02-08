@@ -10,7 +10,7 @@
 
 
 @section('content')
-    <h1 class="text-center" style="margin-top: 6rem">Product Listing </h1>
+    <h1 class="text-center" style="margin-top: 6rem">Admin Delete Product </h1>
     <h1>{{ $heading->shopname }}</h1>
     <h1>{{ $heading->AD_ID }}</h1>
 
@@ -23,6 +23,7 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">ProductImage</th>
+                    <th scope="col">Token</th>
                     <th scope="col">Category</th>
                     <th scope="col">Product_ID</th>
 
@@ -31,20 +32,20 @@
                     <th scope="col">Price</th>
                     <th scope="col">Discount</th>
                     <th scope="col">Selling Price</th>
-                    <th scope="col">Action</th>
 
                 </tr>
             </thead>
             <tbody>
                 @if ($data != null)
                     @foreach ($data as $key => $data)
-                        @if ($data->token != 2)
+                        @if ($data->token != 1)
                             <tr>
                                 <td scope="row">{{ $key + 1 }}</td>
                                 <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                         src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
 
                                 </td>
+                                <td>{{ $data->token }}</td>
                                 @if ($data->category == 1)
                                     <td><i class="fa-solid fa-child"></i></td>
                                 @else
@@ -53,24 +54,16 @@
                                 <td class="text-wrap"style="max-width:150px;">{{ $data->PI_ID }}</td>
 
                                 @if ($data->stock == 1)
-                                <td class="text-success">{{ $data->stock }}</td>
-                            @else
-                                <td class="text-danger">{{ $data->stock }}</td>
-                            @endif
-
+                                    <td class="text-success">{{ $data->stock }}</td>
+                                @else
+                                    <td class="text-danger">{{ $data->stock }}</td>
+                                @endif
+                                {{-- <td class="text-success">{{$data->stock}}</td> --}}
 
                                 <td class="text-wrap"style="max-width:150px;">{{ $data->productname }}</td>
                                 <td class="text-wrap"style="max-width:150px;">{{ (string) $data->price }}</td>
                                 <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
                                 <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>
-
-                                <td class="text-wrap"style="max-width:200px;"><a
-                                        href="{{ route('Admin-Product-Listing-show', $data->id) }}" class="btn btn-info"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
-                                    <a href="{{ route('Admin-Product-Listing-delete', $data->id) }}"
-                                        class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
-                                </td>
-
                             </tr>
                         @endif
                     @endforeach
@@ -89,9 +82,7 @@
             </tbody>
         </table>
     </div>
-    <div>
-        {{$pagination->links()}}
-    </div>
+
 
 
 
