@@ -289,3 +289,13 @@ class FrontendController extends Controller
     }
   }
 }
+
+    if ($req->newpass == $req->confirmpass) {
+      $data->Password = Hash::make($req->newpass);
+      $data->update();
+      return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
+    } else {
+      return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+    }
+  }
+}
