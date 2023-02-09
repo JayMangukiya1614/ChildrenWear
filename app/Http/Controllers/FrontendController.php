@@ -64,11 +64,10 @@ class FrontendController extends Controller
 
   public function DeleteProductCart($id)
   {
-     $data = AddCart::where([['id','=',$id]])->first();
-     $data->delete();
+    $data = AddCart::where([['id', '=', $id]])->first();
+    $data->delete();
 
-     return back()->with('DeleteItem','Item Cancel');
-
+    return back()->with('DeleteItem', 'Item Cancel');
   }
 
   public function FrontCheckout()
@@ -108,7 +107,7 @@ class FrontendController extends Controller
   }
 
 
-   public function FrontReg()
+  public function FrontReg()
   {
     $session = Session()->get('ULogin');
     if ($session == NUll) {
@@ -179,7 +178,7 @@ class FrontendController extends Controller
     $req->validate([
 
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'password' => 'required | max:10| min:4',
 
 
     ]);
@@ -278,17 +277,7 @@ class FrontendController extends Controller
 
     $id = Session()->get('F-Password');
 
-   $data = User::find($id);
-
-    if ($req->newpass == $req->confirmpass) {
-      $data->Password = Hash::make($req->newpass);
-      $data->update();
-      return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
-    } else {
-      return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
-    }
-  }
-}
+    $data = User::find($id);
 
     if ($req->newpass == $req->confirmpass) {
       $data->Password = Hash::make($req->newpass);
