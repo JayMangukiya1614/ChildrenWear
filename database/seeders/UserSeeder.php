@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
                 'email' => "krupalimathukiya6@gmail.com",
-                'password' => Hash::make('Jay@123'),
+                'password' => Hash::make('Krups@123'),
                 'address' => "123 yoginagar -2 Yogichowk road surat",
                 'message' => "I hope you  you are accepet my account request",
 
@@ -154,6 +154,7 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0001",
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirtaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -176,6 +177,7 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0002",
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
@@ -194,9 +196,12 @@ class UserSeeder extends Seeder
                 'updated_at' => '2023-02-08 03:50:14',
 
 
-            ],   [
+            ],   
+            [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0003",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
@@ -218,6 +223,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0004",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
@@ -239,6 +246,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0005",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
@@ -260,6 +269,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0006",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Colorful Stylish Shirt",
@@ -286,6 +297,8 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0007",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -309,6 +322,8 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0008",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -331,6 +346,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0009",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -353,6 +370,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0010",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -375,6 +394,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0011",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -397,6 +418,8 @@ class UserSeeder extends Seeder
             ],   [
                 'AD_ID' => "BH0001 ",
                 'token' => "1",
+                'PI_ID' => "P-0012",
+
                 'shopname' => " Jame's Creation",
                 'category' => "1",
                 'productname' => "Stylish T-Shirt",
@@ -424,6 +447,8 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0013",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
@@ -445,6 +470,8 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0014",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
@@ -466,6 +493,8 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0015",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
@@ -486,6 +515,8 @@ class UserSeeder extends Seeder
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0016",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
@@ -506,6 +537,8 @@ class UserSeeder extends Seeder
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0017",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
@@ -526,6 +559,8 @@ class UserSeeder extends Seeder
             ], [
                 'AD_ID' => "BH0002 ",
                 'token' => "1",
+                'PI_ID' => "P-0018",
+
                 'shopname' => " Krup's Creation",
                 'category' => "2",
                 'productname' => "Jeans",
