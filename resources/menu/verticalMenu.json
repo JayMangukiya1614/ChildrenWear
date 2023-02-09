@@ -29,6 +29,12 @@
           "name": "Product-Table",
           "icon": "menu-icon tf-icons fa-solid fa-table",
           "slug": "Product-table"
+        },
+        {
+          "url": "/Admin-Product-Delete-table",
+          "name": "Delete Product",
+          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "slug": "Delete-Product-table"
         }
       ]
     },
@@ -86,6 +92,20 @@
           "name": "Index-Form",
           "icon": "menu-icon tf-icons fa-solid fa-f",
           "slug": "index-form"
+        },
+        {
+          
+          "url": "/Main-Admin-Product-Table",
+          "name": "Product-Table",
+          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "slug": "Main-Product-Table"
+        },
+        {
+          
+          "url": "/Main-Admin-Delete-Product-Table",
+          "name": "Delete-Product",
+          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "slug": "Main-Delete-Product-Table"
         }
       ]
     }

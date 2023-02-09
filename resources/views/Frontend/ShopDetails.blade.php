@@ -73,25 +73,25 @@
     </div>
     <!-- Page Header End -->
 
-
-    <!-- Shop Detail Start -->
-    <div class="container-fluid py-5">
-        <div class="row px-xl-5">
-            <div class="col-lg-5 pb-5">
-                <div id="product-carousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner border">
-                        <div class="carousel-item active">
-                            <img class="w-100 images" style="height: 30rem;"
-                                src="  {{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('ProductImages/default.jfif') }}"
-                                alt="Image">
+    @if (!empty($data->productimage))
+        <!-- Shop Detail Start -->
+        <div class="container-fluid py-5">
+            <div class="row px-xl-5">
+                <div class="col-lg-4 pb-5">
+                    <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner border">
+                            <div class="carousel-item active">
+                                <img class="w-100 images" style="height: 30rem;"
+                                    src="  {{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('ProductImages/default.jfif') }}"
+                                    alt="Image">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-lg-7 pb-5">
-                <h3 class="font-weight-semi-bold">
-                    {{ $data->productname }}</h3>
+                <div class="col-lg-8 pb-5">
+                    <h3 class="font-weight-semi-bold">
+                        {{ !empty($data->productname) ? $data->productname : 'Please Select A product' }}</h3>
 
 
                 <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
@@ -111,116 +111,136 @@
                             </div>
                         @endforeach
 
-                    </div>
-                    <div class="d-flex mb-4">
-                        <p class="text-dark font-weight-medium mb-0 mr-4">Colors:</p>
+                        </div>
+                        <div class="d-flex ">
+                            <p class="text-dark font-weight-medium " style="margin-right: 0.8rem;">Colors:</p>
 
-                        @foreach (json_decode($data['color']) as $key => $color)
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" value="{{ $color }}"
-                                    id="color_{{ $key }}" name="color">
-                                <label class="custom-control-label" for="color_{{ $key }}">
-                                    {{ in_array($color, json_decode($data['color'])) ? $color : '' }}</label>
-                            </div>
-                        @endforeach
-                    </div>
+                            @foreach (json_decode($data['color']) as $key => $color)
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" value="{{ $color }}"
+                                        id="color_{{ $key }}" name="color">
+                                    <label class="custom-control-label" for="color_{{ $key }}">
+                                        {{ in_array($color, json_decode($data['color'])) ? $color : '' }}</label>
+                                </div>
+                            @endforeach
+                            <span class="text-danger">
+                                @error('color')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
 
-                    <div class="d-flex mb-4">
-                        <p class="text-dark font-weight-medium mb-0 mr-5">Size:</p>
+                        <div class="d-flex ">
+                            <p class="text-dark font-weight-medium mb-0" style="margin-right: 2.2rem;">Size:</p>
 
-                        @foreach (json_decode($data['size']) as $key => $size)
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" value="{{ $size }}"
-                                    id="size_{{ $key }}" name="size">
-                                <label class="custom-control-label" for="size_{{ $key }}">
-                                    {{ in_array($size, json_decode($data['size'])) ? $size : '' }}</label>
-                            </div>
-                        @endforeach
-                    </div>
-                    <div class="d-flex align-items-center mb-4 pt-2">
-                        <!-- skin 4 -->
-                        <div class="num-block skin-4">
-                          <h6>Quantity :</h6>
-                            <div class="num-in">
-                                <input type="text" id="number" name="quantity" readonly class="in-num" value="1">
-                                <div class="all-span">
-                                    <span id="plus"class="plus"></span>
-                                    <span id="minus" class="minus dis"></span>
+                            @foreach (json_decode($data['size']) as $key => $size)
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" value="{{ $size }}"
+                                        id="size_{{ $key }}" name="size">
+                                    <label class="custom-control-label" for="size_{{ $key }}">
+                                        {{ in_array($size, json_decode($data['size'])) ? $size : '' }}</label>
+                                </div>
+                            @endforeach
+                            <span class="text-danger">
+                                @error('size')
+                                    {{ $message }}
+                                @enderror
+                            </span>
+                        </div>
+                        <div class="d-flex align-items-center mb-4 pt-2">
+                            <!-- skin 4 -->
+                            <div class="num-block skin-4">
+                                <div class="num-in">
+                                    <input type="text" id="number" min="1"  max="10" name="quantity" readonly class="in-num"
+                                        value="1">
+                                    <div class="all-span">
+                                        <span id="plus"class="plus"></span>
+                                        <span id="minus" class="minus dis"></span>
+                                    </div>
                                 </div>
                             </div>
+                            <!-- / skin 4 -->
                         </div>
-                        <!-- / skin 4 -->
-                    </div>
+                        <h5 class="text-danger">{{ $data->stock == 1 ? 'In Stock' : 'Out Of Stock' }}</h5>
+                        @if ($data->stock == 1)
+                            <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Add To
+                                Cart</button>
+                        @else
+                            <button class="btn btn-primary  px-3" disabled><i class="fa fa-shopping-cart mr-1"></i>Add To
+                                Cart</button>
+                        @endif
+                    </form>
 
-                    <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Add To Cart</button>
-                </form>
 
 
-
-            </div>
-
-        </div>
-    </div>
-    <div class="row px-xl-5">
-        <div class="col">
-            <div class="nav nav-tabs justify-content-center border-secondary mb-4">
-                <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
-                <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
-                {{-- <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a> --}}
-            </div>
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="tab-pane-1">
-                    <h4 class="mb-3">Product Description</h4>
-                    <p>{{ $data->Ldescription }}</p>
                 </div>
-                <span style="display:none;" id="sell">{{ $data->selling }}</span>
-                {{-- <div class="tab-pane fade" id="tab-pane-2">
-                    <h4 class="mb-3">Additional Information</h4>
-                    <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
-                        invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
-                        consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
-                        Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
-                        dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
-                        nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
-                        tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item px-0">
-                                    Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item px-0">
-                                    Sit erat duo lorem duo ea consetetur, et eirmod takimata.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                </li>
-                                <li class="list-group-item px-0">
-                                    Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> --}}
+
             </div>
         </div>
-    </div>
+
+        <div class="row px-xl-5">
+            <div class="col">
+                <div class="nav nav-tabs justify-content-center border-secondary mb-4">
+                    <a class="nav-item nav-link active" data-toggle="tab" href="#tab-pane-1">Description</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-2">Information</a>
+                    {{-- <a class="nav-item nav-link" data-toggle="tab" href="#tab-pane-3">Reviews (0)</a> --}}
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="tab-pane-1">
+                        <h4 class="mb-3">Product Description</h4>
+                        <p>{{ $data->Ldescription }}</p>
+                    </div>
+                    <span style="display:none;" id="sell">{{ $data->selling }}</span>
+                    <div class="tab-pane fade" id="tab-pane-2">
+                        <h4 class="mb-3">Additional Information</h4>
+                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
+                            invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
+                            consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
+                            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
+                            dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
+                            nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
+                            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item px-0">
+                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
+                                    </li>
+                                    <li class="list-group-item px-0">
+                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    @else
+        <h3 class="text-danger text-center">Pleace Go To Back And Select Product</h3>
+    @endif
     </div>
     <!-- Shop Detail End -->
 

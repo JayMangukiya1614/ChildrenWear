@@ -33,13 +33,15 @@
                     @else
                         <div class="dropdown">
                             <a class="dropbtn" style="color:black;text-decoration:none" href=""><i
-                                    class="fa-solid fa-user"></i>&nbsp My Account <i class="fa-solid fa-chevron-down"
+                                    class="fa-solid fa-user mr-1"></i> My Account <i class="fa-solid fa-chevron-down"
                                     style="font-size:12px;"></i></a>
                             <div class="dropdown-content">
                                 <a href="{{ route('Fprofile') }}" style="font-size: 15px"><i
-                                        class="far fa-edit"></i>&nbsp Edit Profile</a>
+                                        class="far fa-edit mr-1"></i> Edit Profile</a>
                                 <a href="{{ route('Fpassword') }}" style="font-size: 15px"><i
-                                        class="fa-solid fa-key"></i>&nbsp Change Password</a>
+                                        class="fa-solid fa-key mr-1"></i> Change Password</a>
+
+                                <a href="{{ route('Admin-Login') }}" style="font-size: 15px"><i class="fa-solid fa-right-to-bracket mr-1"></i></i> Admin Login</a>
                             </div>
                         </div>
                         <a class="" style="color:black;margin-left:20px;text-decoration:none"
@@ -79,10 +81,12 @@
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">
                     {{-- @php
-                        $total = null;
+                        $total = 0;
                         $key = 1;
                     @endphp
-                    @if ($Cart != NULL)
+
+                    @if ($Cart != null)
+
                         @foreach ($Cart as $Cart)
                             <?php
                             $total = $total + $key;
@@ -90,7 +94,8 @@
                         @endforeach
                         {{ $total }}
                     @else
-                        {{ $total = 0 }}
+
+                        {{ $total }}
                     @endif --}}
                 </span>
             </a>

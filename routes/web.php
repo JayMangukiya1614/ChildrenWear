@@ -41,7 +41,7 @@ Route::get('/layouts/blank', [Blank::class, 'index'])->name('layouts-blank');
 
 // Admin Site Routes
 
-Route::get('/', [AdminController::class, 'AdminLogin'])->name('Admin-Login');
+Route::get('/Alogin', [AdminController::class, 'AdminLogin'])->name('Admin-Login');
 Route::get('/Admin-Reg', [AdminController::class, 'AdminReg'])->name('Admin-Reg');
 Route::post('/Admin-Reg-Save', [AdminController::class, 'AdminRegSave'])->name('Admin-Reg-Save');
 Route::post('/Alogindata', [AdminController::class, 'Alogindata'])->name('Alogindata');
@@ -55,6 +55,8 @@ Route::group(['middleware' => ['Alogin']], function () {
   Route::get('/Admin-Product-Listing', [AdminController::class, 'AdminProductListing'])->name('Admin-Product-Listing');
   Route::post('/Admin-Product-Listing-Save', [AdminController::class, 'AdminProductSave'])->name('Admin-Product-Listing-Save');
   Route::get('/Admin-Product-table', [AdminController::class, 'AdminProductTable'])->name('Admin-Product-table');
+  Route::get('/Admin-Product-Delete-table', [AdminController::class, 'AdminProductDeleteTable'])->name('Admin-Product-Delete-table');
+
   Route::get('/Admin-Product-Listing-show/{id}', [AdminController::class, 'AdminProductListingShow'])->name('Admin-Product-Listing-show');
   Route::get('/Admin-Product-Listing-delete/{id}', [AdminController::class, 'AdminProductListingdelete'])->name('Admin-Product-Listing-delete');
 
@@ -95,6 +97,14 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::get('/Index/update/{id}', [IndexController::class, 'Indexupdate'])->name('Indexupdate');
   Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
   Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
+
+// product table 
+  Route::get('/Main-Admin-Product-Table', [IndexController::class, 'MProductTable'])->name('Main-Admin-Product-Table');
+  Route::get('/Main-Admin-Product-Listing-delete/{id}', [IndexController::class, 'MainAdminProductListingdelete'])->name('Main-Admin-Product-Listing-delete');
+  Route::get('/Main-Admin-Delete-Product-Table', [IndexController::class, 'MDeleteProductTable'])->name('Main-Admin-Delete-Product-Table');
+
+
+
 });
 
 
@@ -124,7 +134,7 @@ Route::group(['middleware' => ['Userlogin']], function () {
 
 });
 
-Route::get('Findex', [FrontendController::class, 'FrontIndex'])->name('Findex');
+Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');
 Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');

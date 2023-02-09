@@ -115,8 +115,6 @@
                                     </div>
                                 </td>
                                 @php
-                                    // $price = $cartitem->quantity * 400;
-                                    // $total = round($selling + $gst * 2, 2);
                                     $prize = $cartitem->products->price;
                                     $dis = $cartitem->products->discount;
                                     $qty = $cartitem->quantity;
@@ -128,7 +126,7 @@
 
                                 <td class="align-middle" id="total_{{ $key }}">₹{{ $total }}</td>
                                 <td class="align-middle "><a href="{{ route('Delete-Product-Cart', $cartitem->id) }}"
-                                        class="btn btn-sm btn-primary"><i class="fa fa-times"></i></a></td>
+                                        class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
                         @endforeach
                     </tbody>

@@ -55,7 +55,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="shopname">Shop Name</label>
-                            <input name="shopname" value="{{ $data->shopname }}" readonly id="shopname"type="text"
+                            <input name="shopname" value="{{ $data->shopname }}"  id="shopname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('shopname')
@@ -116,27 +116,27 @@
                                 <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
-                                    <option value="0-6(Months)"
-                                        {{ in_array('0-6(Months)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="0-6(M)"
+                                        {{ in_array('0-6(M)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         0-6(Months) </option>
-                                    <option value="6-24(Months)"
-                                        {{ in_array('6-24(Months)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="6-24(M)"
+                                        {{ in_array('6-24(M)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         6-24(Months)</option>
-                                    <option value="2-4(Year)"
-                                        {{ in_array('2-4(Year)', json_decode($data['age'])) ? 'selected' : '' }}>2-4(Year)
+                                    <option value="2-4(Y)"
+                                        {{ in_array('2-4(Y)', json_decode($data['age'])) ? 'selected' : '' }}>2-4(Year)
                                     </option>
-                                    <option value="4-6(Year)"
-                                        {{ in_array('4-6(Year)', json_decode($data['age'])) ? 'selected' : '' }}>4-6(Year)
+                                    <option value="4-6(Y)"
+                                        {{ in_array('4-6(Y)', json_decode($data['age'])) ? 'selected' : '' }}>4-6(Year)
                                     </option>
-                                    <option value="6-8(Year)"
-                                        {{ in_array('6-8(Year)', json_decode($data['age'])) ? 'selected' : '' }}>6-8(Year)
+                                    <option value="6-8(Y)"
+                                        {{ in_array('6-8(Y)', json_decode($data['age'])) ? 'selected' : '' }}>6-8(Year)
                                     </option>
-                                    <option value="8-10(Year)"
-                                        {{ in_array('8-10(Year)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="8-10(Y)"
+                                        {{ in_array('8-10(Y)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         8-10(Year)
                                     </option>
-                                    <option value="10-12(Year)"
-                                        {{ in_array('10-12(Year)', json_decode($data['age'])) ? 'selected' : '' }}>
+                                    <option value="10-12(Y)"
+                                        {{ in_array('10-12(Y)', json_decode($data['age'])) ? 'selected' : '' }}>
                                         10-12(Year)</option>
                                 </select>
                                 <span class="text-danger">
@@ -245,8 +245,8 @@
                             <label class="mt-4" for="">Stock</label>
                             <select name="stock" value="{{ old('stock') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option {{ $data->stock == 'instock' ? 'selected' : '' }} value="instock">InStock</option>
-                                <option {{ $data->stock == 'outofstock' ? 'selected' : '' }} value="outofstock">OutOfStock
+                                <option {{ $data->stock == '1' ? 'selected' : '' }} value="1">InStock</option>
+                                <option {{ $data->stock == '2' ? 'selected' : '' }} value="2">OutOfStock
                                 </option>
                             </select>
                             <span class="text-danger">

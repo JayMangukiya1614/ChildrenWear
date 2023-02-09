@@ -37,7 +37,7 @@ class ProductRequest extends FormRequest
             'price' => 'required',
             'discount' => 'required',
             'Ldescription' => 'required',
-            'productimage' => '',
+            'productimage' => 'required',
         ];
     }
         public function messages()
@@ -48,15 +48,15 @@ class ProductRequest extends FormRequest
             'productname.required' => 'Product Name Filled Is Required',
             'category' => 'Gender Name Filled Is Required',
             'age' => 'Age Filled Is Required',
-            'size.required' => 'size Filled Is Required',
-            'collection.required' => 'category Filled Is Required',
-            'color.required' => 'color Filled Is Required',
-            'stock.required' => 'stock Filled Is Required',
-            'description.required' => 'description Filled Is Required',
+            'size.required' => 'Size Filled Is Required',
+            'collection.required' => 'Category Filled Is Required',
+            'color.required' => 'Color Filled Is Required',
+            'stock.required' => 'Stock Filled Is Required',
+            'description.required' => 'Description Filled Is Required',
             'price.required' => 'Product price Filled Is Required',
-            'discount.required' => ' product discount Filled Is Required',
-            'Ldescription.required' => 'long description Filled Is Required',
-            'productimage.required' => 'product image Filled Is Required',
+            'discount.required' => ' Product discount Filled Is Required',
+            'Ldescription.required' => 'Long description Filled Is Required',
+            'productimage.required' => 'Product image Filled Is Required',
         ];
     }
 }

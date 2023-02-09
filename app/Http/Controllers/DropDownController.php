@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CartRequest;
 use App\Models\AddCart;
 use Illuminate\Http\Request;
 use App\Models\ProductListing;
@@ -16,10 +17,22 @@ class DropDownController extends Controller
 
 
 
-        $data = ProductListing::where([['collection', '=', $id]])->get();
-        // $dataa = ProductListing::where([['collection', '=', $id]])->get()->first();
+        $data = ProductListing::where([['collection', $id]])->paginate(6);
+        // $pagination = ProductListing::paginate(6);
+        $latest = ProductListing::where([['collection',$id]])->get()->first();
 
-        return view('Frontend.Shop', compact('data'));
+        return view('Frontend.Shop', compact('data','latest'));
+    }
+    public function Latest_Product($id)
+    {
+
+        $data = ProductListing::where([['collection',$id]])->orderBy('updated_at','desc')->paginate(6);
+        $pagination = ProductListing::paginate(6);
+        $latest = ProductListing::where([['collection',$id]])->get()->first();
+
+
+        // return $data;
+        return view('Frontend.Shop', compact('data','latest','pagination'));
     }
     public function Product_Detail($id)
     {
@@ -28,37 +41,24 @@ class DropDownController extends Controller
         return view('Frontend.ShopDetails', compact('data'));
     }
 
-    // public function Latest_Product($id)
-    // {
-
-    //     $data = ProductListing::where([['collection', '=', $id]])->get()->latest()->take(5);
-    //     return $data;
-    //     return view('Frontend.Shop', compact('data'));
-    // }
-    public function Product_Cart(Request $req, $id)
+    public function Product_Cart(CartRequest $req, $id)
     {
 
+        $Add_Cart = $req->validated();
         $sessionid = Session()->get('ULogin');
         $details = User::find($sessionid);
         $data = AddCart::where([['product_id', '=', $id]])->first();
 
-        if ($data != null) {
-            return back()->with('Product', 'You Have Already Selected Product In Add To Cart');
-        } else {
-            $Add_Cart = new AddCart();
-            $Add_Cart->CI_ID = $details->CI_ID;
-            $Add_Cart->product_id = $id;
-            $Add_Cart->age = $req->age;
-            $Add_Cart->color = $req->color;
-            $Add_Cart->size = $req->size;
-            $Add_Cart->quantity = $req->quantity;
-            $Add_Cart->save();
 
-            return redirect(route('Fcart'));
-        }
+        $Add_Cart['CI_ID'] = $details->CI_ID;
+        $Add_Cart['product_id'] = $id;
+
+        AddCart::create($Add_Cart);
+
+        return redirect(route('Fcart'));
     }
-    public function quantity()
-    {
-        return $id = Session()->get('ULogin');
-    }
+    // public function quantity()
+    // {
+    //     return $id = Session()->get('ULogin');
+    // }
 }

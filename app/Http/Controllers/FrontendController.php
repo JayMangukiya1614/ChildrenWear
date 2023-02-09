@@ -58,7 +58,7 @@ class FrontendController extends Controller
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
     $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->get(); // using for product details form quantity color etc
-// dd($cartitem);
+
     return view('Frontend.ShoppingCart', compact('cartitem'));
   }
 
