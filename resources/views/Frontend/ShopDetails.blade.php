@@ -2,17 +2,18 @@
 <style>
     .skin-4 .num-in {
         float: left;
-        width: 80px;
-        padding: 8px 0;
+        width: 57px;
+        height: 34px;
+        padding: 2px 0;
         border-top: 1px solid #000;
         border-bottom: 1px solid #000;
     }
 
     .skin-4 .in-num {
-        width: 47px;
+        width: 31px;
         float: left;
-        height: 36px;
-        font-size: 30px;
+        height: 27px;
+        font-size: 18px;
         text-align: center;
         outline: none;
     }
@@ -21,14 +22,14 @@
         position: relative;
         float: right;
         width: 23px;
-        height: 36px;
+        height: 28px;
         border-left: 1px solid #000;
     }
 
     .skin-4 .all-span span {
         float: left;
         width: 100%;
-        height: 18px;
+        height: 15px;
         position: relative;
         cursor: pointer;
     }
@@ -94,7 +95,7 @@
 
 
                 <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
-                        
+
                 </h4>
                 <p class="mb-4"> {{ $data->description }}</p>
                 <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
@@ -139,6 +140,7 @@
                     <div class="d-flex align-items-center mb-4 pt-2">
                         <!-- skin 4 -->
                         <div class="num-block skin-4">
+                          <h6>Quantity :</h6>
                             <div class="num-in">
                                 <input type="text" id="number" name="quantity" readonly class="in-num" value="1">
                                 <div class="all-span">
@@ -149,6 +151,7 @@
                         </div>
                         <!-- / skin 4 -->
                     </div>
+
                     <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i>Add To Cart</button>
                 </form>
 

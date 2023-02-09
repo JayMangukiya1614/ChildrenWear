@@ -146,6 +146,33 @@
                                     </div>
                                 </div>
 
+                                 <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                          <span class="text-danger" style="font-size: 10px">
+                                                @error('state')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <input type="text" name="state" id="state"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="state">State</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                           <span class="text-danger" style="font-size: 10px">
+                                                @error('city')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <input type="text" name="city" id="city"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="city">City</label>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-6 mb-4 d-flex align-items-center">
                                         <div class="form-outline datepicker w-100">

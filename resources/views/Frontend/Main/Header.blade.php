@@ -82,9 +82,7 @@
                         $total = null;
                         $key = 1;
                     @endphp
-
                     @if ($Cart != NULL)
-
                         @foreach ($Cart as $Cart)
                             <?php
                             $total = $total + $key;
