@@ -86,10 +86,10 @@
                             $prize = null;
                             $quantity = null;
                             $total = null;
-                            $subtotal =null;
+                            $subtotal = null;
                             $gst = null;
-                            $final = null
-                            
+                            $final = null;
+
                         @endphp
                         @foreach ($cartitem as $key => $cartitem)
                             <tr>
@@ -102,13 +102,16 @@
                                         class="ml-2">{{ $cartitem->products->price }}</span></td>
                                 <td class="align-middle">{{ $cartitem->products->discount }} %</td>
 
-                                <td class="align-middle">
+                                <td style="height: 80px" class="align-middle d-flex justify-content-center align-items-center ">
                                     <div class="num-block skin-4">
                                         <div class="num-block skin-5">
                                             <div class="num-in">
                                                 <span class="minus dis">-</span>
                                                 <input type="text" class="in-num" value="{{$cartitem->quantity}}" readonly="">
                                                 <span class="plus"> <a href="">+</a> </span>
+                                                <input type="text" class="in-num" value="{{ $cartitem->quantity }}"
+                                                    readonly="">
+                                                <span class="plus">+</span>
                                             </div>
                                         </div>
                                     </div>
@@ -119,8 +122,8 @@
                                     $qty = $cartitem->quantity;
                                     $total = $prize * $qty - ($prize * $qty * $dis) / 100;
                                     $subtotal = $subtotal + $total;
-                                    $gst = (9*$subtotal)/100;
-                                    $final = (2*($gst))+$subtotal
+                                    $gst = (9 * $subtotal) / 100;
+                                    $final = 2 * $gst + $subtotal;
                                 @endphp
 
                                 <td class="align-middle" id="total_{{ $key }}">₹{{ $total }}</td>
@@ -148,7 +151,7 @@
                         <div class="d-flex justify-content-between mb-3 pt-1">
                             <h6 class="font-weight-medium">Subtotal</h6>
                             <h6 id="subtotal" class="font-weight-medium">₹.
-                                {{ !empty($subtotal)? round($subtotal,2) : '00' }}</h6>
+                                {{ !empty($subtotal) ? round($subtotal, 2) : '00' }}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -157,11 +160,11 @@
 
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">S.G.S.T <span>(9%)</span></h6>
-                            <h6 id="sgst" class="font-weight-medium"></h6>₹{{ round($gst,2) }}
+                            <h6 id="sgst" class="font-weight-medium"></h6>₹{{ round($gst, 2) }}
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">C.G.S.T <span>(9%)</span></h6>
-                            <h6 id="cgst" class="font-weight-medium">₹{{ round($gst,2) }}</h6>
+                            <h6 id="cgst" class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
                         </div>
                     </div>
 
@@ -169,7 +172,7 @@
                     <div class="card-footer border-secondary bg-transparent">
                         <div class="d-flex justify-content-between mt-2">
                             <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">₹{{ round($final,2) }}</h5>
+                            <h5 class="font-weight-bold">₹{{ round($final, 2) }}</h5>
                         </div>
                         <a href="{{route('Fcheckout')}}" class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</a>
                     </div>
@@ -180,35 +183,33 @@
     <!-- Cart End -->
 
     <script>
-      /////////////////// product +/-
-$(document).ready(function() {
-  $('.num-in span').click(function () {
-      var $input = $(this).parents('.num-block').find('input.in-num');
-    if($(this).hasClass('minus')) {
-      var count = parseFloat($input.val()) - 1;
-      count = count < 1 ? 1 : count;
-      if (count < 2) {
-        $(this).addClass('dis');
-      }
-      else {
-        $(this).removeClass('dis');
-      }
-      $input.val(count);
-    }
-    else {
-      var count = parseFloat($input.val()) + 1
-      $input.val(count);
-      if (count > 1) {
-        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
-      }
-    }
-    
-    $input.change();
-    return false;
-  });
-  
-});
-// product +/-
+        /////////////////// product +/-
+        $(document).ready(function() {
+            $('.num-in span').click(function() {
+                var $input = $(this).parents('.num-block').find('input.in-num');
+                if ($(this).hasClass('minus')) {
+                    var count = parseFloat($input.val()) - 1;
+                    count = count < 1 ? 1 : count;
+                    if (count < 2) {
+                        $(this).addClass('dis');
+                    } else {
+                        $(this).removeClass('dis');
+                    }
+                    $input.val(count);
+                } else {
+                    var count = parseFloat($input.val()) + 1
+                    $input.val(count);
+                    if (count > 1) {
+                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+                    }
+                }
+
+                $input.change();
+                return false;
+            });
+
+        });
+        // product +/-
         // product +/-
 
         // $(document).ready(function() {

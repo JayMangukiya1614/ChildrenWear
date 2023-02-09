@@ -2,6 +2,7 @@
 
 @section('FrontAdmin')
 
+
     {{-- Corasol start --}}
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -186,7 +187,6 @@
 
 
     <script>
-
         @if (Session::has('LoginSuccess'))
             toastr.options = {
                 "closeButton": true,
@@ -195,5 +195,4 @@
             toastr.success("{{ session('LoginSuccess') }}");
         @endif
     </script>
-
 @endsection

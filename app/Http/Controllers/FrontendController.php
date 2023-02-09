@@ -48,22 +48,26 @@ class FrontendController extends Controller
     return view('Frontend.Contact');
   }
 
+  public function FrontWishlist()
+  {
+    return view('Frontend.WishList');
+  }
+
   public function FrontCart()
   {
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
     $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->get(); // using for product details form quantity color etc
 
-    return view('Frontend.ShoppingCart', compact('cartitem'));  
+    return view('Frontend.ShoppingCart', compact('cartitem'));
   }
 
   public function DeleteProductCart($id)
   {
-     $data = AddCart::where([['id','=',$id]])->first();
-     $data->delete();
+    $data = AddCart::where([['id', '=', $id]])->first();
+    $data->delete();
 
-     return back()->with('DeleteItem','Item Cancel');
-
+    return back()->with('DeleteItem', 'Item Cancel');
   }
 
   public function FrontCheckout()
@@ -72,49 +76,6 @@ class FrontendController extends Controller
     return view('Frontend.Checkout');
   }
 
-  public function FrontReg()
-  {
-    $session = Session()->get('ULogin');
-    if ($session == NUll) {
-      $Cart = 0;
-      return view('Frontend.Reg', compact('Cart'));
-    }
-    $sessionid = User::find($session);
-    $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
-    return view('Frontend.Reg', compact('Cart'));
-  }
-
-  // public function RegDataSave(Request $req)
-  // {
-
-  //   // $req->validate([
-
-  //   //   'FirstName' => 'required',
-  //   //   'LastName' => 'required',
-  //   //   'Address' => 'required',
-  //   //   'BirthDate' => 'required',
-  //   //   'PhoneNo' => 'required',
-  //   //   'Gender' => 'required',
-  //   //   'Email' => 'required',
-  //   //   'Password' => 'required',
-
-  //   // ]);
-
-  //   $data = new User();
-
-  //   $data->FirstName = $req->firstname;
-  //   $data->LastName = $req->lastname;
-  //   $data->Address = $req->address;
-  //   $data->BirthDate = $req->birthdate;
-  //   $data->PhoneNo = $req->phoneno;
-  //   $data->Gender = $req->gender;
-  //   $data->Email = $req->email;
-  //   $data->Password = Hash::make($req->password);
-
-  //   $data->save();
-
-  //   return redirect(route('Flogin'));
-  // }
 
   public function FrontProfile()
   {
@@ -145,16 +106,31 @@ class FrontendController extends Controller
     return redirect(route('Fprofile'))->with('Profile', 'Profile Update Successfully...');
   }
 
+
+  public function FrontReg()
+  {
+    $session = Session()->get('ULogin');
+    if ($session == NUll) {
+      $Cart = 0;
+      return view('Frontend.Reg', compact('Cart'));
+    }
+    $sessionid = User::find($session);
+    $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
+    return view('Frontend.Reg', compact('Cart'));
+  }
+
   public function RegDataSave(Request $req)
   {
     $req->validate([
       'firstname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'lastname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'address' => 'required',
+      'state' => 'required',
+      'city' => 'required',
       'birthdate' => 'required',
       'phoneno' => 'required | regex:/^[0-9]{10}/|min:10|max:10',
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:8 | min:4',
+      'password' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
 
     ]);
 
@@ -175,11 +151,11 @@ class FrontendController extends Controller
       }
       $data['CI_ID'] = $Ci_Id;
 
-
-
       $data->FirstName = $req->firstname;
       $data->LastName = $req->lastname;
       $data->Address = $req->address;
+      $data->State = $req->state;
+      $data->City = $req->city;
       $data->BirthDate = $req->birthdate;
       $data->PhoneNo = $req->phoneno;
       $data->Gender = $req->gender;
@@ -202,7 +178,8 @@ class FrontendController extends Controller
     $req->validate([
 
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:8 | min:4',
+      'password' => 'required | max:10| min:4',
+
 
     ]);
 
@@ -243,9 +220,9 @@ class FrontendController extends Controller
 
     $req->validate([
 
-      'currentpass' => 'required | max:8 | min:4',
-      'newpass' => 'required | max:8 | min:4',
-      'confirmpass' => 'required | max:8 | min:4',
+      'currentpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'newpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'confirmpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
 
     ]);
 
@@ -299,6 +276,7 @@ class FrontendController extends Controller
   {
 
     $id = Session()->get('F-Password');
+
     $data = User::find($id);
 
     if ($req->newpass == $req->confirmpass) {

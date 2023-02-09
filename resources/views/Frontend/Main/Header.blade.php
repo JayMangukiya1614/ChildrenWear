@@ -94,7 +94,7 @@
                         @endforeach
                         {{ $total }}
                     @else
-                    
+
                         {{ $total }}
                     @endif --}}
                 </span>
