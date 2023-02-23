@@ -89,7 +89,7 @@
                             $subtotal = null;
                             $gst = null;
                             $final = null;
-
+                            
                         @endphp
                         @foreach ($cartitem as $key => $cartitem)
                             <tr>
@@ -102,16 +102,18 @@
                                         class="ml-2">{{ $cartitem->products->price }}</span></td>
                                 <td class="align-middle">{{ $cartitem->products->discount }} %</td>
 
-                                <td style="height: 80px" class="align-middle d-flex justify-content-center align-items-center ">
+                                <td style="height: 80px"
+                                    class="align-middle d-flex justify-content-center align-items-center ">
                                     <div class="num-block skin-4">
                                         <div class="num-block skin-5">
                                             <div class="num-in">
-                                                <span class="minus dis">-</span>
-                                                <input type="text" class="in-num" value="{{$cartitem->quantity}}" readonly="">
-                                                <span class="plus"> <a href="">+</a> </span>
+                                                <span class="minus dis"><a
+                                                        href="{{ route('quantityminus', $cartitem->id) }}">-</a></span>
+                                                <span class="plus"> <a
+                                                        href="{{ route('quantityadd', $cartitem->id) }}">+</a></span>
                                                 <input type="text" class="in-num" value="{{ $cartitem->quantity }}"
                                                     readonly="">
-                                                <span class="plus">+</span>
+
                                             </div>
                                         </div>
                                     </div>
@@ -149,9 +151,9 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3 pt-1">
-                            <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 id="subtotal" class="font-weight-medium">₹.
-                                {{ !empty($subtotal) ? round($subtotal, 2) : '00' }}</h6>
+                   
+                                <h6 class="font-weight-medium">Subtotal</h6>
+                                <h6 id="subtotal" class="font-weight-medium">₹.{{ $subtotal }}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -174,7 +176,8 @@
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">₹{{ round($final, 2) }}</h5>
                         </div>
-                        <a href="{{route('Fcheckout')}}" class="btn btn-block btn-primary my-3 py-3">Proceed To Checkout</a>
+                        <a href="{{ route('Fcheckout') }}" class="btn btn-block btn-primary my-3 py-3">Proceed To
+                            Checkout</a>
                     </div>
                 </div>
             </div>
@@ -184,31 +187,31 @@
 
     <script>
         /////////////////// product +/-
-        $(document).ready(function() {
-            $('.num-in span').click(function() {
-                var $input = $(this).parents('.num-block').find('input.in-num');
-                if ($(this).hasClass('minus')) {
-                    var count = parseFloat($input.val()) - 1;
-                    count = count < 1 ? 1 : count;
-                    if (count < 2) {
-                        $(this).addClass('dis');
-                    } else {
-                        $(this).removeClass('dis');
-                    }
-                    $input.val(count);
-                } else {
-                    var count = parseFloat($input.val()) + 1
-                    $input.val(count);
-                    if (count > 1) {
-                        $(this).parents('.num-block').find(('.minus')).removeClass('dis');
-                    }
-                }
+        // $(document).ready(function() {
+        //     $('.num-in span').click(function() {
+        //         var $input = $(this).parents('.num-block').find('input.in-num');
+        //         if ($(this).hasClass('minus')) {
+        //             var count = parseFloat($input.val()) - 1;
+        //             count = count < 1 ? 1 : count;
+        //             if (count < 2) {
+        //                 $(this).addClass('dis');
+        //             } else {
+        //                 $(this).removeClass('dis');
+        //             }
+        //             $input.val(count);
+        //         } else {
+        //             var count = parseFloat($input.val()) + 1
+        //             $input.val(count);
+        //             if (count > 1) {
+        //                 $(this).parents('.num-block').find(('.minus')).removeClass('dis');
+        //             }
+        //         }
 
-                $input.change();
-                return false;
-            });
+        //         $input.change();
+        //         return false;
+        //     });
 
-        });
+        // });
         // product +/-
         // product +/-
 
@@ -234,6 +237,13 @@
                 "progressBar": true
             }
             toastr.info("{{ session('DeleteItem') }}");
+        @endif
+        @if (Session::has('Quantity'))
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            }
+            toastr.info("{{ session('Quantity') }}");
         @endif
     </script>
 @endsection

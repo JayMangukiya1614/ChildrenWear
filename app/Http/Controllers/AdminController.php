@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
+ 
   public function AdminLogin()
   {
     return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
