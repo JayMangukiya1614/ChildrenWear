@@ -69,13 +69,7 @@ class FrontendController extends Controller
     return view('Frontend.ShoppingCart', compact('cartitem'));
   }
 
-  public function DeleteProductCart($id)
-  {
-    $data = AddCart::where([['id', '=', $id]])->first();
-    $data->delete();
 
-    return back()->with('DeleteItem', 'Item Cancel');
-  }
 
   public function FrontCheckout()
   {
@@ -84,10 +78,12 @@ class FrontendController extends Controller
     $productid = AddCart::where('CI_ID', $data->CI_ID)->get();
     // $productname = ProductListing::find($productid);
     $productname = 0;
-    foreach ($productid as $productid) {
-            $productname = ProductListing::where('id', $productid->product_id)->get();
-      return view('Frontend.Checkout', compact('data', 'productname'));
-    }
+    // foreach ($productid as $productid) {
+    //         $productname = ProductListing::where('id', $productid->product_id)->get();
+    //   return view('Frontend.Checkout', compact('data', 'productname'));
+    // }
+    return view('Frontend.Checkout', compact('data', 'productid'));
+
     // return $productname;
   }
 
@@ -143,9 +139,9 @@ class FrontendController extends Controller
       'state' => 'required',
       'city' => 'required',
       'birthdate' => 'required',
-      'phoneno' => 'required | regex:/^[0-9]{10}/|min:10|max:10',
+      'phoneno' => 'required |',
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'password' => 'required | max:10| min:6 |',
 
     ]);
 

@@ -100,7 +100,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="firstname" id="firstName"
+                                            <input type="text"  value="{{old('firstname')}}" name="firstname" id="firstName"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="firstName">First Name</label>
                                         </div>
@@ -112,7 +112,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="lastname" id="lastName"
+                                            <input type="text" value="{{old('lastname')}}" name="lastname" id="lastName"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="lastName">Last Name</label>
                                         </div>
@@ -127,7 +127,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="address" id="address"
+                                            <input type="text"  value="{{old('address')}}"name="address" id="address"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="address">Address</label>
                                         </div>
@@ -139,7 +139,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="date" name="birthdate" id="birthdate"
+                                            <input type="date" value="{{old('birthdate')}}" name="birthdate" id="birthdate"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="birthdate">Birthdate</label>
                                         </div>
@@ -154,7 +154,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="state" id="state"
+                                            <input type="text" value="{{old('state')}}" name="state" id="state"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="state">State</label>
                                         </div>
@@ -166,7 +166,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="city" id="city"
+                                            <input type="text" value="{{old('city')}}" name="city" id="city"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="city">City</label>
                                         </div>
@@ -181,7 +181,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="text" name="phoneno" class="form-control form-control-lg"
+                                            <input type="text" value="{{old('phoneno')}}" name="phoneno" class="form-control form-control-lg"
                                                 id="birthdayDate" />
                                             <label for="birthdayDate" class="form-label">Phone No</label>
                                         </div>
@@ -219,7 +219,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="email" name="email" id="emailAddress"
+                                            <input type="email" value="{{old('email')}}" name="email" id="emailAddress"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="emailAddress">Email</label>
                                         </div>
@@ -231,7 +231,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="password" name="password" id="password"
+                                            <input type="password" value="{{old('password')}}" name="password" id="password"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="password">Password</label>
                                         </div>

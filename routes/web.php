@@ -131,10 +131,15 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('quantityadd/{id}', [DropDownController::class, 'quantityadd'])->name('quantityadd');
   Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
   Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
+  Route::get('OrderTable', [DropDownController::class, 'OrderTable'])->name('OrderTable');
 
 
 
-  Route::get('/Delete-Product-Cart/{id}', [FrontendController::class, 'DeleteProductCart'])->name('Delete-Product-Cart');
+
+  Route::get('/Delete-Product-Cart/{id}', [DropDownController::class, 'DeleteProductCart'])->name('Delete-Product-Cart');
+
+  Route::get('/Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
+
 
 
 

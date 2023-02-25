@@ -17,7 +17,6 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
 
- 
   public function AdminLogin()
   {
     return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
@@ -190,10 +189,10 @@ class AdminController extends Controller
     $check = Adminreg::find($id);
     $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
-    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->paginate(10);
-    $pagination = ProductListing::paginate(10);
+    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->get();
 
-    return view('admin.Product-table', compact('data', 'heading', 'pagination'));
+
+    return view('admin.Product-table', compact('data', 'heading'));
   }
 
   public function AdminProductDeleteTable()
@@ -231,7 +230,7 @@ class AdminController extends Controller
     $data['age']  = json_encode($req->age);
     $data['size']  = json_encode($req->size);
     $data['color']  = json_encode($req->color);
-    if (isset($req->productimage)) {
+    if ($req->productimage != NULL) {
       $imagename = time() . '.' . $data['productimage']->extension();
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;

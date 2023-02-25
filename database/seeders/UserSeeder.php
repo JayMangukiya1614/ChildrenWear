@@ -18,16 +18,9 @@ class UserSeeder extends Seeder
     {
         DB::table('mainadmins')->insert([
             [
-                'Name' => "Jay Mangukiya",
-                'Email' => "jaymangukiya1614@gmail.com",
-                'Password' => Hash::make('123456'),
-            ],
-
-            [
-                'Name' => "Krupali Mathukiya",
-                'Email' => "krupalimathukiya6@gmail.com",
-                'Password' => Hash::make('123456'),
-
+                'Name' => "Admin",
+                'Email' => "babyhub007@gmail.com",
+                'Password' => Hash::make('BH@123'),
             ]
         ]);
         DB::table('indices')->insert([
@@ -48,77 +41,6 @@ class UserSeeder extends Seeder
             [
                 'AD_ID' => "BH0001",
                 'token' => "1",
-                'profileimage' => 'jay.jpg',
-                'firstname' => "Mangukiya",
-                'middlename' => "Jay",
-                'lastname' => "Dhirubhai",
-                'shopname' => "Jem's Creation",
-                'pincode' => "395010",
-                'education' => "Postgraduate",
-                'gender' => "Male",
-                'state' => "Goa",
-                'city' => "Delhi",
-                'mobilenumber' => "9737520270",
-                'gstno' => "07AAGFF2194N1Z1",
-                'bankname' => "YES BANK",
-                'branchname' => "VARACHA",
-                'ifsccode' => "YESB0000400",
-                'email' => "jaymangukiya1614@gmail.com",
-                'password' => Hash::make('Jay@123'),
-                'address' => "110 ishvarnagar soc-2 Sitanagr road surat",
-                'message' => "I hope you  you are accepet my account request",
-
-            ],
-            [
-                'AD_ID' => "BH0002",
-                'token' => "1",
-                'profileimage' => 'krupali.jpg',
-                'firstname' => "Mathukiya",
-                'middlename' => "Krupali",
-                'lastname' => "Prafulbhai",
-                'shopname' => "Krup's Creation",
-                'pincode' => "395010",
-                'education' => "Postgraduate",
-                'gender' => "Female",
-                'state' => "Goa",
-                'city' => "Delhi",
-                'mobilenumber' => "7434039039",
-                'gstno' => "08AAGFF2194N1Z1",
-                'bankname' => "YES BANK",
-                'branchname' => "VARACHA",
-                'ifsccode' => "YESB0000400",
-                'email' => "krupalimathukiya6@gmail.com",
-                'password' => Hash::make('Krups@123'),
-                'address' => "123 yoginagar -2 Yogichowk road surat",
-                'message' => "I hope you  you are accepet my account request",
-            ],
-            [
-                'AD_ID' => "BH0002",
-                'token' => "1",
-                'profileimage' => 'krupali.jpg',
-                'firstname' => "Mathukiya",
-                'middlename' => "Krupali",
-                'lastname' => "Prafulbhai",
-                'shopname' => "Krup's Creation",
-                'pincode' => "395010",
-                'education' => "Postgraduate",
-                'gender' => "Female",
-                'state' => "Goa",
-                'city' => "Delhi",
-                'mobilenumber' => "7434039039",
-                'gstno' => "08AAGFF2194N1Z1",
-                'bankname' => "YES BANK",
-                'branchname' => "VARACHA",
-                'ifsccode' => "YESB0000400",
-                'email' => "krupalimathukiya6@gmail.com",
-                'password' => Hash::make('Jay@123'),
-                'address' => "123 yoginagar -2 Yogichowk road surat",
-                'message' => "I hope you  you are accepet my account request",
-
-            ],
-            [
-                'AD_ID' => "BH0003",
-                'token' => "1",
                 'profileimage' => 'default.jpeg',
                 'firstname' => "Admin",
                 'middlename' => "Admin",
@@ -129,13 +51,13 @@ class UserSeeder extends Seeder
                 'gender' => "Male",
                 'state' => "Goa",
                 'city' => "Delhi",
-                'mobilenumber' => "7434039039",
+                'mobilenumber' => "1234567891",
                 'gstno' => "08AAGFF2194N1Z1",
                 'bankname' => "YES BANK",
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
-                'email' => "Admin@gmail.com",
-                'password' => Hash::make('Admin@123'),
+                'email' => "babyhub007@gmail.com.",
+                'password' => Hash::make('BH@123'),
                 'address' => "Admin",
                 'message' => "I hope you  you are accepet my account request",
 
@@ -147,33 +69,18 @@ class UserSeeder extends Seeder
         DB::table('users')->insert([
             [
                 'CI_ID' => "CI0001",
-                'FirstName' => "Jay ",
-                'LastName' => " Mangukiya",
+                'FirstName' => "Admin ",
+                'LastName' => " Admin",
                 'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
                 'State' => "Gujrat",
                 'City' => "Surat",
                 'BirthDate' => "04-01-2003",
-                'PhoneNo' => "9737520270",
+                'PhoneNo' => "1234567890",
                 'Gender' => "Male",
-                'Email' => "jaymangukiya1614@gmail.com",
-                'Password' => Hash::make('123456'),
+                'Email' => "babyhub007@gmail.com",
+                'Password' => Hash::make('BH@123'),
                 'ZipCode' => "395010",
-            ],
-
-            [
-                'CI_ID' => "CI0002",
-                'FirstName' => "Krupali ",
-                'LastName' => " Mathukiya",
-                'Address' => "123 yoginagar -2 Yogichowk road surat",
-                'State' => "Gujrat",
-                'City' => "Surat",
-                'BirthDate' => "30-09-2002",
-                'PhoneNo' => "7434039039",
-                'Gender' => "Female",
-                'Email' => "krupalimathukiya6@gmail.com",
-                'Password' => Hash::make('123456'),
-                'ZipCode' => "395010",
-            ],
+            ]
 
 
         ]);
@@ -608,6 +515,32 @@ class UserSeeder extends Seeder
                 'created_at' => '2023-02-08 03:50:16',
                 'updated_at' => '2023-02-08 03:50:34',
             ],
+        ]);
+
+        
+        DB::table('add_carts')->insert([
+            [
+                'CI_ID' => "CI0001",
+                'product_id' => "5 ",
+                'age' => " 0-6(M)",
+                'color' => "Black",
+                'size' => "XS",
+                'quantity' => "1",
+                'created_at' => '2023-02-25 04:24:20',
+                'updated_at' => '2023-02-25 04:24:20',
+            ],
+            [
+                'CI_ID' => "CI0001",
+                'product_id' => "2 ",
+                'age' => " 0-6(M)",
+                'color' => "Black",
+                'size' => "XS",
+                'quantity' => "2",
+                'created_at' => '2023-02-25 04:24:38',
+                'updated_at' => '2023-02-25 04:24:42',
+            ]
+
+
         ]);
     }
 }

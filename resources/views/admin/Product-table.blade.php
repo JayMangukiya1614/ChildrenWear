@@ -38,9 +38,10 @@
             <tbody>
                 @if ($data != null)
                     @foreach ($data as $key => $data)
-                        @if ($data->token != 2)
-                            <tr>
-                                <td scope="row">{{ $key + 1 }}</td>
+                    @if ($data->token != 2)
+                    <tr>
+                                {{-- {{dd($key)}} --}}
+                                <td scope="row">{{ $key}}</td>
                                 <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                         src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
 
@@ -89,9 +90,7 @@
             </tbody>
         </table>
     </div>
-    <div>
-        {{$pagination->links()}}
-    </div>
+
 
 
 

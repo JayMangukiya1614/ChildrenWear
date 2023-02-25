@@ -97,7 +97,8 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>ZIP Code</label>
-                                <input class="form-control" type="text" name="ZipCode" value="{{ $data->ZipCode }}" >
+                                <input class="form-control" id="zip" type="text" name="ZipCode"
+                                    value="{{ $data->ZipCode }}">
                                 <span class="text-danger">
                                     @error('ZipCode')
                                         {{ $message }}
@@ -117,66 +118,80 @@
 
         </div>
         <div class="col-lg-4">
-            <div class="card border-secondary mb-5">
+            <div class="card border-secondary mt-5">
                 <div class="card-header bg-secondary border-0">
                     <h4 class="font-weight-semi-bold m-0">Order Total</h4>
                 </div>
                 <div class="card-body">
                     <h5 class="font-weight-medium mb-3">Products</h5>
-                    @foreach ($productname as $productname)
+                    @php
+                        $subtotal = null;
+                        $gst = null;
+                        $final = null;
+                        $price = null;
+                        
+                    @endphp
+                    @foreach ($productid as $productid)
                         <div class="d-flex justify-content-between">
-                            <p>{{ $productname->productname }}</p>
-                            <p>{{ $productname->selling }}</p>
+                            <p>{{ $productid->products->productname }} <span class="text-danger"> Qty .
+                                    {{ $productid->quantity }} </span></p>
+                            <p>{{ $price = $productid->products->selling * $productid->quantity }}</p>
+                            @php
+                                
+                                $subtotal = $subtotal + $price;
+                                $gst = (9 * $subtotal) / 100;
+                                $final = 2 * $gst + $subtotal;
+                            @endphp
                         </div>
                     @endforeach
 
                     <hr class="mt-0">
                     <div class="d-flex justify-content-between mb-3 pt-1">
                         <h6 class="font-weight-medium">Subtotal</h6>
-                        <h6 class="font-weight-medium">$150</h6>
+                        <h6 class="font-weight-medium">{{ $subtotal }}</h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">Shipping</h6>
-                        <h6 class="font-weight-medium">$10</h6>
+                        <h6 class="font-weight-medium">Free</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">S.G.S.T</h6>
+                        <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">C.G.S.T</h6>
+                        <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2 mb-0 ">
+                        <h6 class="font-weight-medium">Payment Type</h6>
+                        <h6 class="font-weight-medium">COD</h6>
                     </div>
                 </div>
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">$160</h5>
+                        <h5 class="font-weight-bold">{{ $total = $subtotal + 2 * $gst }}</h5>
                     </div>
                 </div>
             </div>
-            <div class="card border-secondary mb-5">
-                <div class="card-header bg-secondary border-0">
-                    <h4 class="font-weight-semi-bold m-0">Payment</h4>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" name="payment" id="paypal">
-                            <label class="custom-control-label" for="paypal">Paypal</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" name="payment" id="directcheck">
-                            <label class="custom-control-label" for="directcheck">Direct Check</label>
-                        </div>
-                    </div>
-                    <div class="">
-                        <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" name="payment" id="banktransfer">
-                            <label class="custom-control-label" for="banktransfer">Bank Transfer</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-footer border-secondary bg-transparent">
-                    <button class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
-                </div>
+            <div class="card-footer border-secondary bg-transparent">
+                <a id="porder" href="{{ route('Confirm-Order') }}"
+                    class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</a>
             </div>
         </div>
     </div>
     </div>
     <!-- Checkout End -->
+    {{-- <script>
+         $('#porder').on('click', function() {
+                var zip = $("#zip").val();
+                if(zip)
+                {
+                    alert('Please Enter the zipcode');
+
+                }
+            });
+// var zip = document.elementByid('').val()
+   
+    </script> --}}
 @endsection
