@@ -11,13 +11,100 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\UProductRequest;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AdminForgetPasswordMail;
 
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
 
- 
+  public function Aforgetpassword()
+  {
+    return view('admin.Forget_Password.Forget-Password');
+  }
+
+  public function Aforgetemail()
+  {
+    return view('admin.Forget_Password.Forget-Email');
+  }
+
+  public function Aforgetemailsend(Request $req)
+  {
+    $req->validate([
+      'email' => 'required',
+    ]);
+
+    $data = Adminreg::where('email', '=', $req->email)->first();
+    if ($data != null) {
+      $mail = $data->email;
+      $details = [];
+      $req->Session()->put('Alogin', $data->id);
+      Mail::to($mail)->send(new AdminForgetPasswordMail($details));
+      return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
+    } else {
+      return back()->with('Not', 'This Email Id is Not Avvailable On Database');
+    }
+  }
+
+  public function Aforgetpasswordsave(Request $req)
+  {
+
+    $req->validate([
+      'newpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'confirmpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+
+    ]);
+    $id = Session()->get('Alogin');
+
+    $data = Adminreg::find($id);
+
+    if ($req->newpass == $req->confirmpass) {
+      $data->Password = Hash::make($req->newpass);
+      $data->update();
+      return redirect(route('Admin-Login'))->with('Forget-Password-Update', 'Password Update Successfully....');
+    } else {
+      return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+    }
+  }
+
+  public function Achangepassword()
+  {
+    return view('admin.Change-Password');
+  }
+
+  public function Achangepasswordsave(Request $req)
+  {
+
+    $req->validate([
+
+      // 'currentpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      // 'newpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      // 'confirmpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+
+    ]);
+
+    $id = Session()->get('Alogin');
+    $data = Adminreg::find($id);
+    $session = Session()->get('Alogin');
+    $sessionid = Adminreg::find($session);
+    // $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
+
+    if (Hash::Check($req->currentpass, $data->password)) {
+      // dd($req->currentpass);
+      if ($req->newpass == $req->confirmpass) {
+        $data->password = Hash::make($req->newpass);
+        $data->update();
+        return redirect(route('dashboard-analytics'))->with('PasswordUpdate', 'Password Updated Successfully..');
+      } else {
+        return back()->with('NewPswdNMatch', 'New and Confirm Password not matched!!');
+      }
+    } else {
+
+      return back()->with('CurrentPswdNMatch', 'Current Password not matched!!');
+    }
+  }
+
   public function AdminLogin()
   {
     return view('admin.login')->with('LogOut', 'LogOut Successfully....!');
@@ -191,9 +278,9 @@ class AdminController extends Controller
     $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
     $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->paginate(10);
-    $pagination = ProductListing::paginate(10);
+    // $pagination = ProductListing::paginate(10);
 
-    return view('admin.Product-table', compact('data', 'heading', 'pagination'));
+    return view('admin.Product-table', compact('data', 'heading',));
   }
 
   public function AdminProductDeleteTable()
@@ -203,7 +290,7 @@ class AdminController extends Controller
      $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
     $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->get();
-  
+
 
     return view('admin.Delete-Product-table', compact('data', 'heading'));
   }
