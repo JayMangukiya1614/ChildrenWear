@@ -120,7 +120,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6 mb-4">
+                                    <div class="col-md-12 mb-4">
                                         <div class="form-outline">
                                           <span class="text-danger" style="font-size: 10px">
                                                 @error('address')
@@ -130,6 +130,20 @@
                                             <input type="text"  value="{{old('address')}}"name="address" id="address"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="address">Address</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <div class="form-outline">
+                                          <span class="text-danger" style="font-size: 10px">
+                                                @error('zipcode')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
+                                            <input type="number" name="zipcode" id="zipcode"
+                                                class="form-control form-control-lg" />
+                                            <label class="form-label" for="zipcode">Zip Code</label>
                                         </div>
                                     </div>
                                     <div class="col-md-6 mb-4">

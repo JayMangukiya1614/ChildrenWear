@@ -136,6 +136,7 @@ class FrontendController extends Controller
       'firstname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'lastname' => 'required |regex:/(^[A-Za-z ]+$)+/',
       'address' => 'required',
+      'zipcode' => 'required',
       'state' => 'required',
       'city' => 'required',
       'birthdate' => 'required',
@@ -165,6 +166,7 @@ class FrontendController extends Controller
       $data->FirstName = $req->firstname;
       $data->LastName = $req->lastname;
       $data->Address = $req->address;
+      $data->ZipCode = $req->zipcode;
       $data->State = $req->state;
       $data->City = $req->city;
       $data->BirthDate = $req->birthdate;
@@ -189,7 +191,7 @@ class FrontendController extends Controller
     $req->validate([
 
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:10| min:4',
+      'password' => 'required | max:15| min:4',
 
 
     ]);
@@ -231,9 +233,9 @@ class FrontendController extends Controller
 
     $req->validate([
 
-      'currentpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-      'newpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-      'confirmpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'currentpass' => 'required | max:15| min:4',
+      'newpass' => 'required | max:15| min:4',
+      'confirmpass' => 'required | max:15| min:4',
 
     ]);
 

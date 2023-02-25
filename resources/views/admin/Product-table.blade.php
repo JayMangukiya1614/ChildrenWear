@@ -8,17 +8,27 @@
 @endsection
 
 
-
 @section('content')
-    <h1 class="text-center" style="margin-top: 6rem">Product Listing </h1>
-    <h1>{{ $heading->shopname }}</h1>
-    <h1>{{ $heading->AD_ID }}</h1>
+
+    <div>
+        <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Product Listing </h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <h1 style="font-size:1.5rem">{{ $heading->AD_ID }}</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 style="float:right;font-size:1.5rem">{{ $heading->shopname }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
     <div class="table-responsive">
-
         <table class="table table-striped">
-
-
             <thead>
                 <tr>
                     <th scope="col">Id</th>
@@ -44,7 +54,6 @@
                                 <td scope="row">{{ $key}}</td>
                                 <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                         src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
-
                                 </td>
                                 @if ($data->category == 1)
                                     <td><i class="fa-solid fa-child"></i></td>
@@ -54,16 +63,16 @@
                                 <td class="text-wrap"style="max-width:150px;">{{ $data->PI_ID }}</td>
 
                                 @if ($data->stock == 1)
-                                <td class="text-success">{{ $data->stock }}</td>
-                            @else
-                                <td class="text-danger">{{ $data->stock }}</td>
-                            @endif
+                                    <td class="text-success">{{ $data->stock }}</td>
+                                @else
+                                    <td class="text-danger">{{ $data->stock }}</td>
+                                @endif
 
 
-                                <td class="text-wrap"style="max-width:150px;">{{ $data->productname }}</td>
-                                <td class="text-wrap"style="max-width:150px;">{{ (string) $data->price }}</td>
-                                <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
-                                <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>
+                                <td class="text-wrap"style="">{{ $data->productname }}</td>
+                                <td class="text-wrap"style="">{{ (string) $data->price }}</td>
+                                <td class="text-wrap"style="">{{ $data->discount }}%</td>
+                                <td class="text-wrap"style="">{{ (float) $data->selling }}</td>
 
                                 <td class="text-wrap"style="max-width:200px;"><a
                                         href="{{ route('Admin-Product-Listing-show', $data->id) }}" class="btn btn-info"><i
@@ -71,7 +80,6 @@
                                     <a href="{{ route('Admin-Product-Listing-delete', $data->id) }}"
                                         class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                 </td>
-
                             </tr>
                         @endif
                     @endforeach
@@ -85,7 +93,6 @@
                     <td></td>
                     <td></td>
                     <td></td>
-
                 @endif
             </tbody>
         </table>
