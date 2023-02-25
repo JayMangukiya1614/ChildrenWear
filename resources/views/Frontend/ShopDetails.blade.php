@@ -101,7 +101,7 @@
                 <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
                     @csrf
                     <div class="d-flex mb-3">
-                        <p class="text-dark font-weight-medium mb-0 mr-3 d-inline-block ">Age:</p>
+                        <p class="text-dark font-weight-medium mb-0 d-inline-block "  style="margin-right: 2rem;">Age:</p>
                         @foreach (json_decode($data['age']) as $key => $age)
                             <div class="custom-control custom-radio custom-control-inline">
                                 <input type="radio" class="custom-control-input" value="{{ $age }}"
@@ -110,6 +110,11 @@
                                     {{ in_array($age, json_decode($data['age'])) ? $age : '' }}</label>
                             </div>
                         @endforeach
+                        <span class="text-danger">
+                            @error('age')
+                                {{ $message }}
+                            @enderror
+                        </span>
 
                         </div>
                         <div class="d-flex ">
@@ -131,7 +136,7 @@
                         </div>
 
                         <div class="d-flex ">
-                            <p class="text-dark font-weight-medium mb-0" style="margin-right: 2.2rem;">Size:</p>
+                            <p class="text-dark font-weight-medium mb-0" style="margin-right: 2.1rem;">Size:</p>
 
                             @foreach (json_decode($data['size']) as $key => $size)
                                 <div class="custom-control custom-radio custom-control-inline">

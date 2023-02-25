@@ -59,6 +59,13 @@ class FrontendController extends Controller
     $sessionid = User::find($session);
     $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->get(); // using for product details form quantity color etc
 
+
+    // foreach($cartitem as $cartitem)
+    // {
+
+    //   return  ProductListing::where('id',$cartitem->product_id)->get();
+    // }
+    // return $subtotal = AddCart::where('CI_ID',$sessionid->CI_ID)->get();
     return view('Frontend.ShoppingCart', compact('cartitem'));
   }
 
@@ -72,8 +79,16 @@ class FrontendController extends Controller
 
   public function FrontCheckout()
   {
-
-    return view('Frontend.Checkout');
+    $id = Session()->get('ULogin');
+    $data = User::find($id);
+    $productid = AddCart::where('CI_ID', $data->CI_ID)->get();
+    // $productname = ProductListing::find($productid);
+    $productname = 0;
+    foreach ($productid as $productid) {
+            $productname = ProductListing::where('id', $productid->product_id)->get();
+      return view('Frontend.Checkout', compact('data', 'productname'));
+    }
+    // return $productname;
   }
 
 

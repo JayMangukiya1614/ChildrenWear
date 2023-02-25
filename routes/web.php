@@ -12,6 +12,7 @@ use App\Http\Controllers\layouts\Fluid;
 use App\Http\Controllers\layouts\WithoutMenu;
 use App\Http\Controllers\layouts\WithoutNavbar;
 use App\Http\Controllers\MainAdminController;
+use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,6 +58,7 @@ Route::get('/Aforget-password-save', [AdminController::class, 'Aforgetpasswordsa
 //Admin Change Password
 Route::get('/Achange-password', [AdminController::class, 'Achangepassword'])->name('Achange-password');
 Route::post('/Achange-password-save', [AdminController::class, 'Achangepasswordsave'])->name('Achange-password-save');
+
 
 
 
@@ -140,7 +142,11 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::post('/Product-Cart/{id}', [DropDownController::class, 'Product_Cart'])->name('Product-Cart');
 
   Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
-  Route::get('quantity', [DropDownController::class, 'quantity'])->name('quantity');
+  Route::get('quantityadd/{id}', [DropDownController::class, 'quantityadd'])->name('quantityadd');
+  Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
+  Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
+
+
 
   Route::get('/Delete-Product-Cart/{id}', [FrontendController::class, 'DeleteProductCart'])->name('Delete-Product-Cart');
 

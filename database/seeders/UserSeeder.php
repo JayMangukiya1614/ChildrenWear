@@ -9,64 +9,64 @@ use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
-  /**
-   * Run the database seeds.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    DB::table('mainadmins')->insert([
-      [
-        'Name' => "Jay Mangukiya",
-        'Email' => "jaymangukiya1614@gmail.com",
-        'Password' => Hash::make('123456'),
-      ],
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('mainadmins')->insert([
+            [
+                'Name' => "Jay Mangukiya",
+                'Email' => "jaymangukiya1614@gmail.com",
+                'Password' => Hash::make('123456'),
+            ],
 
-      [
-        'Name' => "Krupali Mathukiya",
-        'Email' => "krupalimathukiya6@gmail.com",
-        'Password' => Hash::make('123456'),
+            [
+                'Name' => "Krupali Mathukiya",
+                'Email' => "krupalimathukiya6@gmail.com",
+                'Password' => Hash::make('123456'),
 
-      ]
-    ]);
-    DB::table('indices')->insert([
-      [
-        'title' => "Welcome To Our Website",
-        'subtitle' => "Fashionable Dress",
-        'image' => 'b1.jpg',
-      ],
+            ]
+        ]);
+        DB::table('indices')->insert([
+            [
+                'title' => "Welcome To Our Website",
+                'subtitle' => "Fashionable Dress",
+                'image' => 'b1.jpg',
+            ],
 
-      [
-        'title' => "Welcome To Our Website",
-        'subtitle' => "Reasonable Price",
-        'image' => 'b2.jpg',
+            [
+                'title' => "Welcome To Our Website",
+                'subtitle' => "Reasonable Price",
+                'image' => 'b2.jpg',
 
-      ]
-    ]);
-    DB::table('adminregs')->insert([
-      [
-        'AD_ID' => "BH0001",
-        'token' => "1",
-        'profileimage' => 'jay.jpg',
-        'firstname' => "Mangukiya",
-        'middlename' => "Jay",
-        'lastname' => "Dhirubhai",
-        'shopname' => "Jem's Creation",
-        'pincode' => "395010",
-        'education' => "Postgraduate",
-        'gender' => "Male",
-        'state' => "Goa",
-        'city' => "Delhi",
-        'mobilenumber' => "9737520270",
-        'gstno' => "07AAGFF2194N1Z1",
-        'bankname' => "YES BANK",
-        'branchname' => "VARACHA",
-        'ifsccode' => "YESB0000400",
-        'email' => "jaymangukiya1614@gmail.com",
-        'password' => Hash::make('Jay@123'),
-        'address' => "110 ishvarnagar soc-2 Sitanagr road surat",
-        'message' => "I hope you  you are accepet my account request",
+            ]
+        ]);
+        DB::table('adminregs')->insert([
+            [
+                'AD_ID' => "BH0001",
+                'token' => "1",
+                'profileimage' => 'jay.jpg',
+                'firstname' => "Mangukiya",
+                'middlename' => "Jay",
+                'lastname' => "Dhirubhai",
+                'shopname' => "Jem's Creation",
+                'pincode' => "395010",
+                'education' => "Postgraduate",
+                'gender' => "Male",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "9737520270",
+                'gstno' => "07AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "jaymangukiya1614@gmail.com",
+                'password' => Hash::make('Jay@123'),
+                'address' => "110 ishvarnagar soc-2 Sitanagr road surat",
+                'message' => "I hope you  you are accepet my account request",
 
       ],
       [
@@ -92,34 +92,34 @@ class UserSeeder extends Seeder
         'address' => "123 yoginagar -2 Yogichowk road surat",
         'message' => "I hope you  you are accepet my account request",
 
-      ],
-      [
-        'AD_ID' => "BH0003",
-        'token' => "1",
-        'profileimage' => 'default.jpeg',
-        'firstname' => "Admin",
-        'middlename' => "Admin",
-        'lastname' => "Admin",
-        'shopname' => "Admin's Creation",
-        'pincode' => "395010",
-        'education' => "Postgraduate",
-        'gender' => "Male",
-        'state' => "Goa",
-        'city' => "Delhi",
-        'mobilenumber' => "7434039039",
-        'gstno' => "08AAGFF2194N1Z1",
-        'bankname' => "YES BANK",
-        'branchname' => "VARACHA",
-        'ifsccode' => "YESB0000400",
-        'email' => "Admin@gmail.com",
-        'password' => Hash::make('Admin@123'),
-        'address' => "Admin",
-        'message' => "I hope you  you are accepet my account request",
+            ],
+            [
+                'AD_ID' => "BH0003",
+                'token' => "1",
+                'profileimage' => 'default.jpeg',
+                'firstname' => "Admin",
+                'middlename' => "Admin",
+                'lastname' => "Admin",
+                'shopname' => "Admin's Creation",
+                'pincode' => "395010",
+                'education' => "Postgraduate",
+                'gender' => "Male",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "7434039039",
+                'gstno' => "08AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "Admin@gmail.com",
+                'password' => Hash::make('Admin@123'),
+                'address' => "Admin",
+                'message' => "I hope you  you are accepet my account request",
 
-      ],
+            ],
 
 
-    ]);
+        ]);
 
     DB::table('users')->insert([
       [
@@ -153,7 +153,7 @@ class UserSeeder extends Seeder
       ],
 
 
-    ]);
+        ]);
 
     DB::table('product_listings')->insert([
       // shirt
@@ -290,7 +290,7 @@ class UserSeeder extends Seeder
         'updated_at' => '2023-02-08 03:50:10',
 
 
-      ],
+            ],
 
 
 
@@ -428,7 +428,7 @@ class UserSeeder extends Seeder
         'updated_at' => '2023-02-08 03:50:28',
 
 
-      ],
+            ],
 
 
 
