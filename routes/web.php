@@ -46,6 +46,20 @@ Route::get('/Admin-Reg', [AdminController::class, 'AdminReg'])->name('Admin-Reg'
 Route::post('/Admin-Reg-Save', [AdminController::class, 'AdminRegSave'])->name('Admin-Reg-Save');
 Route::post('/Alogindata', [AdminController::class, 'Alogindata'])->name('Alogindata');
 
+// Admin Forget Password
+Route::get('/Aforgetemail', [AdminController::class, 'Aforgetemail'])->name('Aforgetemail');
+Route::get('/Aforgetpassword', [AdminController::class, 'Aforgetpassword'])->name('Aforgetpassword');
+
+Route::post('/Aforget-email-send', [AdminController::class, 'Aforgetemailsend'])->name('Aforget-email-send');
+Route::get('/Aforget-password-save', [AdminController::class, 'Aforgetpasswordsave'])->name('Aforget-password-save');
+
+
+//Admin Change Password
+Route::get('/Achange-password', [AdminController::class, 'Achangepassword'])->name('Achange-password');
+Route::post('/Achange-password-save', [AdminController::class, 'Achangepasswordsave'])->name('Achange-password-save');
+
+
+
 
 
 // Admin
@@ -98,7 +112,7 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
   Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
 
-// product table 
+// product table
   Route::get('/Main-Admin-Product-Table', [IndexController::class, 'MProductTable'])->name('Main-Admin-Product-Table');
   Route::get('/Main-Admin-Product-Listing-delete/{id}', [IndexController::class, 'MainAdminProductListingdelete'])->name('Main-Admin-Product-Listing-delete');
   Route::get('/Main-Admin-Delete-Product-Table', [IndexController::class, 'MDeleteProductTable'])->name('Main-Admin-Delete-Product-Table');

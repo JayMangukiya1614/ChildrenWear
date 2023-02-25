@@ -16,7 +16,7 @@
     integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>Admin-Log-In</title>
+    <title>Admin-Forget-Password</title>
 
 </head>
 
@@ -34,7 +34,7 @@
                     <div class="login-wrap p-4 p-md-5">
                         <div class="d-flex">
                             <div class="w-100">
-                                <h3 class="mb-4">Sign In</h3>
+                                <h3 class="mb-4">Forget Password</h3>
                             </div>
                             <div class="w-100">
                                 <p class="social-media d-flex justify-content-end">
@@ -47,43 +47,31 @@
                                 </p>
                             </div>
                         </div>
-                        <form action="{{route('Alogindata')}}" method="POST" class="login-form">
+                        <form action="{{ route('Aforget-password-save') }}" method="GET" class="login-form">
                             @csrf
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-user"></span></div>
-                                <input type="text" name="email" value="{{old('email')}}" class="form-control rounded-left" placeholder="Username" >
+                                        class="fa fa-lock"></span></div>
+                                <input type="password" name="newpass" class="form-control rounded-left" placeholder="New Password">
                                 <span class="text-danger">
-                                    @error('email')
-                                        {{$message}}
+                                    @error('newpass')
+                                        {{ $message }}
                                     @enderror
                                 </span>
                             </div>
                             <div class="form-group">
                                 <div class="icon d-flex align-items-center justify-content-center"><span
                                         class="fa fa-lock"></span></div>
-                                <input type="password" name="password" class="form-control rounded-left" placeholder="Password">
+                                <input type="password" name="confirmpass" class="form-control rounded-left" placeholder="Confirm Password">
                                 <span class="text-danger">
-                                    @error('password')
-                                        {{$message}}
+                                    @error('confirmpass')
+                                        {{ $message }}
                                     @enderror
                                 </span>
                             </div>
                             <div class="form-group d-flex align-items-center">
-                                <div class="w-100">
-                                    <label class="checkbox-wrap checkbox-primary mb-0">Save Password
-                                        <input type="checkbox" checked>
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
                                 <div class="w-100 d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary rounded submit">Login</button>
-                                </div>
-                            </div>
-                            <div class="form-group mt-4">
-                                <div class="w-100 text-center">
-                                    <p class="mb-1">Don't have an account? <a href="{{route('Admin-Reg')}}">Sign Up</a></p>
-                                    <p><a href="{{ route('Aforgetemail') }}">Forgot Password</a></p>
+                                    <button type="submit" class="btn btn-primary rounded submit">Save</button>
                                 </div>
                             </div>
                         </form>
@@ -117,57 +105,13 @@
 <!-- Toastr CDN -->
     <script>
         //   toastr.success('d');
-        @if (Session::has('fail'))
+       @if (Session::has('NewPswdNMatch'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
-            toastr.error("{{ session('fail') }}");
+            toastr.error("{{ session('NewPswdNMatch') }}");
         @endif
-        @if (Session::has('Password'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('Password') }}");
-        @endif
-
-         @if (Session::has('Forget-Password-Update'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.info("{{ session('Forget-Password-Update') }}");
-        @endif
-        @if (Session::has('E_mail'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('E_mail') }}");
-        @endif
-        @if (Session::has('Token0'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('Token0') }}");
-        @endif
-        @if (Session::has('Token2'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.error("{{ session('Token2') }}");
-        @endif
-        @if (Session::has('Logout'))
-            toastr.options = {
-                "closeButton": true,
-                "progressBar": true
-            }
-            toastr.success("{{ session('Logout') }}");
-        @endif
-
     </script>
 </body>
 

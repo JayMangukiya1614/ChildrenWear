@@ -63,7 +63,7 @@ section {
 }
 
 body {
-  font-family:  "Times New Roman", Times, serif;
+  font-family: "Times New Roman", Times, serif;
   margin: 0;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
@@ -167,7 +167,7 @@ sup {
 }
 
 a {
-  color: #D19C97;
+  color: #000;
   text-decoration: none;
   background-color: transparent;
 }
@@ -3418,6 +3418,7 @@ input[type="button"].btn-block {
 
 .dropdown-toggle {
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .dropdown-toggle::after {
@@ -4358,7 +4359,7 @@ input[type="button"].btn-block {
 }
 
 .nav-link {
-  display: block;
+  display: inline-block;
   padding: 0.5rem 1rem;
 }
 
@@ -4471,7 +4472,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-nav {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
@@ -10786,4 +10787,12 @@ a.text-dark:focus {
   100% {
     transform: translateY(-15px);
   }
+}
+
+.active {
+  color: #ba6a62 !important;
+}
+
+.cat-img img {
+  width: 100% !important;
 }

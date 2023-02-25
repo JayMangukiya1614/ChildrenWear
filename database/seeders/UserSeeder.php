@@ -88,7 +88,7 @@ class UserSeeder extends Seeder
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",
         'email' => "krupalimathukiya6@gmail.com",
-        'password' => Hash::make('Jay@123'),
+        'password' => Hash::make('Krupali@123'),
         'address' => "123 yoginagar -2 Yogichowk road surat",
         'message' => "I hope you  you are accepet my account request",
 
@@ -127,11 +127,14 @@ class UserSeeder extends Seeder
         'FirstName' => "Jay ",
         'LastName' => " Mangukiya",
         'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
+        'ZipCode' => "395010",
+        'State' => "Gujarat",
+        'City' => "Surat",
         'BirthDate' => "04-01-2003",
         'PhoneNo' => "9737520270",
         'Gender' => "Male",
         'Email' => "jaymangukiya1614@gmail.com",
-        'Password' => Hash::make('123456'),
+        'Password' => Hash::make('Jay@123'),
       ],
 
       [
@@ -139,11 +142,14 @@ class UserSeeder extends Seeder
         'FirstName' => "Krupali ",
         'LastName' => " Mathukiya",
         'Address' => "123 yoginagar -2 Yogichowk road surat",
+        'ZipCode' => "395010",
+        'State' => "Gujarat",
+        'City' => "Surat",
         'BirthDate' => "30-09-2002",
         'PhoneNo' => "7434039039",
         'Gender' => "Female",
         'Email' => "krupalimathukiya6@gmail.com",
-        'Password' => Hash::make('123456'),
+        'Password' => Hash::make('Krupali@123'),
       ],
 
 
@@ -154,6 +160,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0001",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirtaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -176,6 +183,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0002",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirt",
@@ -197,6 +205,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0003",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirt",
@@ -218,6 +227,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0004",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirt",
@@ -239,6 +249,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0005",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirt",
@@ -260,6 +271,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0006",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Colorful Stylish Shirt",
@@ -286,6 +298,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0007",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -293,7 +306,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -309,6 +321,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0008",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -316,7 +329,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -331,6 +343,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-0009",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -338,7 +351,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -353,6 +365,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-00010",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -360,7 +373,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -375,6 +387,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-00011",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -382,7 +395,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -397,6 +409,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
+        'PI_ID' => "P-00012",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -404,7 +417,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "400",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '2',
         'color' => '["Black","Red","Green"]',
@@ -424,6 +436,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00013",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -431,7 +444,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',
@@ -445,6 +457,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00014",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -452,7 +465,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',
@@ -466,6 +478,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00015",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -473,7 +486,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',
@@ -486,6 +498,7 @@ class UserSeeder extends Seeder
       ], [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00016",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -493,7 +506,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',
@@ -506,6 +518,7 @@ class UserSeeder extends Seeder
       ], [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00017",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -513,7 +526,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',
@@ -526,6 +538,7 @@ class UserSeeder extends Seeder
       ], [
         'AD_ID' => "BH0002 ",
         'token' => "1",
+        'PI_ID' => "P-00018",
         'shopname' => " Krup's Creation",
         'category' => "2",
         'productname' => "Jeans",
@@ -533,7 +546,6 @@ class UserSeeder extends Seeder
         'discount' => "20",
         'selling' => "320",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
         'size' => '["XS","S"]',
         'collection' => '9',
         'color' => '["Black","Red","Green"]',

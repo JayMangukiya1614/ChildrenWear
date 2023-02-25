@@ -10,10 +10,22 @@
 
 
 @section('content')
-    <h1 class="text-center" style="margin-top: 6rem">Admin Delete Product </h1>
-    <h1>{{ $heading->shopname }}</h1>
-    <h1>{{ $heading->AD_ID }}</h1>
+     <div>
+        <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Product Listing </h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row mt-5">
+                    <div class="col-md-6">
+                        <h1 style="font-size:1.5rem">{{ $heading->AD_ID }}</h1>
+                    </div>
+                    <div class="col-md-6">
+                        <h1 style="float:right;font-size:1.5rem">{{ $heading->shopname }}</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
     <div class="table-responsive">
 
         <table class="table table-striped">

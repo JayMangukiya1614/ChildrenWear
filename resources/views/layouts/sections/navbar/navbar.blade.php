@@ -1,7 +1,7 @@
 @php
     $containerNav = $containerNav ?? 'container-fluid';
     $navbarDetached = $navbarDetached ?? '';
-    
+
 @endphp
 
 <!-- Navbar -->
@@ -54,6 +54,12 @@
                     <a class="dropdown-item" href="{{ route('Admin-Profile') }}">
                         <i class="bx bx-user me-2"></i>
                         <span class="align-middle ">My Profile</span>
+                    </a>
+                </li>
+                 <li>
+                    <a class="dropdown-item" href="{{ route('Achange-password') }}">
+                        <i class="fa-solid fa-key me-2"></i>
+                        <span class="align-middle ">Change Password</span>
                     </a>
                 </li>
                 <li>
