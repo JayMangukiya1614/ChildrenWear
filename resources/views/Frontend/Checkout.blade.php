@@ -139,8 +139,9 @@
                             @php
                                 
                                 $subtotal = $subtotal + $price;
-                                $gst = (9 * $subtotal) / 100;
-                                $final = 2 * $gst + $subtotal;
+                                $gst = (5 * $subtotal) / 100;
+                                $final =  $gst + $subtotal;
+                               
                             @endphp
                         </div>
                     @endforeach
@@ -155,13 +156,10 @@
                         <h6 class="font-weight-medium">Free</h6>
                     </div>
                     <div class="d-flex justify-content-between">
-                        <h6 class="font-weight-medium">S.G.S.T</h6>
+                        <h6 class="font-weight-medium">I.G.S.T</h6>
                         <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
                     </div>
-                    <div class="d-flex justify-content-between">
-                        <h6 class="font-weight-medium">C.G.S.T</h6>
-                        <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
-                    </div>
+                   
                     <div class="d-flex justify-content-between mt-2 mb-0 ">
                         <h6 class="font-weight-medium">Payment Type</h6>
                         <h6 class="font-weight-medium">COD</h6>
@@ -170,7 +168,7 @@
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">{{ $total = $subtotal + 2 * $gst }}</h5>
+                        <h5 class="font-weight-bold">{{ round($final , 2)}}</h5>
                     </div>
                 </div>
             </div>

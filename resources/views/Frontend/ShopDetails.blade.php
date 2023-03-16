@@ -94,27 +94,28 @@
                         {{ !empty($data->productname) ? $data->productname : 'Please Select A product' }}</h3>
 
 
-                <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
+                    <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
 
-                </h4>
-                <p class="mb-4"> {{ $data->description }}</p>
-                <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
-                    @csrf
-                    <div class="d-flex mb-3">
-                        <p class="text-dark font-weight-medium mb-0 d-inline-block "  style="margin-right: 2rem;">Age:</p>
-                        @foreach (json_decode($data['age']) as $key => $age)
-                            <div class="custom-control custom-radio custom-control-inline">
-                                <input type="radio" class="custom-control-input" value="{{ $age }}"
-                                    id="age_{{ $key }}" name="age">
-                                <label class="custom-control-label" for="age_{{ $key }}">
-                                    {{ in_array($age, json_decode($data['age'])) ? $age : '' }}</label>
-                            </div>
-                        @endforeach
-                        <span class="text-danger">
-                            @error('age')
-                                {{ $message }}
-                            @enderror
-                        </span>
+                    </h4>
+                    <p class="mb-4"> {{ $data->description }}</p>
+                    <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
+                        @csrf
+                        <div class="d-flex mb-3">
+                            <p class="text-dark font-weight-medium mb-0 d-inline-block " style="margin-right: 2rem;">Age:
+                            </p>
+                            @foreach (json_decode($data['age']) as $key => $age)
+                                <div class="custom-control custom-radio custom-control-inline">
+                                    <input type="radio" class="custom-control-input" value="{{ $age }}"
+                                        id="age_{{ $key }}" name="age">
+                                    <label class="custom-control-label" for="age_{{ $key }}">
+                                        {{ in_array($age, json_decode($data['age'])) ? $age : '' }}</label>
+                                </div>
+                            @endforeach
+                            <span class="text-danger">
+                                @error('age')
+                                    {{ $message }}
+                                @enderror
+                            </span>
 
                         </div>
                         <div class="d-flex ">
@@ -156,8 +157,8 @@
                             <!-- skin 4 -->
                             <div class="num-block skin-4">
                                 <div class="num-in">
-                                    <input type="text" id="number" min="1"  max="10" name="quantity" readonly class="in-num"
-                                        value="1">
+                                    <input type="text" id="number" min="1" max="10" name="quantity"
+                                        readonly class="in-num" value="1">
                                     <div class="all-span">
                                         <span id="plus"class="plus"></span>
                                         <span id="minus" class="minus dis"></span>

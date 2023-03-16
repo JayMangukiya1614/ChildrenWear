@@ -55,7 +55,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="shopname">Shop Name</label>
-                            <input name="shopname" value="{{ $data->shopname }}"  id="shopname"type="text"
+                            <input name="shopname" value="{{ $data->shopname }}" id="shopname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('shopname')
@@ -113,7 +113,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Age</label>
-                                <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
+                                <select name="age[]" value="{{ old('age[]') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option value="0-6(M)"
@@ -145,9 +145,10 @@
                                     @enderror
                                 </span>
                             </div>
+                            {{-- {{dd($data->size)}} --}}
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Size</label>
-                                <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
+                                <select name="size[]" value="{{ old('size[]') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="7"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option value="XS"
@@ -213,7 +214,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label class="mt-4" for="">Color</label>
-                                <select name="color[]" value="{{ old('color') }}" multiple multiselect-search="true"
+                                <select name="color[]" value="{{ old('color[]') }}" multiple multiselect-search="true"
                                     multiselect-select-all="true"multiselect-max-items="5"
                                     class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                     <option {{ in_array('Black', json_decode($data['color'])) ? 'selected' : '' }}
@@ -234,7 +235,7 @@
                                         {{ $message }}
                                     @enderror
                                 </span>
-                                {{-- {{dd($data->color)}} --}}
+
 
                             </div>
                         </div>
@@ -284,7 +285,13 @@
                         <div class="col-md-12 mt-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" name="productimage" value="{{ $data->productimage }}">
+                                    {{-- <input type="file" name="productimage" value="{{ $data->productimage }}"> --}}
+                                    <label for="file-input">
+                                        <img id="previewImg" class="" width="150px"
+                                            src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
+                                    </label>
+                                    <input id="file-input" name="productimage" type="file"
+                                        onchange="previewFile(this);" style="display: none" />
                                 </div>
                             </div>
                             <span class="text-danger">
@@ -302,7 +309,7 @@
                     </div>
                     <div class="col-md-6">
                         <button type="submit" id="submit"
-                            class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Register</button>
+                            class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Update</button>
                     </div>
                 </div>
 
@@ -318,7 +325,24 @@
 @section('page-script')
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
+    <script>
+        // toastr.error('hello');
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
 
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
+            }
+
+
+        }
+    </script>
     <script>
         @if (Session::has('Id'))
             toastr.options = {

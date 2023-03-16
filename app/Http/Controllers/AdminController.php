@@ -150,12 +150,6 @@ class AdminController extends Controller
 
   public function AdminProfileSave(AdminProfileRequest $req, $id)
   {
-
-    //  dd($req->validated());
-
-    //    return $data =AdminReg::find($id);
-
-
     $data = $req->validated();
     if ($req->profileimage != null) {
       $imagename = time() . '.' . $data['profileimage']->extension();
@@ -244,25 +238,26 @@ class AdminController extends Controller
         $Pi_Id = "P-" . (rand(1000, 9999));
       } while ($Pi_Id == $PI);
     }
+    $data['token'] = 1;
     $data['PI_ID'] = $Pi_Id;
     $id = Session()->get('Alogin');
     $check = Adminreg::find($id);
     if ($check->AD_ID == $req->AD_ID) {
       $sell = ($data['price'] * $data['discount']) / 100;
       $data['selling'] = round($data['price'] - $sell, 2);
-      $data['token']  = 1;
       $data['age']  = json_encode($req->age);
       $data['size']  = json_encode($req->size);
       $data['color']  = json_encode($req->color);
       $imagename = time() . '.' . $data['productimage']->extension();
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
-      // if ($des = str_word_count($data['description']) > 500) {
+      // if (str_word_count($data['description']) > 10) {
       //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
       // }
-      // if (str_word_count($data['Ldescription']) > 1000) {
+      // if (str_word_count($data['Ldescription']) > 20) {
       //   return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
       // }
+      
       ProductListing::create($data);
 
       return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
@@ -277,17 +272,17 @@ class AdminController extends Controller
     $check = Adminreg::find($id);
     $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
-    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->paginate(10);
-    $pagination = ProductListing::paginate(10);
+    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->cursorPaginate(10);
+    // $paginate = $data->paginater(10);
 
-    return view('admin.Product-table', compact('data', 'heading', 'pagination'));
+    return view('admin.Product-table', compact('data', 'heading'));
   }
 
   public function AdminProductDeleteTable()
   {
     $id = Session()->get('Alogin');
     $check = Adminreg::find($id);
-     $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
+    $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
     $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->get();
 
@@ -309,12 +304,12 @@ class AdminController extends Controller
     return redirect(route('Admin-Product-table'))->with('Success', "Product Deleted SuccessFull...");
   }
 
-  public function AdminProductListingUpdate(ProductRequest  $req, $id)
+  public function AdminProductListingUpdate(UProductRequest  $req, $id)
   {
-    $data = $req->validated();
+     $data = $req->validated();
     $sell = ($data['price'] * $data['discount']) / 100;
     $data['selling'] = round($data['price'] - $sell, 2);
-    $data['token']  = 1;
+     $data['token']  = 1;
     $data['age']  = json_encode($req->age);
     $data['size']  = json_encode($req->size);
     $data['color']  = json_encode($req->color);
@@ -323,11 +318,11 @@ class AdminController extends Controller
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
     }
-    // if ($des = str_word_count($data['description']) > 500) {
+    // if ( str_word_count($data['description']) > 20) {
     //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
     // }
     // // return $des;
-    // if ((str_word_count($data['Ldescription']) > 500)&& (str_word_count($data['Ldescription']) < 1000)) {
+    // if ((str_word_count($data['Ldescription']) > 20)&& (str_word_count($data['Ldescription']) < 1000)) {
     //   return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
     // }
     ProductListing::whereId($id)->update($data);

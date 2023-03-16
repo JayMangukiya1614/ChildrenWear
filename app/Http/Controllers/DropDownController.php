@@ -54,6 +54,9 @@ class DropDownController extends Controller
 
         $Add_Cart['CI_ID'] = $details->CI_ID;
         $Add_Cart['product_id'] = $id;
+        $admin_id = ProductListing::where('id', $id)->first();
+        $Add_Cart['AD_ID'] = $admin_id->AD_ID;
+
 
         AddCart::create($Add_Cart);
 
@@ -98,21 +101,24 @@ class DropDownController extends Controller
 
         $findorder = AddCart::where('CI_ID', $data->CI_ID)->get();
 
-        // uniqe order id 
-        $OI_ID = "OI" . (rand(1000, 9999));
-        $OI = Order::where('OI_ID', '=', $OI_ID)->first();
-  
-        if ($OI) {
-          do {
-            $OI_ID = "BH" . (rand(1000, 9999));
-          } while ($OI_ID == $OI);
-        }
-        foreach ($findorder as  $findorder) {
 
+        foreach ($findorder as  $findorder) {
+            // uniqe order id 
+            $OI_ID = "OI-" . (rand(1000, 9999));
+            $OI = Order::where('OI_ID', '=', $OI_ID)->first();
+
+            if ($OI) {
+                do {
+                    $OI_ID = "BH" . (rand(1000, 9999));
+                } while ($OI_ID == $OI);
+            }
             $Order = new order();
             $Order->OI_ID = $OI_ID;
+            $Order->token = 0;
             $Order->CI_ID = $findorder->CI_ID;
             $Order->product_id = $findorder->product_id;
+            $Order->AD_ID = $findorder->AD_ID;
+
             $Order->age = $findorder->age;
             $Order->color = $findorder->color;
             $Order->size = $findorder->size;
@@ -120,10 +126,62 @@ class DropDownController extends Controller
 
             $Order->save();
         }
-        return redirect(route('OrderTable'))->with('Confirm','Order Successfully');
+
+        return redirect(route('OrderTable'))->with('Confirm', 'Your Order Has Been Pendding');
     }
     public function OrderTable()
     {
-        return view('Frontend.OrderTable');
+
+        $sessionid = Session()->get('ULogin');
+        $name = User::find($sessionid);
+        $addcart = AddCart::where('CI_ID',$name->CI_ID)->get();
+                 foreach($addcart as $addcart)
+                 {
+                    $addcart = Addcart::find($addcart->id);
+                    $addcart->delete();
+                 }
+        $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
+        return view('Frontend.OrderTable.POrderTable', compact('data'));
+    }
+    public function COrderTable()
+    {
+        $sessionid = Session()->get('ULogin');
+        $name = User::find($sessionid);
+        $data = Order::where('CI_ID', $name->CI_ID)->where('token', 1)->orderBy('updated_at', 'desc')->get();
+        return view('Frontend.OrderTable.COrderTable', compact('data'));
+    }
+    public function DOrderTable()
+    {
+        $sessionid = Session()->get('ULogin');
+        $name = User::find($sessionid);
+        $data = Order::where('CI_ID', $name->CI_ID)->where('token', 2)->orderBy('updated_at', 'desc')->get();
+        return view('Frontend.OrderTable.DOrderTable', compact('data'));
+    }
+    public function DeleteOrderTable()
+    {
+        $sessionid = Session()->get('ULogin');
+        $name = User::find($sessionid);
+        $data = Order::where('CI_ID', $name->CI_ID)->where('token', 3)->orderBy('updated_at', 'desc')->get();
+
+        return view('Frontend.OrderTable.DeleteOrderTable', compact('data'));
+    }
+
+    public function OrderDelete($id)
+    {
+        $data = Order::find($id);
+        $data->token = 3;
+        $data->update();
+        return back()->with('error', 'Order Deleted Successfully');
     }
 }
+
+// $id = Session()->get('ULogin');
+//         $sessionname = User::find($id);
+//           $name = AddCart::where('CI_ID',$sessionname->CI_ID)->get();
+//         //  foreach($name as $name)
+//         //  {
+//         //     $addcart = Addcart::find($name->id);
+//         //     $addcart->delete();
+//         //  }
+//         return $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
+//         return view('Frontend.OrderTable', compact('data'));

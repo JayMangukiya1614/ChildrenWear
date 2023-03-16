@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Index;
 use App\Models\AddCart;
 use App\Models\ProductListing;
+use App\Models\Wishlist;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Mail;
 
@@ -48,24 +49,40 @@ class FrontendController extends Controller
     return view('Frontend.Contact');
   }
 
-  public function FrontWishlist()
+  public function FrontWishlistTable()
   {
-    return view('Frontend.WishList');
+    $session = Session()->get('ULogin');
+    $sessionid = User::find($session);
+    $data = Wishlist::where('CI_ID',$sessionid->CI_ID)->get();
+    return view('Frontend.WishList', compact('data'));
+  }
+  public function deletewishlist($id)
+  {
+    $data = Wishlist::find($id);
+    $data->delete();
+    return back()->with('success','Item Deleted Successfully...');
+  }
+  public function FrontWishlist($id)
+  {
+    $session = Session()->get('ULogin');
+    $sessionid = User::find($session);
+    $admin_id = ProductListing::where('id', $id)->first();
+    $data = new Wishlist();
+    $data->CI_ID = $sessionid->CI_ID;
+    $data->product_id = $id;
+    $data->AD_ID = $admin_id->AD_ID;
+    $data->save();
+
+    return back()->with('info', 'Product wish list success');
   }
 
   public function FrontCart()
   {
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
-    $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->get(); // using for product details form quantity color etc
+    $cartitem = AddCart::where('CI_ID', $sessionid->CI_ID)->orderBy('updated_at', 'desc')->get(); // using for product details form quantity color etc
 
 
-    // foreach($cartitem as $cartitem)
-    // {
-
-    //   return  ProductListing::where('id',$cartitem->product_id)->get();
-    // }
-    // return $subtotal = AddCart::where('CI_ID',$sessionid->CI_ID)->get();
     return view('Frontend.ShoppingCart', compact('cartitem'));
   }
 
@@ -76,12 +93,7 @@ class FrontendController extends Controller
     $id = Session()->get('ULogin');
     $data = User::find($id);
     $productid = AddCart::where('CI_ID', $data->CI_ID)->get();
-    // $productname = ProductListing::find($productid);
-    $productname = 0;
-    // foreach ($productid as $productid) {
-    //         $productname = ProductListing::where('id', $productid->product_id)->get();
-    //   return view('Frontend.Checkout', compact('data', 'productname'));
-    // }
+
     return view('Frontend.Checkout', compact('data', 'productid'));
 
     // return $productname;

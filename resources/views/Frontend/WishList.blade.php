@@ -24,7 +24,7 @@
         .table-wishlist thead tr th {
             padding: 10px 15px 15px;
             color: #484848;
-            background-color:  #EDF1FF;
+            background-color: #EDF1FF;
             font-size: 15px;
             font-weight: dark;
 
@@ -195,60 +195,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td width="45%">
-                                        <div class="display-flex align-center">
-                                            <div class="img-product">
-                                                <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg"
-                                                    alt="" class="mCS_img_loaded">
+                                @foreach ($data as $data)
+                                    <tr>
+                                        <td width="45%">
+                                            <div class="display-flex align-center">
+                                                <div class="img-product">
+                                                    <img src="  {{ !empty($data->wishlist->productimage) ? url('ProductImages/' . $data->wishlist->productimage) : url('ProductImages/default.jfif') }}"
+                                                        alt="" class="mCS_img_loaded">
+
+                                                </div>
+                                                <div class="name-product">
+                                                    {{ $data->wishlist->productname }}
+                                                </div>
                                             </div>
-                                            <div class="name-product">
-                                                Apple iPad Mini
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td width="15%" class="price">$110.00</td>
-                                    <td width="15%"><span class="in-stock-box">In Stock</span></td>
-                                    <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td>
-                                    <td width="10%" class="text-center"><a href="#" class="trash-icon"><i
-                                                class="far fa-trash-alt"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td width="45%">
-                                        <div class="display-flex align-center">
-                                            <div class="img-product">
-                                                <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg"
-                                                    alt="" class="mCS_img_loaded">
-                                            </div>
-                                            <div class="name-product">
-                                                Apple iPad Mini
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td width="15%" class="price">$110.00</td>
-                                    <td width="15%"><span class="in-stock-box">In Stock</span></td>
-                                    <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td>
-                                    <td width="10%" class="text-center"><a href="#" class="trash-icon"><i
-                                                class="far fa-trash-alt"></i></a></td>
-                                </tr>
-                                <tr>
-                                    <td width="45%">
-                                        <div class="display-flex align-center">
-                                            <div class="img-product">
-                                                <img src="https://www.91-img.com/pictures/laptops/asus/asus-x552cl-sx019d-core-i3-3rd-gen-4-gb-500-gb-dos-1-gb-61721-large-1.jpg"
-                                                    alt="" class="mCS_img_loaded">
-                                            </div>
-                                            <div class="name-product">
-                                                Apple iPad Mini
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td width="15%" class="price">$110.00</td>
-                                    <td width="15%"><span class="in-stock-box">In Stock</span></td>
-                                    <td width="15%"><button class="round-black-btn small-btn">Add to Cart</button></td>
-                                    <td width="10%" class="text-center"><a href="#" class="trash-icon"><i
-                                                class="far fa-trash-alt"></i></a></td>
-                                </tr>
+                                        </td>
+                                        <td width="15%" class="price">₹{{ $data->wishlist->selling }}</td>
+                                        @if ($data->wishlist->stock != 1)
+                                            <td width="15%"><span class="in-stock-box">Out Of Stock</span></td>
+                                        @else
+                                            <td width="15%"><span class="in-stock-box">In Stock</span></td>
+                                        @endif
+                                        <td width="15%"><button class="round-black-btn small-btn"
+                                                value="{{ $data->wishlist->stock == 2 ? 'disabled' : '' }}">Add to
+                                                Cart</button>
+                                        </td>
+                                        <td width="10%" class="text-center"><a href="{{route('deletewishlist',$data->id)}}" class="trash-icon"><i
+                                                    class="far fa-trash-alt"></i></a></td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
