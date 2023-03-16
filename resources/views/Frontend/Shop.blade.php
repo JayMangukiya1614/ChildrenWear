@@ -1,6 +1,16 @@
 @extends('Frontend.Main.Master')
 
 @section('FrontAdmin')
+    <style>
+        #heart {
+            color: grey;
+            font-size: 20px;
+        }
+
+        #heart.red {
+            color: red;
+        }
+    </style>
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
         <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
@@ -195,36 +205,122 @@
                                         <a href="{{ route('Product-Detail', $data->id) }}"
                                             class="btn btn-sm text-dark p-0"><i
                                                 class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                                        {{-- <a href="{{ route('Product-Cart', $data->id) }}" class="btn btn-sm text-dark p-0"><i
-                                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a> --}}
+                                        {{-- <button class="btn btn-sm text-dark p-0" data-toggle="modal"
+                                            data-target=".bd-cart-modal-lg"><i
+                                                class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button> --}}
+                                        <a href="{{ route('Fwishlist', $data->id) }}"
+                                            class="btn btn-sm text-dark p-0"><i class="fa fa-heart" id="heart"></i>  <span> Wish List </span>
+                                        </a>
                                     </div>
                                     {{-- <a class="dropdown-item" href="{{route('Latest-Product',$data->id)}}">Latest</a> --}}
 
                                 </div>
                             </div>
+
+                            {{-- cart model view  --}}
+                            {{-- <div class="modal fade bd-cart-modal-lg" tabindex="-1" role="dialog"
+                                aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+
+                                        <form action=" {{ route('Product-Cart', $data->id) }}" method="POST">
+                                            @csrf
+                                            {{$data->productname }}
+                                            <div class="d-flex mb-3">
+                                                <p class="text-dark font-weight-medium mb-0 d-inline-block "
+                                                    style="margin-right: 2rem;">Age:
+                                                </p>
+                                                @foreach (json_decode($data['age']) as $key => $age)
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" class="custom-control-input"
+                                                            value="{{ $age }}" id="age_{{ $key }}"
+                                                            name="age">
+                                                        <label class="custom-control-label"
+                                                            for="age_{{ $key }}">
+                                                            {{ in_array($age, json_decode($data['age'])) ? $age : '' }}</label>
+                                                    </div>
+                                                @endforeach
+                                                <span class="text-danger">
+                                                    @error('age')
+                                                        {{ $message }}
+                                                    @enderror
+                                                </span>
+
+                                            </div>
+                                            <div class="d-flex ">
+                                                <p class="text-dark font-weight-medium " style="margin-right: 0.8rem;">
+                                                    Colors:</p>
+
+                                                @foreach (json_decode($data['color']) as $key => $color)
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" class="custom-control-input"
+                                                            value="{{ $color }}" id="color_{{ $key }}"
+                                                            name="color">
+                                                        <label class="custom-control-label"
+                                                            for="color_{{ $key }}">
+                                                            {{ in_array($color, json_decode($data['color'])) ? $color : '' }}</label>
+                                                    </div>
+                                                @endforeach
+                                                <span class="text-danger">
+                                                    @error('color')
+                                                        {{ $message }}
+                                                    @enderror
+                                                </span>
+                                            </div>
+
+                                            <div class="d-flex ">
+                                                <p class="text-dark font-weight-medium mb-0"
+                                                    style="margin-right: 2.1rem;">Size:</p>
+
+                                                @foreach (json_decode($data['size']) as $key => $size)
+                                                    <div class="custom-control custom-radio custom-control-inline">
+                                                        <input type="radio" class="custom-control-input"
+                                                            value="{{ $size }}" id="size_{{ $key }}"
+                                                            name="size">
+                                                        <label class="custom-control-label"
+                                                            for="size_{{ $key }}">
+                                                            {{ in_array($size, json_decode($data['size'])) ? $size : '' }}</label>
+                                                    </div>
+                                                @endforeach
+                                                <span class="text-danger">
+                                                    @error('size')
+                                                        {{ $message }}
+                                                    @enderror
+                                                </span>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-4 pt-2">
+                                                <!-- skin 4 -->
+                                                <div class="num-block skin-4">
+                                                    <div class="num-in">
+                                                        <input type="text" id="number" min="1"
+                                                            max="10" name="quantity" readonly class="in-num"
+                                                            value="1">
+                                                        <div class="all-span">
+                                                            <span id="plus"class="plus"></span>
+                                                            <span id="minus" class="minus dis"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- / skin 4 -->
+                                            </div>
+                                            <h5 class="text-danger">{{ $data->stock == 1 ? 'In Stock' : 'Out Of Stock' }}
+                                            </h5>
+                                            @if ($data->stock == 1)
+                                                <button class="btn btn-primary px-3"><i
+                                                        class="fa fa-shopping-cart mr-1"></i>Add To
+                                                    Cart</button>
+                                            @else
+                                                <button class="btn btn-primary  px-3" disabled><i
+                                                        class="fa fa-shopping-cart mr-1"></i>Add To
+                                                    Cart</button>
+                                            @endif
+                                        </form>
+                                    </div>
+                                </div>
+                            </div> --}}
                         @endif
                     @endforeach
-                    {{-- <div class="col-12 pb-1">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination justify-content-center mb-3">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div> --}}
+
 
                 </div>
                 {{-- <div class="row ">
@@ -235,4 +331,12 @@
         </div>
     </div>
     <!-- Shop End -->
+    <script>
+        (function() {
+            const heart = document.getElementById('heart');
+            heart.addEventListener('click', function() {
+                heart.classList.toggle('red');
+            });
+        })();
+    </script>
 @endsection

@@ -164,6 +164,7 @@ return [
     Illuminate\Validation\ValidationServiceProvider::class,
     Illuminate\View\ViewServiceProvider::class,
     Yoeunes\Toastr\ToastrServiceProvider::class,
+    Barryvdh\DomPDF\ServiceProvider::class,
 
 
     /*
@@ -195,6 +196,8 @@ return [
 
   'aliases' => Facade::defaultAliases()->merge([
     // ...
+    'PDF' => Barryvdh\DomPDF\Facade::class,
   ])->toArray(),
+
 
 ];

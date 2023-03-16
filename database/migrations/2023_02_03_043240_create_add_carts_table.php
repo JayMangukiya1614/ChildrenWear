@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('CI_ID')->nullable();
             $table->string('product_id')->nullable();
+            $table->string('AD_ID')->nullable();
+
             $table->string('age')->nullable();
             $table->string('color')->nullable();
             $table->string('size')->nullable();

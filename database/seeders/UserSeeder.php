@@ -56,7 +56,7 @@ class UserSeeder extends Seeder
                 'bankname' => "YES BANK",
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
-                'email' => "babyhub007@gmail.com.",
+                'email' => "babyhub007@gmail.com",
                 'password' => Hash::make('BH@123'),
                 'address' => "Admin",
                 'message' => "I hope you  you are accepet my account request",
@@ -360,144 +360,6 @@ class UserSeeder extends Seeder
 
             ],
 
-
-
-            // jeans and jeggies
-            [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0013",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:29',
-            ],
-            [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0014",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:30',
-            ],
-            [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0015",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:31',
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0016",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:32',
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0017",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:33',
-            ], [
-                'AD_ID' => "BH0002 ",
-                'token' => "1",
-                'PI_ID' => "P-0018",
-
-                'shopname' => " Krup's Creation",
-                'category' => "2",
-                'productname' => "Jeans",
-                'price' => "400",
-                'discount' => "20",
-                'selling' => "320",
-                'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
-
-                'size' => '["XS","S"]',
-                'collection' => '9',
-                'color' => '["Black","Red","Green"]',
-                'stock' => "1",
-                'description' => "Volup erat ipsum diam elitr rebum et dolor. Est nonumy elitr erat diam ste et justo, amet at lorem et eirmod ipsum diam et rebum kasd rebum.",
-                'Ldescription' => " Vero diam ea vero et dolore rebum, dolor rebum eirmod cona sed justo. Magna takimata justo et amet magna et.",
-                'productimage' => "jeans.jpg",
-                'created_at' => '2023-02-08 03:50:16',
-                'updated_at' => '2023-02-08 03:50:34',
-            ],
         ]);
 
         
@@ -505,6 +367,8 @@ class UserSeeder extends Seeder
             [
                 'CI_ID' => "CI0001",
                 'product_id' => "5 ",
+                'AD_ID' => "BH0001",
+
                 'age' => " 0-6(M)",
                 'color' => "Black",
                 'size' => "XS",
@@ -515,6 +379,8 @@ class UserSeeder extends Seeder
             [
                 'CI_ID' => "CI0001",
                 'product_id' => "2 ",
+                'AD_ID' => "BH0001",
+
                 'age' => " 0-6(M)",
                 'color' => "Black",
                 'size' => "XS",

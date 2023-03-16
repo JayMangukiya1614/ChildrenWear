@@ -47,6 +47,16 @@
         float: right;
         text-align: left;
     }
+
+    .in-stock-box {
+        background: #ff0000;
+        font-size: 12px;
+        text-align: center;
+        border-radius: 25px;
+        padding: 4px 15px;
+        display: inline-block;
+        color: #fff;
+    }
 </style>
 
 @section('FrontAdmin')
@@ -77,6 +87,7 @@
                             <th>Discount</th>
                             <th>Quantity</th>
                             <th>Total</th>
+                            <th>Stock</th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -89,6 +100,7 @@
                             $subtotal = null;
                             $gst = null;
                             $final = null;
+                            $stock = null;
                             
                         @endphp
                         @foreach ($cartitem as $key => $cartitem)
@@ -118,17 +130,30 @@
                                         </div>
                                     </div>
                                 </td>
+                                @if ($cartitem->products->stock != 1)
+                                    @php
+                                        $stock = 2;
+                                        
+                                    @endphp
+                                @endif
                                 @php
                                     $prize = $cartitem->products->price;
                                     $dis = $cartitem->products->discount;
                                     $qty = $cartitem->quantity;
                                     $total = $prize * $qty - ($prize * $qty * $dis) / 100;
                                     $subtotal = $subtotal + $total;
-                                    $gst = (9 * $subtotal) / 100;
-                                    $final = 2 * $gst + $subtotal;
+                                    $gst = (5 * $subtotal) / 100;
+                                    $final = $gst + $subtotal;
                                 @endphp
 
-                                <td class="align-middle" id="total_{{ $key }}">₹{{ $total }}</td>
+                                <td class="align-middle" id="">₹{{ $total }}</td>
+
+                                @if ($cartitem->products->stock != 1)
+                                    <td width="15%"><span class="in-stock-box  mt-3">Out Of Stock</span></td>
+                                @else
+                                    <td width="15%"><span class="in-stock-box mt-3">In Stock</span></td>
+                                @endif
+
                                 <td class="align-middle "><a href="{{ route('Delete-Product-Cart', $cartitem->id) }}"
                                         class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
                             </tr>
@@ -151,9 +176,9 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-between mb-3 pt-1">
-                   
-                                <h6 class="font-weight-medium">Subtotal</h6>
-                                <h6 id="subtotal" class="font-weight-medium">₹.{{ $subtotal }}</h6>
+
+                            <h6 class="font-weight-medium">Subtotal</h6>
+                            <h6 id="subtotal" class="font-weight-medium">₹.{{ $subtotal }}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>
@@ -161,13 +186,10 @@
                         </div>
 
                         <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">S.G.S.T <span>(9%)</span></h6>
+                            <h6 class="font-weight-medium">I.G.S.T <span>(5%)</span></h6>
                             <h6 id="sgst" class="font-weight-medium"></h6>₹{{ round($gst, 2) }}
                         </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">C.G.S.T <span>(9%)</span></h6>
-                            <h6 id="cgst" class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
-                        </div>
+
                     </div>
 
 
@@ -176,8 +198,22 @@
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">₹{{ round($final, 2) }}</h5>
                         </div>
-                        <a href="{{ route('Fcheckout') }}" class="btn btn-block btn-primary my-3 py-3">Proceed To
+                        {{-- @php
+                            $stock = null;
+                        @endphp --}}
+                        {{-- @foreach ($cartitem as $cartitem)
+                            @if ($cartitem->products->stock != 1)
+                                $stock =2;
+                            @endif
+                        @endforeach --}}
+                        {{-- {{dd($stock)}} --}}
+                        @if ($stock == 2)
+                        
+                        <a href="" class="btn btn-block btn-primary my-3 py-3 " >Please Remove To Out Of Stock Item</a>
+                        @else
+                        <a href="{{ route('Fcheckout') }}" class="btn btn-block btn-primary my-3 py-3 disabled-link" >Proceed To
                             Checkout</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -186,51 +222,6 @@
     <!-- Cart End -->
 
     <script>
-        /////////////////// product +/-
-        // $(document).ready(function() {
-        //     $('.num-in span').click(function() {
-        //         var $input = $(this).parents('.num-block').find('input.in-num');
-        //         if ($(this).hasClass('minus')) {
-        //             var count = parseFloat($input.val()) - 1;
-        //             count = count < 1 ? 1 : count;
-        //             if (count < 2) {
-        //                 $(this).addClass('dis');
-        //             } else {
-        //                 $(this).removeClass('dis');
-        //             }
-        //             $input.val(count);
-        //         } else {
-        //             var count = parseFloat($input.val()) + 1
-        //             $input.val(count);
-        //             if (count > 1) {
-        //                 $(this).parents('.num-block').find(('.minus')).removeClass('dis');
-        //             }
-        //         }
-
-        //         $input.change();
-        //         return false;
-        //     });
-
-        // });
-        // product +/-
-        // product +/-
-
-        // $(document).ready(function() {
-        //     $('#plus').on('click', function() {
-        //         var price = document.getElementById("price").innerHTML;
-        //         var discount = document.getElementById("discount").innerHTML;
-        //         var quantity = $('#quantity').val();
-        //         var a = price * quantity;
-        //         var b = (a * discount) / 100;
-        //         var c = a - b;
-        //         console.log(c);
-        // var number = $('#number').val();
-
-        // var price = selling * number;
-        // console.log(price);
-        //     })
-        // });
-
         @if (Session::has('DeleteItem'))
             toastr.options = {
                 "closeButton": true,

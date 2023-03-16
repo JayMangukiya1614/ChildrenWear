@@ -14,6 +14,10 @@ class User extends Authenticatable
     protected $table ="users";
     protected $guarded = [];
 
+    // public function bills()
+    // {
+    //     return $this->belongsTo(Order::class,'CI_ID','CI_ID');
+    // }
     /**
      * The attributes that are mass assignable.
      *
@@ -43,4 +47,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+   
 }

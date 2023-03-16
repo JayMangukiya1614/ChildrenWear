@@ -51,7 +51,7 @@
                     @if ($data->token != 2)
                     <tr>
                                 {{-- {{dd($key)}} --}}
-                                <td scope="row">{{ $key}}</td>
+                                <td scope="row">{{ $key + 1}}</td>
                                 <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                         src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
                                 </td>
@@ -69,7 +69,7 @@
                                 @endif
 
 
-                                <td class="text-wrap"style="">{{ $data->productname }}</td>
+                                <td class="text-wrap"style=""><textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
                                 <td class="text-wrap"style="">{{ (string) $data->price }}</td>
                                 <td class="text-wrap"style="">{{ $data->discount }}%</td>
                                 <td class="text-wrap"style="">{{ (float) $data->selling }}</td>
@@ -97,7 +97,9 @@
             </tbody>
         </table>
     </div>
-
+<div>
+    {{-- {{$data->links()}} --}}
+</div>
 
 
 

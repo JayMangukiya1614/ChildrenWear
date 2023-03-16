@@ -12,7 +12,6 @@
       "icon": "menu-icon fa-solid fa-registered",
       "slug": "Registeration"
     },
-   
     {
       "name": "Product Listing",
       "icon": "menu-icon tf-icons fa-solid fa-podcast",
@@ -35,6 +34,25 @@
           "name": "Delete Product",
           "icon": "menu-icon tf-icons fa-solid fa-table",
           "slug": "Delete-Product-table"
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "icon": "menu-icon tf-icons fa-solid fa-truck-fast",
+      "slug": "layouts",
+      "submenu": [
+        {
+          "url": "/Client-Pending-Order",
+          "name": "Client-Pending-Order",
+          "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
+          "slug": "ClientPOrder"
+        },
+        {
+          "url": "/Client-Order-Show",
+          "name": " Client-Order-Bill",
+          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "slug": "ClientOrderShow"
         }
       ]
     },
@@ -94,14 +112,12 @@
           "slug": "index-form"
         },
         {
-          
           "url": "/Main-Admin-Product-Table",
           "name": "Product-Table",
           "icon": "menu-icon tf-icons fa-solid fa-table",
           "slug": "Main-Product-Table"
         },
         {
-          
           "url": "/Main-Admin-Delete-Product-Table",
           "name": "Delete-Product",
           "icon": "menu-icon tf-icons fa-solid fa-table",

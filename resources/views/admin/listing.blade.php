@@ -92,7 +92,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="mt-5" for="price">Product Price</label>
-                                <input name="price" min="100" max="10000" value="{{ old('age') }}" id="price"
+                                <input name="price" min="100" max="10000" value="{{ old('price') }}" id="price"
                                     class="form-control shadow-lg bg-white Price" type="number">
                                 <span class="text-danger">
                                     @error('price')
@@ -117,7 +117,7 @@
 
                         <div class="col-md-6">
                             <label class="mt-4" for="age">Age</label>
-                            <select name="age[]" value="{{ old('age') }}" multiple multiselect-search="true"
+                            <select name="age[]" value="{{ old('age[]') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="7"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="age">
                                 <option value="0-6(M)">0-6(Months) </option>
@@ -136,7 +136,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="">Size</label>
-                            <select name="size[]" value="{{ old('size') }}" multiple multiselect-search="true"
+                            <select name="size[]" value="{{ old('size[]') }}" multiple multiselect-search="true"
                                 multiselect-select-all="true"multiselect-max-items="6"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                 <option value="XS">XS</option>
@@ -190,7 +190,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="">Color</label>
-                            <select name="color[]" class="shadow-lg bg-white form-control" value="{{ old('description') }}"
+                            <select name="color[]" class="shadow-lg bg-white form-control" value="{{ old('color[]') }}"
                                 multiple multiselect-search="true" multiselect-select-all="true"multiselect-max-items="5"
                                 class="form-control text-center shadow-lg bg-white rounded-3" id="">
                                 <option value="Black">Black</option>
@@ -211,7 +211,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="">Stock</label>
-                            <select name="stock" value="{{ old('price') }}"
+                            <select name="stock" value="{{ old('stock') }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
                                 <option selected value="1">InStock</option>
                                 <option value="2">OutOfStock</option>
@@ -225,7 +225,7 @@
                         <div class="col-md-6">
                             <label class="mt-4" for="description">Short Description</label>
                             <input name="description" id="description" class="form-control shadow-lg bg-white rounded-3"
-                                type="text"{{ old('discount') }} />
+                                type="text" value="{{ old('description') }}" />
                             <span class="text-danger">
                                 @error('description')
                                     {{ $message }}
@@ -251,7 +251,12 @@
                         <div class="col-md-12 mt-3">
                             <div class="card">
                                 <div class="card-body">
-                                    <input type="file" name="productimage" value="{{old('productimage')}}">
+                                    <label for="file-input">
+                                        <img id="previewImg" class="image " src="{{ asset('images/Pdefault.jpg') }}" />
+                                    </label>
+            
+                                    <input id="file-input" name="productimage" type="file" onchange="previewFile(this);"
+                                        style="display: none;" />
                                 </div>
                             </div>
                             <span class="text-danger">
@@ -285,22 +290,27 @@
 @section('page-script')
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
-    {{-- proce discount Pselling   --}}
+    <script>
+        // toastr.error('hello');
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+    
+            if (file) {
+                var reader = new FileReader();
+    
+                reader.onload = function() {
+                    $("#previewImg").attr("src", reader.result);
+                }
+    
+                reader.readAsDataURL(file);
+            }
+    
+    
+        }
+    </script>
 
     <script>
-            // document.write(total);
-            // $('#discount').on("change", function() {
-            //     var p = $('.Price').val();
-            //     var d = $('#discount').val();
-            //     var total = (p * d);
-            //     var dis = (total/100);
-            //     var final = p-dis
-            //     $('#Pselling').val(final);
-            // $('#Discount').append(d + ' % Discount you are not apply..')
-            // $('#Pselling').click(function() {
-            //     $('#Discount').html('');
-            // });
-            // });
+         
         @if (Session::has('Id'))
             toastr.options = {
                 "closeButton": true,

@@ -104,6 +104,19 @@
                         </div>
                         <a href="{{ route('Fcontact') }}"
                             class="nav-item nav-link mx-3 {{ Route::current()->getName() == 'Fcontact' ? 'active' : '' }}">Contact</a>
+
+                        <div class="dropdown mx-3">
+                            <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
+                                Order
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="{{ route('OrderTable') }}">Pending Order</a>
+                                <a class="dropdown-item" href="{{ route('COrderTable') }}">Confirm Order</a>
+                                <a class="dropdown-item" href="{{ route('DOrderTable') }}">Delivered Order</a>
+                                <a class="dropdown-item" href="{{ route('DeleteOrderTable') }}">Delete Order</a>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </nav>
@@ -119,91 +132,31 @@
                     </div>
                 </div>
             </form>
-            <a href="" class="btn border">
+            <a href="{{ route('FwishlistTable') }}" class="btn border">
                 <i class="fas fa-heart text-primary"></i>
-                <span class="badge">0</span>
+                <span class="badge">
+                    @if (count(wishlist()) > 0)
+                        {{ count(wishlist()) }}
+                    @else
+                        @php
+                            echo '0';
+                        @endphp
+                    @endif
+                </span>
             </a>
             <a href="{{ route('Fcart') }}" class="btn border">
                 <i class="fas fa-shopping-cart text-primary"></i>
                 <span class="badge">
-                    {{-- @php
-                        $total = 0;
-                        $key = 1;
-                    @endphp
-
-                    @if ($Cart != null)
-
-                        @foreach ($Cart as $Cart)
-                            <?php
-                            $total = $total + $key;
-                            ?>
-                        @endforeach
-                        {{ $total }}
+                    @if (count(cart()) > 0)
+                        {{ count(cart()) }}
                     @else
-
-                        {{ $total }}
-                    @endif --}}
+                        @php
+                            echo '0';
+                        @endphp
+                    @endif
                 </span>
             </a>
         </div>
     </div>
 </div>
 <!-- Topbar End -->
-
-
-<!-- Navbar Start -->
-{{-- <div class="container-fluid">
-    <div class="row border-top px-xl-5">
-        <div class="col-lg-12">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-                <a href="" class="text-decoration-none d-block d-lg-none">
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-between mb-5" style="background-color: #EDF1FF"
-                    id="navbarCollapse">
-                    <div class="navbar-nav mr-auto py-0" style="margin-left:22rem">
-                        <a href="{{ route('Findex') }}" class="nav-item nav-link">Home</a>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
-                                Boy Fashion
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('Products', $id = 1) }}">Shirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 2) }}">T-shirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 3) }}">Jeans And
-                                    Trouser</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 4) }}">Sweatshirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 5) }}">Jackets</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 6) }}">Ethnic Wear</a>
-
-
-
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
-                                Girl Fashion
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="{{ route('Products', $id = 7) }}">Sets & Suits</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 8) }}">Tops &
-                                    T-shirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 9) }}">Jeans &
-                                    Jeggings</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 10) }}">Sweatshirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 11) }}">Jumpsuits &
-                                    Dungarees</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 12) }}">Ethnic Wear</a>
-                            </div>
-                        </div>
-                        <a href="{{ route('Fcontact') }}" class="nav-item nav-link">Contact</a>
-
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
-</div> --}}
-<!-- Navbar End -->

@@ -13,7 +13,7 @@ class UProductRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -26,16 +26,16 @@ class UProductRequest extends FormRequest
         return [
             'AD_ID' => 'required',
             'shopname' => 'required',
-            'productname' => 'required',
             'category' => 'required',
+            'productname' => 'required',
+            'price' => 'required',
+            'discount' => 'required',
             'age' => 'required',
             'size' => 'required',
             'collection' => 'required',
             'color' => 'required',
             'stock' => 'required',
             'description' => 'required',
-            'price' => 'required',
-            'discount' => 'required',
             'Ldescription' => 'required',
             'productimage' => '',
         ];
@@ -45,16 +45,16 @@ class UProductRequest extends FormRequest
             return [
             'AD_ID' => 'Admin Id Filled Is Required',
             'shopname.required' => 'Shop Name Filled Is Required',
-            'productname.required' => 'Product Name Filled Is Required',
             'category' => 'Gender Name Filled Is Required',
+            'productname.required' => 'Product Name Filled Is Required',
+            'price.required' => 'Product price Filled Is Required',
+            'discount.required' => ' product discount Filled Is Required',
             'age' => 'Age Filled Is Required',
             'size.required' => 'size Filled Is Required',
             'collection.required' => 'category Filled Is Required',
             'color.required' => 'color Filled Is Required',
             'stock.required' => 'stock Filled Is Required',
             'description.required' => 'description Filled Is Required',
-            'price.required' => 'Product price Filled Is Required',
-            'discount.required' => ' product discount Filled Is Required',
             'Ldescription.required' => 'long description Filled Is Required',
             'productimage.' => '',
         ];

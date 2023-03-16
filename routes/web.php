@@ -3,6 +3,7 @@
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
+use App\Http\Controllers\COrderController;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\DropDownController;
 use App\Http\Controllers\IndexController;
@@ -78,11 +79,14 @@ Route::group(['middleware' => ['Alogin']], function () {
 
   Route::post('/Admin-Product-Listing-Update/{id}', [AdminController::class, 'AdminProductListingUpdate'])->name('Admin-Product-Listing-Update');
 
-
-
-
-
   Route::get('/Admin-Logout', [AdminController::class, 'Adminlogout'])->name('Admin-logout');
+
+  // client order admin side  
+  Route::get('/Client-Pending-Order', [COrderController::class, 'ClientPOrder'])->name('ClientPOrder');
+  Route::get('/Admin-Order-Accepet/{id}', [COrderController::class, 'AdminOrderAccepet'])->name('Admin-Order-Accepet');
+  Route::get('/Client-Order-Show', [COrderController::class, 'ClientOrderShow'])->name('Client-Order-Show');
+  Route::get('/pdf/{id}', [COrderController::class, 'pdf'])->name('pdf');
+  Route::get('/downloadPDF/{$id}', [COrderController::class, 'downloadPDF'])->name('abc');
 });
 
 
@@ -114,13 +118,10 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::post('/Index/update/save/{id}', [IndexController::class, 'Indexupdatesave'])->name('Index-update-save');
   Route::get('/Index/delete/{id}', [IndexController::class, 'Indexdelete'])->name('Indexdelete');
 
-// product table
+  // product table
   Route::get('/Main-Admin-Product-Table', [IndexController::class, 'MProductTable'])->name('Main-Admin-Product-Table');
   Route::get('/Main-Admin-Product-Listing-delete/{id}', [IndexController::class, 'MainAdminProductListingdelete'])->name('Main-Admin-Product-Listing-delete');
   Route::get('/Main-Admin-Delete-Product-Table', [IndexController::class, 'MDeleteProductTable'])->name('Main-Admin-Delete-Product-Table');
-
-
-
 });
 
 
@@ -145,18 +146,18 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('quantityadd/{id}', [DropDownController::class, 'quantityadd'])->name('quantityadd');
   Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
   Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
+  Route::get('Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
+
+  // order table 
   Route::get('OrderTable', [DropDownController::class, 'OrderTable'])->name('OrderTable');
-
-
-
-
+  Route::get('COrderTable', [DropDownController::class, 'COrderTable'])->name('COrderTable');
+  Route::get('DOrderTable', [DropDownController::class, 'DOrderTable'])->name('DOrderTable');
+  Route::get('DeleteOrderTable', [DropDownController::class, 'DeleteOrderTable'])->name('DeleteOrderTable');
+  Route::get('Order-Delete/{id}', [DropDownController::class, 'OrderDelete'])->name('Order-Delete');
   Route::get('/Delete-Product-Cart/{id}', [DropDownController::class, 'DeleteProductCart'])->name('Delete-Product-Cart');
-
-  Route::get('/Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
-
-
-
-
+  Route::get('Fwishlist/{id}', [FrontendController::class, 'FrontWishlist'])->name('Fwishlist');
+  Route::get('FwishlistTable', [FrontendController::class, 'FrontWishlistTable'])->name('FwishlistTable');
+  Route::get('deletewishlist/{id}', [FrontendController::class, 'deletewishlist'])->name('deletewishlist');
 });
 
 Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');
@@ -164,7 +165,10 @@ Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
-Route::get('Fwishlist', [FrontendController::class, 'FrontWishlist'])->name('Fwishlist');
+
+
+
+
 
 
 
