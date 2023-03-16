@@ -37,7 +37,7 @@ class COrderController extends Controller
     {
         $id = Session()->get('Alogin');
         $session = Adminreg::find($id);
-        $data = Order::where('AD_ID', $session->AD_ID)->where('token', 3)->get();
+        $data = Order::where('AD_ID', $session->AD_ID)->where('token', 1)->get();
         return view('admin.ClientOrderShow', compact('data'));
     }
     public function pdf($id)
