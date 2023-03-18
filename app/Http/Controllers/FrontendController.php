@@ -312,4 +312,8 @@ class FrontendController extends Controller
       return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
     }
   }
+  public function productdetails($id)
+  {
+    return $id;
+  }
 }

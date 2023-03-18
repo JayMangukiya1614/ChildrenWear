@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         DB::table('mainadmins')->insert([
             [
                 'Name' => "Admin",
-                'Email' => "babyhub007@gmail.com",
+                'Email' => "cwear1952@gmail.com",
                 'Password' => Hash::make('BH@123'),
             ]
         ]);
@@ -56,7 +56,7 @@ class UserSeeder extends Seeder
                 'bankname' => "YES BANK",
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
-                'email' => "babyhub007@gmail.com",
+                'email' => "cwear1952@gmail.com",
                 'password' => Hash::make('BH@123'),
                 'address' => "Admin",
                 'message' => "I hope you  you are accepet my account request",
@@ -77,7 +77,7 @@ class UserSeeder extends Seeder
                 'BirthDate' => "04-01-2003",
                 'PhoneNo' => "1234567890",
                 'Gender' => "Male",
-                'Email' => "babyhub007@gmail.com",
+                'Email' => "cwear1952@gmail.com",
                 'Password' => Hash::make('BH@123'),
                 'ZipCode' => "395010",
             ]
@@ -93,7 +93,7 @@ class UserSeeder extends Seeder
         'PI_ID' => "P-0001",
         'shopname' => " Jame's Creation",
         'category' => "1",
-        'productname' => "Colorful Stylish Shirtaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        'productname' => "Colorful Stylish Shirt",
         'price' => "500",
         'discount' => "20",
         'selling' => "400",

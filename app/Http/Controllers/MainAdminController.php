@@ -67,7 +67,7 @@ class MainAdminController extends Controller
             'AD_ID' => $data->AD_ID
         ];
 
-        // Mail::to($mail)->send(new RequestMail($details));
+        Mail::to($mail)->send(new RequestMail($details));
 
 
         $data->save();
@@ -97,7 +97,7 @@ class MainAdminController extends Controller
             'body'  => 'this is for testing mail using mail'
         ];
 
-        // Mail::to($mail)->send(new DRequestMail($details));
+        Mail::to($mail)->send(new DRequestMail($details));
         //  return "Email sent ";
         $data->save();
 

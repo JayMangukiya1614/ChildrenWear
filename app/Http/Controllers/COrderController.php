@@ -19,9 +19,11 @@ class COrderController extends Controller
         $id  = Session()->get('Alogin');
         $Admin = Adminreg::find($id);
         //  $Corder = Order::all();
+        // $heading = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->first();
+
         $data = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->get();
 
-        return view('admin.ClientPOrder', compact('data'));
+        return view('admin.ClientPOrder', compact('data','Admin'));
     }
     public function AdminOrderAccepet($id)
     {
@@ -38,7 +40,7 @@ class COrderController extends Controller
         $id = Session()->get('Alogin');
         $session = Adminreg::find($id);
         $data = Order::where('AD_ID', $session->AD_ID)->where('token', 1)->get();
-        return view('admin.ClientOrderShow', compact('data'));
+        return view('admin.ClientOrderShow', compact('data','session'));
     }
     public function pdf($id)
     {
