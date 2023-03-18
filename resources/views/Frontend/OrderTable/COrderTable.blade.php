@@ -33,12 +33,6 @@
                         <th scope="col">Total</th>
 
                         <th scope="col">Action</th>
-
-
-
-
-
-
                     </tr>
                 </thead>
                 <tbody>
@@ -53,13 +47,10 @@
                             <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                     src="{{ !empty($data->products->productimage) ? url('ProductImages/' . $data->products->productimage) : url('images/default.jpeg') }}">
                             </td>
-                            {{-- <td>{{ $data->products->discount }}</td> --}}
-
                             <td>{{ $data->OI_ID }}</td>
                             <td>{{ $data->products->price }} <span> ({{ $data->quantity }})</span></td>
                             <td>{{ $data->products->discount }} %</td>
                             <td>{{ $data->products->selling }}</td>
-                            {{-- <td>{{ $data->products->selling }}</td> --}}
                             @php
                                 $gst = $data->quantity * ((5 * $data->products->selling) / 100);
                                 $price = $gst + $data->products->selling * $data->quantity;
@@ -69,11 +60,7 @@
                             <td>{{ round($price, 2) }}</td>
 
                             <td><button data-toggle="modal" data-target=".bd-read-modal-lg"><i
-                                        class="fa-brands fa-readme"></i></button>
-
-
-
-                            </td>
+                                        class="fa-brands fa-readme"></i></button> </td>
                         </tr>
                         {{-- modal read 0 --}}
                         <div class="modal fade bd-read-modal-lg" tabindex="-1" role="dialog"

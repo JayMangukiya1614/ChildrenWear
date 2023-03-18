@@ -158,6 +158,8 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('Fwishlist/{id}', [FrontendController::class, 'FrontWishlist'])->name('Fwishlist');
   Route::get('FwishlistTable', [FrontendController::class, 'FrontWishlistTable'])->name('FwishlistTable');
   Route::get('deletewishlist/{id}', [FrontendController::class, 'deletewishlist'])->name('deletewishlist');
+  Route::get('product-details/{id}', [FrontendController::class, 'productdetails'])->name('product-details');
+  
 });
 
 Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');
