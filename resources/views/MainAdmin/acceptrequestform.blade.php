@@ -1,65 +1,58 @@
-@extends('layouts/contentNavbarLayout')
-<style>
-    body {
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
+@extends('MainAdmin.Main.Master')
 
-    .image {
-        width: 200px !important;
-        height: 200px;
-    }
+@section('FrontAdmin')
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
 
-    .form-control:focus {
-        box-shadow: none;
-        border-color: #EDF1FF;
-    }
+        .image {
+            width: 200px !important;
+            height: 200px;
+        }
 
-    .profile-button {
-        background: #EDF1FF;
-        box-shadow: none;
-        border: none
-    }
+        .form-control:focus {
+            box-shadow: none;
+            border-color: #EDF1FF;
+        }
 
-    .profile-button:hover {
-        background: #EDF1FF;
-    }
+        .profile-button {
+            background: #EDF1FF;
+            box-shadow: none;
+            border: none
+        }
 
-    .profile-button:focus {
-        background: #EDF1FF;
-        box-shadow: none
-    }
+        .profile-button:hover {
+            background: #EDF1FF;
+        }
 
-    .profile-button:active {
-        background: #EDF1FF;
-        box-shadow: none
-    }
+        .profile-button:focus {
+            background: #EDF1FF;
+            box-shadow: none
+        }
 
-    .back:hover {
-        color: #EDF1FF;
-        cursor: pointer
-    }
+        .profile-button:active {
+            background: #EDF1FF;
+            box-shadow: none
+        }
 
-    .labels {
-        font-size: 11px
-    }
+        .back:hover {
+            color: #EDF1FF;
+            cursor: pointer
+        }
 
-    .add-experience:hover {
-        background: #EDF1FF;
-        color: #fff;
-        cursor: pointer;
-        border: solid 1px #EDF1FF
-    }
-</style>
+        .labels {
+            font-size: 11px
+        }
 
-@section('title', 'Dashboard - Analytics')
+        .add-experience:hover {
+            background: #EDF1FF;
+            color: #fff;
+            cursor: pointer;
+            border: solid 1px #EDF1FF
+        }
+    </style>
 
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
-
-
-
-@section('content')
 
     <div class="container-fluid border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
         <div class="row">
@@ -68,7 +61,7 @@
                     Admin Details</h3>
             </div>
         </div>
-        <form action=""  method="POST" enctype="multipart/form-data">
+        <form action="" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row ">
                 <div class="col-md-3 border-right">
@@ -76,7 +69,8 @@
 
                         <label for="file-input">
                             <img id="previewImg" class="image rounded-circle"
-                            src=" {{ !empty($data->profileimage) ? url('images/'.$data->profileimage) : url('images/default.jpeg') }}" selected />
+                                src=" {{ !empty($data->profileimage) ? url('images/' . $data->profileimage) : url('images/default.jpeg') }}"
+                                selected />
                         </label>
 
                     </div>
@@ -85,19 +79,19 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label class="mt-5" for="Last_Name">Last Name</label>
-                            <input name="lastname" disabled value="{{$data->lastname}}" id="Last_Name"type="text"
-                            class="shadow-lg bg-white form-control">
-                            
+                            <input name="lastname" disabled value="{{ $data->lastname }}" id="Last_Name"type="text"
+                                class="shadow-lg bg-white form-control">
+
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="First_Name">First Name</label>
-                            <input name="firstname" disabled value="{{$data->firstname}}" id="First_Name"
+                            <input name="firstname" disabled value="{{ $data->firstname }}" id="First_Name"
                                 class="form-control shadow-lg bg-white" type="text">
-                           
+
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Middle_Name">Middle Name</label>
-                            <input name="middlename" disabled value="{{$data->middlename}}" id="Middle_Name"type="text"
+                            <input name="middlename" disabled value="{{ $data->middlename }}" id="Middle_Name"type="text"
                                 class="shadow-lg bg-white form-control">
                         </div>
 
@@ -105,72 +99,81 @@
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="sn">Shop Name</label>
-                            <input name="shopname" disabled value="{{$data->shopname}}" id="sn"
+                            <input name="shopname" disabled value="{{ $data->shopname }}" id="sn"
                                 class="form-control shadow-lg bg-white" type="text">
-                            
+
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="pincode">Pincode</label>
-                            <input name="pincode" disabled value="{{$data->pincode}}" id="pincode"
+                            <input name="pincode" disabled value="{{ $data->pincode }}" id="pincode"
                                 class="form-control shadow-lg bg-white" type="number">
-                          
+
                         </div>
 
                     </div>
                     <div class="row">
                         <div class="col-md-3">
                             <label class="mt-4" for="">Education</label>
-                            <select name="education" disabled value="{{$data->education}}"
+                            <select name="education" disabled value="{{ $data->education }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option  value="Undergraduate">Undergraduate</option>
+                                <option value="Undergraduate">Undergraduate</option>
                                 <option value="Postgraduate">Postgraduate</option>
 
                             </select>
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="">Gender</label>
-                            <select name="gender" disabled value="{{$data->gender}}"
+                            <select name="gender" disabled value="{{ $data->gender }}"
                                 class="form-control shadow-lg bg-white rounded-3" id="">
-                                <option  {{$data->gender == 'Male' ? 'selected' : ''}} name="gender"  value="Male">Male</option>
-                                <option  {{$data->gender == 'Female' ? 'selected' : ''}} name="gender" value="Female">Female</option>
-                                <option   {{$data->gender == 'Other' ? 'selected' : ''}} name="gender" value="Other">Other</option>
+                                <option {{ $data->gender == 'Male' ? 'selected' : '' }} name="gender" value="Male">Male
+                                </option>
+                                <option {{ $data->gender == 'Female' ? 'selected' : '' }} name="gender" value="Female">
+                                    Female</option>
+                                <option {{ $data->gender == 'Other' ? 'selected' : '' }} name="gender" value="Other">
+                                    Other</option>
                             </select>
-                
+
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="Country">state</label>
-                            <select name="state" disabled value="{{$data->state}}"
+                            <select name="state" disabled value="{{ $data->state }}"
                                 class="form-control  shadow-lg bg-white rounded-3" name="state" id="">
-                                <option {{$data->state == 'Goa' ? 'selected' : ''}} name="state"  value="Goa">Goa</option>
-                                <option {{$data->state == 'Gujrat' ? 'selected' : ''}} name="state" value="Gujrat">Gujrat</option>
-                                <option {{$data->state == 'Kerala' ? 'selected' : ''}} name="state" value="Kerala">Kerala</option>
-                                
+                                <option {{ $data->state == 'Goa' ? 'selected' : '' }} name="state" value="Goa">Goa
+                                </option>
+                                <option {{ $data->state == 'Gujrat' ? 'selected' : '' }} name="state" value="Gujrat">
+                                    Gujrat</option>
+                                <option {{ $data->state == 'Kerala' ? 'selected' : '' }} name="state" value="Kerala">
+                                    Kerala</option>
+
                             </select>
-                           
+
                         </div>
                         <div class="col-md-3">
                             <label class="mt-4" for="City">City</label>
-                            <select name="city" disabled value="{{$data->city}}"
+                            <select name="city" disabled value="{{ $data->city }}"
                                 class="form-control  shadow-lg bg-white rounded-3" id="city">
-                                <option  {{$data->city == 'Delhi' ? 'selected' : ''}} name="city" value="Delhi">Delhi</option>
-                                <option {{$data->city == 'Bombay' ? 'selected' : ''}} name="city" value="Bombay">Bombay</option>
-                                <option {{$data->city == 'Banglore' ? 'selected' : ''}} name="city" value="Banglore">Banglore</option>
+                                <option {{ $data->city == 'Delhi' ? 'selected' : '' }} name="city" value="Delhi">
+                                    Delhi</option>
+                                <option {{ $data->city == 'Bombay' ? 'selected' : '' }} name="city" value="Bombay">
+                                    Bombay</option>
+                                <option {{ $data->city == 'Banglore' ? 'selected' : '' }} name="city"
+                                    value="Banglore">Banglore</option>
                             </select>
-                          
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-4" for="MN">Mobile Nomber</label>
-                            <input name="mobilenumber" disabled value="{{$data->mobilenumber}}" id="MN"
+                            <input name="mobilenumber" disabled value="{{ $data->mobilenumber }}" id="MN"
                                 class="form-control shadow-lg bg-white" type="number">
-                            
+
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="GSTNO">GST NO.</label>
-                            <input name="gstno" disabled value="{{$data->gstno}}" id="GSTNO"
+                            <input name="gstno" disabled value="{{ $data->gstno }}" id="GSTNO"
                                 class="form-control shadow-lg bg-white" type="text">
-                          
+
                         </div>
 
                     </div>
@@ -178,21 +181,21 @@
                     <div class="row">
                         <div class="col-md-4">
                             <label class="mt-5" for="Bank_Name">Bank Name:</label>
-                            <input name="bankname" disabled value="{{$data->bankname}}" id="Bank_Name"
+                            <input name="bankname" disabled value="{{ $data->bankname }}" id="Bank_Name"
                                 class="form-control shadow-lg bg-white" type="text">
-                          
+
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Branch_Name">Branch Name</label>
                             <input name="branchname" disabled id="Branch_Name" type="text"
-                                value="{{$data->branchname}}" class="shadow-lg bg-white form-control">
-                          
+                                value="{{ $data->branchname }}" class="shadow-lg bg-white form-control">
+
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="IFSC_Code">IFSC Code</label>
-                            <input name="ifsccode" disabled id="IFSC_Code" type="text" value="{{$data->ifsccode}}"
+                            <input name="ifsccode" disabled id="IFSC_Code" type="text" value="{{ $data->ifsccode }}"
                                 class="shadow-lg bg-white form-control">
-                            
+
                         </div>
 
                     </div>
@@ -200,26 +203,26 @@
                         <div class="col-md-6">
                             <label class="mt-4" for="E_mail">E_mail</label>
                             <input name="email" disabled id="E_mail" class="form-control shadow-lg bg-white"
-                                value="{{$data->email}}" type="email">
-                          
+                                value="{{ $data->email }}" type="email">
+
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="Passwo">Password</label>
                             <input name="password" disabled id="Passwo" class="form-control shadow-lg bg-white"
-                                value="{{$data->password}}" type="password">
-                          
+                                value="{{ $data->password }}" type="password">
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label class="mt-5" for="Address">Address</label>
-                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{$data->address}}</textarea>
-                           
+                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->address }}</textarea>
+
                         </div>
 
                         <div class="col-md-6">
                             <label class="mt-5" for="Message">Message</label>
-                            <textarea name="message" disabled id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{$data->message}}</textarea>
+                            <textarea name="message" disabled id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->message }}</textarea>
                         </div>
                     </div>
 
@@ -228,27 +231,17 @@
                             <a   href="{{route('main-admin-read')}}"  class="btn btn-outline-info shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div> --}}
                         <div class="col-md-6">
-                            <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Delete</a>
+                            <a href="{{ route('cancel-request', $data->id) }}"
+                                class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Delete</a>
                         </div>
                         <div class="col-md-6">
-                            <a   href="{{route('accepted-request-show')}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
+                            <a href="{{ route('accepted-request-show') }}"
+                                class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
         </form>
     </div>
-
-
-
-    @section('page-script')
-    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
-
-   
-    @endsection
-
-    @section('page-script')
-        <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-    @endsection
-    @endsection
+@endsection

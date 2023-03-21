@@ -187,7 +187,8 @@
                         <table cellpadding="0" cellspacing="0" border="0" width="100%">
                             <thead>
                                 <tr>
-                                    <th width="45%">Product Name</th>
+                                    <th width="30%">Product Name</th>
+                                    <th width="15%">Product Id</th>
                                     <th width="15%">Product Price</th>
                                     <th width="15%">Stock Status</th>
                                     <th width="15%"></th>
@@ -209,6 +210,7 @@
                                                 </div>
                                             </div>
                                         </td>
+                                        <td width="15%">{{ $data->product_id }}</td>
                                         <td width="15%" class="price">₹{{ $data->wishlist->selling }}</td>
                                         @if ($data->wishlist->stock != 1)
                                             <td width="15%"><span class="in-stock-box">Out Of Stock</span></td>

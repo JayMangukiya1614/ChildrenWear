@@ -44,85 +44,23 @@
       "submenu": [
         {
           "url": "/Client-Pending-Order",
-          "name": "Client-Pending-Order",
+          "name": "Pending-Order",
           "icon": "menu-icon tf-icons fa-brands fa-product-hunt",
           "slug": "ClientPOrder"
         },
         {
           "url": "/Client-Order-Show",
-          "name": " Client-Order-Bill",
-          "icon": "menu-icon tf-icons fa-solid fa-table",
+          "name": "Order-Bill",
+          "icon": "menu-icon tf-icons fa-solid fa-file-invoice",
           "slug": "ClientOrderShow"
+        },
+        {
+          "url": "/Client-Bill-List",
+          "name": "Bill-List",
+          "icon": "menu-icon tf-icons fa-solid fa-list",
+          "slug": "ClientBillList"
         }
-      ]
-    },
-    {
-      "name": "Main Admin",
-      "icon": "menu-icon tf-icons fa-solid fa-user",
-      "slug": "layouts",
-      "submenu": [
-        {
-          "url": "/Mlogin",
-          "name": "Login",
-          "icon": "menu-icon tf-icons fa-solid fa-file-import",
-          "slug": "Mlogin"
-        },
-        {
-          "url": "/Madmin-logout",
-          "name": "Log Out",
-          "icon": "menu-icon tf-icons fa-solid fa-right-from-bracket",
-          "slug": "Mlogin"
-        }
-      ]
-    },
-    {
-      "name": "  Request Manage",
-      "icon": "menu-icon tf-icons fa-solid fa-file-invoice",
-      "slug": "layouts",
-      "submenu": [
-        {
-          "url": "/main-admin",
-          "name": "Pending Request",
-          "icon": "menu-icon tf-icons fa-solid fa-clipboard-list",
-          "slug": "read"
-        },
-        {
-          "url": "/accepted-request-show",
-          "name": "Accept Request",
-          "icon": "menu-icon tf-icons fa-solid fa-check",
-          "slug": "acceptrequest"
-        },
-        {
-          "url": "/delete-request-show",
-          "name": "Delete Request",
-          "icon": "menu-icon tf-icons fa-solid fa-trash",
-          "slug": "deleterequest"
-        }
-      ]
-    },
-    {
-      "name": "Index Page",
-      "icon": "menu-icon tf-icons fa-solid fa-i",
-      "slug": "layouts",
-      "submenu": [
-        {
-          "url": "/Index-form",
-          "name": "Index-Form",
-          "icon": "menu-icon tf-icons fa-solid fa-f",
-          "slug": "index-form"
-        },
-        {
-          "url": "/Main-Admin-Product-Table",
-          "name": "Product-Table",
-          "icon": "menu-icon tf-icons fa-solid fa-table",
-          "slug": "Main-Product-Table"
-        },
-        {
-          "url": "/Main-Admin-Delete-Product-Table",
-          "name": "Delete-Product",
-          "icon": "menu-icon tf-icons fa-solid fa-table",
-          "slug": "Main-Delete-Product-Table"
-        }
+        
       ]
     }
   ]

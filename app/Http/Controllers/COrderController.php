@@ -23,7 +23,7 @@ class COrderController extends Controller
 
         $data = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->get();
 
-        return view('admin.ClientPOrder', compact('data','Admin'));
+        return view('admin.ClientPOrder', compact('data', 'Admin'));
     }
     public function AdminOrderAccepet($id)
     {
@@ -39,33 +39,33 @@ class COrderController extends Controller
     {
         $id = Session()->get('Alogin');
         $session = Adminreg::find($id);
-        $data = Order::where('AD_ID', $session->AD_ID)->where('token', 1)->get();
-        return view('admin.ClientOrderShow', compact('data','session'));
+        $data = Order::where('AD_ID', $session->AD_ID)->where('token', 1)->orderBy('date', 'desc')->where('is_set', 0)->get();
+        return view('admin.ClientOrderShow', compact('data', 'session'));
     }
     public function pdf($id)
     {
 
         $data = Order::where('OI_ID', $id)->first();
         $client = User::where('CI_ID', $data->CI_ID)->first();
-        $Ci_Id = "CI" . (rand(1000, 9999));
-        $CI = User::where('CI_ID', '=', $Ci_Id)->first();
-  
-        if ($CI) {
-          do {
-            $Ci_Id = "BH" . (rand(1000, 9999));
-          } while ($Ci_Id == $CI);
-        }
+        $data->is_set  = 1;
+        $data->update();
         $pdf = PDF::loadview('pdf.invoice', compact('data', 'client'));
         return $pdf->download('invoice.pdf');
-
-
     }
 
-    // public function downloadPDF()
-    // {
+    public function ClientBillList(Request $req)
+    {
+        $id = Session()->get('Alogin');
+        $session = Adminreg::find($id);
+        $data = Order::where('AD_ID', $session->AD_ID)->where('date', $req->date)->where('token', 1)->get();
+        $date = $req->date;
+        return view('admin.ClientBillList',compact('data','session','date'));
+   
 
-    //     $data= Order::where('OI_ID',$id)->get();
-    //     $pdf = PDF::loadview('pdf.invoice',compact('data'));
-    //     return $pdf->download('employees.pdf');
-    // }
+    }
+    public function dashboard()
+    {
+        return view('content.dashboard.dashboards-analytics');
+
+    }
 }

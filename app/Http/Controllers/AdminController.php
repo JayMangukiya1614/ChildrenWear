@@ -203,7 +203,7 @@ class AdminController extends Controller
 
       if ($email->token == 1) {
 
-        return back()->with("Request", 'Your Request Has alredy Accepeted');
+        return back()->with("Request", 'Your Email Id Is Already Use This Website');
       } elseif ($email->token == 0) {
         return back()->with("Request", 'Your Request Has alredy Pending');
       }
@@ -257,7 +257,7 @@ class AdminController extends Controller
       // if (str_word_count($data['Ldescription']) > 20) {
       //   return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
       // }
-      
+
       ProductListing::create($data);
 
       return redirect(route('Admin-Product-table'))->with('Success', "Product Entry SuccessFull...");
@@ -266,16 +266,22 @@ class AdminController extends Controller
     }
   }
 
-  public function AdminProductTable()
+  public function AdminProductTable(Request $Req)
   {
+    // return $req->all();
     $id = Session()->get('Alogin');
     $check = Adminreg::find($id);
     $heading = Adminreg::where([['AD_ID', $check->AD_ID]])->first();
 
-    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->cursorPaginate(10);
-    // $paginate = $data->paginater(10);
+    $data = ProductListing::where([['AD_ID', $check->AD_ID]])->orderBy('updated_at', 'desc')->get();
 
-    return view('admin.Product-table', compact('data', 'heading'));
+    $search = $Req['search'] ?? "";
+    if ($search != "") {
+      $data = ProductListing::where([['PI_ID', 'LIKE', "%$search%"]])->get();
+      return view('admin.Product-table', compact('data', 'heading', 'search'));
+    }
+    // $searching = $search;
+    return view('admin.Product-table', compact('data', 'heading', 'search'));
   }
 
   public function AdminProductDeleteTable()
@@ -306,10 +312,10 @@ class AdminController extends Controller
 
   public function AdminProductListingUpdate(UProductRequest  $req, $id)
   {
-     $data = $req->validated();
+    $data = $req->validated();
     $sell = ($data['price'] * $data['discount']) / 100;
     $data['selling'] = round($data['price'] - $sell, 2);
-     $data['token']  = 1;
+    $data['token']  = 1;
     $data['age']  = json_encode($req->age);
     $data['size']  = json_encode($req->size);
     $data['color']  = json_encode($req->color);

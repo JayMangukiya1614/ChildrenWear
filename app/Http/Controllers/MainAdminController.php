@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Mail\RequestMail;
 use App\Mail\DRequestMail;
 use App\Models\ProductListing;
+use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 
 class MainAdminController extends Controller
@@ -29,7 +30,7 @@ class MainAdminController extends Controller
         if ($data) {
             if (Hash::check($request->password, $data->Password)) {
                 $request->Session()->put('Mlogin', $data->id);
-                return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
+                return redirect(route('MDashboard'))->with('LoginSuccess', "Login Successfully......!");
             } else {
                 return back()->with('Password', 'Password not matched');
             }
@@ -45,6 +46,35 @@ class MainAdminController extends Controller
         } else {
             return "Please log-in account";
         }
+    }
+    public function MDashboard()
+    {
+        $post = DB::table('orders')->get('*')->toArray();
+        foreach ($post as $post) {
+          $date = Order::where('date', $post->date)->get();
+            $a = count($date);
+
+            $data[] = array(
+                'label' => $post->date,
+                'y' => $a,
+            );
+        }
+        // return $data;
+        return view('MainAdmin.MDashboard', ['data' => $data]);
+    }
+    public function chartdate(Request $req)
+    {
+        // $post = DB::table('orders')->get('*')->toArray();
+        $date = Order::where('date', $req->date)->get();
+        $a = count($date);
+
+        $data[] = array(
+            'label' => $req->date,
+            'y' => $a,
+        );
+
+        // return $data;
+        return view('MainAdmin.MDashboard', ['data' => $data]);
     }
     public function read()
     {
@@ -114,5 +144,4 @@ class MainAdminController extends Controller
         $data = Adminreg::find($id);
         return view('MainAdmin.deleterequestform', compact('data'));
     }
-   
 }

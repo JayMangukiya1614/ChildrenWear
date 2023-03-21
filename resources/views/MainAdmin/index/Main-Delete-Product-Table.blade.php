@@ -1,15 +1,6 @@
-@extends('layouts/contentNavbarLayout')
+@extends('MainAdmin.Main.Master')
 
-
-@section('title', 'Dashboard - Analytics')
-
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
-
-
-
-@section('content')
+@section('FrontAdmin')
     <h1 class="text-center" style="margin-top: 6rem">Main Admin Delete Product  </h1>
 
     <div class="table-responsive">
@@ -81,8 +72,7 @@
 
 
 
-@section('page-script')
-    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+
     <script>
         @if (Session::has('Update'))
             toastr.options = {
@@ -101,9 +91,5 @@
     </script>
 
 
-@endsection
 
-@section('page-script')
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-@endsection
 @endsection
