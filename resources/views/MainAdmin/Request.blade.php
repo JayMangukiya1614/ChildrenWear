@@ -1,4 +1,5 @@
-@extends('layouts/contentNavbarLayout')
+@extends('MainAdmin.Main.Master')
+
 <style>
     body {
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -50,16 +51,9 @@
         border: solid 1px #EDF1FF
     }
 </style>
-
-@section('title', 'Dashboard - Analytics')
-
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
+@section('FrontAdmin')
 
 
-
-@section('content')
 
     <div class="container-fluid border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
         <div class="row">
@@ -295,9 +289,5 @@
             })
         </script>
     @endif
-    @endsection
-
-    @section('page-script')
-        <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-    @endsection
+    
     @endsection

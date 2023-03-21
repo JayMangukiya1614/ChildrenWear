@@ -295,7 +295,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
-        'PI_ID' => "P-00010",
+        'PI_ID' => "P-0010",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -317,7 +317,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
-        'PI_ID' => "P-00011",
+        'PI_ID' => "P-0011",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -339,7 +339,7 @@ class UserSeeder extends Seeder
       ],   [
         'AD_ID' => "BH0001 ",
         'token' => "1",
-        'PI_ID' => "P-00012",
+        'PI_ID' => "P-0012",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Stylish T-Shirt",
@@ -366,7 +366,7 @@ class UserSeeder extends Seeder
         DB::table('add_carts')->insert([
             [
                 'CI_ID' => "CI0001",
-                'product_id' => "5 ",
+                'product_id' => "P-0005",
                 'AD_ID' => "BH0001",
 
                 'age' => " 0-6(M)",
@@ -378,7 +378,7 @@ class UserSeeder extends Seeder
             ],
             [
                 'CI_ID' => "CI0001",
-                'product_id' => "2 ",
+                'product_id' => "P-0002",
                 'AD_ID' => "BH0001",
 
                 'age' => " 0-6(M)",

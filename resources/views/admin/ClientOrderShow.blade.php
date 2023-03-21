@@ -33,7 +33,8 @@
                 <tr>
                     <th scope="col">Id</th>
                     <th scope="col">Product Image</th>
-
+                    <th scope="col">PI_ID</th>
+                    <th scope="col">Order Date</th>
                     <th scope="col">OI_ID</th>
                     <th scope="col">CI_ID</th>
                     <th scope="col">Size</th>
@@ -53,6 +54,9 @@
                             <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                     src="{{ !empty($data->products->productimage) ? url('ProductImages/' . $data->products->productimage) : url('images/default.jpeg') }}">
                             </td>
+                            <td>{{ $data->product_id}}</td>
+                            <td>{{ $data->date }}</td>
+
                             <td>{{ $data->OI_ID }}</td>
 
                             <td>{{ $data->CI_ID }}</td>

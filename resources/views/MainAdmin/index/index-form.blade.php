@@ -1,17 +1,13 @@
-@extends('layouts/contentNavbarLayout')
+@extends('MainAdmin.Main.Master')
 
-@section('title', 'Index -Form')
-
-@section('vendor-style')
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}">
+@section('FrontAdmin')
 <style>
     .image {
         width: 300px !important;
         height: 300px;
     }
 </style>
-@endsection
-@section('content')
+
 <section style="padding-top:60px;">
     <div class="container">
         <div class="row">
@@ -63,13 +59,7 @@
 </section>
 
 
-@endsection
 
-@section('vendor-script')
-<script src="{{asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-@endsection
-
-@section('page-script')
 <script>
     // toastr.success('s');
     $(document).ready(function() {
@@ -83,10 +73,7 @@
         @endif
     });
 </script>
-<script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
-@endsection
 
-@section('content')
 
 
 @endsection

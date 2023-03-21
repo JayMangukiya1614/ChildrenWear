@@ -26,7 +26,15 @@
         </div>
 
     </div>
-
+    <form action="">
+        <div class="input-group">
+            <input type="search" name="search" class="form-control rounded" placeholder="Search"
+                aria-label="Search" aria-describedby="search-addon" value="{{ $search }}" />
+            <button type="submit" class="btn btn-outline-primary">search</button>
+            <a href="{{ url('Admin-Product-table') }}"><button type="button"
+                    class="btn btn-outline-danger">Reset</button></a>
+        </div>
+    </form>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -47,6 +55,7 @@
             </thead>
             <tbody>
                 @if ($data != null)
+                {{-- {{dd($data)}} --}}
                     @foreach ($data as $key => $data)
                     @if ($data->token != 2)
                     <tr>

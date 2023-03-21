@@ -11,6 +11,8 @@ use App\Models\User;
 use App\Http\Requests\AddressRequest;
 use App\Models\AddressBook;
 use App\Models\Order;
+use App\Models\Subscribe;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Contracts\Session\Session;
 
 
@@ -53,8 +55,8 @@ class DropDownController extends Controller
 
 
         $Add_Cart['CI_ID'] = $details->CI_ID;
-        $Add_Cart['product_id'] = $id;
         $admin_id = ProductListing::where('id', $id)->first();
+        $Add_Cart['product_id'] = $admin_id->PI_ID;
         $Add_Cart['AD_ID'] = $admin_id->AD_ID;
 
 
@@ -118,12 +120,13 @@ class DropDownController extends Controller
             $Order->CI_ID = $findorder->CI_ID;
             $Order->product_id = $findorder->product_id;
             $Order->AD_ID = $findorder->AD_ID;
-
             $Order->age = $findorder->age;
             $Order->color = $findorder->color;
             $Order->size = $findorder->size;
             $Order->quantity = $findorder->quantity;
-
+            $t = time();
+            $Order->date = (date("Y-m-d", $t));
+            $Order->is_set = 0;
             $Order->save();
         }
 
@@ -134,12 +137,11 @@ class DropDownController extends Controller
 
         $sessionid = Session()->get('ULogin');
         $name = User::find($sessionid);
-        $addcart = AddCart::where('CI_ID',$name->CI_ID)->get();
-                 foreach($addcart as $addcart)
-                 {
-                    $addcart = Addcart::find($addcart->id);
-                    $addcart->delete();
-                 }
+        $addcart = AddCart::where('CI_ID', $name->CI_ID)->get();
+        foreach ($addcart as $addcart) {
+            $addcart = Addcart::find($addcart->id);
+            $addcart->delete();
+        }
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
         return view('Frontend.OrderTable.POrderTable', compact('data'));
     }
@@ -173,15 +175,27 @@ class DropDownController extends Controller
         $data->update();
         return back()->with('error', 'Order Deleted Successfully');
     }
-}
+    public function Subscribe(Request $req)
+    {
+        $req->validate([
+            'name' => 'required',
+            'email' => 'required',
 
-// $id = Session()->get('ULogin');
-//         $sessionname = User::find($id);
-//           $name = AddCart::where('CI_ID',$sessionname->CI_ID)->get();
-//         //  foreach($name as $name)
-//         //  {
-//         //     $addcart = Addcart::find($name->id);
-//         //     $addcart->delete();
-//         //  }
-//         return $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
-//         return view('Frontend.OrderTable', compact('data'));
+
+        ]);
+        $id = Session()->get('ULogin');
+        $sessionid = User::find($id);
+        $data = Subscribe::where('email', $req->email)->first();
+        if ($data) {
+            return back()->with('info', 'Thank You For Once Again But You Are Already Subscribe Our Website');
+        } elseif ($sessionid->Email == $req->email) {
+            $data = new Subscribe();
+            $data->name = $req->name;
+            $data->email = $req->email;
+            $data->save();
+            return back()->with('success', 'Thank You For Subscribe Our Website');
+        } else {
+            return back()->with('error', 'Sorry For Your Email Does Not Match');
+        }
+    }
+}

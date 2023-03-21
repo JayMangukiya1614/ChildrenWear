@@ -36,7 +36,13 @@
     },
     "files":[
       "app/helpers/cart.php",
-      "app/helpers/wishlist.php"
+      "app/helpers/wishlist.php",
+      "app/helpers/AProfile.php",
+      "app/helpers/subscribe.php",
+      "app/helpers/SubscribeList.php"
+
+
+
 
     ]
   },

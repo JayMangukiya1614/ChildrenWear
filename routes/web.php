@@ -30,7 +30,6 @@ use Illuminate\Support\Facades\Route;
 $controller_path = 'App\Http\Controllers';
 
 // Main Page Route
-Route::get('/Dashboard', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 
 Route::get('/layouts/fluid', [Fluid::class, 'index'])->name('layouts-fluid');
@@ -87,6 +86,10 @@ Route::group(['middleware' => ['Alogin']], function () {
   Route::get('/Client-Order-Show', [COrderController::class, 'ClientOrderShow'])->name('Client-Order-Show');
   Route::get('/pdf/{id}', [COrderController::class, 'pdf'])->name('pdf');
   Route::get('/downloadPDF/{$id}', [COrderController::class, 'downloadPDF'])->name('abc');
+  Route::get('/Dashboard', [COrderController::class, 'dashboard'])->name('dashboard-analytics');
+  Route::get('/Client-Bill-List', [COrderController::class, 'ClientBillList'])->name('Client-Bill-List');
+
+
 });
 
 
@@ -98,6 +101,7 @@ Route::post('/Mlogindata', [MainAdminController::class, 'Mlogindata'])->name('Ml
 Route::group(['middleware' => ['Mlogin']], function () {
 
   // Main Admin
+  Route::get('/MDashboard', [MainAdminController::class, 'MDashboard'])->name('MDashboard');
   Route::get('/main-admin', [MainAdminController::class, 'read'])->name('main-admin-read');
   Route::get('/MshowAdmin/{id}', [MainAdminController::class, 'MshowAdmin'])->name('MshowAdmin');
   Route::post('/accept-request/{id}', [MainAdminController::class, 'acceptrequest'])->name('accept-request');
@@ -122,6 +126,7 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::get('/Main-Admin-Product-Table', [IndexController::class, 'MProductTable'])->name('Main-Admin-Product-Table');
   Route::get('/Main-Admin-Product-Listing-delete/{id}', [IndexController::class, 'MainAdminProductListingdelete'])->name('Main-Admin-Product-Listing-delete');
   Route::get('/Main-Admin-Delete-Product-Table', [IndexController::class, 'MDeleteProductTable'])->name('Main-Admin-Delete-Product-Table');
+  Route::get('/chartdate', [MainAdminController::class, 'chartdate'])->name('chartdate');
 });
 
 
@@ -159,7 +164,7 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('FwishlistTable', [FrontendController::class, 'FrontWishlistTable'])->name('FwishlistTable');
   Route::get('deletewishlist/{id}', [FrontendController::class, 'deletewishlist'])->name('deletewishlist');
   Route::get('product-details/{id}', [FrontendController::class, 'productdetails'])->name('product-details');
-  
+  Route::get('Subscribe', [DropDownController::class, 'Subscribe'])->name('Subscribe');
 });
 
 Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');

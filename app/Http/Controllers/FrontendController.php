@@ -64,9 +64,10 @@ class FrontendController extends Controller
   }
   public function FrontWishlist($id)
   {
+    
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
-    $admin_id = ProductListing::where('id', $id)->first();
+    $admin_id = ProductListing::where('PI_ID', $id)->first();
     $data = new Wishlist();
     $data->CI_ID = $sessionid->CI_ID;
     $data->product_id = $id;

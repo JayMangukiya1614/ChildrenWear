@@ -208,7 +208,7 @@
                                         {{-- <button class="btn btn-sm text-dark p-0" data-toggle="modal"
                                             data-target=".bd-cart-modal-lg"><i
                                                 class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</button> --}}
-                                        <a href="{{ route('Fwishlist', $data->id) }}"
+                                        <a href="{{ route('Fwishlist', $data->PI_ID) }}"
                                             class="btn btn-sm text-dark p-0"><i class="fa fa-heart" id="heart"></i>  <span> Wish List </span>
                                         </a>
                                     </div>

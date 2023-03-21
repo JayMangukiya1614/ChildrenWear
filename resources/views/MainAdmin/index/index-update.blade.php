@@ -1,16 +1,13 @@
-@extends('layouts/contentNavbarLayout')
+@extends('MainAdmin.Main.Master')
 
-@section('title', 'Index -Table')
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-    <style>
-        .image {
-            width: 300px !important;
-            height: 300px;
-        }
+<style>
+    .image {
+        width: 300px !important;
+        height: 300px;
+    }
     </style>
-@endsection
-@section('content')
+
+@section('FrontAdmin')
 
     <section style="padding-top:60px;">
         <div class="container">
@@ -94,8 +91,5 @@
             @endif
         });
     </script>
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-@endsection
 
-@section('content')
 @endsection
