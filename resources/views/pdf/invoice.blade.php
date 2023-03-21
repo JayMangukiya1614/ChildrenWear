@@ -12,7 +12,7 @@
 
     <title> Bill</title>
 
-     <style>
+    <style>
         body {
             background: #eee;
             margin-top: 20px;
@@ -134,7 +134,7 @@
                     <div class="receipt-header">
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <div class="receipt-left">
-                                
+
                             </div>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6 text-right">
@@ -152,29 +152,31 @@
                     <div class="receipt-header receipt-header-mid">
                         <div class="col-xs-8 col-sm-8 col-md-8 text-left">
                             <div class="receipt-right">
-                                <h5><b>Name: </b>{{$client->FirstName}} {{$client->LastName}} </h5>
-                                <p><b>Mobile :</b> {{$client->PhoneNo}}</p>
-                                <p><b>Email :</b> {{$client->Email}} </p>
-                                <p><b>Address :</b> {{$client->Address}} </p>
+                                <h5><b>Name: </b>{{ $client->FirstName }} {{ $client->LastName }} </h5>
+                                <p><b>Mobile :</b> {{ $client->PhoneNo }}</p>
+                                <p><b>Email :</b> {{ $client->Email }} </p>
+                                <p><b>Address :</b> {{ $client->Address }} </p>
                             </div>
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="receipt-left">
-                                <h3>Invoice No. {{$data->OI_ID}}</h3>
+                                <h3>Invoice No. {{ $data->OI_ID }}</h3>
                             </div>
                         </div>
+
+                        
                     </div>
                 </div>
-@php
-                                        $a = null;
-                                        $gst = null;
-                                        $total = null;
-                                      @endphp
-                                      @php
-                                        $a = $data->products->selling * $data->quantity;
-                                        $gst = ($a*5)/100;
-                                        $total = $gst+$a;
-                                      @endphp
+                @php
+                    $a = null;
+                    $gst = null;
+                    $total = null;
+                @endphp
+                @php
+                    $a = $data->products->selling * $data->quantity;
+                    $gst = ($a * 5) / 100;
+                    $total = $gst + $a;
+                @endphp
                 <div>
                     <table class="table table-bordered">
                         <thead>
@@ -185,13 +187,13 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="col-md-9">{{$data->products->productname}}</td>
-                                <td class="col-md-3"><i class="fa fa-inr"> {{$data->products->price}} /-</td>
+                                <td class="col-md-9">{{ $data->products->productname }}</td>
+                                <td class="col-md-3"><i class="fa fa-inr"> {{ $data->products->price }} /-</td>
                             </tr>
 
                             <tr>
                                 <td class="text-right">
-                                  <p>
+                                    <p>
                                         <strong>Quantity: </strong>
                                     </p>
                                     <p>
@@ -209,18 +211,18 @@
                                 </td>
 
                                 <td>
-                                  <p>
-                                        <strong><i class="fa fa-inr"></i> {{$data->quantity}} </strong>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> {{ $data->quantity }} </strong>
                                     </p>
                                     <p>
-                                        <strong><i class="fa fa-inr"></i> {{$data->products->discount}}%</strong>
+                                        <strong><i class="fa fa-inr"></i> {{ $data->products->discount }}%</strong>
                                     </p>
                                     <p>
-                                        <strong><i class="fa fa-inr"></i> {{$a}}₹ </strong>
+                                        <strong><i class="fa fa-inr"></i> {{ $a }}₹ </strong>
                                     </p>
                                     <p>
 
-                                        <strong><i class="fa fa-inr"></i>{{$gst}}</strong>
+                                        <strong><i class="fa fa-inr"></i>{{ $gst }}</strong>
                                     </p>
                                     {{-- <p>
                                         <strong><i class="fa fa-inr"></i> {{$total}} /-</strong>
@@ -233,7 +235,7 @@
                                     <h2><strong>Total: </strong></h2>
                                 </td>
                                 <td class="text-left text-danger">
-                                    <h2><strong><i class="fa fa-inr">{{$total}}</i></strong></h2>
+                                    <h2><strong><i class="fa fa-inr">{{ $total }}</i></strong></h2>
                                 </td>
                             </tr>
                         </tbody>
@@ -244,7 +246,7 @@
                     <div class="receipt-header receipt-header-mid receipt-footer">
                         <div class="col-xs-12 col-sm-12 col-md-12 text-left">
                             <div class="receipt-right">
-                                <p><b>Date :</b>{{$data->created_at}}</p>
+                                <p><b>Date :</b>{{ $data->created_at }}</p>
                                 <h5 style="color: rgb(140, 140, 140);">Thanks for shopping.!</h5>
                             </div>
                         </div>
