@@ -77,7 +77,6 @@ body {
   -webkit-tap-highlight-color: rgba(67, 89, 113, 0);
 }
 
-
 hr {
   margin: 1rem 0;
   color: #d9dee3;
@@ -13882,7 +13881,7 @@ html:not(.layout-menu-fixed) .menu-inner-shadow {
   width: 1.5rem;
 }
 .menu-vertical .menu-sub .menu-icon {
-  margin-right: 7px;
+  margin-right: 0;
 }
 @media (max-width: 1199.98px) {
   .menu-vertical .menu-sub .menu-icon {

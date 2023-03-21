@@ -11,65 +11,250 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title> Bill</title>
+
+     <style>
+        body {
+            background: #eee;
+            margin-top: 20px;
+        }
+
+        .text-danger strong {
+            color: #9f181c;
+        }
+
+        .receipt-main {
+            background: #ffffff none repeat scroll 0 0;
+            border-bottom: 12px solid #333333;
+            border-top: 12px solid #9f181c;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            padding: 40px 30px !important;
+            position: relative;
+            box-shadow: 0 1px 21px #acacac;
+            color: #333333;
+            font-family: open sans;
+        }
+
+        .receipt-main p {
+            color: #333333;
+            font-family: open sans;
+            line-height: 1.42857;
+        }
+
+        .receipt-footer h1 {
+            font-size: 15px;
+            font-weight: 400 !important;
+            margin: 0 !important;
+        }
+
+        .receipt-main::after {
+            background: #414143 none repeat scroll 0 0;
+            content: "";
+            height: 5px;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: -13px;
+        }
+
+        .receipt-main thead {
+            background: #414143 none repeat scroll 0 0;
+        }
+
+        .receipt-main thead th {
+            color: #fff;
+        }
+
+        .receipt-right h5 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0 0 7px 0;
+        }
+
+        .receipt-right p {
+            font-size: 12px;
+            margin: 0px;
+        }
+
+        .receipt-right p i {
+            text-align: center;
+            width: 18px;
+        }
+
+        .receipt-main td {
+            padding: 9px 20px !important;
+        }
+
+        .receipt-main th {
+            padding: 13px 20px !important;
+        }
+
+        .receipt-main td {
+            font-size: 13px;
+            font-weight: initial !important;
+        }
+
+        .receipt-main td p:last-child {
+            margin: 0;
+            padding: 0;
+        }
+
+        .receipt-main td h2 {
+            font-size: 20px;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .receipt-header-mid .receipt-left h1 {
+            font-weight: 100;
+            margin: 34px 0 0;
+            text-align: right;
+            text-transform: uppercase;
+        }
+
+        .receipt-header-mid {
+            margin: 24px 0;
+            overflow: hidden;
+        }
+
+        #container {
+            background-color: #dcdcdc;
+        }
+    </style>
+
 </head>
 
 <body>
-  <div class="card">
-    <div class="card-body mx-4">
-      <div class="container">
-        <p class="my-5 mx-5" style="font-size: 30px;">Thank for your purchase</p>
+    <div class="col-md-12">
         <div class="row">
-          <ul class="list-unstyled">
-            <li class="text-black">John Doe</li>
-            <li class="text-muted mt-1"><span class="text-black">Invoice</span> #12345</li>
-            <li class="text-black mt-1">April 17 2021</li>
-          </ul>
-          <hr>
-          <div class="col-xl-10">
-            <p>Pro Package</p>
-          </div>
-          <div class="col-xl-2">
-            <p class="float-end">$199.00
-            </p>
-          </div>
-          <hr>
+
+            <div class="receipt-main col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                <div class="row">
+                    <div class="receipt-header">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="receipt-left">
+                                
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <div class="receipt-right">
+                                <h5>BabyHub</h5>
+                                <p>+91 3649-6589 <i class="fa fa-phone"></i></p>
+                                <p>cwear1952@gmail.com <i class="fa fa-envelope-o"></i></p>
+                                <p>India <i class="fa fa-location-arrow"></i></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid">
+                        <div class="col-xs-8 col-sm-8 col-md-8 text-left">
+                            <div class="receipt-right">
+                                <h5><b>Name: </b>{{$client->FirstName}} {{$client->LastName}} </h5>
+                                <p><b>Mobile :</b> {{$client->PhoneNo}}</p>
+                                <p><b>Email :</b> {{$client->Email}} </p>
+                                <p><b>Address :</b> {{$client->Address}} </p>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="receipt-left">
+                                <h3>Invoice No. {{$data->OI_ID}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+@php
+                                        $a = null;
+                                        $gst = null;
+                                        $total = null;
+                                      @endphp
+                                      @php
+                                        $a = $data->products->selling * $data->quantity;
+                                        $gst = ($a*5)/100;
+                                        $total = $gst+$a;
+                                      @endphp
+                <div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-md-9">{{$data->products->productname}}</td>
+                                <td class="col-md-3"><i class="fa fa-inr"> {{$data->products->price}} /-</td>
+                            </tr>
+
+                            <tr>
+                                <td class="text-right">
+                                  <p>
+                                        <strong>Quantity: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Discount: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>Total Amount: </strong>
+                                    </p>
+                                    <p>
+                                        <strong>IGST(5%): </strong>
+                                    </p>
+                                    <p>
+                                        {{-- <strong>Payable Amount: </strong>
+                                    </p> --}}
+                                </td>
+
+                                <td>
+                                  <p>
+                                        <strong><i class="fa fa-inr"></i> {{$data->quantity}} </strong>
+                                    </p>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> {{$data->products->discount}}%</strong>
+                                    </p>
+                                    <p>
+                                        <strong><i class="fa fa-inr"></i> {{$a}}₹ </strong>
+                                    </p>
+                                    <p>
+
+                                        <strong><i class="fa fa-inr"></i>{{$gst}}</strong>
+                                    </p>
+                                    {{-- <p>
+                                        <strong><i class="fa fa-inr"></i> {{$total}} /-</strong>
+                                    </p> --}}
+                                </td>
+                            </tr>
+                            <tr>
+
+                                <td class="text-right">
+                                    <h2><strong>Total: </strong></h2>
+                                </td>
+                                <td class="text-left text-danger">
+                                    <h2><strong><i class="fa fa-inr">{{$total}}</i></strong></h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="receipt-header receipt-header-mid receipt-footer">
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-left">
+                            <div class="receipt-right">
+                                <p><b>Date :</b>{{$data->created_at}}</p>
+                                <h5 style="color: rgb(140, 140, 140);">Thanks for shopping.!</h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <div class="row">
-          <div class="col-xl-10">
-            <p>Consulting</p>
-          </div>
-          <div class="col-xl-2">
-            <p class="float-end">$100.00
-            </p>
-          </div>
-          <hr>
-        </div>
-        <div class="row">
-          <div class="col-xl-10">
-            <p>Support</p>
-          </div>
-          <div class="col-xl-2">
-            <p class="float-end">$10.00
-            </p>
-          </div>
-          <hr style="border: 2px solid black;">
-        </div>
-        <div class="row text-black">
-  
-          <div class="col-xl-12">
-            <p class="float-end fw-bold">Total: $10.00
-            </p>
-          </div>
-          <hr style="border: 2px solid black;">
-        </div>
-        <div class="text-center" style="margin-top: 90px;">
-          <a><u class="text-info">View in browser</u></a>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-        </div>
-  
-      </div>
     </div>
-  </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
