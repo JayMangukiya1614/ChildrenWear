@@ -8,6 +8,14 @@
 </style>
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
+    <style>
+        .search {
+            width: 13rem;
+            margin-left: auto;
+            padding: 7px;
+            margin-right: 0.5rem;
+        }
+    </style>
 @endsection
 
 @section('vendor-script')
@@ -22,32 +30,35 @@
 
 
 
-    <form action="{{ route('Client-Bill-List') }}" method="gget">
-
-        <input name="date" type="date">
-        <button type="submit"> submit</button>
-    </form>
     <div>
         <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Client Order Bill </h1>
+
         <div class="row">
             <div class="col-md-12">
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-md-6">
                         <h1 style="font-size:1.5rem">{{ $session->AD_ID }}</h1>
                     </div>
-                    <div class="col-md-6">
-                        <p>Date:- {{ $date }}</p>
-                        @php
-                            $order = count($data);
-                        @endphp
-                        <span> Order:- {{ $order }}</span>
+                    <div class="col-md-6" style="text-align: right">
+                        <h1 style="font-size:1.5rem">{{ $session->shopname }}</h1>
+                        <div style="margin-right: 1em!important">
+                            @php
+                                $order = count($data);
+                            @endphp
+                            <span> Order:- {{ $order }}</span>
+                            <p>Date:- {{ $date }} 10/20/2023</p>
+                        </div>
 
-                        <h1 style="float:right;font-size:1.5rem">{{ $session->shopname }}</h1>
                     </div>
                 </div>
             </div>
         </div>
-
+        <form action="{{ route('Client-Bill-List') }}" method="get">
+            <div class="input-group">
+                <input name="date" class=" d-inline-block search rounded ml-auto" type="date">
+                <button type="submit" class="btn btn-outline-success"> search</button>
+            </div>
+        </form>
     </div>
 
     <div class="table-responsive">
@@ -86,7 +97,7 @@
                             <td>{{ $data->age }}</td>
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->products->selling }}</td>
-                            <td><a href="{{ route('pdf', $data->OI_ID) }}"  id="download"><i
+                            <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
                                         class="fa-solid fa-download"></i></a></td>
                         </tr>
                     @endforeach

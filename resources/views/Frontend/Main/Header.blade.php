@@ -41,7 +41,7 @@
                             <a class="dropbtn" style="color:black;text-decoration:none" href=""><i
                                     class="fa-solid fa-user mr-1"></i> My Account <i class="fa-solid fa-chevron-down"
                                     style="font-size:12px;"></i></a>
-                            <div class="dropdown-content">
+                            <div class="dropdown-content" style="z-index: 2 !important">
                                 <a href="{{ route('Fprofile') }}" style="font-size: 15px"><i
                                         class="far fa-edit mr-1"></i>
                                     Edit Profile</a>

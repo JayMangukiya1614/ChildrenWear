@@ -5,6 +5,14 @@
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
+    <style>
+        .search {
+            width: 13rem;
+            margin-left: auto;
+            padding: 7px;
+            margin-right: 0.5rem;
+        }
+    </style>
 @endsection
 
 
@@ -28,9 +36,9 @@
     </div>
     <form action="">
         <div class="input-group">
-            <input type="search" name="search" class="form-control rounded" placeholder="Search"
-                aria-label="Search" aria-describedby="search-addon" value="{{ $search }}" />
-            <button type="submit" class="btn btn-outline-primary">search</button>
+            <input type="search" name="search" class="search rounded" placeholder="Search" aria-label="Search"
+                aria-describedby="search-addon" value="{{ $search }}" />
+            <button type="submit" class="btn btn-outline-primary rounded d-inline-block" style="margin-right: 0.5rem;" >search</button>
             <a href="{{ url('Admin-Product-table') }}"><button type="button"
                     class="btn btn-outline-danger">Reset</button></a>
         </div>
@@ -55,12 +63,12 @@
             </thead>
             <tbody>
                 @if ($data != null)
-                {{-- {{dd($data)}} --}}
+                    {{-- {{dd($data)}} --}}
                     @foreach ($data as $key => $data)
-                    @if ($data->token != 2)
-                    <tr>
+                        @if ($data->token != 2)
+                            <tr>
                                 {{-- {{dd($key)}} --}}
-                                <td scope="row">{{ $key + 1}}</td>
+                                <td scope="row">{{ $key + 1 }}</td>
                                 <td class="text-wrap"style="max-width:100px;"><img width="90px" height="90px"
                                         src="{{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('images/default.jpeg') }}">
                                 </td>
@@ -78,7 +86,9 @@
                                 @endif
 
 
-                                <td class="text-wrap"style=""><textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
+                                <td class="text-wrap"style="">
+                                    <textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea>
+                                </td>
                                 <td class="text-wrap"style="">{{ (string) $data->price }}</td>
                                 <td class="text-wrap"style="">{{ $data->discount }}%</td>
                                 <td class="text-wrap"style="">{{ (float) $data->selling }}</td>
@@ -106,9 +116,9 @@
             </tbody>
         </table>
     </div>
-<div>
-    {{-- {{$data->links()}} --}}
-</div>
+    <div>
+        {{-- {{$data->links()}} --}}
+    </div>
 
 
 

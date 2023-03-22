@@ -73,12 +73,16 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td> Data Not Found ...</td>
+                    <td></td>
+                    <td></td>
+                    <td>Data Not Found ...</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+
                 @endif
             </tbody>
         </table>
