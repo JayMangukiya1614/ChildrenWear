@@ -21,7 +21,7 @@ class DropDownController extends Controller
     public function Products($id)
     {
 
-        $data = ProductListing::where([['collection', $id]])->paginate(6);
+        $data = ProductListing::where([['collection', $id]])->paginate(8);
         // $pagination = ProductListing::paginate(6);
         $latest = ProductListing::where([['collection', $id]])->get()->first();
 
@@ -30,8 +30,8 @@ class DropDownController extends Controller
     public function Latest_Product($id)
     {
 
-        $data = ProductListing::where([['collection', $id]])->orderBy('updated_at', 'desc')->paginate(6);
-        $pagination = ProductListing::paginate(6);
+        $data = ProductListing::where([['collection', $id]])->orderBy('updated_at', 'desc')->paginate(8);
+        $pagination = ProductListing::paginate(8);
         $latest = ProductListing::where([['collection', $id]])->get()->first();
 
 
@@ -105,7 +105,7 @@ class DropDownController extends Controller
 
 
         foreach ($findorder as  $findorder) {
-            // uniqe order id 
+            // uniqe order id
             $OI_ID = "OI-" . (rand(1000, 9999));
             $OI = Order::where('OI_ID', '=', $OI_ID)->first();
 
