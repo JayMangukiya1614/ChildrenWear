@@ -103,6 +103,7 @@
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->products->selling }}</td>
                             <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
+                            <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
                                         class="fa-solid fa-download"></i></a></td>
                         </tr>
                     @endforeach
