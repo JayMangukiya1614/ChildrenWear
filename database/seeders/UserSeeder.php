@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
         DB::table('mainadmins')->insert([
             [
                 'Name' => "Admin",
-                'Email' => "cwear1952@gmail.com",
+                'Email' => "babyhub007@gmail.com",
                 'Password' => Hash::make('BH@123'),
             ]
         ]);
@@ -56,7 +56,7 @@ class UserSeeder extends Seeder
                 'bankname' => "YES BANK",
                 'branchname' => "VARACHA",
                 'ifsccode' => "YESB0000400",
-                'email' => "cwear1952@gmail.com",
+                'email' => "babyhub007@gmail.com",
                 'password' => Hash::make('BH@123'),
                 'address' => "Admin",
                 'message' => "I hope you  you are accepet my account request",
@@ -77,7 +77,7 @@ class UserSeeder extends Seeder
                 'BirthDate' => "04-01-2003",
                 'PhoneNo' => "1234567890",
                 'Gender' => "Male",
-                'Email' => "cwear1952@gmail.com",
+                'Email' => "babyhub007@gmail.com",
                 'Password' => Hash::make('BH@123'),
                 'ZipCode' => "395010",
             ]

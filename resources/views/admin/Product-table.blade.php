@@ -86,9 +86,7 @@
                                 @endif
 
 
-                                <td class="text-wrap"style="">
-                                    <textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea>
-                                </td>
+                                <td class="text-wrap"style=""><textarea name="" disabled class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
                                 <td class="text-wrap"style="">{{ (string) $data->price }}</td>
                                 <td class="text-wrap"style="">{{ $data->discount }}%</td>
                                 <td class="text-wrap"style="">{{ (float) $data->selling }}</td>

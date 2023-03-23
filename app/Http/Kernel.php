@@ -55,6 +55,7 @@ class Kernel extends HttpKernel
    * @var array<string, class-string|string>
    */
   protected $routeMiddleware = [
+    'A-F-Password' => \App\Http\Middleware\AForgetPasswordMailMiddleware::class,
     'Userlogin' => \App\Http\Middleware\Usermiddleware::class,
     'F-Password'=> \App\Http\Middleware\ForgetMiddleware::class,
     'Alogin'=> \App\Http\Middleware\AdminMiddleware::class,

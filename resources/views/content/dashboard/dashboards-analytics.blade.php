@@ -1,5 +1,5 @@
 @extends('layouts/contentNavbarLayout')
-
+<title>Dashboard</title>
 @section('title', 'Dashboard - Analytics')
 
 @section('vendor-style')

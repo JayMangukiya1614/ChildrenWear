@@ -1,4 +1,5 @@
 @extends('Frontend.Main.Master')
+<title>Index</title>
 
 @section('FrontAdmin')
 

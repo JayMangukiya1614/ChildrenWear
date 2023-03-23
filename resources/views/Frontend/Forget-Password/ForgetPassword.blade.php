@@ -83,6 +83,11 @@
 
                                                 <input type="password" style="border-radius: 5px" name="newpass"
                                                     id="newpass" class="form-control form-control-lg mb-3" />
+                                                    <span class="text-danger">
+                                                        @error('newpass')
+                                                            {{$message}}
+                                                        @enderror
+                                                    </span>
                                             </div>
                                         </div>
 
@@ -92,6 +97,11 @@
                                                     Password</label>
                                                 <input type="password" style="border-radius: 5px" name="confirmpass"
                                                     class="form-control form-control-lg mb-3" id="confirmpass" />
+                                                    <span class="text-danger">
+                                                        @error('confirmpass')
+                                                            {{$message}}
+                                                        @enderror
+                                                    </span>
                                             </div>
                                         </div>
 
