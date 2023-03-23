@@ -35,9 +35,9 @@
 
                             </td>
                             @if ($data->category == 1)
-                            <td><i class="fa-solid fa-child"></i></td>
+                                <td><i class="fa-solid fa-child"></i></td>
                             @else
-                            <td><i class="fa-solid fa-child-dress"></i></td>
+                                <td><i class="fa-solid fa-child-dress"></i></td>
                             @endif
                             <td>{{ $data->AD_ID }}</td>
 
@@ -46,14 +46,16 @@
                             @else
                                 <td class="text-danger">{{ $data->stock }}</td>
                             @endif
-                            <td class="text-wrap"style="max-width:150px;"><textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
+                            <td class="text-wrap"style="max-width:150px;">
+                                <textarea name="" class="form-control" id="" disabled cols="15" rows="2">{{ $data->productname }}</textarea>
+                            </td>
                             <td class="text-wrap"style="max-width:150px;">{{ (string) $data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
                             <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>
 
                             <td class="text-wrap"style="max-width:200px;"><a
-                                    href="{{ route('Main-Admin-Product-Listing-delete', $data->id) }}" class="btn btn-danger"><i
-                                        class="fa-solid fa-trash"></i></a>
+                                    href="{{ route('Main-Admin-Product-Listing-delete', $data->id) }}"
+                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
 
                         </tr>
@@ -68,16 +70,16 @@
                     <td></td>
                     <td></td>
                     <td></td>
-
                 @endif
             </tbody>
         </table>
     </div>
 
+    <div>
+        {{-- {{ $data->links() }} --}}
+    </div>
 
 
-
- 
     <script>
         @if (Session::has('Update'))
             toastr.options = {

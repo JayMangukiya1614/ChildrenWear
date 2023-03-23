@@ -1,5 +1,6 @@
 <?php
 
+use Flasher\Laravel\Support\Laravel;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -180,6 +181,7 @@ return [
     App\Providers\EventServiceProvider::class,
     App\Providers\RouteServiceProvider::class,
     App\Providers\MenuServiceProvider::class,
+    // Laravel\Socialite\SocialiteServiceProvider::class,
 
   ],
 
@@ -197,6 +199,7 @@ return [
   'aliases' => Facade::defaultAliases()->merge([
     // ...
     'PDF' => Barryvdh\DomPDF\Facade::class,
+    // 'Socialite' => Laravel\Socialite\Facades\Socialite::class,
   ])->toArray(),
 
 

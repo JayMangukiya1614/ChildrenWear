@@ -41,11 +41,7 @@
         <div class="row bg-secondary py-2 px-xl-5 pb-0" style="padding-bottom: 0px !important;">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
-                    {{-- <a class="text-dark" href="">FAQs</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Help</a>
-                <span class="text-muted px-2">|</span>
-                <a class="text-dark" href="">Support</a> --}}
+                    
                     <a href="" class="text-decoration-none">
                         <img src="ClientCss\img\logoFooter.jpg" alt="" style="height : 50px">
                     </a>
@@ -55,8 +51,7 @@
             <div>
                 <div class="nav-item p-0 " style="margin-left: 400px;margin-top:9px">
                     <p class="" style="">
-                        {{-- <a class="" style="color:black" href="{{ route('Flogin') }}">LogIn  </a>
-                    <a class="" style="color:black" href="{{ route('Freg') }}">Registration</a> --}}
+                       
 
                         <a class="" style="color:black;text-decoration:none" href="{{ route('Flogin') }}"><i
                                 class="fa-solid fa-users" style="font-size:12px;"></i>&nbsp LogIn</a>
@@ -87,7 +82,12 @@
                                                 <label class="form-label mb-0" for="email">Email.</label>
 
                                                 <input type="text" style="border-radius: 5px" name="email"
-                                                    id="email" class="form-control form-control-lg mb-3" />
+                                                    id="email" class="form-control form-control-lg " />
+                                                    <span class="text-danger">
+                                                        @error('email')
+                                                            {{$message}}
+                                                        @enderror
+                                                    </span>
                                             </div>
                                         </div>
 

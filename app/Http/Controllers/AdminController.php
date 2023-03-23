@@ -39,7 +39,9 @@ class AdminController extends Controller
     if ($data != null) {
       $mail = $data->email;
       $details = [];
-      $req->Session()->put('Alogin', $data->id);
+      $req->Session()->put('A-F-Password', $data->id);
+      // dd(Session('A-F-Password'));
+      // $req->Session()->put('F-Password', $data->id);
       Mail::to($mail)->send(new AdminForgetPasswordMail($details));
       return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
     } else {
@@ -51,17 +53,20 @@ class AdminController extends Controller
   {
 
     $req->validate([
-      'newpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-      'confirmpass' => 'required | max:10| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-
+      'newpass' => 'required | max:10| min:4 ',
+      'confirmpass' => 'required | max:10| min:4',
+      
     ]);
-    $id = Session()->get('Alogin');
+    $id = Session()->get('A-F-Password');
+    // dd($id);
 
     $data = Adminreg::find($id);
-
+    // dd($data);
     if ($req->newpass == $req->confirmpass) {
-      $data->Password = Hash::make($req->newpass);
+      // dd($data->password);
+      $data->password = Hash::make($req->confirmpass);
       $data->update();
+      Session()->pull('A-F-Password');
       return redirect(route('Admin-Login'))->with('Forget-Password-Update', 'Password Update Successfully....');
     } else {
       return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
@@ -95,13 +100,13 @@ class AdminController extends Controller
       if ($req->newpass == $req->confirmpass) {
         $data->password = Hash::make($req->newpass);
         $data->update();
-        return redirect(route('dashboard-analytics'))->with('PasswordUpdate', 'Password Updated Successfully..');
+        return redirect(route('dashboard-analytics'))->with('success', 'Password Updated Successfully..');
       } else {
-        return back()->with('NewPswdNMatch', 'New and Confirm Password not matched!!');
+        return back()->with('error', 'New and Confirm Password not matched!!');
       }
     } else {
 
-      return back()->with('CurrentPswdNMatch', 'Current Password not matched!!');
+      return back()->with('error', 'Current Password not matched!!');
     }
   }
 

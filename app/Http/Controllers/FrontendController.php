@@ -14,11 +14,15 @@ use App\Models\ProductListing;
 use App\Models\Wishlist;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Mail;
+use Laravel\Socialite\Facades\Socialite;
+
+
 
 class FrontendController extends Controller
 {
   public function FrontIndex()
   {
+    
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
     if ($sessionid != null) {
@@ -33,7 +37,7 @@ class FrontendController extends Controller
 
   public function FrontShopDetails()
   {
-
+    
     return view('Frontend.ShopDetails');
   }
 
@@ -53,18 +57,18 @@ class FrontendController extends Controller
   {
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
-    $data = Wishlist::where('CI_ID',$sessionid->CI_ID)->get();
+    $data = Wishlist::where('CI_ID', $sessionid->CI_ID)->get();
     return view('Frontend.WishList', compact('data'));
   }
   public function deletewishlist($id)
   {
     $data = Wishlist::find($id);
     $data->delete();
-    return back()->with('success','Item Deleted Successfully...');
+    return back()->with('success', 'Item Deleted Successfully...');
   }
   public function FrontWishlist($id)
   {
-    
+
     $session = Session()->get('ULogin');
     $sessionid = User::find($session);
     $admin_id = ProductListing::where('PI_ID', $id)->first();
@@ -276,7 +280,10 @@ class FrontendController extends Controller
   //forget password
   public function FForgetPassword()
   {
-    return view('Frontend.Forget-Password.ForgetPassword');
+    if(Session()->has('F-Password')){
+
+      return view('Frontend.Forget-Password.ForgetPassword');
+    }
   }
   public function ForgetPEmail()
   {
@@ -285,6 +292,9 @@ class FrontendController extends Controller
 
   public function ForgetPEmailSend(Request $req)
   {
+    $req->validate([
+      'email' => 'required'
+    ]);
 
     $data = User::where('Email', '=', $req->email)->first();
     if ($data != null) {
@@ -300,14 +310,21 @@ class FrontendController extends Controller
 
   public function ForgetPasswordSave(Request $req)
   {
+    $req->validate([
+      'newpass' => 'required | max:10| min:4 ',
+      'confirmpass' => 'required | max:10| min:4',
+
+    ]);
 
     $id = Session()->get('F-Password');
+    
 
     $data = User::find($id);
-
+    
     if ($req->newpass == $req->confirmpass) {
       $data->Password = Hash::make($req->newpass);
       $data->update();
+      Session()->pull('F-Password');
       return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
     } else {
       return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
@@ -317,4 +334,5 @@ class FrontendController extends Controller
   {
     return $id;
   }
+ 
 }

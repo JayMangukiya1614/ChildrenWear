@@ -72,7 +72,7 @@
                                 @endif
                                 {{-- <td class="text-success">{{$data->stock}}</td> --}}
 
-                                <td class="text-wrap"style="max-width:150px;"><textarea name="" id="" class="form-control" cols="15" rows="2">{{ $data->productname }}</textarea></td></td>
+                                <td class="text-wrap"style="max-width:150px;"><textarea name="" disabled id="" class="form-control" cols="15" rows="2">{{ $data->productname }}</textarea></td></td>
                                 <td class="text-wrap"style="max-width:150px;">{{ (string) $data->price }}</td>
                                 <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
                                 <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>
