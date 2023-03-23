@@ -9,57 +9,57 @@ use Illuminate\Support\Facades\DB;
 
 class UserSeeder extends Seeder
 {
-  /**
-   * Run the database seeds.
-   *
-   * @return void
-   */
-  public function run()
-  {
-    DB::table('mainadmins')->insert([
-      [
-        'Name' => "Admin",
-        'Email' => "cwear1952@gmail.com",
-        'Password' => Hash::make('BH@123'),
-      ]
-    ]);
-    DB::table('indices')->insert([
-      [
-        'title' => "Welcome To Our Website",
-        'subtitle' => "Fashionable Dress",
-        'image' => 'b1.jpg',
-      ],
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('mainadmins')->insert([
+            [
+                'Name' => "Admin",
+                'Email' => "babyhub007@gmail.com",
+                'Password' => Hash::make('BH@123'),
+            ]
+        ]);
+        DB::table('indices')->insert([
+            [
+                'title' => "Welcome To Our Website",
+                'subtitle' => "Fashionable Dress",
+                'image' => 'b1.jpg',
+            ],
 
       [
         'title' => "Welcome To Our Website",
         'subtitle' => "Reasonable Price",
         'image' => 'b2.jpg',
 
-      ]
-    ]);
-    DB::table('adminregs')->insert([
-      [
-        'AD_ID' => "BH0001",
-        'token' => "1",
-        'profileimage' => 'default.jpeg',
-        'firstname' => "Admin",
-        'middlename' => "Admin",
-        'lastname' => "Admin",
-        'shopname' => "Jame's Creation",
-        'pincode' => "395010",
-        'education' => "Postgraduate",
-        'gender' => "Male",
-        'state' => "Goa",
-        'city' => "Delhi",
-        'mobilenumber' => "1234567891",
-        'gstno' => "08AAGFF2194N1Z1",
-        'bankname' => "YES BANK",
-        'branchname' => "VARACHA",
-        'ifsccode' => "YESB0000400",
-        'email' => "cwear1952@gmail.com",
-        'password' => Hash::make('BH@123'),
-        'address' => "Admin",
-        'message' => "I hope you  you are accepet my account request",
+            ]
+        ]);
+        DB::table('adminregs')->insert([
+            [
+                'AD_ID' => "BH0001",
+                'token' => "1",
+                'profileimage' => 'default.jpeg',
+                'firstname' => "Admin",
+                'middlename' => "Admin",
+                'lastname' => "Admin",
+                'shopname' => "Admin's Creation",
+                'pincode' => "395010",
+                'education' => "Postgraduate",
+                'gender' => "Male",
+                'state' => "Goa",
+                'city' => "Delhi",
+                'mobilenumber' => "1234567891",
+                'gstno' => "08AAGFF2194N1Z1",
+                'bankname' => "YES BANK",
+                'branchname' => "VARACHA",
+                'ifsccode' => "YESB0000400",
+                'email' => "babyhub007@gmail.com",
+                'password' => Hash::make('BH@123'),
+                'address' => "Admin",
+                'message' => "I hope you  you are accepet my account request",
 
       ],
       [
@@ -90,21 +90,21 @@ class UserSeeder extends Seeder
 
     ]);
 
-    DB::table('users')->insert([
-      [
-        'CI_ID' => "CI0001",
-        'FirstName' => "Admin ",
-        'LastName' => " Admin",
-        'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
-        'State' => "Gujrat",
-        'City' => "Surat",
-        'BirthDate' => "04-01-2003",
-        'PhoneNo' => "1234567890",
-        'Gender' => "Male",
-        'Email' => "cwear1952@gmail.com",
-        'Password' => Hash::make('BH@123'),
-        'ZipCode' => "395010",
-      ]
+        DB::table('users')->insert([
+            [
+                'CI_ID' => "CI0001",
+                'FirstName' => "Admin ",
+                'LastName' => " Admin",
+                'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
+                'State' => "Gujrat",
+                'City' => "Surat",
+                'BirthDate' => "04-01-2003",
+                'PhoneNo' => "1234567890",
+                'Gender' => "Male",
+                'Email' => "babyhub007@gmail.com",
+                'Password' => Hash::make('BH@123'),
+                'ZipCode' => "395010",
+            ]
 
 
     ]);

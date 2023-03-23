@@ -30,6 +30,11 @@
 
 
 
+    <form action="{{ route('Client-Bill-List') }}" method="gget">
+
+        <input name="date" type="date" max="<?= date('Y-m-d'); ?>">
+        <button type="submit"> submit</button>
+    </form>
     <div>
         <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Client Order Bill </h1>
 
@@ -97,6 +102,7 @@
                             <td>{{ $data->age }}</td>
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->products->selling }}</td>
+                            <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
                             <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
                                         class="fa-solid fa-download"></i></a></td>
                         </tr>

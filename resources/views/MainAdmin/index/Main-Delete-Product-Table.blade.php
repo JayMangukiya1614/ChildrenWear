@@ -46,7 +46,7 @@
                             @else
                                 <td class="text-danger">{{ $data->stock }}</td>
                             @endif
-                            <td class="text-wrap"style="max-width:150px;"><textarea name="" class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
+                            <td class="text-wrap"style="max-width:150px;"><textarea name="" disabled class="form-control" id="" cols="15" rows="2">{{ $data->productname }}</textarea></td>
                             <td class="text-wrap"style="max-width:150px;">{{ (string) $data->price }}</td>
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
                             <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>

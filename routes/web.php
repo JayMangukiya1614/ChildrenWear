@@ -12,8 +12,10 @@ use App\Http\Controllers\layouts\Container;
 use App\Http\Controllers\layouts\Fluid;
 use App\Http\Controllers\layouts\WithoutMenu;
 use App\Http\Controllers\layouts\WithoutNavbar;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\Usercontroller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,8 +50,10 @@ Route::post('/Admin-Reg-Save', [AdminController::class, 'AdminRegSave'])->name('
 Route::post('/Alogindata', [AdminController::class, 'Alogindata'])->name('Alogindata');
 
 // Admin Forget Password
+Route::group(['middleware' => ['A-F-Password']], function () {
+  Route::get('/Aforgetpassword', [AdminController::class, 'Aforgetpassword'])->name('Aforgetpassword');
+});
 Route::get('/Aforgetemail', [AdminController::class, 'Aforgetemail'])->name('Aforgetemail');
-Route::get('/Aforgetpassword', [AdminController::class, 'Aforgetpassword'])->name('Aforgetpassword');
 
 Route::post('/Aforget-email-send', [AdminController::class, 'Aforgetemailsend'])->name('Aforget-email-send');
 Route::get('/Aforget-password-save', [AdminController::class, 'Aforgetpasswordsave'])->name('Aforget-password-save');
@@ -216,3 +220,7 @@ Route::post('UserRegSave', [FrontendController::class, 'RegDataSave'])->name('Us
 Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
 Route::post('checklogin', [FrontendController::class, 'CheckLogin'])->name('Checklogin');
 Route::get('Flogout', [FrontendController::class, 'FLogout'])->name('Flogout');
+Auth::routes();
+Route::get('login/google/redirect', [LoginController::class, 'redirect'])->name('login.google.redirect');
+Route::get('login/google/callback', [LoginController::class, 'callback']);
+Route::get('login/google/home', [LoginController::class, 'home']);

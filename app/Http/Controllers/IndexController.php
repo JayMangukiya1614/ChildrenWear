@@ -87,9 +87,9 @@ class IndexController extends Controller
 
     public function MProductTable()
     {
-        $data = ProductListing::where([['token', 1]])->orderBy('updated_at', 'desc')->get();
+        $data = ProductListing::where('token', 1)->orderBy('updated_at', 'desc')->get();
 
-        // return 'not';
+      
         return view('MainAdmin.index.Main-Product-Table', compact('data'));
     }
     public function MainAdminProductListingdelete($id)
