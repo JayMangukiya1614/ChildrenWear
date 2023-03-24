@@ -40,8 +40,6 @@ class AdminController extends Controller
       $mail = $data->email;
       $details = [];
       $req->Session()->put('A-F-Password', $data->id);
-      // dd(Session('A-F-Password'));
-      // $req->Session()->put('F-Password', $data->id);
       Mail::to($mail)->send(new AdminForgetPasswordMail($details));
       return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
     } else {
@@ -58,12 +56,11 @@ class AdminController extends Controller
       
     ]);
     $id = Session()->get('A-F-Password');
-    // dd($id);
+
 
     $data = Adminreg::find($id);
-    // dd($data);
+
     if ($req->newpass == $req->confirmpass) {
-      // dd($data->password);
       $data->password = Hash::make($req->confirmpass);
       $data->update();
       Session()->pull('A-F-Password');

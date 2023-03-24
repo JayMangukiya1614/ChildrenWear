@@ -24,7 +24,7 @@
                     <form action="{{ route('Address-Save', $data->id) }}" method="POST">
                         @csrf
                         <h4 class="font-weight-semi-bold mb-4">Billing Address</h4> <input type="text" readonly
-                            class=" mb-3  form-control" name="CI_ID" value=" Client ID:-{{ $data->CI_ID }}">
+                            class=" mb-3  form-control" name="CI_ID" value="{{ $data->CI_ID }}">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>First Name</label>
@@ -48,7 +48,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>E-mail</label>
-                                <input class="form-control" type="text" value="{{ $data->Email }}" name="Email"
+                                <input class="form-control" readonly type="text" value="{{ $data->Email }}" name="Email"
                                     placeholder="example@email.com">
                                 <span class="text-danger">
                                     @error('Email')
@@ -86,6 +86,22 @@
                                     @enderror
                                 </span>
                             </div>
+                            <div class="col-md-6">
+                                <label class="labels mt-3">Education</label>
+                                <select name="education" value="{{ old('education') }}" class="form-control "
+                                    id="">
+                                    <option {{ $data->education == 'Undergraduate' ? 'selected' : '' }}
+                                        value="Undergraduate">Undergraduate</option>
+                                    <option {{ $data->education == 'Postgraduate' ? 'selected' : '' }}
+                                        value="Postgraduate">Postgraduate</option>
+
+                                </select>
+                                <span class="text-danger">
+                                    @error('education')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
                             <div class="col-md-6 form-group">
                                 <label>City</label>
                                 <input class="form-control" type="text" name="City" value="{{ $data->City }}">
@@ -111,7 +127,6 @@
                                     type="submit">Update</button>
                             </div>
 
-                    </form>
 
                 </div>
             </div>
@@ -173,10 +188,12 @@
                 </div>
             </div>
             <div class="card-footer border-secondary bg-transparent">
-                <a id="porder" href="{{ route('Confirm-Order') }}"
-                    class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</a>
+                <button id="porder"
+                    class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
             </div>
         </div>
+    </form>
+
     </div>
     </div>
     <!-- Checkout End -->
