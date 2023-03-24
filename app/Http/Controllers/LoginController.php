@@ -14,17 +14,28 @@ class LoginController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-    public function cllback()
+    public function callback(Request $req)
     {
         try {
             $user = Socialite::driver('google')->user();
             $exist_user = User::where('google_id', $user->id)->first();
             if ($exist_user) {
                 Auth::login($exist_user);
-                return redirect('/Findex');
-            }
-            else
-            {
+                $Ci_Id = "CI" . (rand(1000, 9999));
+                $CI = User::where('CI_ID', '=', $Ci_Id)->first();
+
+                if ($CI) {
+                    do {
+                        $Ci_Id = "BH" . (rand(1000, 9999));
+                    } while ($Ci_Id == $CI);
+                }
+                $data = User::where('email', $user->email)->first();
+                $data->CI_ID = $Ci_Id;
+                $data->save();
+                $req->Session()->put('ULogin', $data->id);
+
+                return redirect(route('Findex'))->with('success','Google Login Successfully...');
+            } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,

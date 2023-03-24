@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('product_listings', function (Blueprint $table) {
             $table->id();
             $table->string('AD_ID')->nullable();
-            $table->string('token')->nullable()->comment('1:confirmed;  2:rejected;');
+            $table->string('token')->nullable()->comment('1:confirmed;  2:rejected; 3:Account Delete;');
             $table->string('PI_ID')->nullable();
             $table->string('shopname')->nullable();
             $table->string('category')->nullable();
