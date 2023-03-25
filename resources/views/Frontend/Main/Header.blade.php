@@ -96,9 +96,9 @@
                                     T-shirts</a>
                                 <a class="dropdown-item" href="{{ route('Products', $id = 9) }}">Jeans &
                                     Jeggings</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 10) }}">Sweatshirts</a>
-                                <a class="dropdown-item" href="{{ route('Products', $id = 11) }}">Jumpsuits &
+                                <a class="dropdown-item" href="{{ route('Products', $id = 10) }}">Jumpsuits &
                                     Dungarees</a>
+                                <a class="dropdown-item" href="{{ route('Products', $id = 11) }}">Jackets</a>
                                 <a class="dropdown-item" href="{{ route('Products', $id = 12) }}">Ethnic Wear</a>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
 
                         <div class="dropdown mx-3">
                             <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
-                                Order
+                                My Order
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('OrderTable') }}">Pending Order</a>

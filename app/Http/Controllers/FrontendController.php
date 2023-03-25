@@ -137,14 +137,16 @@ class FrontendController extends Controller
 
   public function FrontReg()
   {
-    $session = Session()->get('ULogin');
-    if ($session == NUll) {
-      $Cart = 0;
-      return view('Frontend.Reg', compact('Cart'));
-    }
-    $sessionid = User::find($session);
-    $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
-    return view('Frontend.Reg', compact('Cart'));
+    // $session = Session()->get('ULogin');
+    // if ($session == NUll) {
+    //   $Cart = 0;
+    //   return view('Frontend.Reg', compact('Cart'));
+    // }
+    // $sessionid = User::find($session);
+    // $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
+    // return view('Frontend.Reg', compact('Cart'));4
+    return view('Frontend.Reg');
+
   }
 
   public function RegDataSave(Request $req)
@@ -232,7 +234,7 @@ class FrontendController extends Controller
   {
     if (Session()->has('ULogin')) {
       Session()->pull('ULogin');
-      return redirect(route('Findex'))->with('Logout', 'Logout Successfullhy.....');
+      return redirect(route('Findex'))->with('success', 'Logout Successfullhy.....');
     } else {
       return "Please log-in account";
     }
@@ -280,10 +282,10 @@ class FrontendController extends Controller
   //forget password
   public function FForgetPassword()
   {
-    if(Session()->has('F-Password')){
+    
 
       return view('Frontend.Forget-Password.ForgetPassword');
-    }
+    
   }
   public function ForgetPEmail()
   {
@@ -299,8 +301,14 @@ class FrontendController extends Controller
     $data = User::where('Email', '=', $req->email)->first();
     if ($data != null) {
       $mail = $data->Email;
-      $details = [];
+      $Forget = "FP-" . (rand(1000, 9999));
+
+      $details = [
+        'otp' => $Forget
+      ];
       $req->Session()->put('F-Password', $data->id);
+      $req->Session()->put('Forget', $Forget);
+
       Mail::to($mail)->send(new ForgetMail($details));
       return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
     } else {
@@ -313,6 +321,8 @@ class FrontendController extends Controller
     $req->validate([
       'newpass' => 'required | max:10| min:4 ',
       'confirmpass' => 'required | max:10| min:4',
+      'otp' => 'required',
+
 
     ]);
 
@@ -320,14 +330,21 @@ class FrontendController extends Controller
     
 
     $data = User::find($id);
-    
-    if ($req->newpass == $req->confirmpass) {
-      $data->Password = Hash::make($req->newpass);
-      $data->update();
-      Session()->pull('F-Password');
-      return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
-    } else {
-      return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+    $forget = Session()->get('Forget');
+    if($req->otp == $forget)
+    {
+      
+      if ($req->newpass == $req->confirmpass) {
+        $data->Password = Hash::make($req->newpass);
+        $data->update();
+        Session()->pull('F-Password');
+        return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
+      } else {
+        return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
+      }
+    }
+    else{
+      return back()->with('error','Your Varification Code Is Not Matched...');
     }
   }
   public function productdetails($id)

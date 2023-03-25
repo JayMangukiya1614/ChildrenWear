@@ -37,7 +37,7 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row bg-secondary py-2 px-xl-5 pb-0" style="padding-bottom: 0px !important;">
             <div class="col-lg-6 d-none d-lg-block">
                 <div class="d-inline-flex align-items-center">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Topbar End -->
 
 
@@ -77,6 +77,18 @@
                                         <h4 class="text-center mt-3 mb-4">Forget Password</h4>
                                         <hr class="mt-0 mb-4">
 
+                                        <div class="row">
+                                            <div class="col-md-12 form-outline datepicker w-100">
+                                                <label for="confirmpass" class="form-label mb-0">Varification Code                                                   Password</label>
+                                                <input type="text" style="border-radius: 5px" name="otp"
+                                                    class="form-control form-control-lg mb-3" id="otp" />
+                                                    <span class="text-danger">
+                                                        @error('otp')
+                                                            {{$message}}
+                                                        @enderror
+                                                    </span>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-12 form-outline datepicker w-100">
                                                 <label class="form-label mb-0" for="newpass">New Password</label>

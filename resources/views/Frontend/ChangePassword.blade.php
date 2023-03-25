@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Change Password</title>
+
 @section('FrontAdmin')
     <form action="{{ route('Fchangepassword') }}">
         <section style="background-color: white">

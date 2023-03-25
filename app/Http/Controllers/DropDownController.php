@@ -35,6 +35,7 @@ class DropDownController extends Controller
         $latest = ProductListing::where([['collection', $id]])->get()->first();
 
 
+
         // return $data;
         return view('Frontend.Shop', compact('data', 'latest', 'pagination'));
     }
@@ -90,14 +91,16 @@ class DropDownController extends Controller
     }
     public function AddressSave(AddressRequest $req, $id)
     {
-        return $data = $req->validated();
+        $data = $req->validated();
 
         User::whereId($id)->update($data);
 
-        return  back()->with('info', 'Address Updates Successffully...');
+        return  redirect(route('Confirm-Order'));
     }
+ 
     public function ConfirmOrder()
     {
+    
         $id = Session()->get('ULogin');
         $data = User::find($id);
 
@@ -105,7 +108,6 @@ class DropDownController extends Controller
 
 
         foreach ($findorder as  $findorder) {
-            // uniqe order id
             $OI_ID = "OI-" . (rand(1000, 9999));
             $OI = Order::where('OI_ID', '=', $OI_ID)->first();
 
@@ -145,6 +147,12 @@ class DropDownController extends Controller
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
         return view('Frontend.OrderTable.POrderTable', compact('data'));
     }
+    public function clientOrderDetails($id)
+    {
+        $data = Order::find($id);
+
+        return view('Frontend.OrderTable.POrderDetails', compact('data'));
+    }
     public function COrderTable()
     {
         $sessionid = Session()->get('ULogin');
@@ -173,7 +181,7 @@ class DropDownController extends Controller
         $data = Order::find($id);
         $data->token = 3;
         $data->update();
-        return back()->with('error', 'Order Deleted Successfully');
+        return back()->with('info', 'Order Deleted Successfully');
     }
     public function Subscribe(Request $req)
     {

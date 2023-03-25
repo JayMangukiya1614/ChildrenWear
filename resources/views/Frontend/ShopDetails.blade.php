@@ -1,4 +1,7 @@
 @extends('Frontend.Main.Master')
+
+<title>Shop Details</title>
+
 <style>
     .skin-4 .num-in {
         float: left;

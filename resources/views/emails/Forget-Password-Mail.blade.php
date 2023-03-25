@@ -14,6 +14,7 @@
         <div class="row">
             <h2>Welcome To Baby Hub </h2>
             <a href="http://127.0.0.1:8000/Forget-Password">Click Here To Forget Your  Password</a>
+            <p>Varification code is {{$details['otp']}}</p>
             {{-- <p> Your Admin ID is <span></span> {{ $details['AD_ID'] }}</p> --}}
             {{-- <p>Forget Your Password</p> --}}
         </div>

@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Client_side\HomeController;
 use App\Http\Controllers\COrderController;
 use App\Http\Controllers\dashboard\Analytics;
+use App\Http\Controllers\DeliveryController;
 use App\Http\Controllers\DropDownController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\layouts\Blank;
@@ -17,6 +18,7 @@ use App\Http\Controllers\MainAdminController;
 use App\Http\Controllers\Usercontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Vonage\SMS\Webhook\DeliveryReceipt;
 
 /*
 |--------------------------------------------------------------------------
@@ -155,10 +157,13 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('quantityadd/{id}', [DropDownController::class, 'quantityadd'])->name('quantityadd');
   Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
   Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
+
   Route::get('Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
 
   // order table 
   Route::get('OrderTable', [DropDownController::class, 'OrderTable'])->name('OrderTable');
+  Route::get('client-Order-Details/{id}', [DropDownController::class, 'clientOrderDetails'])->name('client-Order-Details');
+
   Route::get('COrderTable', [DropDownController::class, 'COrderTable'])->name('COrderTable');
   Route::get('DOrderTable', [DropDownController::class, 'DOrderTable'])->name('DOrderTable');
   Route::get('DeleteOrderTable', [DropDownController::class, 'DeleteOrderTable'])->name('DeleteOrderTable');
@@ -221,6 +226,13 @@ Route::get('Flogin', [FrontendController::class, 'FrontLogin'])->name('Flogin');
 Route::post('checklogin', [FrontendController::class, 'CheckLogin'])->name('Checklogin');
 Route::get('Flogout', [FrontendController::class, 'FLogout'])->name('Flogout');
 Auth::routes();
+
+
 Route::get('login/google/redirect', [LoginController::class, 'redirect'])->name('login.google.redirect');
 Route::get('login/google/callback', [LoginController::class, 'callback']);
 Route::get('login/google/home', [LoginController::class, 'home']);
+
+
+Route::get('/DReg', [DeliveryController::class, 'Dreg'])->name('DReg');
+Route::get('/Dlogin', [DeliveryController::class, 'Dlogin'])->name('Dlogin');
+

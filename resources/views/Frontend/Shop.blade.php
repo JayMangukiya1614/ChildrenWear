@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Our Product</title>
+
 @section('FrontAdmin')
     <style>
         #heart {

@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Checkout</title>
+
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -24,7 +26,7 @@
                     <form action="{{ route('Address-Save', $data->id) }}" method="POST">
                         @csrf
                         <h4 class="font-weight-semi-bold mb-4">Billing Address</h4> <input type="text" readonly
-                            class=" mb-3  form-control" name="CI_ID" value=" Client ID:-{{ $data->CI_ID }}">
+                            class=" mb-3  form-control" name="CI_ID" value="{{ $data->CI_ID }}">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <label>First Name</label>
@@ -48,7 +50,7 @@
                             </div>
                             <div class="col-md-6 form-group">
                                 <label>E-mail</label>
-                                <input class="form-control" type="text" value="{{ $data->Email }}" name="Email"
+                                <input class="form-control" readonly type="text" value="{{ $data->Email }}" name="Email"
                                     placeholder="example@email.com">
                                 <span class="text-danger">
                                     @error('Email')
@@ -86,6 +88,22 @@
                                     @enderror
                                 </span>
                             </div>
+                            <div class="col-md-6">
+                                <label class="labels mt-3">Education</label>
+                                <select name="education" value="{{ old('education') }}" class="form-control "
+                                    id="">
+                                    <option {{ $data->education == 'Undergraduate' ? 'selected' : '' }}
+                                        value="Undergraduate">Undergraduate</option>
+                                    <option {{ $data->education == 'Postgraduate' ? 'selected' : '' }}
+                                        value="Postgraduate">Postgraduate</option>
+
+                                </select>
+                                <span class="text-danger">
+                                    @error('education')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
+                            </div>
                             <div class="col-md-6 form-group">
                                 <label>City</label>
                                 <input class="form-control" type="text" name="City" value="{{ $data->City }}">
@@ -111,7 +129,6 @@
                                     type="submit">Update</button>
                             </div>
 
-                    </form>
 
                 </div>
             </div>
@@ -129,7 +146,7 @@
                         $gst = null;
                         $final = null;
                         $price = null;
-                        
+
                     @endphp
                     @foreach ($productid as $productid)
                         <div class="d-flex justify-content-between">
@@ -137,11 +154,11 @@
                                     {{ $productid->quantity }} </span></p>
                             <p>{{ $price = $productid->products->selling * $productid->quantity }}</p>
                             @php
-                                
+
                                 $subtotal = $subtotal + $price;
                                 $gst = (5 * $subtotal) / 100;
                                 $final =  $gst + $subtotal;
-                               
+
                             @endphp
                         </div>
                     @endforeach
@@ -159,7 +176,7 @@
                         <h6 class="font-weight-medium">I.G.S.T</h6>
                         <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
                     </div>
-                   
+
                     <div class="d-flex justify-content-between mt-2 mb-0 ">
                         <h6 class="font-weight-medium">Payment Type</h6>
                         <h6 class="font-weight-medium">COD</h6>
@@ -173,10 +190,12 @@
                 </div>
             </div>
             <div class="card-footer border-secondary bg-transparent">
-                <a id="porder" href="{{ route('Confirm-Order') }}"
-                    class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</a>
+                <button id="porder"
+                    class="btn btn-lg btn-block btn-primary font-weight-bold my-3 py-3">Place Order</button>
             </div>
         </div>
+    </form>
+
     </div>
     </div>
     <!-- Checkout End -->
@@ -190,6 +209,6 @@
                 }
             });
 // var zip = document.elementByid('').val()
-   
+
     </script> --}}
 @endsection

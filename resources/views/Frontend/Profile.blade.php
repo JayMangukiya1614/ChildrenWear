@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>My Profile</title>
+
 @section('FrontAdmin')
 
 
