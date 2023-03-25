@@ -122,16 +122,6 @@
             </nav>
         </div>
         <div class="col-lg-4 col-6 text-right p-0">
-            <form class="d-inline-block">
-                <div class="input-group w-100">
-                    <input type="text" class="form-control" placeholder="Search for products">
-                    <div class="input-group-append">
-                        <span class="input-group-text bg-transparent text-primary">
-                            <i class="fa fa-search"></i>
-                        </span>
-                    </div>
-                </div>
-            </form>
             <a href="{{ route('FwishlistTable') }}" class="btn border">
                 <i class="fas fa-heart text-primary"></i>
                 <span class="badge">

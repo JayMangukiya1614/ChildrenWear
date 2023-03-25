@@ -18,12 +18,16 @@ use Illuminate\Contracts\Session\Session;
 
 class DropDownController extends Controller
 {
-    public function Products($id)
+    public function Products(Request $req, $id)
     {
-
-        $data = ProductListing::where([['collection', $id]])->paginate(8);
-        // $pagination = ProductListing::paginate(6);
-        $latest = ProductListing::where([['collection', $id]])->get()->first();
+        // return $req->all();
+        $data = ProductListing::where('collection', $id)->get();
+        $latest = ProductListing::where('collection', $id)->get()->first();
+         $search = $req['search'] ?? "";
+        if ($search != "") {
+            $data = ProductListing::where('productname', 'LIKE', "%$search%")->where('collection', $id)->get();
+            return view('Frontend.Shop', compact('data', 'search','latest'));
+        }
 
         return view('Frontend.Shop', compact('data', 'latest'));
     }
@@ -31,13 +35,13 @@ class DropDownController extends Controller
     {
 
         $data = ProductListing::where([['collection', $id]])->orderBy('updated_at', 'desc')->paginate(8);
-        $pagination = ProductListing::paginate(8);
+        // $pagination = ProductListing::paginate(8);
         $latest = ProductListing::where([['collection', $id]])->get()->first();
 
 
 
         // return $data;
-        return view('Frontend.Shop', compact('data', 'latest', 'pagination'));
+        return view('Frontend.Shop', compact('data', 'latest'));
     }
     public function Product_Detail($id)
     {
@@ -97,10 +101,10 @@ class DropDownController extends Controller
 
         return  redirect(route('Confirm-Order'));
     }
- 
+
     public function ConfirmOrder()
     {
-    
+
         $id = Session()->get('ULogin');
         $data = User::find($id);
 
