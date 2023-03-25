@@ -193,8 +193,8 @@
                                     <th width="15%">Product Id</th>
                                     <th width="15%">Product Price</th>
                                     <th width="15%">Stock Status</th>
-                                    <th width="15%"></th>
-                                    <th width="10%"></th>
+                                    <th width="20%">Cart</th>
+                                    <th width="5%">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -219,9 +219,8 @@
                                         @else
                                             <td width="15%"><span class="in-stock-box">In Stock</span></td>
                                         @endif
-                                        <td width="15%"><button class="round-black-btn small-btn"
-                                                value="{{ $data->wishlist->stock == 2 ? 'disabled' : '' }}">Add to
-                                                Cart</button>
+                                        <td width="15%"><a href="{{route('Product-Detail',$data->wishlist->id)}}" class="round-black-btn small-btn"
+                                                value="{{ $data->wishlist->stock != 1 ? 'disabled' : '' }}">Details</a>
                                         </td>
                                         <td width="10%" class="text-center"><a href="{{route('deletewishlist',$data->id)}}" class="trash-icon"><i
                                                     class="far fa-trash-alt"></i></a></td>

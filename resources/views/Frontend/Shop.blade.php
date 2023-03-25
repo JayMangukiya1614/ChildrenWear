@@ -33,12 +33,11 @@
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <form action="">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search by name">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text bg-transparent text-primary">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                    </div>
+                                    <input type="search" name="search" class="search rounded" placeholder="Search" aria-label="Search"
+                                        aria-describedby="search-addon" value="{{empty($search) ? '' : $search}}" />
+                                    <button type="submit" class="btn btn-outline-primary rounded d-inline-block" style="margin-right: 0.5rem;" >search</button>
+                                    {{-- <a href="{{ url('Fshop') }}"><button type="button"
+                                            class="btn btn-outline-danger">Reset</button></a> --}}
                                 </div>
                             </form>
                             <div class="dropdown ml-4">

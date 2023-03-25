@@ -60,7 +60,7 @@ class MainAdminController extends Controller
                 'y' => $a,
             );
         }
-        // return $data;
+        
         return view('MainAdmin.MDashboard', ['data' => $data]);
     }
     public function chartdate(Request $req)
