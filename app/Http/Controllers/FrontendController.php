@@ -33,17 +33,21 @@ class FrontendController extends Controller
       $Cart = 0;
       return view('Frontend.index', compact(('Cart')));
     }
+    $data = DB::table('product_listings')->orderBy('created_at', 'desc')->paginate(8);
+    // return $data;
+    return view('Frontend.index',compact('data'));
   }
 
   public function FrontShopDetails()
   {
+
 
     return view('Frontend.ShopDetails');
   }
 
   public function FrontShop()
   {
-
+    // return $req->all();
     return view('Frontend.Shop');
   }
 
@@ -138,7 +142,6 @@ class FrontendController extends Controller
   public function FrontReg()
   {
     return view('Frontend.Reg');
-
   }
 
   public function RegDataSave(Request $req)
@@ -278,6 +281,7 @@ class FrontendController extends Controller
 
       return view('Frontend.Forget-Password.ForgetPassword');
 
+    return view('Frontend.Forget-Password.ForgetPassword');
   }
   public function ForgetPEmail()
   {
@@ -321,6 +325,7 @@ class FrontendController extends Controller
     $id = Session()->get('F-Password');
 
 
+
     $data = User::find($id);
     $forget = Session()->get('Forget');
     if($req->otp == $forget)
@@ -334,9 +339,8 @@ class FrontendController extends Controller
       } else {
         return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
       }
-    }
-    else{
-      return back()->with('error','Your Varification Code Is Not Matched...');
+    } else {
+      return back()->with('error', 'Your Varification Code Is Not Matched...');
     }
   }
   public function productdetails($id)

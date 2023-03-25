@@ -2,13 +2,11 @@
 <title>Index</title>
 
 @section('FrontAdmin')
-
-
     {{-- Corasol start --}}
     <div id="header-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" style="height: 410px;">
-                <img class="img-fluid" src="{{asset('ClientCss/img/cloths/index/b1.jpg')}}" alt="Image">
+                <img class="img-fluid" src="{{ asset('ClientCss/img/cloths/index/b1.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First
@@ -19,7 +17,7 @@
                 </div>
             </div>
             <div class="carousel-item" style="height: 410px;">
-                <img class="img-fluid" src="{{asset('ClientCss/img/cloths/index/b2.jpg')}}" alt="Image">
+                <img class="img-fluid" src="{{ asset('ClientCss/img/cloths/index/b2.jpg') }}" alt="Image">
                 <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                     <div class="p-3" style="max-width: 700px;">
                         <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First
@@ -156,7 +154,7 @@
                     <div class="position-relative" style="z-index: 1;">
                         <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
                         <h1 class="mb-4 font-weight-semi-bold">Winter Collection</h1>
-                        <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
+                        <a href="{{route('Products',$id = 11)}}" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -165,26 +163,31 @@
     <!-- Offer End -->
 
 
-     <!-- Products Start -->
+    <!-- Products Start -->
     <div class="container-fluid pt-5">
         <div class="text-center mb-4">
             <h2 class="section-title px-5"><span class="px-2">Latest Products</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-                <div class="card product-item border-0 mb-4">
-                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                        <img class="img-fluid w-100" src="{{ asset('ClientCss\img\cloths\gdungree2.jpg') }}" alt="">
-                    </div>
-                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                        <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                        <div class="d-flex justify-content-center">
-                            <h6>$123.00</h6><h6 class="text-muted ml-2"><del>$123.00</del></h6>
+            @foreach ($data as $data)
+                <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+                    <div class="card product-item border-0 mb-4">
+                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
+                           <a href="{{route('Products',$data->collection)}}"> <img class="img-fluid w-100"
+                                src=" {{ !empty($data->productimage) ? url('ProductImages/' . $data->productimage) : url('ProductImages/default.jfif') }}"
+                                alt=""></a>
+                        </div>
+                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                            <h6 class="text-truncate mb-3">{{$data->productname}}</h6>
+                            <div class="d-flex justify-content-center">
+                                <h6 class="text-muted ml-2"><del > ₹ {{$data->price}}</del></h6>
+                                <h6 class="ml-3"> ₹ {{$data->selling}}</h6>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            @endforeach
+            {{-- <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
                         <img class="img-fluid w-100" src="{{ asset('ClientCss\img\cloths\gjeans1.jpg') }}" alt="">
@@ -274,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- Products End -->
