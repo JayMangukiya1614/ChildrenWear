@@ -63,7 +63,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001",
+        'AD_ID' => "BH0002",
         'token' => "1",
         'profileimage' => 'default.jpeg',
         'firstname' => "Krupali",

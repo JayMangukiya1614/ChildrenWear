@@ -70,57 +70,14 @@
                             <td>{{ round($gst, 2) }}</td>
                             <td>{{ round($price, 2) }}</td>
 
-                            <td><button data-toggle="modal" data-target=".bd-read-modal-lg"><i
-                                        class="fa-brands fa-readme"></i></button>
+                            <td> <td><a href="{{ route('client-Order-Details', $data->id) }}"><i
+                                class="fa-brands fa-readme"></i></i></a>
 
                                 <a href="{{ route('Order-Delete', $data->id) }}"><i class="fa-solid fa-trash"></i></a>
 
                             </td>
                         </tr>
-                        {{-- modal read 0 --}}
-                        <div class="modal fade bd-read-modal-lg" tabindex="-1" role="dialog"
-                            aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                    <ul>
-                                        <li>
-                                            <p style="display:contents "> Product image:-</p>
-                                            <span class="text-wrap "style="max-width:100px;"><img width="100px"
-                                                    height="100px"
-                                                    src="{{ !empty($data->products->productimage) ? url('ProductImages/' . $data->products->productimage) : url('images/default.jpeg') }}">
-                                            </span>
-                                        </li>
-                                        <li class="mt-3">
-                                            <p style="display:contents "> Product Name:-</p>
-                                            <span class="d-inline-block">{{ $data->products->productname }}</span>
-                                        </li>
-
-                                        <li class="mt-3">
-                                            <p style="display:contents "> Product Color:-</p>
-                                            <span class="d-inline-block">{{ $data->color }}</span>
-                                        </li>
-                                        <li class="mt-3">
-                                            <p style="display:contents ">Product Size:-</p>
-                                            <span class="d-inline-block">{{ $data->size }}</span>
-                                        </li>
-                                        <li class="mt-3">
-                                            <p style="display:contents "> Age:-</p>
-                                            <span class="d-inline-block">{{ $data->age }}</span>
-                                        </li>
-
-                                        <li class="mt-3">
-                                            <p style="display:contents "> Description :-</p>
-                                            <span class="d-inline-block">{{ $data->products->description }}</span>
-                                        </li>
-
-                                        <li class="mt-3">
-                                            <p style="display:contents "> Long Description :-</p>
-                                            <span class="d-inline-block">{{ $data->products->Ldescription }}</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                      
                     @endforeach
 
 

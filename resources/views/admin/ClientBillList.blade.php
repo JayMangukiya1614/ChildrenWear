@@ -30,11 +30,7 @@
 
 
 
-    <form action="{{ route('Client-Bill-List') }}" method="gget">
 
-        <input name="date" type="date" max="<?= date('Y-m-d') ?>">
-        <button type="submit"> submit</button>
-    </form>
     <div>
         <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Client Order Bill </h1>
 
@@ -51,7 +47,7 @@
                                 $order = count($data);
                             @endphp
                             <span> Order:- {{ $order }}</span>
-                            <p>Date:- {{ $date }} 10/20/2023</p>
+                            <p>Date:- {{ $date }}</p>
                         </div>
 
                     </div>
@@ -60,8 +56,9 @@
         </div>
         <form action="{{ route('Client-Bill-List') }}" method="get">
             <div class="input-group">
-                <input name="date" class=" d-inline-block search rounded ml-auto" type="date">
-                <button type="submit" class="btn btn-outline-success"> search</button>
+                <input name="date" max="<?= date('Y-m-d') ?>" class=" d-inline-block search rounded ml-auto"
+                    type="date">
+                <button type="submit" class="btn btn-outline-success"> Submit</button>
             </div>
         </form>
     </div>
@@ -118,6 +115,8 @@
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
+
                 @endif
             </tbody>
         </table>

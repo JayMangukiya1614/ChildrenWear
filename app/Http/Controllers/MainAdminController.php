@@ -11,6 +11,7 @@ use App\Mail\RequestMail;
 use App\Mail\DRequestMail;
 use App\Models\ProductListing;
 use App\Models\Order;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Mail;
 
 class MainAdminController extends Controller
@@ -51,7 +52,7 @@ class MainAdminController extends Controller
     {
         $post = DB::table('orders')->get('*')->toArray();
         foreach ($post as $post) {
-          $date = Order::where('date', $post->date)->get();
+            $date = Order::where('date', $post->date)->get();
             $a = count($date);
 
             $data[] = array(
@@ -118,8 +119,14 @@ class MainAdminController extends Controller
     }
     public function cancelrequest(Request $request, $id)
     {
-
+        // return $id;
         $data  =  Adminreg::find($id);
+
+        $product = ProductListing::where('AD_ID', $data->AD_ID)->get();
+        foreach ($product as $product) {
+            $product->delete();
+        }
+        Session()->pull('Alogin');
         $mail = $data->email;
         $data->token = 2;
         $details = [
