@@ -1,4 +1,7 @@
 @extends('Frontend.Main.Master')
+
+<title>Shopping Cart</title>
+
 <style>
     .num-block.skin-5 {}
 
@@ -101,7 +104,7 @@
                             $gst = null;
                             $final = null;
                             $stock = null;
-                            
+
                         @endphp
                         @foreach ($cartitem as $key => $cartitem)
                             <tr>
@@ -133,7 +136,7 @@
                                 @if ($cartitem->products->stock != 1)
                                     @php
                                         $stock = 2;
-                                        
+
                                     @endphp
                                 @endif
                                 @php
@@ -208,7 +211,7 @@
                         @endforeach --}}
                         {{-- {{dd($stock)}} --}}
                         @if ($stock == 2)
-                        
+
                         <a href="" class="btn btn-block btn-primary my-3 py-3 " >Please Remove To Out Of Stock Item</a>
                         @else
                         <a href="{{ route('Fcheckout') }}" class="btn btn-block btn-primary my-3 py-3 disabled-link" >Proceed To

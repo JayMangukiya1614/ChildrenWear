@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Pending Order</title>
+
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -63,7 +65,7 @@
                             @php
                                 $gst = $data->quantity * ((5 * $data->products->selling) / 100);
                                 $price = $gst + $data->products->selling * $data->quantity;
-                                
+
                             @endphp
                             <td>{{ round($gst, 2) }}</td>
                             <td>{{ round($price, 2) }}</td>

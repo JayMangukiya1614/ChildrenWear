@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Delete Order</title>
+
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -61,14 +63,14 @@
                             @php
                                 $gst = $data->quantity * ((18 * $data->products->selling) / 100);
                                 $price = $gst + $data->products->selling * $data->quantity;
-                                
+
                             @endphp
                             <td>{{ $gst }}</td>
                             <td>{{ $price }}</td>
 
                             <td><button data-toggle="modal" data-target=".bd-read-modal-lg"><i
                                         class="fa-brands fa-readme"></i></button>
-                                
+
                             </td>
                         </tr>
                     @endforeach

@@ -107,7 +107,7 @@
 
                         <div class="dropdown mx-3">
                             <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
-                                Order
+                                My Order
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('OrderTable') }}">Pending Order</a>
