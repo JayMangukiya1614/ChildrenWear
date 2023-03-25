@@ -22,28 +22,20 @@ class FrontendController extends Controller
 {
   public function FrontIndex()
   {
-    
-    $session = Session()->get('ULogin');
-    $sessionid = User::find($session);
-    if ($sessionid != null) {
-      $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
-
-      return view('Frontend.index', compact('Cart'));
-    } else {
-      $Cart = 0;
-      return view('Frontend.index', compact(('Cart')));
-    }
+    $data = DB::table('product_listings')->orderBy('created_at', 'desc')->paginate(8);
+    // return $data;
+    return view('Frontend.index',compact('data'));
   }
 
   public function FrontShopDetails()
   {
-    
+
     return view('Frontend.ShopDetails');
   }
 
   public function FrontShop()
   {
-
+    // return $req->all();
     return view('Frontend.Shop');
   }
 
@@ -146,7 +138,6 @@ class FrontendController extends Controller
     // $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
     // return view('Frontend.Reg', compact('Cart'));4
     return view('Frontend.Reg');
-
   }
 
   public function RegDataSave(Request $req)
@@ -282,10 +273,9 @@ class FrontendController extends Controller
   //forget password
   public function FForgetPassword()
   {
-    
 
-      return view('Frontend.Forget-Password.ForgetPassword');
-    
+
+    return view('Frontend.Forget-Password.ForgetPassword');
   }
   public function ForgetPEmail()
   {
@@ -327,13 +317,12 @@ class FrontendController extends Controller
     ]);
 
     $id = Session()->get('F-Password');
-    
+
 
     $data = User::find($id);
     $forget = Session()->get('Forget');
-    if($req->otp == $forget)
-    {
-      
+    if ($req->otp == $forget) {
+
       if ($req->newpass == $req->confirmpass) {
         $data->Password = Hash::make($req->newpass);
         $data->update();
@@ -342,14 +331,12 @@ class FrontendController extends Controller
       } else {
         return back()->with('NewPswdNMatch', 'New and Confirm Password not match');
       }
-    }
-    else{
-      return back()->with('error','Your Varification Code Is Not Matched...');
+    } else {
+      return back()->with('error', 'Your Varification Code Is Not Matched...');
     }
   }
   public function productdetails($id)
   {
     return $id;
   }
- 
 }
