@@ -8,7 +8,7 @@
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
 
-    
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -122,9 +122,9 @@
                         </div>
                         <div class="div">
                             <div class="row mt-3">
-                                <a class="btn btn-lg btn-google  mt-3 " href="{{route('login.google.redirect')}}"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a>
                                 <a href="{{ route('ForgetPEmail') }}" class="font-weight-semi-bold"
                                     style="color:rgb(0, 0, 0); margin-left:36%">Forget Password ?</a>
+                                <a class="btn btn-lg btn-google  mt-3 ml-5 " href="{{route('login.google.redirect')}}"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> Signup Using Google</a>
                             </div>
                         </div>
                     </form>
