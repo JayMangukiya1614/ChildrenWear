@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Checkout</title>
+
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -144,7 +146,7 @@
                         $gst = null;
                         $final = null;
                         $price = null;
-                        
+
                     @endphp
                     @foreach ($productid as $productid)
                         <div class="d-flex justify-content-between">
@@ -152,11 +154,11 @@
                                     {{ $productid->quantity }} </span></p>
                             <p>{{ $price = $productid->products->selling * $productid->quantity }}</p>
                             @php
-                                
+
                                 $subtotal = $subtotal + $price;
                                 $gst = (5 * $subtotal) / 100;
                                 $final =  $gst + $subtotal;
-                               
+
                             @endphp
                         </div>
                     @endforeach
@@ -174,7 +176,7 @@
                         <h6 class="font-weight-medium">I.G.S.T</h6>
                         <h6 class="font-weight-medium">₹{{ round($gst, 2) }}</h6>
                     </div>
-                   
+
                     <div class="d-flex justify-content-between mt-2 mb-0 ">
                         <h6 class="font-weight-medium">Payment Type</h6>
                         <h6 class="font-weight-medium">COD</h6>
@@ -207,6 +209,6 @@
                 }
             });
 // var zip = document.elementByid('').val()
-   
+
     </script> --}}
 @endsection

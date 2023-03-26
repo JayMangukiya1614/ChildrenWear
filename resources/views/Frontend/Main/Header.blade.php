@@ -105,16 +105,18 @@
                         <a href="{{ route('Fcontact') }}"
                             class="nav-item nav-link mx-3 {{ Route::current()->getName() == 'Fcontact' ? 'active' : '' }}">Contact</a>
 
-                        <div class="dropdown mx-3">
+                        {{-- <a href="{{ route('Fblog') }}"
+                            class="nav-item nav-link mx-3 {{ Route::current()->getName() == 'Fblog' ? 'active' : '' }}">Blog</a> --}}
+                            
+                        <div class="dropdown ">
                             <a class="dropdown-toggle nav-item nav-link" data-toggle="dropdown">
-                                Order
+                                My Order
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('OrderTable') }}">Pending Order</a>
                                 <a class="dropdown-item" href="{{ route('COrderTable') }}">Confirm Order</a>
                                 <a class="dropdown-item" href="{{ route('DOrderTable') }}">Delivered Order</a>
                                 <a class="dropdown-item" href="{{ route('DeleteOrderTable') }}">Delete Order</a>
-
                             </div>
                         </div>
                     </div>

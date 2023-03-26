@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Wishlist</title>
+
 @section('FrontAdmin')
     <style>
         .cart-wrap {

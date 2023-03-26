@@ -30,7 +30,7 @@
 
 
 
-    
+
     <div>
         <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Client Order Bill </h1>
 
@@ -99,9 +99,9 @@
                             <td>{{ $data->age }}</td>
                             <td>{{ $data->quantity }}</td>
                             <td>{{ $data->products->selling }}</td>
-                            <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i <td><a
+                            <td><a href="{{ route('pdf', $data->OI_ID) }}" id="download"><i><a
                                             href="{{ route('pdf', $data->OI_ID) }}" id="download"><i
-                                                class="fa-solid fa-download"></i></a></td>
+                                                class="fa-solid fa-download"></i></a></>
                         </tr>
                     @endforeach
                 @else

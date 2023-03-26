@@ -86,7 +86,7 @@ Route::group(['middleware' => ['Alogin']], function () {
 
   Route::get('/Admin-Logout', [AdminController::class, 'Adminlogout'])->name('Admin-logout');
 
-  // client order admin side  
+  // client order admin side
   Route::get('/Client-Pending-Order', [COrderController::class, 'ClientPOrder'])->name('ClientPOrder');
   Route::get('/Admin-Order-Accepet/{id}', [COrderController::class, 'AdminOrderAccepet'])->name('Admin-Order-Accepet');
   Route::get('/Client-Order-Show', [COrderController::class, 'ClientOrderShow'])->name('Client-Order-Show');
@@ -160,7 +160,7 @@ Route::group(['middleware' => ['Userlogin']], function () {
 
   Route::get('Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
 
-  // order table 
+  // order table
   Route::get('OrderTable', [DropDownController::class, 'OrderTable'])->name('OrderTable');
   Route::get('client-Order-Details/{id}', [DropDownController::class, 'clientOrderDetails'])->name('client-Order-Details');
 
@@ -181,6 +181,8 @@ Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
+// Route::get('FBlog', [FrontendController::class, 'FrontBlog'])->name('Fblog');
+
 
 
 
@@ -235,4 +237,3 @@ Route::get('login/google/home', [LoginController::class, 'home']);
 
 Route::get('/DReg', [DeliveryController::class, 'Dreg'])->name('DReg');
 Route::get('/Dlogin', [DeliveryController::class, 'Dlogin'])->name('Dlogin');
-

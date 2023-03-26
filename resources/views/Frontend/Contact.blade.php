@@ -1,5 +1,7 @@
 @extends('Frontend.Main.Master')
 
+<title>Contact us</title>
+
 @section('FrontAdmin')
 
     <!-- Page Header Start -->

@@ -22,10 +22,15 @@ class FrontendController extends Controller
 {
   public function FrontIndex()
   {
+
     $data = DB::table('product_listings')->orderBy('created_at', 'desc')->paginate(8);
-    // return $data;
-    return view('Frontend.index',compact('data'));
+    return view('Frontend.index', compact('data'));
   }
+
+  // public function FrontBlog()
+  // {
+  //   return view('Frontend.Blog');
+  // }
 
   public function FrontShopDetails()
   {
@@ -129,14 +134,6 @@ class FrontendController extends Controller
 
   public function FrontReg()
   {
-    // $session = Session()->get('ULogin');
-    // if ($session == NUll) {
-    //   $Cart = 0;
-    //   return view('Frontend.Reg', compact('Cart'));
-    // }
-    // $sessionid = User::find($session);
-    // $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
-    // return view('Frontend.Reg', compact('Cart'));4
     return view('Frontend.Reg');
   }
 
@@ -201,7 +198,7 @@ class FrontendController extends Controller
     $req->validate([
 
       'email' => 'required |regex:/(.+)@(.+)\.(.+)/i',
-      'password' => 'required | max:15| min:4',
+      'password' => 'required | max:10| min:6',
 
 
     ]);
@@ -276,6 +273,8 @@ class FrontendController extends Controller
 
 
     return view('Frontend.Forget-Password.ForgetPassword');
+
+    return view('Frontend.Forget-Password.ForgetPassword');
   }
   public function ForgetPEmail()
   {
@@ -317,6 +316,7 @@ class FrontendController extends Controller
     ]);
 
     $id = Session()->get('F-Password');
+
 
 
     $data = User::find($id);
