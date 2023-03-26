@@ -94,7 +94,7 @@
 
                 <div class="col-lg-8 pb-5">
                     <h3 class="font-weight-semi-bold">
-                        {{ !empty($data->productname) ? $data->productname : 'Please Select A product' }}</h3>
+                        {{ $data->productname }}</h3>
 
 
                     <h4 class="font-weight-semi-bold mb-4"> ₹<span id="selling" class="ml-2">{{ $data->selling }}</span>
@@ -202,44 +202,31 @@
                     <span style="display:none;" id="sell">{{ $data->selling }}</span>
                     <div class="tab-pane fade" id="tab-pane-2">
                         <h4 class="mb-3">Additional Information</h4>
-                        <p>Eos no lorem eirmod diam diam, eos elitr et gubergren diam sea. Consetetur vero aliquyam
-                            invidunt duo dolores et duo sit. Vero diam ea vero et dolore rebum, dolor rebum eirmod
-                            consetetur invidunt sed sed et, lorem duo et eos elitr, sadipscing kasd ipsum rebum diam.
-                            Dolore diam stet rebum sed tempor kasd eirmod. Takimata kasd ipsum accusam sadipscing, eos
-                            dolores sit no ut diam consetetur duo justo est, sit sanctus diam tempor aliquyam eirmod
-                            nonumy rebum dolor accusam, ipsum kasd eos consetetur at sit rebum, diam kasd invidunt
-                            tempor lorem, ipsum lorem elitr sanctus eirmod takimata dolor ea invidunt.</p>
+                        <p>BabyHub India ~ Online Store for Baby & Kids Clothes
+                            Explore kids and baby Clothes galore at BabyHub.com, the Big Store for Little Ones. We at
+                            BabyHub.com empathize with you as a mother who always aspires to bestow her newborn, infant,
+                            baby or kid with the best things even for their smallest needs. That is why, 'Mommy Knows Best'.
+                            From breastfeeding to bathing essentials, right furniture to myriad baby care products, a mother
+                            needs them all for her lil' one. This inspires us to offer convenient & hassle-free online
+                            shopping not just for babies & kids but for moms-to-be & new moms as well.</p>
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                        Along with all your affection and attention, your little bundle of joy deserves the best when it comes to newborn & baby items
                                     </li>
                                     <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
+                                        With BabyHub Parenting, BabyHub isn’t just about shopping anymore.
                                     </li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item px-0">
-                                        Sit erat duo lorem duo ea consetetur, et eirmod takimata.
+                                        Keep your little one engaged for hours with this age-appropriate fun with learning activity program.
                                     </li>
                                     <li class="list-group-item px-0">
-                                        Amet kasd gubergren sit sanctus et lorem eos sadipscing at.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Duo amet accusam eirmod nonumy stet et et stet eirmod.
-                                    </li>
-                                    <li class="list-group-item px-0">
-                                        Takimata ea clita labore amet ipsum erat justo voluptua. Nonumy.
-                                    </li>
+                                        With the BabyHub Website, now you can shop on the go! Go the BabyHub Website.
                                 </ul>
                             </div>
                         </div>
@@ -254,114 +241,6 @@
     <!-- Shop Detail End -->
 
 
-    <!-- Products Start -->
-    {{-- <div class="container-fluid py-5">
-        <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">You May Also Like</span></h2>
-        </div>
-        <div class="row px-xl-5">
-            <div class="col">
-                <div class="owl-carousel related-carousel">
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$123.00</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                    </div>
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$123.00</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                    </div>
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$123.00</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                    </div>
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$123.00</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                    </div>
-                    <div class="card product-item border-0">
-                        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="{{ asset('ClientCss/img/clothes/bjeans1.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                            <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                            <div class="d-flex justify-content-center">
-                                <h6>$123.00</h6>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                            </div>
-                        </div>
-                        <div class="card-footer d-flex justify-content-between bg-light border">
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-eye text-primary mr-1"></i>View Detail</a>
-                            <a href="" class="btn btn-sm text-dark p-0"><i
-                                    class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-    <!-- Products End -->
     <script>
         /////////////////// product +/-
         $(document).ready(function() {

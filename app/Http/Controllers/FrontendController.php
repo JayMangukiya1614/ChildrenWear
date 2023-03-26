@@ -23,24 +23,17 @@ class FrontendController extends Controller
   public function FrontIndex()
   {
 
-    $session = Session()->get('ULogin');
-    $sessionid = User::find($session);
-    if ($sessionid != null) {
-      $Cart = AddCart::where([['CI_ID', '=', $sessionid->CI_ID]])->get();
-
-      return view('Frontend.index', compact('Cart'));
-    } else {
-      $Cart = 0;
-      return view('Frontend.index', compact(('Cart')));
-    }
     $data = DB::table('product_listings')->orderBy('created_at', 'desc')->paginate(8);
-    // return $data;
-    return view('Frontend.index',compact('data'));
+    return view('Frontend.index', compact('data'));
   }
+
+  // public function FrontBlog()
+  // {
+  //   return view('Frontend.Blog');
+  // }
 
   public function FrontShopDetails()
   {
-
 
     return view('Frontend.ShopDetails');
   }
@@ -279,7 +272,7 @@ class FrontendController extends Controller
   {
 
 
-      return view('Frontend.Forget-Password.ForgetPassword');
+    return view('Frontend.Forget-Password.ForgetPassword');
 
     return view('Frontend.Forget-Password.ForgetPassword');
   }
@@ -328,8 +321,7 @@ class FrontendController extends Controller
 
     $data = User::find($id);
     $forget = Session()->get('Forget');
-    if($req->otp == $forget)
-    {
+    if ($req->otp == $forget) {
 
       if ($req->newpass == $req->confirmpass) {
         $data->Password = Hash::make($req->newpass);
@@ -347,5 +339,4 @@ class FrontendController extends Controller
   {
     return $id;
   }
-
 }

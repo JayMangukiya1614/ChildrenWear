@@ -35,18 +35,13 @@ class DropDownController extends Controller
     {
 
         $data = ProductListing::where([['collection', $id]])->orderBy('updated_at', 'desc')->paginate(8);
-        // $pagination = ProductListing::paginate(8);
         $latest = ProductListing::where([['collection', $id]])->get()->first();
-
-
-
-        // return $data;
         return view('Frontend.Shop', compact('data', 'latest'));
     }
     public function Product_Detail($id)
     {
 
-        $data = ProductListing::where([['id', '=', $id]])->get()->first();
+        $data = ProductListing::where('id', $id)->get()->first();
         return view('Frontend.ShopDetails', compact('data'));
     }
 
@@ -56,9 +51,6 @@ class DropDownController extends Controller
         $Add_Cart = $req->validated();
         $sessionid = Session()->get('ULogin');
         $details = User::find($sessionid);
-        $data = AddCart::where([['product_id', '=', $id]])->first();
-
-
         $Add_Cart['CI_ID'] = $details->CI_ID;
         $admin_id = ProductListing::where('id', $id)->first();
         $Add_Cart['product_id'] = $admin_id->PI_ID;
