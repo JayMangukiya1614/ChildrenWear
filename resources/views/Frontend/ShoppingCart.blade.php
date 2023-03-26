@@ -1,7 +1,4 @@
 @extends('Frontend.Main.Master')
-
-<title>Shopping Cart</title>
-
 <style>
     .num-block.skin-5 {}
 

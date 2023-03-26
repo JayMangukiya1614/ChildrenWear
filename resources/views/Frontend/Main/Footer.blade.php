@@ -95,15 +95,15 @@
                     <h5 class="font-weight-bold text-dark mb-4">Gallary</h5>
                     <div class="row gallery">
                         <div class="col-6">
-                            <a href="#"><img src="ClientCss/img/cloths/gsets1.jpg" alt="Image"
+                            <a href="#"><img src="{{asset('ClientCss/img/cloths/gsets1.jpg')}}" alt="Image"
                                     class="footer-img-fluid"></a>
-                            <a href="#"><img src="ClientCss\img\cloths\gjeans3.jpg" alt="Image"
+                            <a href="#"><img src="{{asset('ClientCss\img\cloths\gjeans3.jpg')}}" alt="Image"
                                     class="footer-img-fluid"></a>
                         </div>
                         <div class="col-6">
-                            <a href="#"><img src="ClientCss\img\cloths\bjeans1.jpg" alt="Image"
+                            <a href="#"><img src="{{asset('ClientCss\img\cloths\bjeans1.jpg')}}" alt="Image"
                                     class="footer-img-fluid"></a>
-                            <a href="#"><img src="ClientCss\img\cloths\bshirts3.jpg" alt="Image"
+                            <a href="#"><img src="{{asset('ClientCss\img\cloths\bshirts3.jpg')}}" alt="Image"
                                     class="footer-img-fluid"></a>
                         </div>
                     </div>
