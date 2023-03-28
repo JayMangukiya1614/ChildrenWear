@@ -35,9 +35,9 @@
                             </td>
                             <td>{{$data->token}}</td>
                             @if ($data->category == 1)
-                            <td><i class="fa-solid fa-child"></i></td>
+                            <td>Boy</i></td>
                             @else
-                            <td><i class="fa-solid fa-child-dress"></i></td>
+                            <td>Girl</td>
                             @endif
                             <td>{{ $data->AD_ID }}</td>
 

@@ -3,8 +3,11 @@
 @section('FrontAdmin')
     <h1 style="margin-top: 6rem">Dashoard</h1>
     <form action="{{ route('chartdate') }}" method="get">
-        <input type="date" name="date">
-        <button type="submit">submit</button>
+        <div class="input-group">
+            <input name="date" max="<?= date('Y-m-d') ?>" class=" d-inline-block search rounded ml-auto"
+                type="date">
+            <button type="submit" class="btn btn-outline-success"> Submit</button>
+        </div>
     </form>
 
     {{-- <section classs="content" style="margin-left:20px;margin-right:20px;margin-top:50px;">

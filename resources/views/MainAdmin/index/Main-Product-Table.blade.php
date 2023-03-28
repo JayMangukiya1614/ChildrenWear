@@ -35,9 +35,9 @@
 
                             </td>
                             @if ($data->category == 1)
-                                <td><i class="fa-solid fa-child"></i></td>
+                                <td>Boy</td>
                             @else
-                                <td><i class="fa-solid fa-child-dress"></i></td>
+                                <td>Girl</td>
                             @endif
                             <td>{{ $data->AD_ID }}</td>
 
@@ -55,9 +55,9 @@
 
                             <td class="text-wrap"style="max-width:200px;"><a
                                     href="{{ route('Main-Admin-Product-Listing-delete', $data->id) }}"
-                                    class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                    class="btn btn-danger">Delete</i></a>
                             </td>
-
+                          
                         </tr>
                     @endforeach
                 @else

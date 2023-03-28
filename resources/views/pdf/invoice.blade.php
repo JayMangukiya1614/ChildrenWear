@@ -140,8 +140,8 @@
                         <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                             <div class="receipt-right">
                                 <h5>BabyHub</h5>
-                                <p>+91 3649-6589 <i class="fa fa-phone"></i></p>
-                                <p>cwear1952@gmail.com <i class="fa fa-envelope-o"></i></p>
+                                <p>+911234567890<i class="fa fa-phone"></i></p>
+                                <p>babyhub007@gmail.com <i class="fa fa-envelope-o"></i></p>
                                 <p>India <i class="fa fa-location-arrow"></i></p>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                                         <strong><i class="fa fa-inr"></i> {{ $data->products->discount }}%</strong>
                                     </p>
                                     <p>
-                                        <strong><i class="fa fa-inr"></i> {{ $a }}₹ </strong>
+                                        <strong><i class="fa fa-inr"></i> {{ $a }} </strong>
                                     </p>
                                     <p>
 

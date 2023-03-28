@@ -37,9 +37,9 @@ class AdminController extends Controller
 
     $data = Adminreg::where('email', '=', $req->email)->first();
     if ($data != null) {
-      $mail = $data->email;
+       $mail = $data->email;
       $details = [];
-      $req->Session()->put('A-F-Password', $data->id);
+       $req->Session()->put('A-F-Password', $data->id);
       Mail::to($mail)->send(new AdminForgetPasswordMail($details));
       return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
     } else {
@@ -80,9 +80,9 @@ class AdminController extends Controller
 
     $req->validate([
 
-      // 'currentpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-      // 'newpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
-      // 'confirmpass' => 'required | max:15| min:4 | regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+      'currentpass' => 'required',
+      'newpass' => 'required',
+      'confirmpass' => 'required',
 
     ]);
 

@@ -47,8 +47,8 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
                             <a class="dropdown-item" href="{{ route('Latest-Product', $latest->collection) }}">Latest</a>
-                            <a class="dropdown-item" href="#">Popularity</a>
-                            <a class="dropdown-item" href="#">Best Rating</a>
+                            {{-- <a class="dropdown-item" href="#">Popularity</a>
+                            <a class="dropdown-item" href="#">Best Rating</a> --}}
                         </div>
                     </div>
                 </div>

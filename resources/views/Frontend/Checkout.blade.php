@@ -125,8 +125,8 @@
                             </div>
                             <div class="col-md-6 form-group ">
 
-                                <button class="btn btn-outline-info float-right" style="margin-top:2rem;"
-                                    type="submit">Update</button>
+                                {{-- <button class="btn btn-outline-info float-right" style="margin-top:2rem;"
+                                    type="submit">Update</button> --}}
                             </div>
 
 

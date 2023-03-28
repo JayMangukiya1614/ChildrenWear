@@ -50,7 +50,7 @@
                         <form action="{{ route('Aforget-password-save') }}" method="GET" class="login-form">
                             @csrf
                             <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                <div  style="background-color:#e9a39c;" class="icon d-flex align-items-center justify-content-center"><span
                                         class="fa fa-lock"></span></div>
                                 <input type="password" name="newpass" class="form-control rounded-left" placeholder="New Password">
                                 <span class="text-danger">
@@ -60,7 +60,7 @@
                                 </span>
                             </div>
                             <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
+                                <div  style="background-color:#e9a39c;" class="icon d-flex align-items-center justify-content-center"><span
                                         class="fa fa-lock"></span></div>
                                 <input type="password" name="confirmpass" class="form-control rounded-left" placeholder="Confirm Password">
                                 <span class="text-danger">

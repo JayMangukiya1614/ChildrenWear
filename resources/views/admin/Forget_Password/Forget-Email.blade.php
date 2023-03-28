@@ -49,8 +49,8 @@
                         </div>
                         <form action="{{ route('Aforget-email-send') }}" method="POST" class="login-form">
                             @csrf
-                            <div class="form-group">
-                                <div class="icon d-flex align-items-center justify-content-center"><span
+                            <div class="form-group" >
+                                <div style="background-color:#e9a39c;" class="icon d-flex align-items-center justify-content-center"><span 
                                         class="fa fa-user"></span></div>
                                 <input type="text" name="email" value="{{ old('email') }}"
                                     class="form-control rounded-left" placeholder="Email">
