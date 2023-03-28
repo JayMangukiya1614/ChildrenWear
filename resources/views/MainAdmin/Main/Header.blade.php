@@ -31,7 +31,6 @@
 
         <div class="nav-menu">
             <ul>
-                <li><a href="{{ url('/Mlogin') }}"><span class="icon-home mr-3"></span>Sign In</a></li>
                 <li><a href="{{url('MDashboard')}}"><span class="icon-search2 mr-3"></span>Dashboard</a></li>
 
                 <li>
@@ -56,7 +55,7 @@
                             <a class="dropdown-item" href="{{url('/Index-form')}}">Index Form</a>
                             <a class="dropdown-item" href="{{url('/Main-Admin-Product-Table')}}">Product Table</a>
                             <a class="dropdown-item" href="{{url('/Main-Admin-Delete-Product-Table')}}">Delete Product</a>
-                            
+
                         </div>
                 </li>
                 <li><a href="{{route('Queries')}}"><span class="icon-notifications mr-3"></span> Client Queries</a></li>

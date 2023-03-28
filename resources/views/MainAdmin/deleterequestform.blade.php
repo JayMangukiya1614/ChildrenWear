@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
-                    Admin Details</h3>
+                    Seller Details</h3>
             </div>
         </div>
         <form action="" method="POST" enctype="multipart/form-data">
@@ -236,7 +236,7 @@
                         <div class="col-md-6">
                             <a   href="{{route('delete-request-show')}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -245,7 +245,7 @@
 @endsection
 
 
-    
+
 
 
 

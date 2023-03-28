@@ -1,7 +1,7 @@
 @extends('MainAdmin.Main.Master')
 
 @section('FrontAdmin')
-    <h1 style="margin-top: 6rem">Dashoard</h1>
+    <h1 style="margin-top: 6rem">Dashboard</h1>
     <form action="{{ route('chartdate') }}" method="get">
         <div class="input-group">
             <input name="date" max="<?= date('Y-m-d') ?>" class=" d-inline-block search rounded ml-auto"
@@ -42,7 +42,7 @@
             chart.render();
         }
     </script> --}}
-   
+
         <script>
             window.onload = function() {
 
@@ -68,13 +68,13 @@
 
             }
         </script>
- 
 
-    
+
+
         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-  
 
-   
+
+
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 @endsection

@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Admin Id</th>
+                <th scope="col">Seller Name</th>
                 <th scope="col">Shopname</th>
                 <th scope="col">Token</th>
                 <th scope="col">GSTNo.</th>
@@ -29,14 +29,14 @@
 
                     <td scope="row">{{ $key + 1 }}</td>
 
-                    <td  >{{ $data->AD_ID }}</td>
+                    <td  >{{ $data->firstname }} &nbsp {{ $data->middlename }} &nbsp {{ $data->lastname }}</td>
                     <td  class="text-wrap"style="max-width:150px;">{{ $data->shopname }}</td>
 
                     <td>{{ $data->token }}</td>
                     <td>{{ $data->gstno }}</td>
                     <td  class="text-wrap"style="max-width:150px;">{{ $data->bankname }}</td>
                     <td  class="text-wrap"style="max-width:200px;">{{ $data->email }}</td>
-                    <td><a href="{{ route('MshowAccepetform', $data->id) }}" class="btn btn-info">Show</a></td>
+                    <td><a href="{{ route('MshowAccepetform', $data->id) }}" class="btn btn-info">View Data</a></td>
 
                 </tr>
             @endforeach

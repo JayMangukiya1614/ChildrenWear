@@ -1,4 +1,4 @@
-   
+
 @extends('MainAdmin.Main.Master')
 
 @section('FrontAdmin')
@@ -59,7 +59,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
-                    Admin Details</h3>
+                    Seller Details</h3>
             </div>
         </div>
         <form action="{{route('accept-request',$data->id)}}"  method="get" enctype="multipart/form-data">
@@ -228,11 +228,11 @@
                     </div>
 
                     <div class="row">
-                        
+
                         <div class="col-md-6">
                             <a   href="{{route('cancel-request',$data->id)}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Delete</a>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <button value="1" class="btn btn-outline-success shadow-lg  rounded-3 form-control mt-5">Accept</button>
                         </div>
@@ -246,4 +246,3 @@
 
 
 
-    
