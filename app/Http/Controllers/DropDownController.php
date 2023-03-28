@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Http\Requests\AddressRequest;
 use App\Models\AddressBook;
+use App\Models\Contact;
 use App\Models\Order;
 use App\Models\Subscribe;
 use GrahamCampbell\ResultType\Success;
@@ -23,10 +24,10 @@ class DropDownController extends Controller
         // return $req->all();
         $data = ProductListing::where('collection', $id)->get();
         $latest = ProductListing::where('collection', $id)->get()->first();
-         $search = $req['search'] ?? "";
+        $search = $req['search'] ?? "";
         if ($search != "") {
             $data = ProductListing::where('productname', 'LIKE', "%$search%")->where('collection', $id)->get();
-            return view('Frontend.Shop', compact('data', 'search','latest'));
+            return view('Frontend.Shop', compact('data', 'search', 'latest'));
         }
 
         return view('Frontend.Shop', compact('data', 'latest'));
@@ -201,5 +202,32 @@ class DropDownController extends Controller
         } else {
             return back()->with('error', 'Sorry For Your Email Does Not Match');
         }
+    }
+    public function Contact(Request $req)
+    {
+
+        $req->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+        $id = Session()->get('ULogin');
+        $sessionid = User::find($id);
+
+        if ($sessionid->Email != $req->email) {
+            return back()->with('error', 'Email Does Not Matches..');
+        } else {
+            $data = new Contact();
+            $data->name = $req->name;
+            $data->CI_ID =  $sessionid->CI_ID;
+            $data->token = 0;
+            $data->email = $req->email;
+            $data->subject = $req->subject;
+            $data->message = $req->message;
+            $data->save();
+            return back()->with('info', 'Your Querie Successfully Send..');
+        }
+        return $req->all();
     }
 }

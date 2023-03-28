@@ -7,7 +7,7 @@
 
     {{-- edit profile start --}}
 
-      <form action="{{ route('Fprofileupdatesave', $Edit->id) }}">
+      <form action="{{ route('FProfileUpdateSave', $Edit->id) }}">
         <section class="" style="background-color: #ffffff;">
             <div class="container py-5 h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100 mt-5">

@@ -7,24 +7,24 @@
     <div class="side-inner">
 
         <div class="profile">
-            <img src="images/person_profile.jpg" alt="Image" class="img-fluid">
-            <h3 class="name">Debby Williams</h3>
-            <span class="country">New York, USA</span>
+            <img src="images/default.jpeg" style="width:50px; height:50px;" alt="Image" class="img-fluid">
+            <h3 class="name">Super Admin</h3>
+            <span class="country">India Delhi</span>
         </div>
 
         <div class="counter d-flex justify-content-center">
             <!-- <div class="row justify-content-center"> -->
             <div class="col">
-                <strong class="number">892</strong>
-                <span class="number-label">Posts</span>
+                {{-- <strong class="number">892</strong>
+                <span class="number-label">Posts</span> --}}
             </div>
             <div class="col">
                 <strong class="number">{{Subscribe()}}</strong>
                 <span class="number-label">Subscriber</span>
             </div>
             <div class="col">
-                <strong class="number">150</strong>
-                <span class="number-label">Following</span>
+                {{-- <strong class="number">150</strong>
+                <span class="number-label">Following</span> --}}
             </div>
             <!-- </div> -->
         </div>
@@ -59,9 +59,9 @@
                             
                         </div>
                 </li>
-                <li><a href="#"><span class="icon-notifications mr-3"></span>Notifications</a></li>
-                <li><a href="#"><span class="icon-location-arrow mr-3"></span>Direct</a></li>
-                <li><a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a></li>
+                <li><a href="{{route('Queries')}}"><span class="icon-notifications mr-3"></span> Client Queries</a></li>
+                {{-- <li><a href="#"><span class="icon-location-arrow mr-3"></span>Direct</a></li>
+                <li><a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a></li> --}}
                 <li><a href="{{ url('/Madmin-logout') }}"><span class="icon-sign-out mr-3"></span>Sign out</a></li>
             </ul>
         </div>

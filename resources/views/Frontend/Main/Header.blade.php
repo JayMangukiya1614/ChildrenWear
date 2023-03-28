@@ -115,7 +115,7 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="{{ route('OrderTable') }}">Pending Order</a>
                                 <a class="dropdown-item" href="{{ route('COrderTable') }}">Confirm Order</a>
-                                <a class="dropdown-item" href="{{ route('DOrderTable') }}">Delivered Order</a>
+                                {{-- <a class="dropdown-item" href="{{ route('DOrderTable') }}">Delivered Order</a> --}}
                                 <a class="dropdown-item" href="{{ route('DeleteOrderTable') }}">Delete Order</a>
                             </div>
                         </div>

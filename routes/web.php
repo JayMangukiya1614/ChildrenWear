@@ -110,7 +110,7 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::get('/MDashboard', [MainAdminController::class, 'MDashboard'])->name('MDashboard');
   Route::get('/main-admin', [MainAdminController::class, 'read'])->name('main-admin-read');
   Route::get('/MshowAdmin/{id}', [MainAdminController::class, 'MshowAdmin'])->name('MshowAdmin');
-  Route::post('/accept-request/{id}', [MainAdminController::class, 'acceptrequest'])->name('accept-request');
+  Route::get('/accept-request/{id}', [MainAdminController::class, 'acceptrequest'])->name('accept-request');
   Route::get('/accepted-request-show', [MainAdminController::class, 'acceptedrequestshow'])->name('accepted-request-show');
 
   Route::get('/cancel-request/{id}', [MainAdminController::class, 'cancelrequest'])->name('cancel-request');
@@ -133,6 +133,12 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::get('/Main-Admin-Product-Listing-delete/{id}', [IndexController::class, 'MainAdminProductListingdelete'])->name('Main-Admin-Product-Listing-delete');
   Route::get('/Main-Admin-Delete-Product-Table', [IndexController::class, 'MDeleteProductTable'])->name('Main-Admin-Delete-Product-Table');
   Route::get('/chartdate', [MainAdminController::class, 'chartdate'])->name('chartdate');
+
+
+  Route::get('/Queries', [MainAdminController::class, 'Queries'])->name('Queries');
+  Route::get('/Reply-Queries/{id}', [MainAdminController::class, 'Reply_Queries'])->name('reply-queries');
+
+
 });
 
 
@@ -149,14 +155,16 @@ Route::group(['middleware' => ['Userlogin']], function () {
 
   //Profile
   Route::get('Fprofile', [FrontendController::class, 'FrontProfile'])->name('Fprofile');
-  Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('Fprofileupdatesave');
+  Route::get('Fprofileupdatesave{id}', [FrontendController::class, 'FProfileUpdateSave'])->name('FProfileUpdateSave');
 
   Route::post('/Product-Cart/{id}', [DropDownController::class, 'Product_Cart'])->name('Product-Cart');
 
   Route::get('FCart', [FrontendController::class, 'FrontCart'])->name('Fcart');
   Route::get('quantityadd/{id}', [DropDownController::class, 'quantityadd'])->name('quantityadd');
   Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
+  Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
   Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
+  
 
   Route::get('Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
 
@@ -174,6 +182,8 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('deletewishlist/{id}', [FrontendController::class, 'deletewishlist'])->name('deletewishlist');
   Route::get('product-details/{id}', [FrontendController::class, 'productdetails'])->name('product-details');
   Route::get('Subscribe', [DropDownController::class, 'Subscribe'])->name('Subscribe');
+  Route::get('Contact', [DropDownController::class, 'Contact'])->name('Contact');
+
 });
 
 Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');

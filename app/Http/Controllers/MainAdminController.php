@@ -9,10 +9,13 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use App\Mail\RequestMail;
 use App\Mail\DRequestMail;
+use App\Mail\ContactMail;
+use App\Models\Contact;
 use App\Models\ProductListing;
 use App\Models\Order;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Mail;
+use App\Models\User;
 
 class MainAdminController extends Controller
 {
@@ -31,7 +34,7 @@ class MainAdminController extends Controller
         if ($data) {
             if (Hash::check($request->password, $data->Password)) {
                 $request->Session()->put('Mlogin', $data->id);
-                return redirect(route('MDashboard'))->with('LoginSuccess', "Login Successfully......!");
+                return redirect(route('MDashboard'))->with('success', "Login Successfully......!");
             } else {
                 return back()->with('Password', 'Password not matched');
             }
@@ -51,17 +54,22 @@ class MainAdminController extends Controller
     public function MDashboard()
     {
         $post = DB::table('orders')->get('*')->toArray();
-        foreach ($post as $post) {
-            $date = Order::where('date', $post->date)->get();
-            $a = count($date);
+        if($post != null){
 
-            $data[] = array(
-                'label' => $post->date,
-                'y' => $a,
-            );
+            foreach ($post as $post) {
+                $date = Order::where('date', $post->date)->get();
+                $a = count($date);
+    
+                $data[] = array(
+                    'label' => $post->date,
+                    'y' => $a,
+                );
+            }
+            return view('MainAdmin.MDashboard', ['data' => $data]);
         }
-        
+        $data[]=null;
         return view('MainAdmin.MDashboard', ['data' => $data]);
+
     }
     public function chartdate(Request $req)
     {
@@ -150,5 +158,32 @@ class MainAdminController extends Controller
     {
         $data = Adminreg::find($id);
         return view('MainAdmin.deleterequestform', compact('data'));
+    }
+    public function Queries()
+    {
+
+        $data = Contact::where('token', 0)->get();
+        return view('MainAdmin.Client_Queries', compact('data'));
+    }
+    public function Reply_Queries(Request $req,$id)
+    {
+        // return "work";
+        $req->validate([
+            'reply' => 'required',
+        ]);
+        $contact = Contact::find($id);
+        $contact->token = 1;
+        $contact->update();
+        $mail = $contact->email;
+
+        $details = [
+            'subject' => $contact->subject,
+            'message' => $contact->message,
+            'reply' => $req->reply,
+
+        ];
+
+        Mail::to($mail)->send(new ContactMail($details));
+        return back()->with('info', 'Message Sent Successfully.');
     }
 }

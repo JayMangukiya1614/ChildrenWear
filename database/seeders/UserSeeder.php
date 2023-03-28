@@ -1051,7 +1051,7 @@ class UserSeeder extends Seeder
         'selling' => "460",
         'age' => '["0-6(M)","6-24(M)","2-4(Y)"]',
         'size' => '["XS","S"]',
-        'collection' => '5',
+        'collection' => '6',
         'color' => '["Black","Red","Green"]',
         'stock' => "1",
         'description' => "Babyhub 100% Cotton Full Sleeves Kurta & Dhoti Set With Printed - Gray",
