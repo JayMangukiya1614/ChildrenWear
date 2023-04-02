@@ -78,23 +78,20 @@
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-4">
-                            <label class="mt-5" for="Last_Name">Last Name</label>
-                            <input name="lastname" disabled value="{{ $data->lastname }}" id="Last_Name"type="text"
-                                class="shadow-lg bg-white form-control">
-
-                        </div>
-                        <div class="col-md-4">
                             <label class="mt-5" for="First_Name">First Name</label>
                             <input name="firstname" disabled value="{{ $data->firstname }}" id="First_Name"
                                 class="form-control shadow-lg bg-white" type="text">
-
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Middle_Name">Middle Name</label>
                             <input name="middlename" disabled value="{{ $data->middlename }}" id="Middle_Name"type="text"
                                 class="shadow-lg bg-white form-control">
                         </div>
-
+                        <div class="col-md-4">
+                            <label class="mt-5" for="Last_Name">Last Name</label>
+                            <input name="lastname" disabled value="{{ $data->lastname }}" id="Last_Name"type="text"
+                                class="shadow-lg bg-white form-control">
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -135,7 +132,7 @@
 
                         </div>
                         <div class="col-md-3">
-                            <label class="mt-4" for="Country">state</label>
+                            <label class="mt-4" for="Country">State</label>
                             <select name="state" disabled value="{{ $data->state }}"
                                 class="form-control  shadow-lg bg-white rounded-3" name="state" id="">
                                 <option {{ $data->state == 'Goa' ? 'selected' : '' }} name="state" value="Goa">Goa
@@ -164,7 +161,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <label class="mt-4" for="MN">Mobile Nomber</label>
+                            <label class="mt-4" for="MN">Mobile Number</label>
                             <input name="mobilenumber" disabled value="{{ $data->mobilenumber }}" id="MN"
                                 class="form-control shadow-lg bg-white" type="number">
 
@@ -204,24 +201,15 @@
                             <label class="mt-4" for="E_mail">E_mail</label>
                             <input name="email" disabled id="E_mail" class="form-control shadow-lg bg-white"
                                 value="{{ $data->email }}" type="email">
-
                         </div>
                         <div class="col-md-6">
-                            <label class="mt-4" for="Passwo">Password</label>
-                            <input name="password" disabled id="Passwo" class="form-control shadow-lg bg-white"
-                                value="{{ $data->password }}" type="password">
-
+                            <label class="mt-4" for="Address">Address</label>
+                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->address }}</textarea>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <label class="mt-5" for="Address">Address</label>
-                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->address }}</textarea>
-
-                        </div>
-
-                        <div class="col-md-6">
-                            <label class="mt-5" for="Message">Message</label>
+                        <div class="col-md-8">
+                            <label class="mt-3" for="Message">Message</label>
                             <textarea name="message" disabled id="Message" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->message }}</textarea>
                         </div>
                     </div>
@@ -234,7 +222,8 @@
                             {{-- <button class="btn btn-outline-alert shadow-lg  rounded-3 form-control mt-5">Back</button> --}}
                         </div>
                         <div class="col-md-6">
-                            <a   href="{{route('delete-request-show')}}"  class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
+                            <a href="{{ route('delete-request-show') }}"
+                                class="btn btn-outline-danger shadow-lg  rounded-3 form-control mt-5">Back</a>
                         </div>
 
                     </div>
@@ -243,9 +232,3 @@
         </form>
     </div>
 @endsection
-
-
-
-
-
-
