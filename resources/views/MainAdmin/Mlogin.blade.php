@@ -38,19 +38,20 @@
 <body>
 
     <section class="vh-100">
-        <div class="container-fluid h-custom">
+        <div class="container-fluid h-custom mt-5">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-md-9 col-lg-6 col-xl-5">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+                    <img src="{{asset('MainAdmin\images\login.jpg')}}"
                         class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                  <h3 style="text-align: center">Admin Login</h3>
                     <form action="{{ route('Mlogindata') }}" method="POST">
                         @csrf
 
 
                         <!-- Email input -->
-                        <div class="form-outline mb-4 " style="margin-top: 6rem">
+                        <div class="form-outline mb-4 " style="margin-top: 3rem">
                             <span class="text-danger">
                                 @error('email')
                                     {{$message}}
@@ -73,12 +74,12 @@
                             <label class="form-label" for="form3Example4">Password</label>
                         </div>
 
-                       
+
 
                         <div class="text-center text-lg-start mt-4 pt-2">
                             <button type="submit" class="btn btn-primary btn-lg"
                                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
-                          
+
                         </div>
 
                     </form>
@@ -111,8 +112,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Toastr CDN -->
     <script>
-          
-     
+
+
          $(document).ready(function() {
 
 @if (Session::has('Password'))
