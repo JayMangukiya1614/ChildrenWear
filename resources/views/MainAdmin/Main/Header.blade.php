@@ -49,16 +49,16 @@
                     <div class="dropdown show">
                         <a class=" dropdown-toggle" style="margin-left: 16px;" href="#" role="button" id="dropdownMenuLink"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                           Index Page
+                           Product Page
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="{{url('/Index-form')}}">Index Form</a>
                             <a class="dropdown-item" href="{{url('/Main-Admin-Product-Table')}}">Product Table</a>
                             <a class="dropdown-item" href="{{url('/Main-Admin-Delete-Product-Table')}}">Delete Product</a>
 
                         </div>
                 </li>
                 <li><a href="{{route('Queries')}}"><span class="icon-notifications mr-3"></span> Client Queries</a></li>
+                <li><a href="{{url('/Index-form')}}"><span class="icon-notifications mr-3"></span>Blog Form</a></li>
                 {{-- <li><a href="#"><span class="icon-location-arrow mr-3"></span>Direct</a></li>
                 <li><a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a></li> --}}
                 <li><a href="{{ url('/Madmin-logout') }}"><span class="icon-sign-out mr-3"></span>Sign out</a></li>

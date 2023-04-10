@@ -132,7 +132,8 @@ class MainAdminController extends Controller
 
         $product = ProductListing::where('AD_ID', $data->AD_ID)->get();
         foreach ($product as $product) {
-            $product->delete();
+            $product->token = 3;
+            $product->save();
         }
         Session()->pull('Alogin');
         $mail = $data->email;
@@ -146,7 +147,7 @@ class MainAdminController extends Controller
         //  return "Email sent ";
         $data->save();
 
-        return redirect(route('main-admin-read'))->with('Delete', "Deleted Successfully.....!");
+        return back()->with('Delete', " Account Deleted Successfully.....!");
     }
     public function deleterequestshow()
     {
