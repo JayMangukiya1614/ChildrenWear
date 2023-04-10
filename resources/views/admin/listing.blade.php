@@ -43,7 +43,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="AD_ID">Admin Id</label>
-                            <input name="AD_ID" value="{{ old('AD_ID') }}" id="AD_ID"
+                            <input name="AD_ID" value="{{$sessionid->AD_ID}}" readonly id="AD_ID"
                                 class="form-control shadow-lg bg-white" type="text">
                             <span class="text-danger">
                                 @error('AD_ID')

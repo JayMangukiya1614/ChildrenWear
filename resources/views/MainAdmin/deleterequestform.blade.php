@@ -176,24 +176,19 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="mt-5" for="Bank_Name">Bank Name:</label>
                             <input name="bankname" disabled value="{{ $data->bankname }}" id="Bank_Name"
                                 class="form-control shadow-lg bg-white" type="text">
 
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="mt-5" for="Branch_Name">Branch Name</label>
                             <input name="branchname" disabled id="Branch_Name" type="text"
                                 value="{{ $data->branchname }}" class="shadow-lg bg-white form-control">
 
                         </div>
-                        <div class="col-md-4">
-                            <label class="mt-5" for="IFSC_Code">IFSC Code</label>
-                            <input name="ifsccode" disabled id="IFSC_Code" type="text" value="{{ $data->ifsccode }}"
-                                class="shadow-lg bg-white form-control">
-
-                        </div>
+                        
 
                     </div>
                     <div class="row">
@@ -201,11 +196,15 @@
                             <label class="mt-4" for="E_mail">E_mail</label>
                             <input name="email" disabled id="E_mail" class="form-control shadow-lg bg-white"
                                 value="{{ $data->email }}" type="email">
+
                         </div>
                         <div class="col-md-6">
-                            <label class="mt-4" for="Address">Address</label>
-                            <textarea name="address" disabled id="Address" class="form-control shadow-lg bg-white rounded-3" type="text">{{ $data->address }}</textarea>
+                            <label class="mt-4" for="IFSC_Code">IFSC Code</label>
+                            <input name="ifsccode" disabled id="IFSC_Code" type="text" value="{{ $data->ifsccode }}"
+                                class="shadow-lg bg-white form-control">
+
                         </div>
+                      
                     </div>
                     <div class="row">
                         <div class="col-md-8">

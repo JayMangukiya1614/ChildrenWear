@@ -76,7 +76,7 @@ class UserSeeder extends Seeder
         'state' => "Gujarat",
         'city' => "Surat",
         'mobilenumber' => "7434039039",
-        'gstno' => "08AAGFF2194N1Z1",
+        'gstno' => "08AAGFF2194N1Z2",
         'bankname' => "YES BANK",
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",

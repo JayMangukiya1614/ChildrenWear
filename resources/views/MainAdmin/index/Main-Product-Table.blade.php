@@ -1,7 +1,7 @@
 @extends('MainAdmin.Main.Master')
 
 @section('FrontAdmin')
-    <h1 class="text-center" style="margin-top: 6rem">Main Admin Product Listing </h1>
+    <h1 class="text-center mb-3" style="margin-top: 6rem">Product Listing Table </h1>
 
     <div class="table-responsive">
 

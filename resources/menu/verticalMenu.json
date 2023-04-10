@@ -6,12 +6,7 @@
       "icon": "menu-icon tf-icons fa-solid fa-house",
       "slug": "dashboard-analytics"
     },
-    {
-      "url": "/Admin-Reg",
-      "name": "Admin Reg",
-      "icon": "menu-icon fa-solid fa-registered",
-      "slug": "Registeration"
-    },
+    
     {
       "name": "Product Listing",
       "icon": "menu-icon tf-icons fa-solid fa-podcast",
