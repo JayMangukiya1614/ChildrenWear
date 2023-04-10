@@ -13,7 +13,7 @@ use App\Http\Requests\UProductRequest;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\AdminForgetPasswordMail;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -226,7 +226,9 @@ class AdminController extends Controller
 
   public function AdminProductListing()
   {
-    return view('admin.listing');
+    $id = Session()->get('Alogin');
+     $sessionid = Adminreg::find($id);
+    return view('admin.listing',compact('sessionid'));
   }
 
   public function AdminProductSave(ProductRequest $req)

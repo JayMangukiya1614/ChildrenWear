@@ -1,30 +1,62 @@
-@extends('layouts/contentNavbarLayout')
-<style>
-    body {
-        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    }
+<!DOCTYPE html>
+<html lang="en">
 
-    .image {
-        width: 200px !important;
-        height: 200px;
-    }
-
-   
-</style>
-
-@section('title', 'Dashboard - Analytics')
-
-@section('vendor-style')
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
+<head>
+    <meta charset="utf-8">
+    <title>Baby Hub</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
 
 
 
-@section('content')
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{{ asset('ClientCss/lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{{ asset('ClientCss/css/style.css') }}" rel="stylesheet">
+
+
+    {{-- toastr  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+        integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .image {
+            width: 200px !important;
+            height: 200px;
+        }
+    </style>
+</head>
+
+
+<body>
 
 
 
-    <div class="container border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
+
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <div class="container-fluid border rounded-2 shadow-lg bg-white mb-2 form-group mt-3 p-4 mb-3">
         <div class="row">
             <div class="col-md-12">
                 <h3 style="text-shadow: 2px 2px #EDF1FF;" class="text-center text-dark  shadow-lg bg-white p-4 border">
@@ -39,7 +71,8 @@
                     <div class="d-flex flex-column align-items-center text-center p-3 py-5">
 
                         <label for="file-input">
-                            <img id="previewImg" class="image rounded-circle" src="{{ asset('images/default.jpeg') }}" />
+                            <img id="previewImg" class="image rounded-circle"
+                                src="{{ asset('images/default.jpeg') }}" />
                         </label>
 
                         <input id="file-input" name="profileimage" type="file" onchange="previewFile(this);"
@@ -49,7 +82,7 @@
                 <div class="col-md-9">
                     <div class="row">
 
-                        
+
                         <div class="col-md-4">
                             <label class="mt-5" for="First_Name">First Name</label>
                             <input name="firstname" value="{{ old('firstname') }}" id="First_Name"
@@ -108,7 +141,7 @@
                             </span>
                         </div>
 
-                </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-3">
                             <label class="mt-4" for="">Education</label>
@@ -189,7 +222,7 @@
                             </span>
                         </div>
 
-                </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-4">
@@ -204,8 +237,8 @@
                         </div>
                         <div class="col-md-4">
                             <label class="mt-5" for="Branch_Name">Branch Name</label>
-                            <input name="branchname" id="Branch_Name" type="text" value="{{ old('branchname') }}"
-                                class="shadow-lg bg-white form-control">
+                            <input name="branchname" id="Branch_Name" type="text"
+                                value="{{ old('branchname') }}" class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('branchname')
                                     {{ $message }}
@@ -280,49 +313,68 @@
 
 
 
-@section('page-script')
-    <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
+    <!-- JavaScript Libraries -->
 
 
-<script>
-    // toastr.error('hello');
-    function previewFile(input) {
-        var file = $("input[type=file]").get(0).files[0];
 
-        if (file) {
-            var reader = new FileReader();
+    <script src="https://kit.fontawesome.com/88bf84b9d4.js" crossorigin="anonymous"></script>
 
-            reader.onload = function() {
-                $("#previewImg").attr("src", reader.result);
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('ClientCss/lib/easing/easing.min.js') }}"></script>
+    <script src="{{ asset('ClientCss/lib/owlcarousel/owl.carousel.min.js') }}"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="{{ asset('ClientCss/mail/jqBootstrapValidation.min.js') }}"></script>
+    <script src="{{ asset('ClientCss/mail/contact.js') }}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{{ asset('ClientCss/js/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
+        integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+        // toastr.error('hello');
+        function previewFile(input) {
+            var file = $("input[type=file]").get(0).files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function() {
+                    $("#previewImg").attr("src", reader.result);
+                }
+
+                reader.readAsDataURL(file);
             }
 
-            reader.readAsDataURL(file);
+
         }
+    </script>
 
-
-    }
-</script>
-
-@if (Session::has('message'))
-    <script>
-        swal("Great Job!", "{!! Session::get('message') !!}", "info", {
-            button: "OK"
-        })
+    @if (Session::has('message'))
+        <script>
+            swal("Great Job!", "{!! Session::get('message') !!}", "info", {
+                button: "OK"
+            })
         </script>
-@endif
-<script>
-      @if (Session::has('Request'))
+    @endif
+    <script>
+        @if (Session::has('Request'))
             toastr.options = {
                 "closeButton": true,
                 "progressBar": true
             }
             toastr.warning("{{ session('Request') }}");
         @endif
-       
-</script>
-@endsection
+    </script>
 
-@section('page-script')
-    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
-@endsection
-@endsection
+</body>
+
+</html>
