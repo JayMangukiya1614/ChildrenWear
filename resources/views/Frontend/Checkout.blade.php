@@ -152,7 +152,7 @@
                         <div class="d-flex justify-content-between">
                             <p>{{ $productid->products->productname }} <span class="text-danger"> Qty .
                                     {{ $productid->quantity }} </span></p>
-                            <p>{{ $price = $productid->products->selling * $productid->quantity }}</p>
+                            <p>₹{{ $price = $productid->products->selling * $productid->quantity }}</p>
                             @php
 
                                 $subtotal = $subtotal + $price;
@@ -166,7 +166,7 @@
                     <hr class="mt-0">
                     <div class="d-flex justify-content-between mb-3 pt-1">
                         <h6 class="font-weight-medium">Subtotal</h6>
-                        <h6 class="font-weight-medium">{{ $subtotal }}</h6>
+                        <h6 class="font-weight-medium">₹ <span></span>{{ $subtotal }}</h6>
                     </div>
                     <div class="d-flex justify-content-between">
                         <h6 class="font-weight-medium">Shipping</h6>
@@ -185,7 +185,7 @@
                 <div class="card-footer border-secondary bg-transparent">
                     <div class="d-flex justify-content-between mt-2">
                         <h5 class="font-weight-bold">Total</h5>
-                        <h5 class="font-weight-bold">{{ round($final , 2)}}</h5>
+                        <h5 class="font-weight-bold" > ₹ <span></span>{{ round($final , 2)}}</h5>
                     </div>
                 </div>
             </div>
@@ -198,17 +198,4 @@
 
     </div>
     </div>
-    <!-- Checkout End -->
-    {{-- <script>
-         $('#porder').on('click', function() {
-                var zip = $("#zip").val();
-                if(zip)
-                {
-                    alert('Please Enter the zipcode');
-
-                }
-            });
-// var zip = document.elementByid('').val()
-
-    </script> --}}
 @endsection

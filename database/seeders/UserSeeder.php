@@ -1198,7 +1198,7 @@ class UserSeeder extends Seeder
       // Girls SETS & SUITS //
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002",
         'token' => "1",
         'PI_ID' => "P-0048",
         'shopname' => " Jame's Creation",
@@ -1220,7 +1220,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0049",
         'shopname' => " Jame's Creation",
@@ -1242,7 +1242,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0050",
         'shopname' => " Jame's Creation",
@@ -1264,7 +1264,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0051",
         'shopname' => " Jame's Creation",
@@ -1286,7 +1286,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0052",
         'shopname' => " Jame's Creation",
@@ -1308,7 +1308,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0053",
         'shopname' => " Jame's Creation",
@@ -1330,7 +1330,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0054",
         'shopname' => " Jame's Creation",
@@ -1352,7 +1352,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0055",
         'shopname' => " Jame's Creation",
@@ -1379,7 +1379,7 @@ class UserSeeder extends Seeder
 
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0056",
         'shopname' => " Jame's Creation",
@@ -1401,7 +1401,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0057",
         'shopname' => " Jame's Creation",
@@ -1423,7 +1423,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0058",
         'shopname' => " Jame's Creation",
@@ -1445,7 +1445,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0059",
         'shopname' => " Jame's Creation",
@@ -1467,7 +1467,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0060",
         'shopname' => " Jame's Creation",
@@ -1489,7 +1489,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0061",
         'shopname' => " Jame's Creation",
@@ -1511,7 +1511,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0062",
         'shopname' => " Jame's Creation",
@@ -1533,7 +1533,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0063",
         'shopname' => " Jame's Creation",
@@ -1559,7 +1559,7 @@ class UserSeeder extends Seeder
       // Jeans & Jeggings //
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0064",
         'shopname' => " Jame's Creation",
@@ -1581,7 +1581,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0065",
         'shopname' => " Jame's Creation",
@@ -1603,7 +1603,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0066",
         'shopname' => " Jame's Creation",
@@ -1625,7 +1625,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0067",
         'shopname' => " Jame's Creation",
@@ -1647,7 +1647,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0068",
         'shopname' => " Jame's Creation",
@@ -1669,7 +1669,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0069",
         'shopname' => " Jame's Creation",
@@ -1691,7 +1691,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0070",
         'shopname' => " Jame's Creation",
@@ -1713,7 +1713,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0071",
         'shopname' => " Jame's Creation",
@@ -1740,7 +1740,7 @@ class UserSeeder extends Seeder
 
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0072",
         'shopname' => " Jame's Creation",
@@ -1762,7 +1762,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0073",
         'shopname' => " Jame's Creation",
@@ -1784,7 +1784,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0074",
         'shopname' => " Jame's Creation",
@@ -1806,7 +1806,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0075",
         'shopname' => " Jame's Creation",
@@ -1828,7 +1828,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0076",
         'shopname' => " Jame's Creation",
@@ -1850,7 +1850,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0077",
         'shopname' => " Jame's Creation",
@@ -1872,7 +1872,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0078",
         'shopname' => " Jame's Creation",
@@ -1894,7 +1894,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0079",
         'shopname' => " Jame's Creation",
@@ -1919,7 +1919,7 @@ class UserSeeder extends Seeder
       // Jackets //
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0080",
         'shopname' => " Jame's Creation",
@@ -1941,7 +1941,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0081",
         'shopname' => " Jame's Creation",
@@ -1963,7 +1963,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0082",
         'shopname' => " Jame's Creation",
@@ -1985,7 +1985,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0083",
         'shopname' => " Jame's Creation",
@@ -2007,7 +2007,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0084",
         'shopname' => " Jame's Creation",
@@ -2029,7 +2029,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0085",
         'shopname' => " Jame's Creation",
@@ -2051,7 +2051,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0086",
         'shopname' => " Jame's Creation",
@@ -2073,7 +2073,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0087",
         'shopname' => " Jame's Creation",
@@ -2099,7 +2099,7 @@ class UserSeeder extends Seeder
       // Ethnic Wear //
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0088",
         'shopname' => " Jame's Creation",
@@ -2121,7 +2121,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0089",
         'shopname' => " Jame's Creation",
@@ -2143,7 +2143,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0090",
         'shopname' => " Jame's Creation",
@@ -2165,7 +2165,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0091",
         'shopname' => " Jame's Creation",
@@ -2187,7 +2187,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0092",
         'shopname' => " Jame's Creation",
@@ -2209,7 +2209,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0093",
         'shopname' => " Jame's Creation",
@@ -2231,7 +2231,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0094",
         'shopname' => " Jame's Creation",
@@ -2253,7 +2253,7 @@ class UserSeeder extends Seeder
 
       ],
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0002 ",
         'token' => "1",
         'PI_ID' => "P-0095",
         'shopname' => " Jame's Creation",

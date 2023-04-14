@@ -139,6 +139,11 @@ Route::group(['middleware' => ['Mlogin']], function () {
   Route::get('/Reply-Queries/{id}', [MainAdminController::class, 'Reply_Queries'])->name('reply-queries');
 
 
+  Route::get('/Reply-Queries/{id}', [MainAdminController::class, 'Reply_Queries'])->name('reply-queries');
+  Route::get('/Main-Admin-Product-Details/{id}', [MainAdminController::class, 'MainAdminProductDetails'])->name('Main-Admin-Product-Details');
+
+
+
 });
 
 

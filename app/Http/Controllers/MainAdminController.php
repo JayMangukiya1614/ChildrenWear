@@ -53,37 +53,20 @@ class MainAdminController extends Controller
     }
     public function MDashboard()
     {
-        $post = DB::table('orders')->get('*')->toArray();
-        if($post != null){
-
-            foreach ($post as $post) {
-                $date = Order::where('date', $post->date)->get();
-                $a = count($date);
-    
-                $data[] = array(
-                    'label' => $post->date,
-                    'y' => $a,
-                );
-            }
-            return view('MainAdmin.MDashboard', ['data' => $data]);
-        }
-        $data[]=null;
-        return view('MainAdmin.MDashboard', ['data' => $data]);
-
-    }
-    public function chartdate(Request $req)
-    {
-        // $post = DB::table('orders')->get('*')->toArray();
-        $date = Order::where('date', $req->date)->get();
-        $a = count($date);
-
-        $data[] = array(
-            'label' => $req->date,
-            'y' => $a,
-        );
-
-        // return $data;
-        return view('MainAdmin.MDashboard', ['data' => $data]);
+        $data = Order::select('id')->get()->count();
+        $pen = Order::where('token', 0)->get()->count();
+        $pending = (($pen * 100) / $data);
+        $pending = round($pending,2);
+        $con = Order::where('token', 1)->get()->count();
+        $confirem = (($con * 100) / $data);
+        $confirem = round($confirem,2);
+        $del = Order::where('token', 3)->get()->count();
+        $delet = (($del * 100) / $data);
+        $delet = round($delet,2);
+        $deli = Order::where('is_set', 1)->get()->count();
+        $delivered = (($deli * 100) / $data);
+        $delivered = round($delivered,2);
+        return view('MainAdmin.MDashboard', compact('confirem', 'data', 'pending','delet','delivered'));
     }
     public function read()
     {
@@ -166,7 +149,7 @@ class MainAdminController extends Controller
         $data = Contact::where('token', 0)->get();
         return view('MainAdmin.Client_Queries', compact('data'));
     }
-    public function Reply_Queries(Request $req,$id)
+    public function Reply_Queries(Request $req, $id)
     {
         // return "work";
         $req->validate([
@@ -186,5 +169,10 @@ class MainAdminController extends Controller
 
         Mail::to($mail)->send(new ContactMail($details));
         return back()->with('info', 'Message Sent Successfully.');
+    }
+    public function MainAdminProductDetails($id)
+    {
+        $data = ProductListing::find($id);
+        return view('MainAdmin.ProductDetail', compact('data'));
     }
 }

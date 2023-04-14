@@ -8,6 +8,7 @@ use App\Models\Index;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\MAPDMail;
 use App\Models\ProductListing;
+use Illuminate\Contracts\Session\Session;
 
 class IndexController extends Controller
 {
@@ -87,10 +88,12 @@ class IndexController extends Controller
 
     public function MProductTable()
     {
+        $id = Session()->get('Mlogin');
+        $sessionid = Adminreg::find($id);
         $data = ProductListing::where('token', 1)->orderBy('updated_at', 'desc')->get();
 
       
-        return view('MainAdmin.index.Main-Product-Table', compact('data'));
+        return view('MainAdmin.index.Main-Product-Table', compact('data','sessionid'));
     }
     public function MainAdminProductListingdelete($id)
     {
