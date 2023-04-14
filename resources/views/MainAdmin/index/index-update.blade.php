@@ -18,7 +18,7 @@
                             Add Heading Data
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('Index-update-save', $data->id) }}" method="POST"
+                            <form action="{{ route('Blog-update-save', $data->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id">
@@ -28,16 +28,6 @@
                                         class="form-control">
                                     <span class="text-danger">
                                         @error('title')
-                                            {{ $message }}
-                                        @enderror
-                                    </span>
-                                </div>
-                                <div class="form-group">
-                                    <label class="mt-3" for="subtitle">SubTitle:-</label>
-                                    <input type="text" value="{{ $data->subtitle }}"id="subtitle" name="subtitle"
-                                        class="form-control">
-                                    <span class="text-danger">
-                                        @error('subtitle')
                                             {{ $message }}
                                         @enderror
                                     </span>

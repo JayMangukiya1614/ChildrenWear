@@ -29,7 +29,8 @@ class FrontendController extends Controller
 
   public function FrontBlog()
   {
-    return view('Frontend.Blog');
+     $data = Index::orderBy('created_at', 'desc')->get();
+    return view('Frontend.Blog',compact('data'));
   }
 
   public function FrontShopDetails()

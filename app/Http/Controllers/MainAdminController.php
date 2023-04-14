@@ -63,10 +63,8 @@ class MainAdminController extends Controller
         $del = Order::where('token', 3)->get()->count();
         $delet = (($del * 100) / $data);
         $delet = round($delet,2);
-        $deli = Order::where('is_set', 1)->get()->count();
-        $delivered = (($deli * 100) / $data);
-        $delivered = round($delivered,2);
-        return view('MainAdmin.MDashboard', compact('confirem', 'data', 'pending','delet','delivered'));
+      
+        return view('MainAdmin.MDashboard', compact('confirem', 'data', 'pending','delet'));
     }
     public function read()
     {

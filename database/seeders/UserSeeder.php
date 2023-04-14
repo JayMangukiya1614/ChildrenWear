@@ -26,13 +26,13 @@ class UserSeeder extends Seeder
     DB::table('indices')->insert([
       [
         'title' => "Welcome To Our Website",
-        'subtitle' => "Fashionable Dress",
+        'date' => "14-04-2023",
         'image' => 'b1.jpg',
       ],
 
       [
         'title' => "Welcome To Our Website",
-        'subtitle' => "Reasonable Price",
+        'date' => "14-04-2023",
         'image' => 'b2.jpg',
 
       ]
@@ -2306,6 +2306,130 @@ class UserSeeder extends Seeder
       ]
 
 
+    ]);
+    DB::table('orders')->insert([
+      [
+        'OI_ID' => "OI-0001",
+        'token' => "0",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0001",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ],
+      [
+        'OI_ID' => "OI-0002",
+        'token' => "0",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0002",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ], [
+        'OI_ID' => "OI-0003",
+        'token' => "0",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0003",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ], [
+        'OI_ID' => "OI-0004",
+        'token' => "1",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0004",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ], [
+        'OI_ID' => "OI-0005",
+        'token' => "1",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0005",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ],
+      [
+        'OI_ID' => "OI-0006",
+        'token' => "1",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0006",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ],
+      [
+        'OI_ID' => "OI-0007",
+        'token' => "3",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0007",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ],
+      [
+        'OI_ID' => "OI-0008",
+        'token' => "3",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0008",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ], [
+        'OI_ID' => "OI-0009",
+        'token' => "3",
+        'CI_ID' => "CI0001",
+        'product_id' => "P-0009",
+        'AD_ID' => "BH0001",
+        'age' => " 0-6(M)",
+        'color' => "Black",
+        'size' => "XS",
+        'quantity' => "1",
+        'date' => "2023-04-14",
+        'is_set' => "0",
+       
+      ],
     ]);
   }
 }
