@@ -35,10 +35,7 @@
                             y: {{ $confirem }},
                             name: "Confirm Order "
                         },
-                        {
-                            y: {{ $delivered }},
-                            name: "Delivered Order "
-                        },
+                        
 
 
                     ]

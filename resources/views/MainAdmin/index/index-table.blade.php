@@ -2,7 +2,7 @@
 
 
 @section('FrontAdmin')
-<h1 class="text-center" style="margin-top: 6rem">Index Table</h1>
+<h1 class="text-center" style="margin-top: 6rem">Blog Table</h1>
 
 <style>
     .image {
@@ -15,7 +15,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Title</th>
-                <th class="" scope="col">SubTitle</th>
+                <th class="" scope="col">Date</th>
                 <th class=""scope="col">Heading-Image</th>
                 <th scope="col">Action</th>
 
@@ -26,12 +26,12 @@
                 <tr>
                     <td scope="row">{{ $key + 1 }}</td>
                     <td class="text-wrap"style="max-width:150px;">{{ $data->title }}</td>
-                    <td class="text-wrap"style="max-width:150px;">{{ $data->subtitle }}</td>
+                    <td class="text-wrap"style="max-width:150px;">{{ $data->date }}</td>
                     <td><img width="100px" height="100px"
                             src="{{ !empty($data->image) ? url('ClientCss/img/cloths/index/' . $data->image) : url('images/default.jpeg') }}">
                     </td>
-                    <td><a class="btn btn-success" href="{{ route('Indexupdate', $data->id) }}">Update</a>
-                        <a class="btn btn-danger" href="{{ route('Indexdelete', $data->id) }}">Delete</a>
+                    <td><a class="btn btn-success" href="{{ route('Blogupdate', $data->id) }}">Update</a>
+                        <a class="btn btn-danger" href="{{ route('Blogdelete', $data->id) }}">Delete</a>
                     </td>
                 </tr>
             @endforeach
