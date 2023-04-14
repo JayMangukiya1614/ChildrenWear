@@ -27,10 +27,10 @@ class FrontendController extends Controller
     return view('Frontend.index', compact('data'));
   }
 
-  // public function FrontBlog()
-  // {
-  //   return view('Frontend.Blog');
-  // }
+  public function FrontBlog()
+  {
+    return view('Frontend.Blog');
+  }
 
   public function FrontShopDetails()
   {
