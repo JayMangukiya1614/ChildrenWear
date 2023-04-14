@@ -13,7 +13,7 @@
                     <th scope="col">Id</th>
                     <th scope="col">ProductImage</th>
                     <th scope="col">Category</th>
-                    <th scope="col">Admin Id</th>
+                    <th scope="col">Admin Name</th>
 
                     <th scope="col">Stock</th>
                     <th scope="col">ProductName</th>
@@ -39,7 +39,7 @@
                             @else
                                 <td>Girl</td>
                             @endif
-                            <td>{{ $data->AD_ID }}</td>
+                            <td>{{ $sessionid->firstname }} {{ $sessionid->lastname }}</td>
 
                             @if ($data->stock == 1)
                                 <td class="text-success">{{ $data->stock }}</td>
@@ -53,11 +53,12 @@
                             <td class="text-wrap"style="max-width:150px;">{{ $data->discount }}%</td>
                             <td class="text-wrap"style="max-width:150px;">{{ (float) $data->selling }}</td>
 
-                            <td class="text-wrap"style="max-width:200px;"><a
+                            <td class="text-wrap"style="max-width:200px;">
+                                <a class="btn btn-info mr-2" href="{{ route('Main-Admin-Product-Details', $data->id) }}">Details</a><a
                                     href="{{ route('Main-Admin-Product-Listing-delete', $data->id) }}"
-                                    class="btn btn-danger">Delete</i></a>
+                                    class="btn btn-danger ">Delete</i></a>
                             </td>
-                          
+
                         </tr>
                     @endforeach
                 @else

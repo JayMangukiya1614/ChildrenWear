@@ -64,8 +64,23 @@ class COrderController extends Controller
 
     }
     public function dashboard()
-    {
-        return view('content.dashboard.dashboards-analytics');
+    {$id = Session()->get('Alogin');
+        $sessionid = Adminreg::find($id);
+        $data = Order::where('AD_ID',$sessionid->AD_ID)->get()->count();
+        $pen = Order::where('token', 0)->where('AD_ID',$sessionid->AD_ID)->get()->count();
+        $pending = (($pen * 100) / $data);
+        $pending = round($pending,2);
+        $con = Order::where('token', 1)->where('AD_ID',$sessionid->AD_ID)->get()->count();
+        $confirem = (($con * 100) / $data);
+        $confirem = round($confirem,2);
+        $del = Order::where('token', 3)->where('AD_ID',$sessionid->AD_ID)->get()->count();
+        $delet = (($del * 100) / $data);
+        $delet = round($delet,2);
+        // $deli = Order::where('is_set', 1)->where('AD_ID',$sessionid->AD_ID)->get()->count();
+        // $delivered = (($deli * 100) / $data);
+        // $delivered = round($delivered,2);
+        // $confirmed =  $confirem - $delivered;
+        return view('content.dashboard.dashboards-analytics', compact('confirem', 'data', 'pending','delet'));
 
     }
 }
