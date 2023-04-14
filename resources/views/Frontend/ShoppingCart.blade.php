@@ -162,14 +162,7 @@
                 </table>
             </div>
             <div class="col-lg-4">
-                {{-- <form class="mb-5" action="">
-                    <div class="input-group">
-                        <input type="text" class="form-control p-4" placeholder="Coupon Code">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary">Apply Coupon</button>
-                        </div>
-                    </div>
-                </form> --}}
+                
                 <div class="card border-secondary mb-5">
                     <div class="card-header bg-secondary border-0">
                         <h4 class="font-weight-semi-bold m-0">Cart Summary</h4>
@@ -198,15 +191,6 @@
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">₹{{ round($final, 2) }}</h5>
                         </div>
-                        {{-- @php
-                            $stock = null;
-                        @endphp --}}
-                        {{-- @foreach ($cartitem as $cartitem)
-                            @if ($cartitem->products->stock != 1)
-                                $stock =2;
-                            @endif
-                        @endforeach --}}
-                        {{-- {{dd($stock)}} --}}
                         @if ($stock == 2)
 
                         <a href="" class="btn btn-block btn-primary my-3 py-3 " >Please Remove To Out Of Stock Item</a>

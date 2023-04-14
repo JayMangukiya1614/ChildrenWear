@@ -133,9 +133,7 @@
                 <div class="row">
                     <div class="receipt-header">
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <div class="receipt-left">
-
-                            </div>
+                            
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6 text-right">
                             <div class="receipt-right">
@@ -160,7 +158,7 @@
                         </div>
                         <div class="col-xs-4 col-sm-4 col-md-4">
                             <div class="receipt-left">
-                                <h3>Invoice No. {{ $data->OI_ID }}</h3>
+                                <h4>Invoice No. {{ $data->OI_ID }}</h4>
                             </div>
                         </div>
 

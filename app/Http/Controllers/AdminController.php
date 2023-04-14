@@ -255,12 +255,12 @@ class AdminController extends Controller
       $imagename = time() . '.' . $data['productimage']->extension();
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
-      // if (str_word_count($data['description']) > 10) {
-      //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
-      // }
-      // if (str_word_count($data['Ldescription']) > 20) {
-      //   return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
-      // }
+      if (str_word_count($data['description']) > 500) {
+        return back()->with('Description', 'Your Description is Long.. Maximum Use 450 Word');
+      }
+      if (str_word_count($data['Ldescription']) > 900) {
+        return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  900 Word');
+      }
 
       ProductListing::create($data);
 
@@ -328,7 +328,7 @@ class AdminController extends Controller
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
     }
-    // if ( str_word_count($data['description']) > 20) {
+    // if (str_word_count($data['description']) > 500) {
     //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
     // }
     // // return $des;

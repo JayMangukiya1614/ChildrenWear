@@ -75,6 +75,10 @@ class DropDownController extends Controller
         // return $id;
         $data = AddCart::find($id);
         $data->quantity = $data->quantity - 1;
+        if($data->quantity == 0)
+        {
+         return back()->with('error', 'You Are Not Minus For Quantity...');
+        }
         $data->update();
         return back()->with('Quantity', 'Quantity Minus Successfullu...');
     }

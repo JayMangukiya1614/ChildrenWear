@@ -54,7 +54,7 @@
 
                         <div class="col-md-4">
                             <label class="mt-5" for="shopname">Shop Name</label>
-                            <input name="shopname" value="{{ old('shopname') }}" id="shopname"type="text"
+                            <input name="shopname" value="{{$sessionid->shopname}}" readonly id="shopname"type="text"
                                 class="shadow-lg bg-white form-control">
                             <span class="text-danger">
                                 @error('shopname')
@@ -224,7 +224,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="mt-4" for="description">Short Description</label>
-                            <input name="description" id="description" class="form-control shadow-lg bg-white rounded-3"
+                            <input name="description" min="100" max="10000" id="description" class="form-control shadow-lg bg-white rounded-3"
                                 type="text" value="{{ old('description') }}" />
                             <span class="text-danger">
                                 @error('description')

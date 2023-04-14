@@ -88,7 +88,7 @@
                                     @enderror
                                 </span>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <label class="labels mt-3">Education</label>
                                 <select name="education" value="{{ old('education') }}" class="form-control "
                                     id="">
@@ -103,7 +103,7 @@
                                         {{ $message }}
                                     @enderror
                                 </span>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6 form-group">
                                 <label>City</label>
                                 <input class="form-control" type="text" name="City" value="{{ $data->City }}">
