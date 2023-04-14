@@ -169,7 +169,7 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('quantityminus/{id}', [DropDownController::class, 'quantityminus'])->name('quantityminus');
   Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
   Route::post('Address-Save/{id}', [DropDownController::class, 'AddressSave'])->name('Address-Save');
-  
+
 
   Route::get('Confirm-Order', [DropDownController::class, 'ConfirmOrder'])->name('Confirm-Order');
 
@@ -196,7 +196,7 @@ Route::get('Fshop', [FrontendController::class, 'FrontShop'])->name('Fshop');
 Route::get('Fcontact', [FrontendController::class, 'FrontContact'])->name('Fcontact');
 Route::get('Fdetails', [FrontendController::class, 'FrontShopDetails'])->name('Fdetails');
 Route::get('FCheckout', [FrontendController::class, 'FrontCheckout'])->name('Fcheckout');
-// Route::get('FBlog', [FrontendController::class, 'FrontBlog'])->name('Fblog');
+Route::get('FBlog', [FrontendController::class, 'FrontBlog'])->name('Fblog');
 
 
 
