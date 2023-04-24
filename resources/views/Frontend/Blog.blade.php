@@ -23,20 +23,20 @@
         <div class="container">
             <div class="row">
                 @foreach ($data    as  $data)
-                    
+
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="blog__item">
                         <div class="blog__item__pic set-bg" data-setbg="ClientCss/img/blog/blog-1.jpg"
                         style='background-image: url("ClientCss/img/cloths/index/{{$data->image}}");'></div>
                         <div class="blog__item__text">
                             <span><img src="{{ asset('ClientCss\img\blogicon\calendar.png') }}" alt="">{{$data->date}}</span>
-                            <h5>{{$data->title}}</h5>
-                           
+                            <h5> {{ $data->title }}</h5>
+
                         </div>
                     </div>
                 </div>
                 @endforeach
-               
+
             </div>
         </div>
     </section>

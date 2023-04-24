@@ -176,7 +176,7 @@
                             <select name="state" value="{{ old('state') }}"
                                 class="form-control  shadow-lg bg-white rounded-3" name="state" id="">
                                 <option selected value="Goa">Goa</option>
-                                <option value="Gujrat">Gujrat</option>
+                                <option value="Gujrat">Gujarat</option>
                                 <option value="Kerala">Kerala</option>
                             </select>
                             <span class="text-danger">
@@ -189,7 +189,7 @@
                             <label class="mt-4" for="City">City</label>
                             <select name="city" value="{{ old('city') }}"
                                 class="form-control  shadow-lg bg-white rounded-3" id="city">
-                                <option selected value="Delhi">Delhi</option>
+                                <option selected value="Surat">Surat</option>
                                 <option value="Bombay">Bombay</option>
                                 <option value="Banglore">Banglore</option>
                             </select>

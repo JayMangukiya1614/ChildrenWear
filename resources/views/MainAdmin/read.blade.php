@@ -1,7 +1,7 @@
 @extends('MainAdmin.Main.Master')
 
 @section('FrontAdmin')
-    <h1 class="text-center" style="margin-top: 6rem; margin-bottom: 6rem">Admin Pending Request </h1>
+    <h1 class="text-center" style="margin-top: 6rem; margin-bottom: 6rem">Sub Admin Pending Request </h1>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

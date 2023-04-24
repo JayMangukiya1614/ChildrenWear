@@ -4,7 +4,7 @@
 
 @section('vendor-style')
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
-@endsection
+@endsection 
 
 @section('vendor-script')
     <script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
@@ -15,34 +15,34 @@
         <script>
             window.onload = function() {
 
-                var chart = new CanvasJS.Chart("chartContainer", {
-                    exportEnabled: true,
-                    animationEnabled: true,
-                    title: {
-                        text: "Order Chart"
+        var chart = new CanvasJS.Chart("chartContainer", {
+            exportEnabled: true,
+            animationEnabled: true,
+            title: {
+                text: "Order Chart"
+            },
+            legend: {
+                cursor: "pointer",
+                itemclick: explodePie
+            },
+            data: [{
+                type: "pie",
+                showInLegend: true,
+                toolTipContent: "{name}: <strong>{y}%</strong>",
+                indexLabel: "{name} - {y}%",
+                dataPoints: [{
+                        y: {{ $pending }},
+                        name: "Total Order",
+                        exploded: true
                     },
-                    legend: {
-                        cursor: "pointer",
-                        itemclick: explodePie
+                    {
+                        y: {{ $delet }},
+                        name: "Delete Order"
                     },
-                    data: [{
-                        type: "pie",
-                        showInLegend: true,
-                        toolTipContent: "{name}: <strong>{y}%</strong>",
-                        indexLabel: "{name} - {y}%",
-                        dataPoints: [{
-                                y: {{ $pending }},
-                                name: "Total Order",
-                                exploded: true
-                            },
-                            {
-                                y: {{ $delet }},
-                                name: "Delete Order"
-                            },
-                            {
-                                y: {{ $confirem }},
-                                name: "Confirm Order "
-                            },
+                    {
+                        y: {{ $confirem }},
+                        name: "Confirm Order "
+                    },
 
 
 
@@ -66,11 +66,11 @@
     @endif
 
 
-    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-
-
-
     <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     <script>
         @if (Session::has('LoginSuccess'))
@@ -94,9 +94,8 @@
 
 @section('content')
 
-    <h1>Dashboard</h1>
+    <div id="chartContainer" style="height: 490px; width: 100%;margin-top:2rem"></div>
 
     <p></p>
-
 
 @endsection
