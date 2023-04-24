@@ -39,7 +39,7 @@
                             <div class="w-100">
                                 <p class="social-media d-flex justify-content-end" >
                                     <a href="#"
-                                        class="social-icon d-flex align-items-center justify-content-center"  ><span 
+                                        class="social-icon d-flex align-items-center justify-content-center"  ><span
                                             class="fa fa-facebook"></span></a>
                                     <a href="#"
                                         class="social-icon d-flex align-items-center justify-content-center"><span
@@ -53,7 +53,7 @@
                                 <div class="icon d-flex align-items-center justify-content-center"
                                     style="background-color: #D19C97"><span class="fa fa-user"></span></div>
                                 <input type="text" name="email" value="{{ old('email') }}"
-                                    class="form-control rounded-left" placeholder="Username">
+                                    class="form-control rounded-left" placeholder="User Email">
                                 <span class="text-danger">
                                     @error('email')
                                         {{ $message }}

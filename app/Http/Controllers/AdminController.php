@@ -37,9 +37,9 @@ class AdminController extends Controller
 
     $data = Adminreg::where('email', '=', $req->email)->first();
     if ($data != null) {
-       $mail = $data->email;
+      $mail = $data->email;
       $details = [];
-       $req->Session()->put('A-F-Password', $data->id);
+      $req->Session()->put('A-F-Password', $data->id);
       Mail::to($mail)->send(new AdminForgetPasswordMail($details));
       return back()->with('Check', 'Email Sent Successfully.. Please Check Your Email Box');
     } else {
@@ -53,7 +53,7 @@ class AdminController extends Controller
     $req->validate([
       'newpass' => 'required | max:10| min:4 ',
       'confirmpass' => 'required | max:10| min:4',
-      
+
     ]);
     $id = Session()->get('A-F-Password');
 
@@ -119,14 +119,18 @@ class AdminController extends Controller
 
     ]);
 
+
     $data = DB::table('adminregs')->where([['email', '=', $request->email]])->get()->first();
     if ($data) {
 
       if ($data->token == 1) {
         if (Hash::check($request->password, $data->password)) {
-
-          $request->Session()->put('Alogin', $data->id);
-          return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
+          $check = Session()->get('Alogin');
+          if ($check == null) {
+            $request->Session()->put('Alogin', $data->id);
+            return redirect(route('dashboard-analytics'))->with('LoginSuccess', "Login Successfully......!");
+          }
+          return redirect(route('dashboard-analytics'))->with('error', 'You Have Already Login');
         } else {
           return back()->with('Password', 'Password not matched');
         }
@@ -227,8 +231,8 @@ class AdminController extends Controller
   public function AdminProductListing()
   {
     $id = Session()->get('Alogin');
-     $sessionid = Adminreg::find($id);
-    return view('admin.listing',compact('sessionid'));
+    $sessionid = Adminreg::find($id);
+    return view('admin.listing', compact('sessionid'));
   }
 
   public function AdminProductSave(ProductRequest $req)
@@ -255,12 +259,12 @@ class AdminController extends Controller
       $imagename = time() . '.' . $data['productimage']->extension();
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
-      // if (str_word_count($data['description']) > 10) {
-      //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
-      // }
-      // if (str_word_count($data['Ldescription']) > 20) {
-      //   return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  1000 Word');
-      // }
+      if (str_word_count($data['description']) > 500) {
+        return back()->with('Description', 'Your Description is Long.. Maximum Use 450 Word');
+      }
+      if (str_word_count($data['Ldescription']) > 900) {
+        return back()->with('LDescription', 'Your Long Description is Also Long.. Maximum Use  900 Word');
+      }
 
       ProductListing::create($data);
 
@@ -281,11 +285,11 @@ class AdminController extends Controller
 
     $search = $Req['search'] ?? "";
     if ($search != "") {
-      $data = ProductListing::where([['PI_ID', 'LIKE', "%$search%"]])->get();
+      $data = ProductListing::where([['PI_ID', 'LIKE', "%$search%"]])->where('AD_ID', $check->AD_ID)->get();
       return view('admin.Product-table', compact('data', 'heading', 'search'));
     }
     // $searching = $search;
-    return view('admin.Product-table', compact('data', 'heading', 'search'));
+    return view('admin.Product-table', compact('data', 'heading', 'search'))->with('error','Data Not Found');
   }
 
   public function AdminProductDeleteTable()
@@ -328,7 +332,7 @@ class AdminController extends Controller
       $data['productimage']->move(public_path('ProductImages'), $imagename);
       $data['productimage'] = $imagename;
     }
-    // if ( str_word_count($data['description']) > 20) {
+    // if (str_word_count($data['description']) > 500) {
     //   return back()->with('Description', 'Your Description is Long.. Maximum Use 500 Word');
     // }
     // // return $des;

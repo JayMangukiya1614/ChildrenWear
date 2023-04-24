@@ -1,7 +1,7 @@
 @extends('MainAdmin.Main.Master')
 
 @section('FrontAdmin')
-    <h1 style="margin-top: 6rem">Dashboard</h1>
+    <h1 style="margin-top: 6rem; margin-bottom:4rem; text-align:center">Dashboard</h1>
 
 
     <script>
@@ -35,10 +35,7 @@
                             y: {{ $confirem }},
                             name: "Confirm Order "
                         },
-                        {
-                            y: {{ $delivered }},
-                            name: "Delivered Order "
-                        },
+
 
 
                     ]

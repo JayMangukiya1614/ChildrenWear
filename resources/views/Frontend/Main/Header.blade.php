@@ -2,23 +2,6 @@
 <div class="container-fluid">
     <div class="row bg-secondary py-2 px-xl-5" style="padding-bottom: 0px !important;">
         <div class="col-lg-6 ">
-            {{-- <div class="d-inline-flex ">
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a class="text-dark px-2" href="">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a class="text-dark pl-2" href="">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div> --}}
             <div class="col-lg-3 d-lg-block">
                 <a href="" class="text-decoration-none">
                     <img src="{{ asset('ClientCss\img\logofooter.jpg') }}" alt="" style="height : 50px">
@@ -47,9 +30,6 @@
                                     Edit Profile</a>
                                 <a href="{{ route('Fpassword') }}" style="font-size: 15px"><i
                                         class="fa-solid fa-key mr-1"></i> Change Password</a>
-
-                                <a href="{{ route('Admin-Login') }}" style="font-size: 15px"><i
-                                        class="fa-solid fa-right-to-bracket mr-1"></i></i> Admin Login</a>
                             </div>
                         </div>
                         <a class="" style="color:black;margin-left:20px;text-decoration:none"

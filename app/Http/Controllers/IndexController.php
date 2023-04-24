@@ -12,73 +12,72 @@ use Illuminate\Contracts\Session\Session;
 
 class IndexController extends Controller
 {
-    public function indexform()
+    public function Blogform()
     {
         return view('MainAdmin.index.index-form');
     }
-    public function Indexsave(Request $request)
+    public function Blogsave(Request $request)
 
     {
         $request->validate([
 
             'title' =>  'required',
-            'subtitle' =>  'required',
             'image' =>  'required',
         ]);
-        $title = $request->title;
-        $subtitle = $request->subtitle;
         $image = $request->image;
         $imagename = time() . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('ClientCss/img/cloths/index/'), $imagename);
         $data = new Index();
-        $data->title = $title;
-        $data->subtitle = $subtitle;
+        $data->title = $request->title;
+        $t = time();
+        $data->date = (date("Y-m-d", $t));
         $data->image = $imagename;
         $data->save();
-        return back()->with('Save', " Index Data Succesfully Add....!!");
+        return back()->with('success', " Blog Add Successfully....!!");
     }
 
-    public function Indextable()
+    public function Blogtable()
     {
         $data = Index::all();
 
         return view('MainAdmin.index.index-table', compact('data'));
     }
-    public function Indexupdate($id)
+    public function Blogupdate($id)
     {
 
         $data = Index::find($id);
         return view('MainAdmin.index.index-update', compact('data'));
     }
-    public function Indexupdatesave(Request $request, $id)
+    public function Blogupdatesave(Request $request, $id)
     {
         $request->validate([
 
             'title' =>  'required',
-            'subtitle' =>  'required',
         ]);
         $data = Index::find($id);
         if ($request->image == NULL) {
             // return"work";
             $data->title = $request->title;
-            $data->subtitle = $request->subtitle;
+            $t = time();
+            $data->date = (date("Y-m-d", $t));
             $data->update();
-            return  redirect(route('Indextable'))->with('UpdateSave', " Index Data Updated Succesfully Add....!!");
+            return  redirect(route('Blogtable'))->with('UpdateSave', " Blog Updated Succesfully Add....!!");
         }
 
         $title = $request->title;
-        $subtitle = $request->subtitle;
+     
         $image = $request->image;
         $imagename = time() . '.' . $image->extension();
         $image->move(public_path('ClientCss/img/cloths/index/'), $imagename);
 
         $data->title = $title;
-        $data->subtitle = $subtitle;
+        $t = time();
+        $data->date = (date("Y-m-d", $t));
         $data->image = $imagename;
         $data->update();
-        return  redirect(route('Indextable'))->with('UpdateSave', " Index Data Updated Succesfully Add....!!");
+        return  redirect(route('Blogtable'))->with('UpdateSave', " Blog Updated Succesfully Add....!!");
     }
-    public function Indexdelete($id)
+    public function Blogdelete($id)
     {
         // return("work");
         $delete = Index::find($id);

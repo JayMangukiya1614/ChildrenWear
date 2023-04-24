@@ -13,8 +13,8 @@
         <div class="container">
             <div class="row">
                     
-                <h2>Wèłçømë ţő 𝓑𝓪𝓫𝔂  •°HuB°•Çøm</h2>
-                <p> ꧁𓊈𒆜SORRY𒆜𓊉꧂𝓕𝓞𝓡 Your Request Are not approved by BabyHub </p>
+                <h2>Baby Hub </h2>
+                <p> ꧁𓊈𒆜SORRY𒆜𓊉꧂ For Your Request Are not approved by BabyHub </p>
             </div>
         </div>
 </center>

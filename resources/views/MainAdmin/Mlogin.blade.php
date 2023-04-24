@@ -45,7 +45,7 @@
                         class="img-fluid" alt="Sample image">
                 </div>
                 <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-                  <h3 style="text-align: center">Admin Login</h3>
+                  <h3 style="text-align: center">Super Admin Login</h3>
                     <form action="{{ route('Mlogindata') }}" method="POST">
                         @csrf
 

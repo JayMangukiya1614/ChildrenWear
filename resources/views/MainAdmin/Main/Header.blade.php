@@ -15,8 +15,8 @@
         <div class="counter d-flex justify-content-center">
             <!-- <div class="row justify-content-center"> -->
             <div class="col">
-                {{-- <strong class="number">892</strong>
-                <span class="number-label">Posts</span> --}}
+                <strong class="number">{{Post()}}</strong>
+                <span class="number-label">Posts</span>
             </div>
             <div class="col">
                 <strong class="number">{{Subscribe()}}</strong>
@@ -58,7 +58,7 @@
                         </div>
                 </li>
                 <li><a href="{{route('Queries')}}"><span class="icon-notifications mr-3"></span> Client Queries</a></li>
-                <li><a href="{{url('/Index-form')}}"><span class="icon-notifications mr-3"></span>Blog Form</a></li>
+                <li><a href="{{url('/Blog-form')}}"><span class="icon-notifications mr-3"></span>Blog Form</a></li>
                 {{-- <li><a href="#"><span class="icon-location-arrow mr-3"></span>Direct</a></li>
                 <li><a href="#"><span class="icon-pie-chart mr-3"></span>Stats</a></li> --}}
                 <li><a href="{{ url('/Madmin-logout') }}"><span class="icon-sign-out mr-3"></span>Sign out</a></li>

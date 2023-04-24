@@ -14,10 +14,10 @@
             <div class="col-md-6 offset-md-3">
                 <div class="card">
                     <div class="card-header">
-                        Add Heading Data
+                        Add Blog Data
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('Indexsave') }}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('Blogsave') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id">
                         <div class="form-group">
@@ -25,15 +25,6 @@
                             <input type="text" id="title" name="title" class="form-control">
                             <span class="text-danger">
                                 @error('title')
-                                    {{ $message }}
-                                @enderror
-                            </span>
-                        </div>
-                        <div class="form-group">
-                            <label class="mt-3" for="subtitle">SubTitle:-</label>
-                            <input type="text" id="subtitle" name="subtitle" class="form-control">
-                            <span class="text-danger">
-                                @error('subtitle')
                                     {{ $message }}
                                 @enderror
                             </span>
@@ -48,7 +39,7 @@
                             </span>
                         </div>
                         <button type="submit" class="btn btn-info mt-3">Submit</button>
-                        <a href="{{route('Indextable')}}"class="btn btn-secondary float-right mt-3">Table View</a>
+                        <a href="{{route('Blogtable')}}"class="btn btn-secondary float-right mt-3">Table View</a>
                         </form>
                     </div>
                 </div>

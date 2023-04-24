@@ -35,7 +35,7 @@
                     <th scope="col">Product Image</th>
 
                     <th scope="col">OI_ID</th>
-                    <th scope="col">CI_ID</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Size</th>
                     <th scope="col">Color</th>
                     <th scope="col">Age</th>
@@ -55,7 +55,7 @@
                             </td>
                             <td>{{ $data->OI_ID }}</td>
 
-                            <td>{{ $data->CI_ID }}</td>
+                            <td>{{ $data->date }}</td>
                             <td>{{ $data->size }}</td>
                             <td>{{ $data->color }}</td>
                             <td>{{ $data->age }}</td>
