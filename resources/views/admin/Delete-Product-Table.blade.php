@@ -11,7 +11,7 @@
 
 @section('content')
      <div>
-        <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Product Listing </h1>
+        <h1 class="text-center" style="margin-top: 2rem;font-size:2.5rem">Delete Product list </h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="row mt-5">
