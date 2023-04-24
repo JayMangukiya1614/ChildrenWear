@@ -41,7 +41,8 @@
       "app/helpers/wishlist.php",
       "app/helpers/AProfile.php",
       "app/helpers/subscribe.php",
-      "app/helpers/SubscribeList.php"
+      "app/helpers/SubscribeList.php",
+      "app/helpers/Post.php"
 
 
 
