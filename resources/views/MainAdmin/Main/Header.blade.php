@@ -15,8 +15,8 @@
         <div class="counter d-flex justify-content-center">
             <!-- <div class="row justify-content-center"> -->
             <div class="col">
-                {{-- <strong class="number">892</strong>
-                <span class="number-label">Posts</span> --}}
+                <strong class="number">{{Post()}}</strong>
+                <span class="number-label">Posts</span>
             </div>
             <div class="col">
                 <strong class="number">{{Subscribe()}}</strong>

@@ -21,7 +21,7 @@ class COrderController extends Controller
         //  $Corder = Order::all();
         // $heading = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->first();
 
-        $data = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->get();
+        $data = Order::where('AD_ID', $Admin->AD_ID)->where('token', 0)->orderBy('created_at', 'desc')->get();
 
         return view('admin.ClientPOrder', compact('data', 'Admin'));
     }
@@ -59,28 +59,31 @@ class COrderController extends Controller
         $session = Adminreg::find($id);
         $data = Order::where('AD_ID', $session->AD_ID)->where('date', $req->date)->where('token', 1)->get();
         $date = $req->date;
-        return view('admin.ClientBillList',compact('data','session','date'));
-   
-
+        return view('admin.ClientBillList', compact('data', 'session', 'date'));
     }
     public function dashboard()
-    {$id = Session()->get('Alogin');
+    {
+        $id = Session()->get('Alogin');
         $sessionid = Adminreg::find($id);
-        $data = Order::where('AD_ID',$sessionid->AD_ID)->get()->count();
-        $pen = Order::where('token', 0)->where('AD_ID',$sessionid->AD_ID)->get()->count();
-        $pending = (($pen * 100) / $data);
-        $pending = round($pending,2);
-        $con = Order::where('token', 1)->where('AD_ID',$sessionid->AD_ID)->get()->count();
-        $confirem = (($con * 100) / $data);
-        $confirem = round($confirem,2);
-        $del = Order::where('token', 3)->where('AD_ID',$sessionid->AD_ID)->get()->count();
-        $delet = (($del * 100) / $data);
-        $delet = round($delet,2);
+        $check = Order::where('AD_ID', $sessionid->AD_ID)->first();
+        if ($check != null) {
+
+            $data = Order::where('AD_ID', $sessionid->AD_ID)->get()->count();
+            $pen = Order::where('token', 0)->where('AD_ID', $sessionid->AD_ID)->get()->count();
+            $pending = (($pen * 100) / $data);
+            $pending = round($pending, 2);
+            $con = Order::where('token', 1)->where('AD_ID', $sessionid->AD_ID)->get()->count();
+            $confirem = (($con * 100) / $data);
+            $confirem = round($confirem, 2);
+            $del = Order::where('token', 3)->where('AD_ID', $sessionid->AD_ID)->get()->count();
+            $delet = (($del * 100) / $data);
+            $delet = round($delet, 2);
+            return view('content.dashboard.dashboards-analytics', compact('confirem', 'data', 'pending', 'delet','check'));
+        }
         // $deli = Order::where('is_set', 1)->where('AD_ID',$sessionid->AD_ID)->get()->count();
         // $delivered = (($deli * 100) / $data);
         // $delivered = round($delivered,2);
         // $confirmed =  $confirem - $delivered;
-        return view('content.dashboard.dashboards-analytics', compact('confirem', 'data', 'pending','delet'));
-
+        return view('content.dashboard.dashboards-analytics',compact('check'));
     }
 }
