@@ -7,9 +7,7 @@
     <div class="side-inner">
 
         <div class="profile">
-            <img src="images/default.jpeg" style="width:50px; height:50px;" alt="Image" class="img-fluid">
-            <h3 class="name">Super Admin</h3>
-            <span class="country">India Delhi</span>
+            <h6>{{Super()}}</h6>
         </div>
 
         <div class="counter d-flex justify-content-center">
@@ -22,10 +20,7 @@
                 <strong class="number">{{Subscribe()}}</strong>
                 <span class="number-label">Subscriber</span>
             </div>
-            <div class="col">
-                {{-- <strong class="number">150</strong>
-                <span class="number-label">Following</span> --}}
-            </div>
+            
             <!-- </div> -->
         </div>
 

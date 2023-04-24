@@ -25,17 +25,42 @@ class UserSeeder extends Seeder
     ]);
     DB::table('indices')->insert([
       [
-        'title' => "Welcome To Our Website",
+        'title' => "New Fashionable Outfits",
         'date' => "14-04-2023",
-        'image' => 'b1.jpg',
+        'image' => 'blog-2.jpg',
       ],
 
       [
+        'title' => "Fashionable Kids",
+        'date' => "14-04-2023",
+        'image' => 'blog-3.jpg',
+
+      ],
+      [
+        'title' => "A Wedding Arrivals",
+        'date' => "14-04-2023",
+        'image' => 'blog-4.jpg',
+
+      ],
+      [
+        'title' => "The Luxury Collection",
+        'date' => "14-04-2023",
+        'image' => 'blog-5.jpg',
+
+      ],
+      [
+        'title' => "Our New Arraivals",
+        'date' => "14-04-2023",
+        'image' => 'blog-6.jpg',
+
+      ],
+      [
         'title' => "Welcome To Our Website",
         'date' => "14-04-2023",
-        'image' => 'b2.jpg',
+        'image' => 'blog-7.jpg',
 
       ]
+
     ]);
     DB::table('adminregs')->insert([
       [

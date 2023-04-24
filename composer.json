@@ -42,7 +42,8 @@
       "app/helpers/AProfile.php",
       "app/helpers/subscribe.php",
       "app/helpers/SubscribeList.php",
-      "app/helpers/Post.php"
+      "app/helpers/Post.php",
+      "app/helpers/Super.php"
 
 
 
