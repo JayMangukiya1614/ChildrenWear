@@ -94,8 +94,6 @@ Route::group(['middleware' => ['Alogin']], function () {
   Route::get('/downloadPDF/{$id}', [COrderController::class, 'downloadPDF'])->name('abc');
   Route::get('/Dashboard', [COrderController::class, 'dashboard'])->name('dashboard-analytics');
   Route::get('/Client-Bill-List', [COrderController::class, 'ClientBillList'])->name('Client-Bill-List');
-
-
 });
 
 
@@ -140,10 +138,7 @@ Route::group(['middleware' => ['Mlogin']], function () {
 
 
   Route::get('/Reply-Queries/{id}', [MainAdminController::class, 'Reply_Queries'])->name('reply-queries');
-  Route::get('/Main-Admin-Product-Details/{id}', [MainAdminController::class, 'MainAdminProductDetails'])->name('Main-Admin-Product-Details');
-
-
-
+  Route::post('/Main-Admin-Product-Details/{id}', [MainAdminController::class, 'MainAdminProductDetails'])->name('Main-Admin-Product-Details');
 });
 
 
@@ -188,7 +183,6 @@ Route::group(['middleware' => ['Userlogin']], function () {
   Route::get('product-details/{id}', [FrontendController::class, 'productdetails'])->name('product-details');
   Route::get('Subscribe', [DropDownController::class, 'Subscribe'])->name('Subscribe');
   Route::get('Contact', [DropDownController::class, 'Contact'])->name('Contact');
-
 });
 
 Route::get('/', [FrontendController::class, 'FrontIndex'])->name('Findex');
