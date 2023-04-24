@@ -153,7 +153,7 @@
                                                     {{ $message }}
                                                 @enderror
                                             </span>
-                                            <input type="date" value="{{old('birthdate')}}" name="birthdate" id="birthdate"
+                                            <input type="date" max="<?= date('Y-m-d') ?>" value="{{old('birthdate')}}" name="birthdate" id="birthdate"
                                                 class="form-control form-control-lg" />
                                             <label class="form-label" for="birthdate">Birthdate</label>
                                         </div>

@@ -171,7 +171,7 @@
                         <div class="d-flex justify-content-between mb-3 pt-1">
 
                             <h6 class="font-weight-medium">Subtotal</h6>
-                            <h6 id="subtotal" class="font-weight-medium">₹.{{ $subtotal }}</h6>
+                            <h6 id="subtotal" class="font-weight-medium">₹{{ $subtotal }}</h6>
                         </div>
                         <div class="d-flex justify-content-between">
                             <h6 class="font-weight-medium">Shipping</h6>

@@ -22,11 +22,11 @@ class DropDownController extends Controller
     public function Products(Request $req, $id)
     {
         // return $req->all();
-        $data = ProductListing::where('collection', $id)->get();
-        $latest = ProductListing::where('collection', $id)->get()->first();
+        $data = ProductListing::where('collection', $id)->where('token',1)->get();
+        $latest = ProductListing::where('collection', $id)->where('token',1)->get()->first();
         $search = $req['search'] ?? "";
         if ($search != "") {
-            $data = ProductListing::where('productname', 'LIKE', "%$search%")->where('collection', $id)->get();
+            $data = ProductListing::where('productname', 'LIKE', "%$search%")->where('collection', $id)->where('token',1)->get();
             return view('Frontend.Shop', compact('data', 'search', 'latest'));
         }
 

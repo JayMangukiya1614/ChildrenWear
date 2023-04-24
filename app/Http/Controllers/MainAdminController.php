@@ -125,10 +125,10 @@ class MainAdminController extends Controller
         ];
 
         Mail::to($mail)->send(new DRequestMail($details));
-        //  return "Email sent ";
+
         $data->save();
 
-        return back()->with('Delete', " Account Deleted Successfully.....!");
+        return redirect (route('delete-request-show'))->with('error', " Account Deleted Successfully.....!");
     }
     public function deleterequestshow()
     {

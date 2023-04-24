@@ -29,8 +29,8 @@ class FrontendController extends Controller
 
   public function FrontBlog()
   {
-     $data = Index::orderBy('created_at', 'desc')->get();
-    return view('Frontend.Blog',compact('data'));
+    $data = Index::orderBy('created_at', 'desc')->get();
+    return view('Frontend.Blog', compact('data'));
   }
 
   public function FrontShopDetails()
@@ -209,8 +209,13 @@ class FrontendController extends Controller
 
     if ($CheckLogin) {
       if (Hash::check($req->password, $CheckLogin->Password)) {
-        $req->Session()->put('ULogin', $CheckLogin->id);
-        return redirect(route('Findex'))->with('LoginSuccess', "Login Successfully......!");
+        $check = Session()->get('ULogin');
+        if ($check == null) {
+
+          $req->Session()->put('ULogin', $CheckLogin->id);
+          return redirect(route('Findex'))->with('LoginSuccess', "Login Successfully......!");
+        }
+        return redirect(route('Findex'))->with('error', "You Have Already Login");
       } else {
         return back()->with('Password', 'Password is not matched');
       }

@@ -86,6 +86,30 @@ class UserSeeder extends Seeder
         'message' => "I hope you  you are accepet my account request",
 
       ],
+      [
+        'AD_ID' => "BH0003",
+        'token' => "1",
+        'profileimage' => 'default.jpeg',
+        'firstname' => "Mangukiya",
+        'middlename' => "Jay",
+        'lastname' => "Dhirubhai",
+        'shopname' => "Jem's Creation",
+        'pincode' => "395010",
+        'education' => "Postgraduate",
+        'gender' => "Male",
+        'state' => "Goa",
+        'city' => "Delhi",
+        'mobilenumber' => "1234567891",
+        'gstno' => "08AAGFF2194N1Z1",
+        'bankname' => "YES BANK",
+        'branchname' => "VARACHA",
+        'ifsccode' => "YESB0000400",
+        'email' => "jaymangukiya1614@gmail.com",
+        'password' => Hash::make('Mangukiya@123'),
+        'address' => "Admin",
+        'message' => "I hope you  you are accepet my account request",
+
+      ],
 
 
     ]);
@@ -114,7 +138,7 @@ class UserSeeder extends Seeder
       // SHIRTS //
 
       [
-        'AD_ID' => "BH0001 ",
+        'AD_ID' => "BH0003 ",
         'token' => "1",
         'PI_ID' => "P-0001",
         'shopname' => " Jame's Creation",
@@ -704,7 +728,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0001 ",
         'token' => "1",
-        'PI_ID' => "P-0026",
+        'PI_ID' => "P-0048",
         'shopname' => " Jame's Creation",
         'category' => "1",
         'productname' => "Cotton Blend Full Sleeves Adventure time Text Printed Sweat Shirt ",
@@ -1200,7 +1224,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002",
         'token' => "1",
-        'PI_ID' => "P-0048",
+        'PI_ID' => "P-0049",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "Kids Full Sleeve Denim Top & Skirt Set Printed",
@@ -1222,7 +1246,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
-        'PI_ID' => "P-0049",
+        'PI_ID' => "P-0050",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "Kids Full Sleeve Denim Top & Skirt Set Printed",
@@ -1244,7 +1268,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
-        'PI_ID' => "P-0050",
+        'PI_ID' => "P-0051",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "Stylish Tshirt & Skirt With Blazer",
@@ -1266,7 +1290,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
-        'PI_ID' => "P-0051",
+        'PI_ID' => "P-0052",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "White Shirt and Blue Skirt",
@@ -1288,7 +1312,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
-        'PI_ID' => "P-0052",
+        'PI_ID' => "P-0053",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "Stylish White Hoddie and Printed Skirt",
@@ -1310,7 +1334,7 @@ class UserSeeder extends Seeder
       [
         'AD_ID' => "BH0002 ",
         'token' => "1",
-        'PI_ID' => "P-0053",
+        'PI_ID' => "P-0096",
         'shopname' => " Jame's Creation",
         'category' => "2",
         'productname' => "Solid Half Sleeves Dark Green Tee With Pants",
@@ -2320,6 +2344,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ],
       [
@@ -2334,6 +2360,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ], [
         'OI_ID' => "OI-0003",
@@ -2347,6 +2375,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ], [
         'OI_ID' => "OI-0004",
@@ -2359,7 +2389,9 @@ class UserSeeder extends Seeder
         'size' => "XS",
         'quantity' => "1",
         'date' => "2023-04-14",
-        'is_set' => "0",
+        'is_set' => "1",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ], [
         'OI_ID' => "OI-0005",
@@ -2372,7 +2404,9 @@ class UserSeeder extends Seeder
         'size' => "XS",
         'quantity' => "1",
         'date' => "2023-04-14",
-        'is_set' => "0",
+        'is_set' => "1",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ],
       [
@@ -2386,7 +2420,9 @@ class UserSeeder extends Seeder
         'size' => "XS",
         'quantity' => "1",
         'date' => "2023-04-14",
-        'is_set' => "0",
+        'is_set' => "1",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ],
       [
@@ -2401,6 +2437,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ],
       [
@@ -2415,6 +2453,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ], [
         'OI_ID' => "OI-0009",
@@ -2428,6 +2468,8 @@ class UserSeeder extends Seeder
         'quantity' => "1",
         'date' => "2023-04-14",
         'is_set' => "0",
+         'created_at' => '2023-02-25 04:24:38',
+        'updated_at' => '2023-02-25 04:24:42',
        
       ],
     ]);

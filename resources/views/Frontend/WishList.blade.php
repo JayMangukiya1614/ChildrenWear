@@ -190,7 +190,7 @@
                             <thead>
                                 <tr>
                                     <th width="30%">Product Name</th>
-                                    <th width="15%">Product Id</th>
+                                    {{-- <th width="15%">Product Id</th> --}}
                                     <th width="15%">Product Price</th>
                                     <th width="15%">Stock Status</th>
                                     <th width="20%">Cart</th>
@@ -212,7 +212,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td width="15%">{{ $data->product_id }}</td>
+                                        {{-- <td width="15%">{{ $data->product_id }}</td> --}}
                                         <td width="15%" class="price">₹{{ $data->wishlist->selling }}</td>
                                         @if ($data->wishlist->stock != 1)
                                             <td width="15%"><span class="in-stock-box">Out Of Stock</span></td>
