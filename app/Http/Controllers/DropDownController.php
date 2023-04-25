@@ -150,9 +150,12 @@ class DropDownController extends Controller
     }
     public function clientOrderDetails($id)
     {
-        $data = Order::find($id);
-
-        return view('Frontend.OrderTable.POrderDetails', compact('data'));
+      $orderdata = Order::find($id);
+      $productdata = ProductListing::where('PI_ID',$orderdata->product_id)->first();
+      
+    return response()->json(['success' => true, 'orderdata' => $orderdata , 'productdata' => $productdata ]);
+      
+        // return view('Frontend.OrderTable.POrderDetails', compact('data'));
     }
     public function COrderTable()
     {
