@@ -146,7 +146,7 @@ class DropDownController extends Controller
             $addcart->delete();
         }
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 0)->orderBy('updated_at', 'desc')->get();
-        return view('Frontend.OrderTable.POrderTable', compact('data'));
+        return view('Frontend.OrderTable.POrderTable', compact('data','name'));
     }
     public function clientOrderDetails($id)
     {
@@ -159,14 +159,14 @@ class DropDownController extends Controller
         $sessionid = Session()->get('ULogin');
         $name = User::find($sessionid);
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 1)->orderBy('updated_at', 'desc')->get();
-        return view('Frontend.OrderTable.COrderTable', compact('data'));
+        return view('Frontend.OrderTable.COrderTable', compact('data','name'));
     }
     public function DOrderTable()
     {
         $sessionid = Session()->get('ULogin');
         $name = User::find($sessionid);
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 2)->orderBy('updated_at', 'desc')->get();
-        return view('Frontend.OrderTable.DOrderTable', compact('data'));
+        return view('Frontend.OrderTable.DOrderTable', compact('data','name'));
     }
     public function DeleteOrderTable()
     {
@@ -174,7 +174,7 @@ class DropDownController extends Controller
         $name = User::find($sessionid);
         $data = Order::where('CI_ID', $name->CI_ID)->where('token', 3)->orderBy('updated_at', 'desc')->get();
 
-        return view('Frontend.OrderTable.DeleteOrderTable', compact('data'));
+        return view('Frontend.OrderTable.DeleteOrderTable', compact('data','name'));
     }
 
     public function OrderDelete($id)

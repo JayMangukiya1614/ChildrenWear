@@ -64,4 +64,7 @@
             toastr.info("{{ session('Confirm') }}");
         @endif
     </script>
+
+   
+
 @endsection

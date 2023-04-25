@@ -70,14 +70,13 @@
                             <td>{{ round($gst, 2) }}</td>
                             <td>{{ round($price, 2) }}</td>
 
-                            <td> <td><a href="{{ route('client-Order-Details', $data->id) }}"><i
-                                class="fa-brands fa-readme"></i></i></a>
+                            <td><button type="button" onclick="showModel(this)"  id="{{ $data->id }}"><i
+                                class="fa-brands fa-readme"></i></i></button>
 
-                                <a href="{{ route('Order-Delete', $data->id) }}"><i class="fa-solid fa-trash"></i></a>
 
                             </td>
                         </tr>
-                      
+
                     @endforeach
 
 

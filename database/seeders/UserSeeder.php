@@ -18,46 +18,46 @@ class UserSeeder extends Seeder
   {
     DB::table('mainadmins')->insert([
       [
-        'Name' => "Admin",
-        'Email' => "babyhub007@gmail.com",
-        'Password' => Hash::make('BH@123'),
+        'Name' => "Jay Mangukiya",
+        'Email' => "jaymangukiya1614@gmail.com",
+        'Password' => Hash::make('Jay@123'),
       ]
     ]);
     DB::table('indices')->insert([
       [
         'title' => "New Fashionable Outfits",
         'date' => "14-04-2023",
-        'image' => 'blog-2.jpg',
+        'image' => 'blog1.jpg',
       ],
 
       [
-        'title' => "Fashionable Kids",
+        'title' => "Colorfull Dresses",
         'date' => "14-04-2023",
-        'image' => 'blog-3.jpg',
+        'image' => 'blog2.jpg',
 
       ],
       [
         'title' => "A Wedding Arrivals",
         'date' => "14-04-2023",
-        'image' => 'blog-4.jpg',
+        'image' => 'blog3.jpg',
 
       ],
       [
         'title' => "The Luxury Collection",
         'date' => "14-04-2023",
-        'image' => 'blog-5.jpg',
+        'image' => 'blog4.jpg',
 
       ],
       [
         'title' => "Our New Arraivals",
         'date' => "14-04-2023",
-        'image' => 'blog-6.jpg',
+        'image' => 'blog5.jpg',
 
       ],
       [
         'title' => "Welcome To Our Website",
         'date' => "14-04-2023",
-        'image' => 'blog-7.jpg',
+        'image' => 'blog6.jpg',
 
       ]
 
@@ -105,8 +105,8 @@ class UserSeeder extends Seeder
         'bankname' => "YES BANK",
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",
-        'email' => "krupali.hope@gmail.com",
-        'password' => Hash::make('Mathukiya@123'),
+        'email' => "krupalimathukiya6@gmail.com",
+        'password' => Hash::make('Krups@123'),
         'address' => "b-123,yoginagar soc.,surat  ",
         'message' => "I hope you  you are accepet my account request",
 
@@ -142,16 +142,16 @@ class UserSeeder extends Seeder
     DB::table('users')->insert([
       [
         'CI_ID' => "CI0001",
-        'FirstName' => "Admin ",
-        'LastName' => " Admin",
+        'FirstName' => "Krupali ",
+        'LastName' => " Mathukiya",
         'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
         'State' => "Gujrat",
         'City' => "Surat",
         'BirthDate' => "04-01-2003",
         'PhoneNo' => "1234567890",
-        'Gender' => "Male",
-        'Email' => "babyhub007@gmail.com",
-        'Password' => Hash::make('BH@123'),
+        'Gender' => "Female",
+        'Email' => "krupalimathukiya6@gmail.com",
+        'Password' => Hash::make('Krups@123'),
         'ZipCode' => "395010",
       ]
 
@@ -2371,7 +2371,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ],
       [
         'OI_ID' => "OI-0002",
@@ -2387,7 +2387,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ], [
         'OI_ID' => "OI-0003",
         'token' => "0",
@@ -2402,7 +2402,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ], [
         'OI_ID' => "OI-0004",
         'token' => "1",
@@ -2417,7 +2417,7 @@ class UserSeeder extends Seeder
         'is_set' => "1",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ], [
         'OI_ID' => "OI-0005",
         'token' => "1",
@@ -2432,7 +2432,7 @@ class UserSeeder extends Seeder
         'is_set' => "1",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ],
       [
         'OI_ID' => "OI-0006",
@@ -2448,7 +2448,7 @@ class UserSeeder extends Seeder
         'is_set' => "1",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ],
       [
         'OI_ID' => "OI-0007",
@@ -2464,7 +2464,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ],
       [
         'OI_ID' => "OI-0008",
@@ -2480,7 +2480,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ], [
         'OI_ID' => "OI-0009",
         'token' => "3",
@@ -2495,7 +2495,7 @@ class UserSeeder extends Seeder
         'is_set' => "0",
          'created_at' => '2023-02-25 04:24:38',
         'updated_at' => '2023-02-25 04:24:42',
-       
+
       ],
     ]);
   }
