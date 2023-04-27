@@ -209,14 +209,14 @@ class AdminController extends Controller
 
       if ($email->token == 1) {
 
-        return back()->with("Request", 'Your Email Id Is Already Use This Website');
+        return back()->with("Request", ' Email Id Is Already Taken');
       } elseif ($email->token == 0) {
         return back()->with("Request", 'Your Request Has alredy Pending');
       }
     }
     Adminreg::create($data);
 
-    return back()->with("message", 'Your Request Has Been Pending');
+    return redirect(route('Admin-Login'))->with("success", 'Register Successfully. Your Request Has Been Pending');
   }
   public function Adminlogout()
   {

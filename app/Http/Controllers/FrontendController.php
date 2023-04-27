@@ -333,6 +333,8 @@ class FrontendController extends Controller
         $data->Password = Hash::make($req->newpass);
         $data->update();
         Session()->pull('F-Password');
+        Session()->pull('Forget');
+
         return redirect(route('Flogin'))->with('Forget-Password-Update', 'Password Update Successfully....');
       } else {
         return back()->with('NewPswdNMatch', 'New and Confirm Password not match');

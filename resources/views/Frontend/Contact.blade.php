@@ -23,6 +23,7 @@
             <h2 class="section-title px-5"><span class="px-2">Contact For Any Queries</span></h2>
         </div>
         <div class="row px-xl-5">
+            <div class="col-lg-3"></div>
             <div class="col-lg-6 mb-5">
                 <div class="contact-form">
                     <div id="success"></div>
@@ -73,7 +74,9 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-5 mb-5">
+            <div class="col-lg-3"></div>
+
+            {{-- <div class="col-lg-5 mb-5">
                 <h5 class="font-weight-semi-bold mb-3">Get In Touch</h5>
                 <p>Justo sed diam ut sed amet duo amet lorem amet stet sea ipsum, sed duo amet et. Est elitr dolor elitr
                     erat sit sit. Dolor diam et erat clita ipsum justo sed.</p>
@@ -84,7 +87,7 @@
                     <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+012 345 67890</p>
                 </div>
 
-            </div>
+            </div> --}}
         </div>
     </div>
     <!-- Contact End -->

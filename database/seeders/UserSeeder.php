@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
       [
         'Name' => "Jay Mangukiya",
         'Email' => "jaymangukiya1614@gmail.com",
-        'Password' => Hash::make('Jay@123'),
+        'Password' => Hash::make('123456'),
       ]
     ]);
     DB::table('indices')->insert([
@@ -82,7 +82,7 @@ class UserSeeder extends Seeder
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",
         'email' => "babyhub007@gmail.com",
-        'password' => Hash::make('BH@123'),
+        'password' => Hash::make('123456'),
         'address' => "Admin",
         'message' => "I hope you  you are accepet my account request",
 
@@ -105,8 +105,8 @@ class UserSeeder extends Seeder
         'bankname' => "YES BANK",
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",
-        'email' => "krupalimathukiya6@gmail.com",
-        'password' => Hash::make('Krups@123'),
+        'email' => "krupali.hope@gmail.com",
+        'password' => Hash::make('123456'),
         'address' => "b-123,yoginagar soc.,surat  ",
         'message' => "I hope you  you are accepet my account request",
 
@@ -124,13 +124,13 @@ class UserSeeder extends Seeder
         'gender' => "Male",
         'state' => "Goa",
         'city' => "Delhi",
-        'mobilenumber' => "1234567891",
-        'gstno' => "08AAGFF2194N1Z1",
+        'mobilenumber' => "9737520270",
+        'gstno' => "08AAGFF2194N1Z3",
         'bankname' => "YES BANK",
         'branchname' => "VARACHA",
         'ifsccode' => "YESB0000400",
         'email' => "jaymangukiya1614@gmail.com",
-        'password' => Hash::make('Mangukiya@123'),
+        'password' => Hash::make('123456'),
         'address' => "Admin",
         'message' => "I hope you  you are accepet my account request",
 
@@ -142,16 +142,16 @@ class UserSeeder extends Seeder
     DB::table('users')->insert([
       [
         'CI_ID' => "CI0001",
-        'FirstName' => "Krupali ",
-        'LastName' => " Mathukiya",
+        'FirstName' => "Jay ",
+        'LastName' => " Mangukiya",
         'Address' => "110 ishvarnagar soc-2 Sitanagr road surat",
         'State' => "Gujrat",
         'City' => "Surat",
         'BirthDate' => "04-01-2003",
         'PhoneNo' => "1234567890",
-        'Gender' => "Female",
-        'Email' => "krupalimathukiya6@gmail.com",
-        'Password' => Hash::make('Krups@123'),
+        'Gender' => "Male",
+        'Email' => "jaymangukiya1614@gmail.com",
+        'Password' => Hash::make('123456'),
         'ZipCode' => "395010",
       ]
 
@@ -362,8 +362,8 @@ class UserSeeder extends Seeder
         'description' => "BabyHub Kids 100% Cotton Half Sleeves Biowashed T-Shirt - Sky Blue",
         'Ldescription' => " Mix of Taxes and discount may change depending the amount of tax being borne by the Company. However, the final price as charged from customer will remain same. Taxes collected against every transaction will be paid to the Government by BabyHub.com.",
         'productimage' => "tshirt1.jpg",
-        'created_at' => '2023-02-08 03:50:16',
-        'updated_at' => '2023-02-08 03:50:23',
+        'created_at' => '2023-02-08 03:50:17',
+        'updated_at' => '2023-02-08 03:50:0',
 
       ],
       [
@@ -384,8 +384,8 @@ class UserSeeder extends Seeder
         'description' => "BabyHub Kids 100% Cotton Full Sleeves Biowashed T-Shirt - White",
         'Ldescription' => " Mix of Taxes and discount may change depending the amount of tax being borne by the Company. However, the final price as charged from customer will remain same. Taxes collected against every transaction will be paid to the Government by BabyHub.com.",
         'productimage' => "tshirt2.jpg",
-        'created_at' => '2023-02-08 03:50:16',
-        'updated_at' => '2023-02-08 03:50:24',
+        'created_at' => '2023-02-08 03:50:10',
+        'updated_at' => '2023-02-08 03:50:04',
 
       ],
       [
@@ -406,8 +406,8 @@ class UserSeeder extends Seeder
         'description' => "BabyHub Kids 100% Cotton Full Sleeves Biowashed Panda Printed T-Shirt - White Printed T-shirt",
         'Ldescription' => " Mix of Taxes and discount may change depending the amount of tax being borne by the Company. However, the final price as charged from customer will remain same. Taxes collected against every transaction will be paid to the Government by BabyHub.com.",
         'productimage' => "tshirt3.jpg",
-        'created_at' => '2023-02-08 03:50:16',
-        'updated_at' => '2023-02-08 03:50:25',
+        'created_at' => '2023-02-08 03:50:06',
+        'updated_at' => '2023-02-08 03:50:55',
 
       ],
       [
@@ -2153,7 +2153,7 @@ class UserSeeder extends Seeder
         'PI_ID' => "P-0088",
         'shopname' => " Jame's Creation",
         'category' => "2",
-        'productname' => "Fashionable Tops & T-shirts",
+        'productname' => "Fashionable white lehnga choli",
         'price' => "500",
         'discount' => "8",
         'selling' => "460",
@@ -2175,7 +2175,7 @@ class UserSeeder extends Seeder
         'PI_ID' => "P-0089",
         'shopname' => " Jame's Creation",
         'category' => "2",
-        'productname' => "Fashionable Tops & T-shirts",
+        'productname' => "unique crop top and lehenga",
         'price' => "500",
         'discount' => "8",
         'selling' => "460",

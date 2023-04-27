@@ -1,7 +1,12 @@
 @extends('Frontend.Main.Master')
 
 <title>Confirm Order</title>
-
+<style>
+    ul li p {
+        font-weight: bold !important;
+        display: contents !important;
+    }
+</style>
 @section('FrontAdmin')
     <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -61,7 +66,7 @@
                             <td>{{ round($gst, 2) }}</td>
                             <td>{{ round($price, 2) }}</td>
 
-                            <td><button type="button" onclick="showModel(this)"  id="{{ $data->id }}"><i
+                            <td><button type="button" onclick="showModel(this)" id="{{ $data->id }}"><i
                                 class="fa-brands fa-readme"></i></i></button>
                             </td>
                         </tr>
@@ -121,7 +126,7 @@
         @endif
     </script>
 
-      <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -148,33 +153,31 @@
                             <div class="col-md-12">
                                 <ul>
                                     <li class="mt-1">
-                                        <p style="display:contents "> Product Name:-</p>
+                                        <p> Product Name:-</p>
                                         <span class="d-inline-block" id="productTitle"></span>
                                     </li>
 
                                     <li class="mt-1">
-                                        <p style="display:contents "> Product Color:-</p>
+                                        <p> Product Color:-</p>
                                         <span class="d-inline-block" id="productColor"></span>
                                     </li>
                                     <li class="mt-1">
-                                        <p style="display:contents ">Product Size:-</p>
+                                        <p>Product Size:-</p>
                                         <span class="d-inline-block" id="productSize"></span>
                                     </li>
                                     <li class="mt-1">
-                                        <p style="display:contents "> Age:-</p>
+                                        <p> Age:-</p>
                                         <span class="d-inline-block" id="productAge"></span>
                                     </li>
 
                                     <li class="mt-1">
-                                        <p style="display:contents "> Description :-</p>
-                                        <span class="d-inline-block"
-                                            id="productDescription"></span>
+                                        <p> Description :-</p>
+                                        <span class="d-inline-block" id="productDescription"></span>
                                     </li>
 
                                     <li class="mt-1">
-                                        <p style="display:contents "> Long Description :-</p>
-                                        <span class="d-inline-block"
-                                            id="productLdescription"></span>
+                                        <p> Long Description :-</p>
+                                        <span class="d-inline-block" id="productLdescription"></span>
                                     </li>
                                 </ul>
                             </div>
@@ -189,14 +192,14 @@
         </div>
     </div>
 
-     <script>
+    <script>
         function showModel(data) {
             // console.log(data);
             // $("#modal").modal("toggle");
 
             $.ajax({
-                type: 'POST',
-                url: `/Main-Admin-Product-Details/${data.id}`,
+                type: 'GET',
+                url: `/client-Order-Details/${data.id}`,
                 data: {
 
                     "_token": "{{ csrf_token() }}"
@@ -204,14 +207,14 @@
                 success: function(response) {
 
                     $('#modelImage').attr('src',
-                        `http://127.0.0.1:8000/ProductImages/${response.data['productimage']}`);
+                        `http://127.0.0.1:8000/ProductImages/${response.productdata['productimage']}`);
 
-                    $('#productTitle').text(response.data['productname']);
-                    $('#productColor').text(response.data['color']);
-                    $('#productSize').text(response.data['size']);
-                    $('#productAge').text(response.data['age']);
-                    $('#productDescription').text(response.data['description']);
-                    $('#productLdescription').text(response.data['Ldescription']);
+                    $('#productTitle').text(response.productdata['productname']);
+                    $('#productColor').text(response.orderdata['color']);
+                    $('#productSize').text(response.orderdata['size']);
+                    $('#productAge').text(response.orderdata['age']);
+                    $('#productDescription').text(response.productdata['description']);
+                    $('#productLdescription').text(response.productdata['Ldescription']);
 
                     $("#modal").modal("toggle");
                 }
